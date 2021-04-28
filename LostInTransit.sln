@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LostInTransit", "LostInTransit.csproj", "{669E2911-3FB6-4AC6-A657-E0E3E12F917F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{669E2911-3FB6-4AC6-A657-E0E3E12F917F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{669E2911-3FB6-4AC6-A657-E0E3E12F917F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{669E2911-3FB6-4AC6-A657-E0E3E12F917F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{669E2911-3FB6-4AC6-A657-E0E3E12F917F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59B07B64-72EE-4794-AC69-DF1388AD173E}
+	EndGlobalSection
+EndGlobal
