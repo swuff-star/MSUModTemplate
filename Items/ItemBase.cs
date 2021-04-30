@@ -52,7 +52,7 @@ namespace LostInTransit.Items
             ItemDef.hidden = false;
             ItemDef.canRemove = CanRemove;
             ItemDef.tier = Tier;
-            ItemDef.tags = ItemTags;
+            //ItemDef.tags = ItemTags;
 
             var itemDisplayRuleDict = CreateItemDisplayRules();
             ItemAPI.Add(new CustomItem(ItemDef, itemDisplayRuleDict));
