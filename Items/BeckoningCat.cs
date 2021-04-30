@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
-using static LostInTransit.LostInTransit;
+using static LostInTransit.LostInTransitMain;
 
 namespace LostInTransit.Items
 {
@@ -27,7 +27,7 @@ namespace LostInTransit.Items
 
         public override Sprite ItemIcon => MainAssets.LoadAsset<Sprite>("stick.png");
 
-        public float baseChance;
+        /*public float baseChance;
         public float stackChance;
         public float capChance;
         public float baseUnc;
@@ -38,7 +38,7 @@ namespace LostInTransit.Items
         public float capRare;
         public float baseEqp;
         public bool globalStack;
-        public bool inclDeploys;
+        public bool inclDeploys;*/
 
 
         public override void Init(ConfigFile config)
@@ -72,7 +72,6 @@ namespace LostInTransit.Items
 
         public override void Hooks()
         {
-            throw new NotImplementedException();
         }
     }
 }
