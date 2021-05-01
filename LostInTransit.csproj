@@ -34,6 +34,12 @@
     <Reference Include="HarmonyXInterop">
       <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\profile\BepInEx\core\HarmonyXInterop.dll</HintPath>
     </Reference>
+    <Reference Include="HGCSharpUtils">
+      <HintPath>libs\HGCSharpUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="MMHOOK_Assembly-CSharp">
+      <HintPath>libs\MMHOOK_Assembly-CSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\profile\BepInEx\core\Mono.Cecil.dll</HintPath>
     </Reference>
