@@ -26,9 +26,9 @@ namespace LostInTransit.Items
 
         public override ItemTier Tier => ItemTier.Tier2;
 
-        public override GameObject ItemModel => MainAssets.LoadAsset<GameObject>("stick.prefab");
+        public override GameObject ItemModel => MainAssets.LoadAsset<GameObject>("BeckoningCat.prefab");
 
-        public override Sprite ItemIcon => MainAssets.LoadAsset<Sprite>("stick.png");
+        public override Sprite ItemIcon => MainAssets.LoadAsset<Sprite>("BeckoningCat.png");
 
         public float baseChance;
         public float stackChance;
@@ -42,9 +42,10 @@ namespace LostInTransit.Items
         public float baseEqp;
         public bool globalStack;
         public bool inclDeploys;
-
-
-
+        //bottom two are uh... i guess temp fixes?
+        private ItemIndex catalogIndex;
+        private Xoroshiro128Plus rng;
+        //fixes, as in, i can build the mod by disabling these.
 
         public override void Init(ConfigFile config)
         {

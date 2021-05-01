@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1179716345
+CRC: 771616248
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e0cea140c8f5446e337329315b28d478
+    Hash: 14bd0330a46d65eb35ce25b1beca097f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 21747e4ee48f36c7a65f9afbfd77f392
+    Hash: 741db5e5865affae85481dd15a5547f4
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -25,12 +25,23 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 Assets:
 - Assets/Textures/Icons/Item/stick.png
 - Assets/Models/Prefabs/Item/BeckoningCat/stick.png
 - Assets/Models/Meshes/stick.blend
+- Assets/Models/Prefabs/Item/BeckoningCat/catPickup.prefab
 - Assets/Models/Prefabs/Item/BeckoningCat/stick.prefab
 - Assets/Models/Prefabs/Item/BeckoningCat/Materials/stick.mat
+- Assets/Textures/Icons/Item/BeckoningCat.png
+- Assets/Models/Meshes/catPickup.blend
+- Assets/Textures/Materials/Item/BeckoningCat/BeckoningCat.mat
+- Assets/Textures/Materials/Item/BeckoningCat/Beckoning_Cat.png
 Dependencies: []
