@@ -43,8 +43,8 @@ namespace LostInTransit.Items
         public bool globalStack;
         public bool inclDeploys;
         //bottom two are uh... i guess temp fixes?
-        private ItemIndex catalogIndex;
-        private Xoroshiro128Plus rng;
+        //private ItemIndex catalogIndex;
+        private Xoroshiro128Plus rng = new Xoroshiro128Plus(0UL);
         //fixes, as in, i can build the mod by disabling these.
 
         public override void Init(ConfigFile config)
@@ -78,17 +78,18 @@ namespace LostInTransit.Items
 
         public override void Hooks()
         {
+            On.RoR2.DeathRewards.OnKilledServer += On_DROnKilledServer;
         }
 
 
 
-        public static List<CharacterMaster> AliveList(bool playersOnly = false)
+        private static List<CharacterMaster> AliveList(bool playersOnly = false)
         {
             if (playersOnly) return PlayerCharacterMasterController.instances.Where(x => x.isConnected && x.master && x.master.hasBody && x.master.GetBody().healthComponent.alive).Select(x => x.master).ToList();
             else return CharacterMaster.readOnlyInstancesList.Where(x => x.hasBody && x.GetBody().healthComponent.alive).ToList();
         }
 
-        public static void SpawnItemFromBody(CharacterBody src, int tier, Xoroshiro128Plus rng)
+        private static void SpawnItemFromBody(CharacterBody src, int tier, Xoroshiro128Plus rng)
         {
             List<PickupIndex> spawnList;
             switch (tier)
@@ -131,10 +132,11 @@ namespace LostInTransit.Items
                 foreach (CharacterMaster chrm in AliveList())
                 {
                     if (!inclDeploys && chrm.GetComponent<Deployable>()) continue;
-                    numberofCats += chrm?.inventory?.GetItemCount(catalogIndex) ?? 0;
+                    numberofCats += GetCount(chrm);
                 }
             else
-                numberofCats += damageReport.attackerMaster?.inventory?.GetItemCount(catalogIndex) ?? 0;
+                //numberofCats += GetCount(CharacterMaster master);
+                //just hope no one disables it
 
             if (numberofCats == 0) return;
 
