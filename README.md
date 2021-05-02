@@ -5,6 +5,7 @@ If you have any issues with the mod, you can contact me on Discord (swuff★#222
 ## Items / Equipment
 
 | Icon | Item | Description | Rarity |
+|:-|-|------|-|
 |![](https://i.imgur.com/wxKsSEg.png) | **Beckoning Cat** | Elite monsters have a 4.5% (+1.5% per stack) chance to drop items on death. | Uncommon |
 
 ## Credits
