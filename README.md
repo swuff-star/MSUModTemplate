@@ -1,4 +1,4 @@
-# LostInTransit
+# Lost In Transit
 
 ## Lost in Transit
 Lost in Transit is a mod for Risk of Rain 2 that adapts various items from Risk of Rain 1, intending to balance and redesign them in ways that preserve their original identites while also respecting the balance and gameplay changes made in Risk of Rain 2.
