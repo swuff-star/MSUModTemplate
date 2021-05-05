@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2395342080
+CRC: 2542181523
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 39049f55692ea3e8b08093ad60993e0e
+    Hash: fd16cae63a271a0ea63ae77de75b9053
   TypeTreeHash:
     serializedVersion: 2
     Hash: 741db5e5865affae85481dd15a5547f4
@@ -34,9 +34,14 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Models/Prefabs/Item/BeckoningCat/BeckoningCat.prefab
+- Assets/Textures/Materials/Item/GiganticAmethyst/GiganticAmethyst.mat
 - Assets/Textures/Icons/Item/BeckoningCat.png
 - Assets/Models/Meshes/catPickup.blend
+- Assets/Models/Meshes/amethyst.blend
+- Assets/Models/Prefabs/Item/GiganticAmethyst/Amethyst.blend
+- Assets/Textures/Icons/Equipment/amethyst.png
 - Assets/Textures/Materials/Item/BeckoningCat/BeckoningCat.mat
+- Assets/Models/Prefabs/Item/BeckoningCat/BeckoningCat.prefab
+- Assets/Models/Prefabs/Item/GiganticAmethyst/amethyst.prefab
 - Assets/Textures/Materials/Item/BeckoningCat/Beckoning_Cat.png
 Dependencies: []

@@ -8,13 +8,14 @@ using RoR2;
 using System.Linq;
 using LostInTransit.Items;
 using System.Collections.Generic;
+using LostInTransit.Equipment;
 
 namespace LostInTransit
 {
     [BepInDependency(R2API.R2API.PluginGUID, R2API.R2API.PluginVersion)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin("com.swuff.LostInTransit", "Lost in Transit", "0.1.0")]
-    [R2APISubmoduleDependency(nameof(ItemAPI), nameof(LanguageAPI), nameof(PrefabAPI))]
+    [R2APISubmoduleDependency(nameof(ItemAPI), nameof(LanguageAPI), nameof(PrefabAPI), nameof(ProjectileAPI))]
 
     public class LostInTransitMain : BaseUnityPlugin
     {
@@ -25,7 +26,9 @@ namespace LostInTransit
 
 
         public List<ItemBase> Items = new List<ItemBase>();
+        public List<EquipmentBase> Equipments = new List<EquipmentBase>();
         public static Dictionary<ItemBase, bool> ItemStatusDictionary = new Dictionary<ItemBase, bool>();
+        public static Dictionary<EquipmentBase, bool> EquipmentStatusDictionary = new Dictionary<EquipmentBase, bool>();
         protected readonly List<LanguageAPI.LanguageOverlay> languageOverlays = new List<LanguageAPI.LanguageOverlay>();
 
 
@@ -49,6 +52,20 @@ namespace LostInTransit
             return enabled;
         }
 
+        public bool ValidateEquipment(EquipmentBase equipment, List<EquipmentBase> equipmentList)
+        {
+            var enabled = Config.Bind<bool>("Equipment: " + equipment.EquipmentName, "Enable Equipment?", true, "Should this equipment appear in runs?").Value;
+
+            EquipmentStatusDictionary.Add(equipment, enabled);
+
+            if (enabled)
+            {
+                equipmentList.Add(equipment);
+                return true;
+            }
+            return false;
+        }
+
         public void Awake()
         {
             using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("LostInTransit.lostintransit_assets"))
@@ -63,6 +80,16 @@ namespace LostInTransit
                 if (ValidateItem(item, Items))
                 {
                     item.Init(Config);
+                }
+            }
+
+            var EquipmentTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(EquipmentBase)));
+            foreach (var equipmentType in EquipmentTypes)
+            {
+                EquipmentBase equipment = (EquipmentBase)System.Activator.CreateInstance(equipmentType);
+                if (ValidateEquipment(equipment, Equipments))
+                {
+                    equipment.Init(Config);
                 }
             }
 
