@@ -22,7 +22,7 @@ namespace LostInTransit.Items
 
         public override string ItemFullDescription => "Killing marked enemies increases damage.";
 
-        public override string ItemLore => "need man dead";
+        public override string ItemLore => "fhffbfasfoUUFUUBLUFP BUUPB UBP";
 
         public override ItemTier Tier => ItemTier.Tier3;
 
