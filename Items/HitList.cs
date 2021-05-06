@@ -130,6 +130,7 @@ namespace LostInTransit.Items
         public void SetupAttributes()
         {
             //base.SetupAttributes();
+            //I'm 100% sure the reason it's breaking is because this is commented out but I can't figure out how to replace it for the life of me
 
             markDebuff = ScriptableObject.CreateInstance<BuffDef>();
             markDebuff.buffColor = Color.yellow;
