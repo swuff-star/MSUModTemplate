@@ -11,7 +11,7 @@ using MonoMod.Cil;
 using static LostInTransit.LostInTransitMain;
 using LostInTransit.Equipment;
 
-namespace LostInTransit.Items
+/*namespace LostInTransit.Items
 {
     public class Thqwib : EquipmentBase
     {
@@ -79,4 +79,4 @@ namespace LostInTransit.Items
 
 
     }
-}
+}*/
