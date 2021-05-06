@@ -7,6 +7,7 @@ If you have any issues with the mod, you can contact me on Discord (swuff★#222
 | Icon | Item | Description | Rarity |
 |:-|-|------|-|
 |![](https://i.imgur.com/wxKsSEg.png) | **Beckoning Cat** | Elite monsters have a 4.5% (+1.5% per stack) chance to drop items on death. | Uncommon |
+|![](https://i.imgur.com/zqUZXtk.png) | **Gigantic Amethyst** | Reset skill cooldowns on use. | Equipment |
 
 ## Credits
 First off: A lot of code is taken from ThinkInvis's ClassicItems and TILER2. I can't thank ThinkInvis (and any other contributors to either) enough for their work on those two mods, as this mod likely wouldn't be here without either.
