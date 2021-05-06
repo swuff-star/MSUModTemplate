@@ -12,7 +12,7 @@ using static LostInTransit.LostInTransitMain;
 
 namespace LostInTransit.Items
 {
-    class HitList : ItemBase
+    public class HitList : ItemBase
     {
         public override string ItemName => "The Hit List";
 
@@ -26,9 +26,23 @@ namespace LostInTransit.Items
 
         public override ItemTier Tier => ItemTier.Tier3;
 
-        public override GameObject ItemModel => MainAssets.LoadAsset<GameObject>("BeckoningCat.prefab");
+        public override GameObject ItemModel => MainAssets.LoadAsset<GameObject>("Hit_List.prefab");
 
-        public override Sprite ItemIcon => MainAssets.LoadAsset<Sprite>("BeckoningCat.png");
+        public override Sprite ItemIcon => MainAssets.LoadAsset<Sprite>("HitList.png");
+        public override void Init(ConfigFile config)
+        {
+            CreateConfig(config);
+            CreateLang();
+            CreateItem();
+            Hooks();
+        }
+
+        public void CreateConfig(ConfigFile config)
+        {
+            cooldown = config.Bind<float>("Item: " + ItemName, "Cooldown", 10f, "Time between assigned hits.").Value;
+            procDamage = config.Bind<float>("Item: " + ItemName, "Added Damage", 1f, "Added base damage per completed hit.").Value;
+            maxDamage = config.Bind<float>("Item: " + ItemName, "Max Damage", 50f, "Cap for added base damage.").Value;
+        }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
@@ -42,12 +56,7 @@ namespace LostInTransit.Items
             GetStatCoefficients += Evt_GetStatCoefficients;
         }
 
-        public override void Init(ConfigFile config)
-        {
-            cooldown = config.Bind<float>("Item: " + ItemName, "Cooldown", 10f, "Time between assigned hits.").Value;
-            procDamage = config.Bind<float>("Item: " + ItemName, "Added Damage", 1f, "Added base damage per completed hit.").Value;
-            maxDamage = config.Bind<float>("Item: " + ItemName, "Max Damage", 50f, "Cap for added base damage.").Value;
-        }
+       
 
         public static float cooldown;
         public float procDamage;
@@ -87,7 +96,7 @@ namespace LostInTransit.Items
                     if (alive.Count <= 0) break;
                     var next = rng.NextElementUniform(alive);
                     if (next.hasBody)
-                        next.GetBody().AddTimedBuff(markDebuff, cooldown);
+                        next.GetBody().AddTimedBuff(MarkDebuff, cooldown);
                     else
                         i--;
                     alive.Remove(next);
@@ -107,7 +116,7 @@ namespace LostInTransit.Items
                         if (aliveTeam[list].Count <= 0) break;
                         var next = rng.NextElementUniform(aliveTeam[list]);
                         if (next.hasBody)
-                            next.GetBody().AddTimedBuff(markDebuff, cooldown);
+                            next.GetBody().AddTimedBuff(MarkDebuff, cooldown);
                         else
                             i--;
                         aliveTeam[list].Remove(next);
@@ -115,9 +124,9 @@ namespace LostInTransit.Items
                 }
             }
         }
-        public ItemDef hitListTally { get; private set; }
-        public BuffDef markDebuff { get; private set; }
-        public BuffDef tallyBuff { get; private set; }
+        public ItemDef HitListTally { get; private set; }
+        public BuffDef MarkDebuff { get; private set; }
+        public BuffDef TallyBuff { get; private set; }
 
         public static List<CharacterMaster> AliveList(bool playersOnly = false)
         {
@@ -127,47 +136,52 @@ namespace LostInTransit.Items
 
         //is it REALLY fair to say "independent of tiler2" when im just gutting it?
 
-        public void SetupAttributes()
+
+
+        public override void SetupAttributes()
         {
-            //base.SetupAttributes();
+            base.SetupAttributes();
             //I'm 100% sure the reason it's breaking is because this is commented out but I can't figure out how to replace it for the life of me
 
-            markDebuff = ScriptableObject.CreateInstance<BuffDef>();
-            markDebuff.buffColor = Color.yellow;
-            markDebuff.canStack = false;
-            markDebuff.isDebuff = true;
-            markDebuff.name = "HitListDebuff";
-            markDebuff.iconSprite = MainAssets.LoadAsset<Sprite>("amethyst.png");
-            BuffAPI.Add(new CustomBuff(markDebuff));
+            MarkDebuff = ScriptableObject.CreateInstance<BuffDef>();
+            MarkDebuff.buffColor = Color.yellow;
+            MarkDebuff.canStack = false;
+            MarkDebuff.isDebuff = true;
+            MarkDebuff.name = "HitListDebuff";
+            MarkDebuff.iconSprite = MainAssets.LoadAsset<Sprite>("amethyst.png");
+            BuffAPI.Add(new CustomBuff(MarkDebuff));
 
-            tallyBuff = ScriptableObject.CreateInstance<BuffDef>();
-            tallyBuff.buffColor = Color.yellow;
-            tallyBuff.canStack = true;
-            tallyBuff.isDebuff = false;
-            tallyBuff.name = "HitListBuff";
-            tallyBuff.iconSprite = MainAssets.LoadAsset<Sprite>("amethyst.png");
-            BuffAPI.Add(new CustomBuff(tallyBuff));
+            TallyBuff = ScriptableObject.CreateInstance<BuffDef>();
+            TallyBuff.buffColor = Color.yellow;
+            TallyBuff.canStack = true;
+            TallyBuff.isDebuff = false;
+            TallyBuff.name = "HitListBuff";
+            TallyBuff.iconSprite = MainAssets.LoadAsset<Sprite>("amethyst.png");
+            BuffAPI.Add(new CustomBuff(TallyBuff));
 
-            hitListTally = ScriptableObject.CreateInstance<ItemDef>();
-            hitListTally.hidden = true;
-            hitListTally.name = "HitListTally";
-            hitListTally.tier = ItemTier.NoTier;
-            hitListTally.canRemove = false;
-            hitListTally.nameToken = "";
-            hitListTally.pickupToken = "";
-            hitListTally.loreToken = "";
-            hitListTally.descriptionToken = "";
-            ItemAPI.Add(new CustomItem(hitListTally, new ItemDisplayRuleDict(null)));
+            HitListTally = ScriptableObject.CreateInstance<ItemDef>();
+            HitListTally.hidden = true;
+            HitListTally.name = "HitListTally";
+            HitListTally.tier = ItemTier.NoTier;
+            HitListTally.canRemove = false;
+            HitListTally.nameToken = "";
+            HitListTally.pickupToken = "";
+            HitListTally.loreToken = "";
+            HitListTally.descriptionToken = "";
+            ItemAPI.Add(new CustomItem(HitListTally, new ItemDisplayRuleDict(null)));
         }
+
 
         private void Evt_GEMOnCharacterDeathGlobal(DamageReport rep)
         {
-            if ((rep.victimBody?.HasBuff(markDebuff) ?? false) && GetCount(rep.attackerBody) > 0)
-                rep.attackerBody.inventory.GiveItem(hitListTally);
+            if ((rep.victimBody?.HasBuff(MarkDebuff) ?? false) && GetCount(rep.attackerBody) > 0)
+                rep.attackerBody.inventory.GiveItem(HitListTally);
         }
+        
+        public static event StatHookEventHandler GetStatCoefficients;
 
         public delegate void StatHookEventHandler(CharacterBody sender, StatHookEventArgs args);
-        public static event StatHookEventHandler GetStatCoefficients;
+
         //Just straight up stealing this from TILER2, am too high to do it better myself.
         public class StatHookEventArgs : EventArgs
         {
@@ -203,9 +217,9 @@ namespace LostInTransit.Items
 
         private void Evt_GetStatCoefficients(CharacterBody sender, StatHookEventArgs args)
         {
-            var add = Mathf.Clamp(procDamage * (sender.inventory?.GetItemCount(hitListTally) ?? 0), 0f, maxDamage);
+            var add = Mathf.Clamp(procDamage * (sender.inventory?.GetItemCount(HitListTally) ?? 0), 0f, maxDamage);
             args.baseDamageAdd += add;
-            sender.SetBuffCount(tallyBuff.buffIndex, Mathf.FloorToInt(add / procDamage));
+            sender.SetBuffCount(TallyBuff.buffIndex, Mathf.FloorToInt(add / procDamage));
         }
     }
 }

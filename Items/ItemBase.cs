@@ -37,6 +37,9 @@ namespace LostInTransit.Items
             LanguageAPI.Add("ITEM_" + ItemLangTokenName + "_LORE", ItemLore);
         }
 
+        public virtual void SetupAttributes() { }
+
+
         public abstract ItemDisplayRuleDict CreateItemDisplayRules();
 
         protected void CreateItem()
