@@ -6,7 +6,7 @@ If you have any issues with the mod, you can contact me on Discord (swuff★#222
 
 | Icon | Item | Description | Rarity |
 |:-|-|------|-|
-|![](https://i.imgur.com/apC9PH6.png) | **Mysterious Vial** | Regenerate an extra 1.2 (+1.2 hp stack) hp per second. | Common |
+|![](https://i.imgur.com/apC9PH6.png) | **Mysterious Vial** | Regenerate an extra 1.2 (+1.2 per stack) hp per second. | Common |
 |![](https://i.imgur.com/wxKsSEg.png) | **Beckoning Cat** | Elite monsters have a 4.5% (+1.5% per stack) chance to drop items on death. | Uncommon |
 |![](https://i.imgur.com/zqUZXtk.png) | **Gigantic Amethyst** | Reset skill cooldowns on use. | Equipment |
 
