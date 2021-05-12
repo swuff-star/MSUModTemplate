@@ -6,8 +6,10 @@ If you have any issues with the mod, you can contact me on Discord (swuff★#222
 
 | Icon | Item | Description | Rarity |
 |:-|-|------|-|
+|![](https://i.imgur.com/apC9PH6.png) | **Mysterious Vial** | Regenerate an extra 1.2 (1.2 hp per stack) hp per second. | Common |
 |![](https://i.imgur.com/wxKsSEg.png) | **Beckoning Cat** | Elite monsters have a 4.5% (+1.5% per stack) chance to drop items on death. | Uncommon |
 |![](https://i.imgur.com/zqUZXtk.png) | **Gigantic Amethyst** | Reset skill cooldowns on use. | Equipment |
+
 
 ## Credits
 First off: A lot of code is taken from ThinkInvis's ClassicItems and TILER2. I can't thank ThinkInvis (and any other contributors to either) enough for their work on those two mods, as this mod likely wouldn't be here without either.
@@ -21,5 +23,7 @@ With that out of the way,
 ## Changelog
 
 ### 0.1.0
+* Mysterious Vial: Added
 * Beckoning Cat: Added
-  * Uncommon tier item, giving a chance to drop items after killing elite monsters. (Developer note: This item was originally the "56 Leaf Clover" in Risk of Rain 1, but was changed due to the inclusion of "57 Leaf Clover" in Risk of Rain 2. To help prevent confusion betwen the two, the item was given a complete overhaul - may provide a config option to restore this into the 56 Leaf Clover if there's demand for it.)
+  * Developer note: This item was originally the "56 Leaf Clover" in Risk of Rain 1, but was changed due to the inclusion of "57 Leaf Clover" in Risk of Rain 2. To help prevent confusion betwen the two, the item was given a complete overhaul - may provide a config option to restore this into the 56 Leaf Clover if there's demand for it.
+* Gigantic Amethyst: Added
