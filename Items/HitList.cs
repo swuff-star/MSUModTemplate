@@ -12,7 +12,7 @@ using static LostInTransit.LostInTransitMain;
 
 namespace LostInTransit.Items
 {
-    public class HitList : ItemBase
+    /*public class HitList : ItemBase
     {
         public override string ItemName => "The Hit List";
 
@@ -221,6 +221,6 @@ namespace LostInTransit.Items
             args.baseDamageAdd += add;
             sender.SetBuffCount(TallyBuff.buffIndex, Mathf.FloorToInt(add / procDamage));
         }
-    }
+    }*/
 }
 

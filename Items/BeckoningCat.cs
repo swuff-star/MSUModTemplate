@@ -66,7 +66,7 @@ namespace LostInTransit.Items
             stackRare = config.Bind<float>("Item: " + ItemName, "Stacking Chance for Tier 3 Upgrade", 0.25f, "Percent chance for a Becknoning Cat drop to become Tier 3 per extra stack.").Value;
             capRare = config.Bind<float>("Item: " + ItemName, "Max Chance for Tier 3 Upgrade", 5f, "Maximum percent chance for a Beckoning Cat drop to become Tier 3.").Value;
             baseEqp = config.Bind<float>("Item: " + ItemName, "Chance for Equipment", 1f, "Percent chance for a Tier 1 Beckoning Cat drop to become Equipment instead.").Value;
-            globalStack = config.Bind<bool>("Item: " + ItemName, "Count Universal Cats", true, "If true, all Beckoning Cats across all living players are counted towards item drops. If false, only the killer's items count.").Value;
+            globalStack = config.Bind<bool>("Item: " + ItemName, "Count Universal Cats", false, "If true, all Beckoning Cats across all living players are counted towards item drops. If false, only the killer's items count. NOTE: This behavior is a remnant of 56 Leaf Clover's behavior in Classic Items, which only exists because all on-kills took effect for all players in Risk of Rain 1.").Value;
             inclDeploys = config.Bind<bool>("Item: " + ItemName, "Count Deployable Cats", false, "If true, deployables (e.g. Engineer turrets) with Beckoning Cat will count towards item drops.").Value;
         }
 
@@ -79,8 +79,8 @@ namespace LostInTransit.Items
         public override void Hooks()
         {
             On.RoR2.DeathRewards.OnKilledServer += On_DROnKilledServer;
+            
         }
-
 
 
         private static List<CharacterMaster> AliveList(bool playersOnly = false)
@@ -135,15 +135,18 @@ namespace LostInTransit.Items
                     numberofCats += GetCount(chrm);
                 }
             else
-                //numberofCats += GetCount(CharacterMaster master);
+                numberofCats += GetCount(damageReport.attackerBody);
                 //just hope no one disables it
 
-            if (numberofCats == 0) return;
+            if (numberofCats < 1) return;
 
             float rareChance = Math.Min(baseRare + (numberofCats - 1) * stackRare, capRare);
             float uncommonChance = Math.Min(baseUnc + (numberofCats - 1) * stackUnc, capUnc);
             float anyDropChance = Math.Min(baseChance + (numberofCats - 1) * stackChance, capChance);
             //Base drop chance is multiplicative with tier chances -- tier chances are applied to upgrade the dropped item
+
+            if (numberofCats < 1) return;
+            if (anyDropChance < 1) return;
 
             if (Util.CheckRoll(anyDropChance))
             {

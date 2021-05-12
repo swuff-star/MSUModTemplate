@@ -52,6 +52,40 @@ namespace LostInTransit
             return enabled;
         }
 
+        //Tiler2 my beloved!
+        public class StatHookEventArgs : EventArgs
+        {
+            /// <summary>Added to the direct multiplier to base health. MAX_HEALTH ~ (BASE_HEALTH + baseHealthAdd) * (HEALTH_MULT + healthMultAdd).</summary>
+            public float healthMultAdd = 0f;
+            /// <summary>Added to base health. MAX_HEALTH ~ (BASE_HEALTH + baseHealthAdd) * (HEALTH_MULT + healthMultAdd).</summary>
+            public float baseHealthAdd = 0f;
+            /// <summary>Added to base shield. MAX_SHIELD ~ BASE_SHIELD + baseShieldAdd.</summary>
+            public float baseShieldAdd = 0f;
+            /// <summary>Added to the direct multiplier to base health regen. HEALTH_REGEN ~ (BASE_REGEN + baseRegenAdd) * (REGEN_MULT + regenMultAdd).</summary>
+            public float regenMultAdd = 0f;
+            /// <summary>Added to base health regen. HEALTH_REGEN ~ (BASE_REGEN + baseRegenAdd) * (REGEN_MULT + regenMultAdd).</summary>
+            public float baseRegenAdd = 0f;
+            /// <summary>Added to base move speed. MOVE_SPEED ~ (BASE_MOVE_SPEED + baseMoveSpeedAdd) * (MOVE_SPEED_MULT + moveSpeedMultAdd)</summary>
+            public float baseMoveSpeedAdd = 0f;
+            /// <summary>Added to the direct multiplier to move speed. MOVE_SPEED ~ (BASE_MOVE_SPEED + baseMoveSpeedAdd) * (MOVE_SPEED_MULT + moveSpeedMultAdd)</summary>
+            public float moveSpeedMultAdd = 0f;
+            /// <summary>Added to the direct multiplier to jump power. JUMP_POWER ~ BASE_JUMP_POWER * (JUMP_POWER_MULT + jumpPowerMultAdd)</summary>
+            public float jumpPowerMultAdd = 0f;
+            /// <summary>Added to the direct multiplier to base damage. DAMAGE ~ (BASE_DAMAGE + baseDamageAdd) * (DAMAGE_MULT + damageMultAdd).</summary>
+            public float damageMultAdd = 0f;
+            /// <summary>Added to base damage. DAMAGE ~ (BASE_DAMAGE + baseDamageAdd) * (DAMAGE_MULT + damageMultAdd).</summary>
+            public float baseDamageAdd = 0f;
+            /// <summary>Added to attack speed. ATTACK_SPEED ~ (BASE_ATTACK_SPEED + baseAttackSpeedAdd) * (ATTACK_SPEED_MULT + attackSpeedMultAdd).</summary>
+            public float baseAttackSpeedAdd = 0f;
+            /// <summary>Added to the direct multiplier to attack speed. ATTACK_SPEED ~ (BASE_ATTACK_SPEED + baseAttackSpeedAdd) * (ATTACK_SPEED_MULT + attackSpeedMultAdd).</summary>
+            public float attackSpeedMultAdd = 0f;
+            /// <summary>Added to crit chance. CRIT_CHANCE ~ BASE_CRIT_CHANCE + critAdd.</summary>
+            public float critAdd = 0f;
+            /// <summary>Added to armor. ARMOR ~ BASE_ARMOR + armorAdd.</summary>
+            public float armorAdd = 0f;
+        }
+
+
         public bool ValidateEquipment(EquipmentBase equipment, List<EquipmentBase> equipmentList)
         {
             var enabled = Config.Bind<bool>("Equipment: " + equipment.EquipmentName, "Enable Equipment?", true, "Should this equipment appear in runs?").Value;
@@ -92,6 +126,7 @@ namespace LostInTransit
                     equipment.Init(Config);
                 }
             }
+
 
 
 
