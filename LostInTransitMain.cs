@@ -15,15 +15,15 @@ namespace LostInTransit
     [BepInDependency(R2API.R2API.PluginGUID, R2API.R2API.PluginVersion)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin("com.swuff.LostInTransit", "Lost in Transit", "0.1.0")]
-    [R2APISubmoduleDependency(nameof(ItemAPI), nameof(LanguageAPI), nameof(PrefabAPI), nameof(ProjectileAPI))]
+    [R2APISubmoduleDependency(nameof(ItemAPI), nameof(LanguageAPI), nameof(PrefabAPI), nameof(ProjectileAPI), nameof(SoundAPI), nameof(LoadoutAPI), nameof(EffectAPI), nameof(ResourcesAPI), nameof(DotAPI))]
 
     public class LostInTransitMain : BaseUnityPlugin
     {
         public const string ModGuid = "com.swuff.LostInTransit";
-        public const string ModName = "Lost In Transit";
+        public const string ModName = "LostInTransit";
         public const string ModVer = "0.1.0";
 
-
+        public const string developerPrefix = "SWF";
 
         public List<ItemBase> Items = new List<ItemBase>();
         public List<EquipmentBase> Equipments = new List<EquipmentBase>();
@@ -33,6 +33,15 @@ namespace LostInTransit
 
 
         public static AssetBundle MainAssets;
+
+        public static Dictionary<string, string> ShaderLookup = new Dictionary<string, string>()
+        {
+            {"stubbed hopoo games/deferred/standard", "shaders/deffered/standard" },
+            {"stubbed hopoo games/fx/solid parallax", "shaders/fx/solid parallax" },
+            {"stubbed hopoo games/environment/distant water", "shaders/environment/distant water" },
+            {"stubbed hopoo games/fx/cloud intersection remap", "shaders/fx/hgintersectioncloudremap" },
+            {"stubbed hopoo games/fx/cloud remap", "shaders/fx/cloud remap" }
+        };
 
         public bool ValidateItem(ItemBase item, List<ItemBase> itemList)
         {
@@ -53,7 +62,8 @@ namespace LostInTransit
         }
 
         //Tiler2 my beloved!
-        public class StatHookEventArgs : EventArgs
+        //I don't need this but am leaving it just in case.
+        /* public class StatHookEventArgs : EventArgs
         {
             /// <summary>Added to the direct multiplier to base health. MAX_HEALTH ~ (BASE_HEALTH + baseHealthAdd) * (HEALTH_MULT + healthMultAdd).</summary>
             public float healthMultAdd = 0f;
@@ -83,7 +93,7 @@ namespace LostInTransit
             public float critAdd = 0f;
             /// <summary>Added to armor. ARMOR ~ BASE_ARMOR + armorAdd.</summary>
             public float armorAdd = 0f;
-        }
+        }*/
 
 
         public bool ValidateEquipment(EquipmentBase equipment, List<EquipmentBase> equipmentList)
@@ -117,6 +127,19 @@ namespace LostInTransit
                 }
             }
 
+            //Material shader autoconversion - thanks Komrade, you're da best! ^^
+            var materialAssets = MainAssets.LoadAllAssets<Material>();
+
+            foreach(Material material in materialAssets)
+            {
+                if (!material.shader.name.StartsWith("Stubbed")) { continue; }
+                //Logger.LogInfo(material);
+
+                var replacementShader = Resources.Load<Shader>(ShaderLookup[material.shader.name.ToLower()]);
+                if (replacementShader) { material.shader = replacementShader; }
+
+            }
+
             var EquipmentTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(EquipmentBase)));
             foreach (var equipmentType in EquipmentTypes)
             {
@@ -126,6 +149,8 @@ namespace LostInTransit
                     equipment.Init(Config);
                 }
             }
+
+            
 
 
 
