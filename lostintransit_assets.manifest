@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 718089682
+CRC: 700861268
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7e1fe9fa01ec492bba1f73f0f48ca266
+    Hash: f5d8d098475620273f83269ed33f8cb6
   TypeTreeHash:
     serializedVersion: 2
     Hash: 741db5e5865affae85481dd15a5547f4
@@ -43,6 +43,7 @@ Assets:
 - Assets/Textures/Materials/Item/HitList/HitListTex.png
 - Assets/Models/Prefabs/Item/HitList/Hit_List.prefab
 - Assets/Textures/Icons/Item/BeckoningCat.png
+- Assets/Models/Prefabs/Item/MysteriousVial/VialDisplay.prefab
 - Assets/Models/Prefabs/Item/BeckoningCat/catPickup.blend
 - Assets/Models/Meshes/Hit_List.blend
 - Assets/Models/Meshes/amethyst.blend
