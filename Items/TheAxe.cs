@@ -42,8 +42,6 @@ namespace LostInTransit.Items
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
         }
 
-        
-
         public override void Init(ConfigFile config)
         {
             //CreateConfig(config);
