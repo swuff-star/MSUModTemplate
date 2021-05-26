@@ -23,7 +23,7 @@ namespace LostInTransit
         public const string ModName = "LostInTransit";
         public const string ModVer = "0.1.0";
 
-        public const string developerPrefix = "SWF";
+        public const string developerPrefix = "swuff";
 
         public List<ItemBase> Items = new List<ItemBase>();
         public List<EquipmentBase> Equipments = new List<EquipmentBase>();
@@ -63,7 +63,7 @@ namespace LostInTransit
 
         //Tiler2 my beloved!
         //I don't need this but am leaving it just in case.
-        /* public class StatHookEventArgs : EventArgs
+        public class StatHookEventArgs : EventArgs
         {
             /// <summary>Added to the direct multiplier to base health. MAX_HEALTH ~ (BASE_HEALTH + baseHealthAdd) * (HEALTH_MULT + healthMultAdd).</summary>
             public float healthMultAdd = 0f;
@@ -93,7 +93,7 @@ namespace LostInTransit
             public float critAdd = 0f;
             /// <summary>Added to armor. ARMOR ~ BASE_ARMOR + armorAdd.</summary>
             public float armorAdd = 0f;
-        }*/
+        }
 
 
         public bool ValidateEquipment(EquipmentBase equipment, List<EquipmentBase> equipmentList)

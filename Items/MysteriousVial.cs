@@ -102,9 +102,9 @@ namespace LostInTransit.Items
                 {
                     ruleType = ItemDisplayRuleType.ParentedPrefab,
                     followerPrefab = ItemBodyModelPrefab,
-childName = "Pelvis",
-localPos = new Vector3(0.1298F, -0.04775F, -0.12009F),
-localAngles = new Vector3(0.00008F, 0F, 129.8965F),
+childName = "Stomach",
+localPos = new Vector3(0.12914F, 0.06131F, 0.14071F),
+localAngles = new Vector3(2.89909F, 6.43829F, 315.5384F),
 localScale = new Vector3(0.2F, 0.2F, 0.2F)
                 }
             });
@@ -185,6 +185,7 @@ localScale = new Vector3(0.15F, 0.15F, 0.15F)
                 new RoR2.ItemDisplayRule
                 {
                     ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    followerPrefab = ItemBodyModelPrefab,
                     childName = "WeaponPlatformEnd",
 localPos = new Vector3(0.00395F, 0.04205F, 0.34333F),
 localAngles = new Vector3(356.9202F, 86.66692F, 319.4651F),
@@ -220,6 +221,7 @@ localScale = new Vector3(2F, 2F, 2F)
                 new RoR2.ItemDisplayRule
                 {
                     ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    followerPrefab = ItemBodyModelPrefab,
                     childName = "Head",
 localPos = new Vector3(-0.19327F, 0.11341F, -0.13186F),
 localAngles = new Vector3(350.0899F, 130.6603F, 73.32294F),

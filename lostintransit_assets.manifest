@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 700861268
+CRC: 2218216325
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f5d8d098475620273f83269ed33f8cb6
+    Hash: adc2d8fb3a394c3499b798c4d1f1cb23
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 741db5e5865affae85481dd15a5547f4
+    Hash: 4f1615cf3ffdcdd6731c12af22871e89
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -29,7 +29,11 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 90
   Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
 - Class: 95
+  Script: {instanceID: 0}
+- Class: 137
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
@@ -37,6 +41,7 @@ Assets:
 - Assets/Textures/Materials/Item/MysteriousVial/T_VialCap_Em.png
 - Assets/Textures/Materials/Item/MysteriousVial/T_VialCap_C.png
 - Assets/Textures/Materials/Item/GiganticAmethyst/GiganticAmethyst.mat
+- Assets/Models/Prefabs/Item/BeckoningCat/Materials/CatPickup.prefab
 - Assets/Textures/Icons/Item/Thallium.png
 - Assets/Textures/Icons/Item/HitList.png
 - Assets/Textures/Icons/Item/Vial.png
@@ -44,7 +49,6 @@ Assets:
 - Assets/Models/Prefabs/Item/HitList/Hit_List.prefab
 - Assets/Textures/Icons/Item/BeckoningCat.png
 - Assets/Models/Prefabs/Item/MysteriousVial/VialDisplay.prefab
-- Assets/Models/Prefabs/Item/BeckoningCat/catPickup.blend
 - Assets/Models/Meshes/Hit_List.blend
 - Assets/Models/Meshes/amethyst.blend
 - Assets/Models/Prefabs/Item/MysteriousVial/Vial.prefab
