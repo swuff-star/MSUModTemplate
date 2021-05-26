@@ -62,34 +62,37 @@ namespace LostInTransit.Items
         {
             var body = self.GetComponent<CharacterBody>();
             var axeCount = GetCount(body);
+            orig(self, damageInfo, victim);
             if (axeCount > 0)
             {
                 var attacker = body.gameObject;
 
-                /*EffectManager.SpawnEffect(Resources.Load<GameObject>("Prefabs/Effects/OmniEffect/OmniExplosionVFXQuick"), new EffectData
+                Vector3 corePos = attacker.transform.position;
+                EffectManager.SpawnEffect(Resources.Load<GameObject>("Prefabs/Effects/OmniEffect/OmniExplosionVFXQuick"), new EffectData
                 {
-                    origin = damageInfo.position,
+                    origin = corePos,
                     scale = 1,
                     rotation = Util.QuaternionSafeLookRotation(damageInfo.force)
                 }, true);
 
-                fuck around with this later
-                stolen from behemoth code*/
+                //fuck around with this later
+                //stolen from behemoth code
 
                 new BlastAttack
                 {
                     attacker = attacker,
-                    baseDamage = 800f,
+                    baseDamage = body.damage * 8f,
                     radius = 10f,
                     crit = damageInfo.crit,
                     falloffModel = BlastAttack.FalloffModel.None,
                     procCoefficient = 0f,
                     teamIndex = attacker.GetComponent<TeamIndex>(),
-                    position = damageInfo.position,
+                    position = corePos,
                 }.Fire();
 
                 //apparently this code is somehow so abysmally bad it breaks all other on-hits
                 //this is a proble mfor my sober self.
+                //works now thanks komrade
             }
 
         }
