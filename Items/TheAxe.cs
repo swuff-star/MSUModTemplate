@@ -64,6 +64,7 @@ namespace LostInTransit.Items
             var axeCount = GetCount(body);
             orig(self, damageInfo, victim);
             if (axeCount > 0)
+//This is calculated wrong I think - at the very least, Vial does it differently
             {
                 var attacker = body.gameObject;
 
