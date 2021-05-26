@@ -52,12 +52,12 @@ namespace LostInTransit.Items
             Hooks();
         }
 
-        private static List<CharacterMaster> AliveList(bool playersOnly = false)
+        /*private static List<CharacterMaster> AliveList(bool playersOnly = false)
         {
             if (playersOnly) return PlayerCharacterMasterController.instances.Where(x => x.isConnected && x.master && x.master.hasBody && x.master.GetBody().healthComponent.alive).Select(x => x.master).ToList();
             else return CharacterMaster.readOnlyInstancesList.Where(x => x.hasBody && x.GetBody().healthComponent.alive).ToList();
-        }
-
+        }*/
+        
         private void GlobalEventManager_OnHitEnemy(On.RoR2.GlobalEventManager.orig_OnHitEnemy orig, RoR2.GlobalEventManager self, RoR2.DamageInfo damageInfo, GameObject victim)
         {
             var body = self.GetComponent<CharacterBody>();
