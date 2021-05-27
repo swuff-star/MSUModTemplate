@@ -62,7 +62,7 @@ namespace LostInTransit.Items
         {
             var body = damageInfo.attacker.GetComponent<CharacterBody>();
             var axeCount = GetCount(body);
-            orig(self, damageInfo, victim);
+            
 
             if (axeCount > 0)
             {
@@ -97,7 +97,7 @@ namespace LostInTransit.Items
                 //this is a proble mfor my sober self.
                 //works now thanks komrade
             }
-
+            orig(self, damageInfo, victim);
         }
     }
 }
