@@ -60,20 +60,21 @@ namespace LostInTransit.Items
         
         private void GlobalEventManager_OnHitEnemy(On.RoR2.GlobalEventManager.orig_OnHitEnemy orig, RoR2.GlobalEventManager self, RoR2.DamageInfo damageInfo, GameObject victim)
         {
-            var body = self.GetComponent<CharacterBody>();
+            var body = damageInfo.attacker.GetComponent<CharacterBody>();
             var axeCount = GetCount(body);
             orig(self, damageInfo, victim);
+
             if (axeCount > 0)
             {
                 var attacker = body.gameObject;
 
                 Vector3 corePos = attacker.transform.position;
-                EffectManager.SpawnEffect(Resources.Load<GameObject>("Prefabs/Effects/OmniEffect/OmniExplosionVFXQuick"), new EffectData
+                /*EffectManager.SpawnEffect(Resources.Load<GameObject>("Prefabs/Effects/OmniEffect/OmniExplosionVFXQuick"), new EffectData
                 {
                     origin = corePos,
                     scale = 1,
                     rotation = Util.QuaternionSafeLookRotation(damageInfo.force)
-                }, true);
+                }, true);*/
 
                 //fuck around with this later
                 //stolen from behemoth code
@@ -83,12 +84,14 @@ namespace LostInTransit.Items
                     attacker = attacker,
                     baseDamage = body.damage * 8f,
                     radius = 10f,
-                    crit = damageInfo.crit,
+                    crit = body.RollCrit(),
                     falloffModel = BlastAttack.FalloffModel.None,
                     procCoefficient = 0f,
-                    teamIndex = attacker.GetComponent<TeamIndex>(),
+                    teamIndex = body.teamComponent.teamIndex,
                     position = corePos,
                 }.Fire();
+
+                
 
                 //apparently this code is somehow so abysmally bad it breaks all other on-hits
                 //this is a proble mfor my sober self.
