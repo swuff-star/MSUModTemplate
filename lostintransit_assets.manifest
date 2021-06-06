@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2218216325
+CRC: 2856540931
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: adc2d8fb3a394c3499b798c4d1f1cb23
+    Hash: faf8fa123f192506d6aa170a1350e21e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 4f1615cf3ffdcdd6731c12af22871e89
@@ -42,6 +42,7 @@ Assets:
 - Assets/Textures/Materials/Item/MysteriousVial/T_VialCap_C.png
 - Assets/Textures/Materials/Item/GiganticAmethyst/GiganticAmethyst.mat
 - Assets/Models/Prefabs/Item/BeckoningCat/Materials/CatPickup.prefab
+- Assets/Models/Prefabs/Item/GiganticAmethyst/Amethyst.prefab
 - Assets/Textures/Icons/Item/Thallium.png
 - Assets/Textures/Icons/Item/HitList.png
 - Assets/Textures/Icons/Item/Vial.png
@@ -55,7 +56,6 @@ Assets:
 - Assets/Textures/Materials/Item/MysteriousVial/VialShit.mat
 - Assets/Models/Prefabs/Item/GiganticAmethyst/Amethyst.blend
 - Assets/Textures/Icons/Equipment/amethyst.png
-- Assets/Models/Prefabs/Item/GiganticAmethyst/Amethyst.prefab
 - Assets/Textures/Materials/Item/MysteriousVial/texRampTwotone.png
 - Assets/Textures/Materials/Item/BeckoningCat/BeckoningCat.mat
 - Assets/Textures/Materials/Item/Thallium/Thallium.mat

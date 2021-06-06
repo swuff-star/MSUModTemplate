@@ -14,7 +14,7 @@ using RoR2.Projectile;
 
 namespace LostInTransit.Items
 {
-    public class TheAxe : ItemBase
+    /*public class TheAxe : ItemBase
     {
         public override string ItemName => "The Axe";
 
@@ -54,7 +54,7 @@ namespace LostInTransit.Items
         {
             if (playersOnly) return PlayerCharacterMasterController.instances.Where(x => x.isConnected && x.master && x.master.hasBody && x.master.GetBody().healthComponent.alive).Select(x => x.master).ToList();
             else return CharacterMaster.readOnlyInstancesList.Where(x => x.hasBody && x.GetBody().healthComponent.alive).ToList();
-        }*/
+        }
 
         //i dont remember why i have this set up even
         
@@ -65,7 +65,6 @@ namespace LostInTransit.Items
             
 
             if (axeCount > 0)
-//This is calculated wrong I think - at the very least, Vial does it differently
             {
                 var attacker = body.gameObject;
 
@@ -75,7 +74,7 @@ namespace LostInTransit.Items
                     origin = corePos,
                     scale = 1,
                     rotation = Util.QuaternionSafeLookRotation(damageInfo.force)
-                }, true);*/
+                }, true);
 
                 //fuck around with this later
                 //stolen from behemoth code
@@ -100,5 +99,5 @@ namespace LostInTransit.Items
             }
             orig(self, damageInfo, victim);
         }
-    }
+    }*/
 }

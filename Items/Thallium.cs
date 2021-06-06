@@ -49,7 +49,7 @@ namespace LostInTransit.Items
         public override void Hooks()
         {
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
-
+            On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
         }
 
         public static float procChance;
@@ -66,7 +66,7 @@ namespace LostInTransit.Items
             stackChance = config.Bind<float>("Item: " + ItemName, "Stacking Proc Chance", 0f, "Added chance to proc per stack.").Value;
             capChance = config.Bind<float>("Item: " + ItemName, "Max Proc Chance", 10f, "Max allowed proc chance.").Value;
             dmgCoefficient = config.Bind<float>("Item: " + ItemName, "Base Damage", 1.25f, "Damage coefficient for Thallium, calculates based on enemy base damage.").Value;
-            dmgStack = config.Bind<float>("Item: " + ItemName, "Stacking Damage", 0f, "Extra damage added per stack.").Value;
+            dmgStack = config.Bind<float>("Item: " + ItemName, "Stacking Damage", 2.5f, "Extra damage added per stack.").Value;
             slowMultiplier = config.Bind<float>("Item: " + ItemName, "Base Slow", 0.9f, "Slow multiplier applied by Thallium, calculates based on enemy base move speed.").Value;
             duration = config.Bind<int>("Item: " + ItemName, "Duration", 4, "Duration of the Thallium debuff.").Value;
         }
@@ -78,31 +78,24 @@ namespace LostInTransit.Items
             CreateItem();
             CreateBuff();
             Hooks();
-            
         }
 
 
 
         //static internal BuffDef ThalliumBuff;
 
-        private void Thallium_GetStatCoefficients(CharacterBody sender, StatHookEventArgs args)
-        {
-            if (sender.HasBuff(ThalliumBuff))
-            {
-                args.moveSpeedMultAdd -= slowMultiplier;
-            }
-        }
+
 
         private void CreateBuff()
         {
-
-
             ThalliumBuff = ScriptableObject.CreateInstance<BuffDef>();
             ThalliumBuff.name = "Thallium Poisoning";
             //ThalliumBuff.buffColor = Color.blue;
             ThalliumBuff.canStack = false;
             ThalliumBuff.isDebuff = true;
             ThalliumBuff.iconSprite = MainAssets.LoadAsset<Sprite>("Thallium.png");
+
+
 
             CustomBuff thalliumBuff = new CustomBuff(ThalliumBuff);
 
@@ -128,35 +121,43 @@ namespace LostInTransit.Items
             });
         }
 
-        
-
-       
-
         private void GlobalEventManager_OnHitEnemy(On.RoR2.GlobalEventManager.orig_OnHitEnemy orig, GlobalEventManager self, DamageInfo damageInfo, UnityEngine.GameObject victim)
         {
+            GameObject attacker = damageInfo.attacker;
+            if (self && attacker)
+            {
+                var attackerBody = attacker.GetComponent<CharacterBody>();
+                var victimBody = victim.GetComponent<CharacterBody>();
+                int thalCount = GetCount(attackerBody);
+                if (thalCount > 0)
+                {
+                    bool flag = (damageInfo.damageType & DamageType.PoisonOnHit) > DamageType.Generic;
+                    if ((thalCount > 0 || flag) && (flag || Util.CheckRoll((procChance + (stackChance * (thalCount - 1))))))
+                    {
+                        ProcChainMask procChainMask = damageInfo.procChainMask;
+                        procChainMask.AddProc(ProcType.BleedOnHit);
+                        var dotInfo = new InflictDotInfo()
+                        {
+                            attackerObject = attacker,
+                            victimObject = victim,
+                            dotIndex = poisonDot,
+                            duration = duration,
+                            damageMultiplier = dmgCoefficient
+                        };
+                        DotController.InflictDot(ref dotInfo);
+                    }
+                }
+            }
             orig(self, damageInfo, victim);
-
-            if (!NetworkServer.active || !victim || !damageInfo.attacker || damageInfo.procCoefficient <= 0f) return;
-
-            var vicb = victim.GetComponent<CharacterBody>();
-
-            CharacterBody body = damageInfo.attacker.GetComponent<CharacterBody>();
-            if (!body || !vicb || !vicb.healthComponent || !vicb.mainHurtBox || vicb.HasBuff(ThalliumBuff)) return;
-
-            CharacterMaster chrm = body.master;
-            if (!chrm) return;
-
-            int icnt = GetCount(body);
-            if (icnt == 0) return;
-
-            icnt--;
-            float m2Proc = procChance;
-            if (icnt > 0) m2Proc += stackChance * icnt;
-            if (m2Proc > capChance) m2Proc = capChance;
-            if (!Util.CheckRoll(m2Proc * damageInfo.procCoefficient, chrm)) return;
-
-            DotController.InflictDot(victim, damageInfo.attacker, poisonDot, duration);
         }
+        private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
+        {
+            orig(self);
 
+            if (self.HasBuff(ThalliumBuff))
+            {
+                self.moveSpeed = ((float)((self.baseMoveSpeed + (self.levelMoveSpeed * (self.level - 1))) * 0.1));
+            }
+        }
     }
 }
