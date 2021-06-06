@@ -127,10 +127,14 @@ namespace LostInTransit.Items
         }
         public static void SetupMortarProjectile()
         {
-            if (mortarPrefab) return;
             GameObject paladinRocket = Resources.Load<GameObject>("prefabs/projectiles/PaladinRocket");
             mortarPrefab = paladinRocket.InstantiateClone("MortarProjectile");
             mortarPrefab.AddComponent<MortarGravity>();
+            var model = MainAssets.LoadAsset<GameObject>("Hit_List.prefab");
+            model.AddComponent<NetworkIdentity>();
+            model.AddComponent<RoR2.Projectile.ProjectileGhostController>();
+            var controller = mortarPrefab.GetComponent < RoR2.Projectile.ProjectileController>();
+            controller.ghostPrefab = model;
             ProjectileAPI.Add(mortarPrefab);
         }
 
