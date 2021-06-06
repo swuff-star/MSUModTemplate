@@ -19,7 +19,7 @@ namespace LostInTransit.Items
 
         public override string ItemPickupDesc => "Chance to fire a mortar on-hit.";
 
-        public override string ItemFullDescription => $"<style=cIsDamage>{MortarTube.procChance}%</style> chance to launch a <style=cIsDamage>mortar</style> <style=cStack>(+{MortarTube.stackAmount} per stack)</style> that deals <style=cIsDamage>{MortarTube.dmgCoefficient * 100}%</style> damage in an area of effect";
+        public override string ItemFullDescription => $"<style=cIsDamage>{MortarTube.procChance}%</style> chance to launch a <style=cIsDamage>mortar</style> <style=cStack>(+{MortarTube.stackAmount} per stack)</style> that deals <style=cIsDamage>{MortarTube.dmgCoefficient * 100}%</style> TOTAL damage in an area of effect.";
 
         public override string ItemLore => "vwomp psssssssshhhhhhhhhhhhhhhhhhheww!!";
 
