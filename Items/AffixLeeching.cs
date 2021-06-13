@@ -9,15 +9,14 @@ using System.Text;
 using UnityEngine;
 using MonoMod.Cil;
 using static LostInTransit.LostInTransitMain;
-using LostInTransit.Equipment;
 
-namespace LostInTransit.Items
+namespace LostInTransit.Equipment
 {
     public class AffixLeeching : EquipmentBase
     {
         public override string EquipmentName => "Guttural Whimpers";
 
-        public override string EquipmentLangTokenName => "AFFIX_LEECHING";
+        public override string EquipmentLangTokenName => "AffixLeeching";
 
         public override string EquipmentPickupDesc => "Become an aspect of Leeching.";
 

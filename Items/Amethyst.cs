@@ -9,9 +9,8 @@ using System.Text;
 using UnityEngine;
 using MonoMod.Cil;
 using static LostInTransit.LostInTransitMain;
-using LostInTransit.Equipment;
 
-namespace LostInTransit.Items
+namespace LostInTransit.Equipment
 {
     public class Amethyst : EquipmentBase
 
