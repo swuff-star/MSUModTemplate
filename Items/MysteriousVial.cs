@@ -57,13 +57,18 @@ namespace LostInTransit.Items
         {
             vialRegen = config.Bind<float>("Item: " + ItemName, "Extra Regen Per Vial", 0.4f, "Extra health regeneration added per item.").Value;
         }
-        public static CharacterModel.RendererInfo[] ItemDisplaySetup(GameObject obj)
+        public static CharacterModel.RendererInfo[] ItemDisplaySetup(GameObject obj, bool debugmode = false)
         {
             MeshRenderer[] meshes = obj.GetComponentsInChildren<MeshRenderer>();
             CharacterModel.RendererInfo[] renderInfos = new CharacterModel.RendererInfo[meshes.Length];
 
             for (int i = 0; i < meshes.Length; i++)
             {
+                if (debugmode)
+                {
+                    var controller = meshes[i].gameObject.AddComponent<MaterialControllerComponents.HGControllerFinder>();
+                    controller.MeshRenderer = meshes[i];
+                }
                 renderInfos[i] = new CharacterModel.RendererInfo
                 {
                     defaultMaterial = meshes[i].material,

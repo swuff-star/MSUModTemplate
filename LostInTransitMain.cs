@@ -9,13 +9,14 @@ using System.Linq;
 using LostInTransit.Items;
 using System.Collections.Generic;
 using LostInTransit.Equipment;
+using LostInTransit.Elites;
 
 namespace LostInTransit
 {
     [BepInDependency(R2API.R2API.PluginGUID, R2API.R2API.PluginVersion)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin("com.swuff.LostInTransit", "Lost in Transit", "0.1.0")]
-    [R2APISubmoduleDependency(nameof(ItemAPI), nameof(LanguageAPI), nameof(PrefabAPI), nameof(ProjectileAPI), nameof(SoundAPI), nameof(LoadoutAPI), nameof(EffectAPI), nameof(ResourcesAPI), nameof(DotAPI))]
+    [R2APISubmoduleDependency(nameof(ItemAPI), nameof(LanguageAPI), nameof(PrefabAPI), nameof(ProjectileAPI), nameof(SoundAPI), nameof(LoadoutAPI), nameof(EffectAPI), nameof(ResourcesAPI), nameof(DotAPI), nameof(EliteAPI))]
 
     public class LostInTransitMain : BaseUnityPlugin
     {
@@ -27,8 +28,10 @@ namespace LostInTransit
 
         public List<ItemBase> Items = new List<ItemBase>();
         public List<EquipmentBase> Equipments = new List<EquipmentBase>();
+        public List<EliteBase> Elites = new List<EliteBase>();
         public static Dictionary<ItemBase, bool> ItemStatusDictionary = new Dictionary<ItemBase, bool>();
         public static Dictionary<EquipmentBase, bool> EquipmentStatusDictionary = new Dictionary<EquipmentBase, bool>();
+        public static Dictionary<EliteBase, bool> EliteStatusDisctionary = new Dictionary<EliteBase, bool>();
         protected readonly List<LanguageAPI.LanguageOverlay> languageOverlays = new List<LanguageAPI.LanguageOverlay>();
 
 
@@ -36,12 +39,12 @@ namespace LostInTransit
 
         public static Dictionary<string, string> ShaderLookup = new Dictionary<string, string>()
         {
-            {"stubbed hopoo games/deferred/standard", "shaders/deffered/standard" },
-            {"stubbed hopoo games/fx/solid parallax", "shaders/fx/solid parallax" },
-            {"stubbed hopoo games/environment/distant water", "shaders/environment/distant water" },
+            {"stubbed hopoo games/deferred/standard", "shaders/deferred/hgstandard" },
             {"stubbed hopoo games/fx/cloud intersection remap", "shaders/fx/hgintersectioncloudremap" },
-            {"stubbed hopoo games/fx/cloud remap", "shaders/fx/cloud remap" }
+            {"stubbed hopoo games/fx/cloud remap", "shaders/fx/hgcloud remap" }
         };
+
+
 
         public bool ValidateItem(ItemBase item, List<ItemBase> itemList)
         {
@@ -61,40 +64,18 @@ namespace LostInTransit
             return enabled;
         }
 
-        //Tiler2 my beloved!
-        //I don't need this but am leaving it just in case.
-        public class StatHookEventArgs : EventArgs
+        public bool ValidateElites(EliteBase elite, List<EliteBase> eliteList)
         {
-            /// <summary>Added to the direct multiplier to base health. MAX_HEALTH ~ (BASE_HEALTH + baseHealthAdd) * (HEALTH_MULT + healthMultAdd).</summary>
-            public float healthMultAdd = 0f;
-            /// <summary>Added to base health. MAX_HEALTH ~ (BASE_HEALTH + baseHealthAdd) * (HEALTH_MULT + healthMultAdd).</summary>
-            public float baseHealthAdd = 0f;
-            /// <summary>Added to base shield. MAX_SHIELD ~ BASE_SHIELD + baseShieldAdd.</summary>
-            public float baseShieldAdd = 0f;
-            /// <summary>Added to the direct multiplier to base health regen. HEALTH_REGEN ~ (BASE_REGEN + baseRegenAdd) * (REGEN_MULT + regenMultAdd).</summary>
-            public float regenMultAdd = 0f;
-            /// <summary>Added to base health regen. HEALTH_REGEN ~ (BASE_REGEN + baseRegenAdd) * (REGEN_MULT + regenMultAdd).</summary>
-            public float baseRegenAdd = 0f;
-            /// <summary>Added to base move speed. MOVE_SPEED ~ (BASE_MOVE_SPEED + baseMoveSpeedAdd) * (MOVE_SPEED_MULT + moveSpeedMultAdd)</summary>
-            public float baseMoveSpeedAdd = 0f;
-            /// <summary>Added to the direct multiplier to move speed. MOVE_SPEED ~ (BASE_MOVE_SPEED + baseMoveSpeedAdd) * (MOVE_SPEED_MULT + moveSpeedMultAdd)</summary>
-            public float moveSpeedMultAdd = 0f;
-            /// <summary>Added to the direct multiplier to jump power. JUMP_POWER ~ BASE_JUMP_POWER * (JUMP_POWER_MULT + jumpPowerMultAdd)</summary>
-            public float jumpPowerMultAdd = 0f;
-            /// <summary>Added to the direct multiplier to base damage. DAMAGE ~ (BASE_DAMAGE + baseDamageAdd) * (DAMAGE_MULT + damageMultAdd).</summary>
-            public float damageMultAdd = 0f;
-            /// <summary>Added to base damage. DAMAGE ~ (BASE_DAMAGE + baseDamageAdd) * (DAMAGE_MULT + damageMultAdd).</summary>
-            public float baseDamageAdd = 0f;
-            /// <summary>Added to attack speed. ATTACK_SPEED ~ (BASE_ATTACK_SPEED + baseAttackSpeedAdd) * (ATTACK_SPEED_MULT + attackSpeedMultAdd).</summary>
-            public float baseAttackSpeedAdd = 0f;
-            /// <summary>Added to the direct multiplier to attack speed. ATTACK_SPEED ~ (BASE_ATTACK_SPEED + baseAttackSpeedAdd) * (ATTACK_SPEED_MULT + attackSpeedMultAdd).</summary>
-            public float attackSpeedMultAdd = 0f;
-            /// <summary>Added to crit chance. CRIT_CHANCE ~ BASE_CRIT_CHANCE + critAdd.</summary>
-            public float critAdd = 0f;
-            /// <summary>Added to armor. ARMOR ~ BASE_ARMOR + armorAdd.</summary>
-            public float armorAdd = 0f;
-        }
+            var enabled = Config.Bind<bool>("Elite: " + elite.EliteName, "Enable Elite?", true, "Should this elite appear in runs?").Value;
 
+            EliteStatusDisctionary.Add(elite, enabled);
+
+            if (enabled)
+            {
+                eliteList.Add(elite);
+            }
+            return enabled;
+        }
 
         public bool ValidateEquipment(EquipmentBase equipment, List<EquipmentBase> equipmentList)
         {
@@ -117,6 +98,18 @@ namespace LostInTransit
                 MainAssets = AssetBundle.LoadFromStream(stream);
             }
 
+            var materialAssets = MainAssets.LoadAllAssets<Material>();
+
+            foreach (Material material in materialAssets)
+            {
+                if (!material.shader.name.StartsWith("Stubbed")) { continue; }
+                //Logger.LogInfo(material);
+
+                var replacementShader = Resources.Load<Shader>(ShaderLookup[material.shader.name.ToLower()]);
+                if (replacementShader) { material.shader = replacementShader; }
+
+            }
+
             var ItemTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(ItemBase)));
             foreach (var itemType in ItemTypes)
             {
@@ -128,17 +121,7 @@ namespace LostInTransit
             }
 
             //Material shader autoconversion - thanks Komrade, you're da best! ^^
-            var materialAssets = MainAssets.LoadAllAssets<Material>();
 
-            foreach(Material material in materialAssets)
-            {
-                if (!material.shader.name.StartsWith("Stubbed")) { continue; }
-                //Logger.LogInfo(material);
-
-                var replacementShader = Resources.Load<Shader>(ShaderLookup[material.shader.name.ToLower()]);
-                if (replacementShader) { material.shader = replacementShader; }
-
-            }
 
             var EquipmentTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(EquipmentBase)));
             foreach (var equipmentType in EquipmentTypes)
@@ -150,10 +133,16 @@ namespace LostInTransit
                 }
             }
 
-            
+            var EliteTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(EliteBase)));
+            foreach (var eliteType in EliteTypes)
+            {
+                EliteBase elite = (EliteBase)System.Activator.CreateInstance(eliteType);
+                if (ValidateElites(elite, Elites))
+                {
+                    elite.Init(Config);
+                }
 
-
-
+            }
 
         }
     }

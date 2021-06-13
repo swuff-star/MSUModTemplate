@@ -25,13 +25,165 @@ namespace LostInTransit.Items
 
         public override ItemTier Tier => ItemTier.Tier1;
 
-        public override GameObject ItemModel => MainAssets.LoadAsset<GameObject>("Hit_List.prefab");
+        public static GameObject ItemBodyModelPrefab;
 
-        public override Sprite ItemIcon => MainAssets.LoadAsset<Sprite>("HitList.png");
+        public override GameObject ItemModel => MainAssets.LoadAsset<GameObject>("Mortar.prefab");
+
+        public override Sprite ItemIcon => MainAssets.LoadAsset<Sprite>("mortar.png");
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
-            return new ItemDisplayRuleDict();
+            ItemBodyModelPrefab = ItemModel;
+            var itemDisplay = ItemBodyModelPrefab.AddComponent<ItemDisplay>();
+            itemDisplay.rendererInfos = ItemDisplaySetup(ItemBodyModelPrefab, true);
+
+            ItemDisplayRuleDict rules = new ItemDisplayRuleDict(new RoR2.ItemDisplayRule[]
+            {
+                new RoR2.ItemDisplayRule
+                {
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    followerPrefab = ItemBodyModelPrefab,
+                    childName = "Chest",
+                    localPos = new Vector3(0, 0, 0),
+                    localAngles = new Vector3(0, 0, 0),
+                    localScale = new Vector3(0, 0, 0)
+                }
+            });
+            //Base rules as nothing so I don't have to ever put up with "These displays are too big!" :)
+
+            rules.Add("mdlCommandoDualies", new RoR2.ItemDisplayRule[]
+            {
+                new RoR2.ItemDisplayRule
+                {
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    followerPrefab = ItemBodyModelPrefab,
+childName = "Chest",
+localPos = new Vector3(-0.10768F, 0.3627F, -0.16637F),
+localAngles = new Vector3(2.72863F, 85.30157F, 321.4987F),
+localScale = new Vector3(0.1F, 0.1F, 0.1F)
+                }
+            });
+            rules.Add("mdlHuntress", new RoR2.ItemDisplayRule[]
+            {
+                new RoR2.ItemDisplayRule
+                {
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    followerPrefab = ItemBodyModelPrefab,
+                   childName = "Chest",
+localPos = new Vector3(0.18296F, 0.07468F, -0.07853F),
+localAngles = new Vector3(19.39358F, 138.7414F, 315.3141F),
+localScale = new Vector3(0.1F, 0.1F, 0.1F)
+                }
+            });
+            rules.Add("mdlBandit2", new RoR2.ItemDisplayRule[]
+            {
+                new RoR2.ItemDisplayRule
+                {
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    followerPrefab = ItemBodyModelPrefab,
+                    childName = "Chest",
+localPos = new Vector3(-0.05786F, 0.27645F, -0.12947F),
+localAngles = new Vector3(352.4726F, 20.62009F, 8.99585F),
+localScale = new Vector3(0.1F, 0.1F, 0.1F)
+                }
+            });
+            rules.Add("mdlToolbot", new RoR2.ItemDisplayRule[]
+{
+                new RoR2.ItemDisplayRule
+                {
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    followerPrefab = ItemBodyModelPrefab,
+childName = "Head",
+localPos = new Vector3(1.06204F, 1.29983F, 0.92494F),
+localAngles = new Vector3(356.2359F, 269.9657F, 303.9216F),
+localScale = new Vector3(0.7F, 0.7F, 0.7F)
+                }
+});
+            rules.Add("mdlEngi", new RoR2.ItemDisplayRule[]
+{
+                new RoR2.ItemDisplayRule
+                {
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    followerPrefab = ItemBodyModelPrefab,
+childName = "CannonHeadL",
+localPos = new Vector3(-0.02132F, 0.31746F, 0.18864F),
+localAngles = new Vector3(354.3041F, 270.9333F, 268.3198F),
+localScale = new Vector3(0.1F, 0.1F, 0.1F)
+                }
+});
+            rules.Add("mdlMage", new RoR2.ItemDisplayRule[]
+{
+                new RoR2.ItemDisplayRule
+                {
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    followerPrefab = ItemBodyModelPrefab,
+childName = "Chest",
+localPos = new Vector3(0.24264F, -0.03328F, -0.40011F),
+localAngles = new Vector3(356.408F, 241.8843F, 308.2445F),
+localScale = new Vector3(0.1F, 0.1F, 0.1F)
+                }
+});
+            rules.Add("mdlMerc", new RoR2.ItemDisplayRule[]
+{
+                new RoR2.ItemDisplayRule
+                {
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    followerPrefab = ItemBodyModelPrefab,
+childName = "Chest",
+localPos = new Vector3(0.20419F, 0.0824F, -0.29713F),
+localAngles = new Vector3(357.3375F, 214.6085F, 309.91F),
+localScale = new Vector3(0.1F, 0.1F, 0.1F)
+                }
+});
+            rules.Add("mdlTreebot", new RoR2.ItemDisplayRule[]
+{
+                new RoR2.ItemDisplayRule
+                {
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    followerPrefab = ItemBodyModelPrefab,
+childName = "WeaponPlatformEnd",
+localPos = new Vector3(-0.02056F, -0.95953F, 0.37187F),
+localAngles = new Vector3(357.0735F, 270.3329F, 316.1714F),
+localScale = new Vector3(0.2F, 0.2F, 0.2F)
+                }
+});
+            rules.Add("mdlLoader", new RoR2.ItemDisplayRule[]
+{
+                new RoR2.ItemDisplayRule
+                {
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    followerPrefab = ItemBodyModelPrefab,
+                    childName = "Chest",
+localPos = new Vector3(-0.16877F, 0.48488F, -0.26781F),
+localAngles = new Vector3(350.37F, 71.98739F, 352.4411F),
+localScale = new Vector3(0.07F, 0.07F, 0.07F)
+                }
+});
+            rules.Add("mdlCroco", new RoR2.ItemDisplayRule[]
+{
+                new RoR2.ItemDisplayRule
+                {
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    followerPrefab = ItemBodyModelPrefab,
+                    childName = "Head",
+localPos = new Vector3(-0.23833F, -0.02393F, 2.60071F),
+localAngles = new Vector3(2.03791F, 91.20681F, 324.0835F),
+localScale = new Vector3(1F, 1F, 1F)
+                }
+});
+            rules.Add("mdlCaptain", new RoR2.ItemDisplayRule[]
+{
+                new RoR2.ItemDisplayRule
+                {
+                    ruleType = ItemDisplayRuleType.ParentedPrefab,
+                    followerPrefab = ItemBodyModelPrefab,
+                    childName = "HandL",
+localPos = new Vector3(-0.11004F, 0.14844F, -0.06651F),
+localAngles = new Vector3(1.17231F, 278.3796F, 313.2302F),
+localScale = new Vector3(0.08F, 0.08F, 0.08F)
+                }
+});
+            return rules;
         }
 
         public static float procChance;
@@ -59,6 +211,30 @@ namespace LostInTransit.Items
             launchAngle = config.Bind<float>("Item: " + ItemName, "Launch Angle", 0.8f, "The angle the mortar is launched - 1 being straight up, -1 being straight down.").Value;
             inaccuracyRate = config.Bind<float>("Item: " + ItemName, "Inaccuracy Rate", 0.25f, "Inaccuracy of the mortar - higher equates to less accuracy.").Value;
             stackAmount = config.Bind<float>("Item: " + ItemName, "Stacking Projectile Count", 1f, "Amount of mortars launched per stack.").Value;
+        }
+
+        public static CharacterModel.RendererInfo[] ItemDisplaySetup(GameObject obj, bool debugmode = false)
+        {
+            MeshRenderer[] meshes = obj.GetComponentsInChildren<MeshRenderer>();
+            CharacterModel.RendererInfo[] renderInfos = new CharacterModel.RendererInfo[meshes.Length];
+
+            for (int i = 0; i < meshes.Length; i++)
+            {
+                if (debugmode)
+                {
+                    var controller = meshes[i].gameObject.AddComponent<MaterialControllerComponents.HGControllerFinder>();
+                    controller.MeshRenderer = meshes[i];
+                }
+                renderInfos[i] = new CharacterModel.RendererInfo
+                {
+                    defaultMaterial = meshes[i].material,
+                    renderer = meshes[i],
+                    defaultShadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On,
+                    ignoreOverlays = false //We allow the mesh to be affected by overlays like OnFire or PredatoryInstinctsCritOverlay.
+                };
+            }
+
+            return renderInfos;
         }
 
         public static GameObject mortarPrefab { get; private set; }
@@ -130,7 +306,7 @@ namespace LostInTransit.Items
             GameObject paladinRocket = Resources.Load<GameObject>("prefabs/projectiles/PaladinRocket");
             mortarPrefab = paladinRocket.InstantiateClone("MortarProjectile");
             mortarPrefab.AddComponent<MortarGravity>();
-            var model = MainAssets.LoadAsset<GameObject>("Hit_List.prefab");
+            var model = MainAssets.LoadAsset<GameObject>("MortarMissile.prefab");
             model.AddComponent<NetworkIdentity>();
             model.AddComponent<RoR2.Projectile.ProjectileGhostController>();
             var controller = mortarPrefab.GetComponent < RoR2.Projectile.ProjectileController>();

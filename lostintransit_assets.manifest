@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2856540931
+CRC: 2649113489
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: faf8fa123f192506d6aa170a1350e21e
+    Hash: 992e613c0da06078023d26d2442f361c
   TypeTreeHash:
     serializedVersion: 2
     Hash: 4f1615cf3ffdcdd6731c12af22871e89
@@ -50,18 +50,23 @@ Assets:
 - Assets/Models/Prefabs/Item/HitList/Hit_List.prefab
 - Assets/Textures/Icons/Item/BeckoningCat.png
 - Assets/Models/Prefabs/Item/MysteriousVial/VialDisplay.prefab
+- Assets/Models/Prefabs/Item/MortarTube/MortarMissile.prefab
+- Assets/Textures/Icons/Item/Mortar.png
 - Assets/Models/Meshes/Hit_List.blend
 - Assets/Models/Meshes/amethyst.blend
 - Assets/Models/Prefabs/Item/MysteriousVial/Vial.prefab
 - Assets/Textures/Materials/Item/MysteriousVial/VialShit.mat
 - Assets/Models/Prefabs/Item/GiganticAmethyst/Amethyst.blend
 - Assets/Textures/Icons/Equipment/amethyst.png
+- Assets/Textures/Materials/Item/Mortar/MortarMissile.mat
+- Assets/Models/Prefabs/Item/MortarTube/Mortar.prefab
 - Assets/Textures/Materials/Item/MysteriousVial/texRampTwotone.png
 - Assets/Textures/Materials/Item/BeckoningCat/BeckoningCat.mat
 - Assets/Textures/Materials/Item/Thallium/Thallium.mat
 - Assets/Textures/Materials/Item/MysteriousVial/VialCap.mat
 - Assets/Models/Prefabs/Item/BeckoningCat/Materials/BeckoningCat.prefab
 - Assets/Textures/Materials/Item/BeckoningCat/Beckoning_Cat.png
+- Assets/Textures/Materials/Item/Mortar/Mortar.mat
 - Assets/Textures/Materials/Item/MysteriousVial/VialGlass.mat
 - Assets/Textures/Materials/Item/HitList/HitList.mat
 - Assets/Models/Prefabs/Item/Thallium/Thallium.prefab
