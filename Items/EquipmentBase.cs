@@ -9,6 +9,13 @@ using static LostInTransit.LostInTransitMain;
 
 namespace LostInTransit.Equipment
 {
+	public abstract class EquipmentBase<T> : EquipmentBase where T : EquipmentBase<T>
+    {
+		public static T instance { get; private set; }
+
+		public EquipmentBase() { instance = this as T; }
+    }
+
 	public abstract class EquipmentBase
 	{
 		public abstract string EquipmentName { get; }

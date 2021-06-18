@@ -6,9 +6,17 @@ If you have any issues with the mod, you can contact me on Discord (swuff★#222
 
 | Icon | Item | Description | Rarity |
 |:-|-|------|-|
+|![](https://i.imgur.com/LJGmr6C.png) | **Mortar Tube** | Chance to fire a mortar (+1 per stack) on hit. | Common |
 |![](https://i.imgur.com/apC9PH6.png) | **Mysterious Vial** | Regenerate an extra 1.2 (+1.2 per stack) hp per second. | Common |
 |![](https://i.imgur.com/wxKsSEg.png) | **Beckoning Cat** | Elite monsters have a 4.5% (+1.5% per stack) chance to drop items on death. | Uncommon |
+|![](https://i.imgur.com/i1tS7fj.png) | **Thallium** | 10% chance to inflict Thallium Poisoning, doing 500% (+250% per stack) ENEMY base damage and slowing by 90%. 
 |![](https://i.imgur.com/zqUZXtk.png) | **Gigantic Amethyst** | Reset skill cooldowns on use. | Equipment |
+
+## New Elites
+
+| Icon | Name | Description | 
+|:-|--|-------|
+|![]() | **Leeching** | Heal back 2% of damage dealt on hit. Periodically release a healing nova that heals self and allies. |
 
 
 ## Credits
@@ -16,9 +24,9 @@ First off: A lot of code is taken from ThinkInvis's ClassicItems and TILER2. I c
 With that out of the way,
 
 * Code - chen, swuff★, ThinkInvis
-* Art/Modelling/Animation - bruh
-* Writing - Lyrical Endymion
-* Additional support/special thanks - Anreol, KomradeSpectre, rob, xpcybic
+* Art/Modelling/Animation - GEMO, bruh, Redacted
+* Writing - Lyrical Endymion, swuff★
+* Additional support/special thanks - Anreol, Kevin, KomradeSpectre, Nebby, rob, xpcybic
 
 ## Changelog
 

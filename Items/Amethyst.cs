@@ -12,7 +12,7 @@ using static LostInTransit.LostInTransitMain;
 
 namespace LostInTransit.Equipment
 {
-    public class Amethyst : EquipmentBase
+    public class Amethyst : EquipmentBase<Amethyst>
 
     {
         public override string EquipmentName => "Gigantic Amethyst";

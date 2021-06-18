@@ -31,7 +31,7 @@ namespace LostInTransit
         public List<EliteBase> Elites = new List<EliteBase>();
         public static Dictionary<ItemBase, bool> ItemStatusDictionary = new Dictionary<ItemBase, bool>();
         public static Dictionary<EquipmentBase, bool> EquipmentStatusDictionary = new Dictionary<EquipmentBase, bool>();
-        public static Dictionary<EliteBase, bool> EliteStatusDisctionary = new Dictionary<EliteBase, bool>();
+        public static Dictionary<EliteBase, bool> EliteStatusDictionary = new Dictionary<EliteBase, bool>();
         protected readonly List<LanguageAPI.LanguageOverlay> languageOverlays = new List<LanguageAPI.LanguageOverlay>();
 
 
@@ -63,20 +63,6 @@ namespace LostInTransit
             }
             return enabled;
         }
-
-        public bool ValidateElites(EliteBase elite, List<EliteBase> eliteList)
-        {
-            var enabled = Config.Bind<bool>("Elite: " + elite.EliteName, "Enable Elite?", true, "Should this elite appear in runs?").Value;
-
-            EliteStatusDisctionary.Add(elite, enabled);
-
-            if (enabled)
-            {
-                eliteList.Add(elite);
-            }
-            return enabled;
-        }
-
         public bool ValidateEquipment(EquipmentBase equipment, List<EquipmentBase> equipmentList)
         {
             var enabled = Config.Bind<bool>("Equipment: " + equipment.EquipmentName, "Enable Equipment?", true, "Should this equipment appear in runs?").Value;
@@ -89,6 +75,18 @@ namespace LostInTransit
                 return true;
             }
             return false;
+        }
+        public bool ValidateElites(EliteBase elite, List<EliteBase> eliteList)
+        {
+            var enabled = Config.Bind<bool>("Elite: " + elite.EliteName, "Enable Elite?", true, "Should this elite appear in runs?").Value;
+
+            EliteStatusDictionary.Add(elite, enabled);
+
+            if (enabled)
+            {
+                eliteList.Add(elite);
+            }
+            return enabled;
         }
 
         public void Awake()

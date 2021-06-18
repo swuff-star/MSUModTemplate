@@ -9,10 +9,11 @@ using System.Text;
 using UnityEngine;
 using MonoMod.Cil;
 using static LostInTransit.LostInTransitMain;
+using static LostInTransit.Elites.LeechingElite;
 
 namespace LostInTransit.Equipment
 {
-    public class AffixLeeching : EquipmentBase
+    public class AffixLeeching : EquipmentBase<AffixLeeching>
     {
         public override string EquipmentName => "Guttural Whimpers";
 
@@ -24,15 +25,20 @@ namespace LostInTransit.Equipment
 
         public override string EquipmentLore => "";
 
-        public override float Cooldown => 10;
+        public override float Cooldown => 10f;
 
         //public override BuffDef PassiveBuffDef => Elites.LeechingElite.instance.eliteBuffDef;
 
+        public override bool EnigmaCompatible => false;
+        public override bool IsBoss { get; } = false;
+        public override bool IsLunar { get; } = false;
+        public override bool AppearsInSinglePlayer { get; } = true;
+        public override bool AppearsInMultiPlayer { get; } = true;
         public override bool CanDrop => false;
 
-        public override GameObject EquipmentModel => throw new NotImplementedException();
+        public override GameObject EquipmentModel => MainAssets.LoadAsset<GameObject>("Thallium.prefab");
 
-        public override Sprite EquipmentIcon => throw new NotImplementedException();
+        public override Sprite EquipmentIcon => MainAssets.LoadAsset<Sprite>("thallium.png");
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
@@ -41,11 +47,23 @@ namespace LostInTransit.Equipment
 
         public override void Hooks()
         {
-
         }
 
         public override void Init(ConfigFile config)
         {
+            CreateConfig(config);
+            CreateLang();
+            CreateEquipment();
+            Hooks();
+        }
+
+        public static float healthStolen;
+        public static float regenCooldown;
+
+        public void CreateConfig(ConfigFile config)
+        {
+            healthStolen = config.Bind<float>("Elite: " + "Leeching", "Health Leeched", 2f, "% of health stolen on hit, based on damage done.").Value;
+            regenCooldown = config.Bind<float>("Elite: " + "Leeching", "Regen Cooldown", 15f, "Seconds between healing novas.").Value;
         }
 
         protected override bool ActivateEquipment(EquipmentSlot slot)
