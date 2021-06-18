@@ -9,7 +9,7 @@ If you have any issues with the mod, you can contact me on Discord (swuff★#222
 |![](https://i.imgur.com/LJGmr6C.png) | **Mortar Tube** | Chance to fire a mortar (+1 per stack) on hit. | Common |
 |![](https://i.imgur.com/apC9PH6.png) | **Mysterious Vial** | Regenerate an extra 1.2 (+1.2 per stack) hp per second. | Common |
 |![](https://i.imgur.com/wxKsSEg.png) | **Beckoning Cat** | Elite monsters have a 4.5% (+1.5% per stack) chance to drop items on death. | Uncommon |
-|![](https://i.imgur.com/i1tS7fj.png) | **Thallium** | 10% chance to inflict Thallium Poisoning, doing 500% (+250% per stack) ENEMY base damage and slowing by 90%. 
+|![](https://i.imgur.com/i1tS7fj.png) | **Thallium** | 10% chance to inflict Thallium Poisoning, doing 500% (+250% per stack) ENEMY base damage and slowing by 90%. | Rare |
 |![](https://i.imgur.com/zqUZXtk.png) | **Gigantic Amethyst** | Reset skill cooldowns on use. | Equipment |
 
 ## New Elites
