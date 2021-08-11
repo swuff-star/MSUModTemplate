@@ -21,7 +21,7 @@ namespace LostInTransit.Items
 
         public override string ItemFullDescription => $"<style=cIsDamage>{MortarTube.procChance}%</style> chance to launch a <style=cIsDamage>mortar</style> <style=cStack>(+{MortarTube.stackAmount} per stack)</style> that deals <style=cIsDamage>{MortarTube.dmgCoefficient * 100}%</style> TOTAL damage in an area of effect.";
 
-        public override string ItemLore => "vwomp psssssssshhhhhhhhhhhhhhhhhhheww!!";
+        public override string ItemLore => "\"What do you think it is?\" Grahm had placed the strange black tube in front of him, staring down the barrel with a keen eye. Something green and silver sat at the back.\n\nJordan remained uninterested, sifting through scrap and shrapnel. \"Probably a club. Stop bothering me.\"\n\nGrahm held it above his head, investigating its faded serial number and tagging. \"I think it's a gun.\" There was a small lever on the bottom, after all. Jordan clearly hadn't been paying attention to his description.\n\nThis piqued Jordan's interest. \"Maybe an antique?\" He clambered back towards Graham, sitting beside him, motioning for the 'gun'.\n\nPassing their new fascination, Graham tipped the end of its barrel downards, and something began to slide.\n\nBoom.";
 
         public override ItemTier Tier => ItemTier.Tier1;
 

@@ -16,7 +16,7 @@ namespace LostInTransit
     [BepInDependency(R2API.R2API.PluginGUID, R2API.R2API.PluginVersion)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin("com.swuff.LostInTransit", "Lost in Transit", "0.1.0")]
-    [R2APISubmoduleDependency(nameof(ItemAPI), nameof(LanguageAPI), nameof(PrefabAPI), nameof(ProjectileAPI), nameof(SoundAPI), nameof(LoadoutAPI), nameof(EffectAPI), nameof(ResourcesAPI), nameof(DotAPI), nameof(EliteAPI))]
+    [R2APISubmoduleDependency(nameof(ItemAPI), nameof(LanguageAPI), nameof(PrefabAPI), nameof(ProjectileAPI), nameof(SoundAPI), nameof(LoadoutAPI), nameof(EffectAPI), nameof(ResourcesAPI), nameof(DotAPI), nameof(EliteAPI), nameof(BuffAPI))]
 
     public class LostInTransitMain : BaseUnityPlugin
     {
@@ -74,18 +74,6 @@ namespace LostInTransit
                 equipmentList.Add(equipment);
                 return true;
             }
-            return false;
-        }
-        public bool ValidateElites(EliteBase elite, List<EliteBase> eliteList)
-        {
-            var enabled = Config.Bind<bool>("Elite: " + elite.EliteName, "Enable Elite?", true, "Should this elite appear in runs?").Value;
-
-            EliteStatusDictionary.Add(elite, enabled);
-
-            if (enabled)
-            {
-                eliteList.Add(elite);
-            }
             return enabled;
         }
 
@@ -129,17 +117,6 @@ namespace LostInTransit
                 {
                     equipment.Init(Config);
                 }
-            }
-
-            var EliteTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(EliteBase)));
-            foreach (var eliteType in EliteTypes)
-            {
-                EliteBase elite = (EliteBase)System.Activator.CreateInstance(eliteType);
-                if (ValidateElites(elite, Elites))
-                {
-                    elite.Init(Config);
-                }
-
             }
 
         }

@@ -17,13 +17,13 @@ namespace LostInTransit.Equipment
     {
         public override string EquipmentName => "Gigantic Amethyst";
 
-        public override string EquipmentLangTokenName => "Gigantic_Amethyst";
+        public override string EquipmentLangTokenName => "GIGANTIC_AMETHYST";
 
-        public override string EquipmentPickupDesc => "Reset cooldowns on use.";
+        public override string EquipmentPickupDesc => "Reset skill cooldowns on use.";
 
-        public override string EquipmentFullDescription => "Reset cooldowns on use.";
+        public override string EquipmentFullDescription => "<style=cIsUtility>Reset skill cooldowns</style> on use.";
 
-        public override string EquipmentLore => "[3:27 PM] the antichrist: i had a dream that i screamed the n word in front of a bunch of black people then i broke a cyanide capsule in my mouth and killed myself";
+        public override string EquipmentLore => "Rich! Rich I am!\nJealous, jealous they were.\nIt's mine! All mine!\n\nBarry wanted to return it.\nBut we were never returning!\nSo I returned him to the soil.\n\nSamantha wanted to share it.\nBut breaking would ruin its luster!\nSo I broke her.\n\nI told them we weren't going back.\nThey didn't believe me!\nNow we're all here, forever.\n\nMe, my friends, and my crystal.";
 
         public override GameObject EquipmentModel => MainAssets.LoadAsset<GameObject>("Amethyst.prefab");
 

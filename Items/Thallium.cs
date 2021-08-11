@@ -23,9 +23,10 @@ namespace LostInTransit.Items
 
         public override string ItemPickupDesc => "Chance to poison and slow enemies.";
 
-        public override string ItemFullDescription => "Chance to poison for <style=cIsHealth>500% enemy damage%</style> and slow for <style=cIsUtility>50% movement speed<style=cIsUtility> enemies on hit.";
+        public override string ItemFullDescription => $"<style=cIsDamage>{Thallium.procChance}%</style> chance to poison for <style=cIsDamage>{Thallium.duration * Thallium.dmgCoefficient * 100}%</style> <style=cStack>(+{Thallium.duration * Thallium.dmgStack * 100}% per stack)</style><style=cIsDamage> of enemy's base damage</style> over <style=cIsUtility>{Thallium.duration}</style> seconds and slow for <style=cIsUtility>{Thallium.slowMultiplier * 100}% movement speed of enemy's base speed<style=cIsUtility>.";
 
-        public override string ItemLore => "stinky.";
+
+        public override string ItemLore => "You found it embedded atop a small hill, surrounded by dead grass.\n\nDead insects.\n\nDead lizards.\n\nThe tree it sat beneath had passed long ago.\n\nBrown bark became white dust, drifting away with the wind.\n\nThe dust smelled of decay.\n\nThis scene, to anyone else, would be overwhelming.\n\nAn unholy site, cursed by something unknown.\n\nBut you dug deeper.\n\nYou found something... worse.\n\nA note. An omen. A promise.\n\nBut you were happy it never arrived.\n\nFor her sake.";
 
         public override ItemTier Tier => ItemTier.Tier3;
 
@@ -49,7 +50,7 @@ namespace LostInTransit.Items
         public override void Hooks()
         {
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
-            On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
+            On.RoR2.CharacterBody.RecalculateStats += ApplyThalliumSlow;
         }
 
         public static float procChance;
@@ -66,8 +67,8 @@ namespace LostInTransit.Items
             stackChance = config.Bind<float>("Item: " + ItemName, "Stacking Proc Chance", 0f, "Added chance to proc per stack.").Value;
             capChance = config.Bind<float>("Item: " + ItemName, "Max Proc Chance", 10f, "Max allowed proc chance.").Value;
             dmgCoefficient = config.Bind<float>("Item: " + ItemName, "Base Damage", 1.25f, "Damage coefficient for Thallium, calculates based on enemy base damage.").Value;
-            dmgStack = config.Bind<float>("Item: " + ItemName, "Stacking Damage", 2.5f, "Extra damage added per stack.").Value;
-            slowMultiplier = config.Bind<float>("Item: " + ItemName, "Base Slow", 0.9f, "Slow multiplier applied by Thallium, calculates based on enemy base move speed.").Value;
+            dmgStack = config.Bind<float>("Item: " + ItemName, "Stacking Damage", 0.625f, "Extra damage added per stack.").Value;
+            slowMultiplier = config.Bind<float>("Item: " + ItemName, "Base Slow", 0.75f, "Slow multiplier applied by Thallium, calculates based on enemy base move speed.").Value;
             duration = config.Bind<int>("Item: " + ItemName, "Duration", 4, "Duration of the Thallium debuff.").Value;
         }
 
@@ -115,7 +116,8 @@ namespace LostInTransit.Items
                 {
                     float damageMultiplier = dmgCoefficient + dmgStack * (GetCount(attackerBody) - 1);
                     float poisonDamage = 0f;
-                    if (dotController.victimBody) poisonDamage += dotController.victimBody.damage; dotStack.damage = poisonDamage * damageMultiplier;
+                    if (dotController.victimBody) poisonDamage += dotController.victimBody.damage; 
+                    dotStack.damage = poisonDamage * damageMultiplier;
 
                 }
             });
@@ -127,7 +129,6 @@ namespace LostInTransit.Items
             if (self && attacker)
             {
                 var attackerBody = attacker.GetComponent<CharacterBody>();
-                var victimBody = victim.GetComponent<CharacterBody>();
                 int thalCount = GetCount(attackerBody);
                 if (thalCount > 0)
                 {
@@ -150,13 +151,14 @@ namespace LostInTransit.Items
             }
             orig(self, damageInfo, victim);
         }
-        private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
+        private void ApplyThalliumSlow(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
             orig(self);
 
             if (self.HasBuff(ThalliumBuff))
             {
-                self.moveSpeed = ((float)((self.baseMoveSpeed + (self.levelMoveSpeed * (self.level - 1))) * 0.1));
+                self.moveSpeed *= slowMultiplier;
+                //Debug.Log("Enemy slowed via Thallium");
             }
         }
     }

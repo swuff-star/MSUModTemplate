@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2649113489
+CRC: 4092519266
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 992e613c0da06078023d26d2442f361c
+    Hash: 557dec19678c80e57b8c7f15e7066802
   TypeTreeHash:
     serializedVersion: 2
     Hash: 4f1615cf3ffdcdd6731c12af22871e89
@@ -43,26 +43,26 @@ Assets:
 - Assets/Textures/Materials/Item/GiganticAmethyst/GiganticAmethyst.mat
 - Assets/Models/Prefabs/Item/BeckoningCat/Materials/CatPickup.prefab
 - Assets/Models/Prefabs/Item/GiganticAmethyst/Amethyst.prefab
-- Assets/Textures/Icons/Item/Thallium.png
 - Assets/Textures/Icons/Item/HitList.png
-- Assets/Textures/Icons/Item/Vial.png
 - Assets/Textures/Materials/Item/HitList/HitListTex.png
 - Assets/Models/Prefabs/Item/HitList/Hit_List.prefab
-- Assets/Textures/Icons/Item/BeckoningCat.png
 - Assets/Models/Prefabs/Item/MysteriousVial/VialDisplay.prefab
 - Assets/Models/Prefabs/Item/MortarTube/MortarMissile.prefab
-- Assets/Textures/Icons/Item/Mortar.png
 - Assets/Models/Meshes/Hit_List.blend
 - Assets/Models/Meshes/amethyst.blend
 - Assets/Models/Prefabs/Item/MysteriousVial/Vial.prefab
 - Assets/Textures/Materials/Item/MysteriousVial/VialShit.mat
 - Assets/Models/Prefabs/Item/GiganticAmethyst/Amethyst.blend
-- Assets/Textures/Icons/Equipment/amethyst.png
+- Assets/Textures/Icons/Item/Vial.png
+- Assets/Textures/Icons/Item/BeckoningCat.png
+- Assets/Textures/Icons/Item/Thallium.png
 - Assets/Textures/Materials/Item/Mortar/MortarMissile.mat
 - Assets/Models/Prefabs/Item/MortarTube/Mortar.prefab
 - Assets/Textures/Materials/Item/MysteriousVial/texRampTwotone.png
 - Assets/Textures/Materials/Item/BeckoningCat/BeckoningCat.mat
+- Assets/Textures/Icons/Equipment/amethyst.png
 - Assets/Textures/Materials/Item/Thallium/Thallium.mat
+- Assets/Textures/Icons/Item/Mortar.png
 - Assets/Textures/Materials/Item/MysteriousVial/VialCap.mat
 - Assets/Models/Prefabs/Item/BeckoningCat/Materials/BeckoningCat.prefab
 - Assets/Textures/Materials/Item/BeckoningCat/Beckoning_Cat.png
