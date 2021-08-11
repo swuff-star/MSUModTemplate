@@ -23,7 +23,7 @@ namespace LostInTransit.Items
 
         public override string ItemPickupDesc => "Chance to poison and slow enemies.";
 
-        public override string ItemFullDescription => $"<style=cIsDamage>{Thallium.procChance}%</style> chance to poison for <style=cIsDamage>{Thallium.duration * Thallium.dmgCoefficient * 100}%</style> <style=cStack>(+{Thallium.duration * Thallium.dmgStack * 100}% per stack)</style><style=cIsDamage> of enemy's base damage</style> over <style=cIsUtility>{Thallium.duration}</style> seconds and slow for <style=cIsUtility>{Thallium.slowMultiplier * 100}% movement speed of enemy's base speed<style=cIsUtility>.";
+        public override string ItemFullDescription => $"<style=cIsDamage>{Thallium.procChance}%</style> chance to inflict thallium poisoning for <style=cIsDamage>{Thallium.duration * Thallium.dmgCoefficient * 100}%</style> <style=cStack>(+{Thallium.duration * Thallium.dmgStack * 100}% per stack)</style><style=cIsDamage> of enemy's base damage</style> over <style=cIsUtility>{Thallium.duration}</style> seconds and slow for <style=cIsUtility>{Thallium.slowMultiplier * 100}% movement speed<style=cIsUtility>.";
 
 
         public override string ItemLore => "You found it embedded atop a small hill, surrounded by dead grass.\n\nDead insects.\n\nDead lizards.\n\nThe tree it sat beneath had passed long ago.\n\nBrown bark became white dust, drifting away with the wind.\n\nThe dust smelled of decay.\n\nThis scene, to anyone else, would be overwhelming.\n\nAn unholy site, cursed by something unknown.\n\nBut you dug deeper.\n\nYou found something... worse.\n\nA note. An omen. A promise.\n\nBut you were happy it never arrived.\n\nFor her sake.";
