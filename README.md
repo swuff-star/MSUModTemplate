@@ -16,7 +16,7 @@ If you have any issues with the mod, you can contact me on Discord (swuff★#222
 |![](https://i.imgur.com/27uyOZz.png) | **Gigantic Amethyst** | Reset skill cooldowns on use. | Equipment |
 
 ## Credits
-First off: A lot of code is taken from ThinkInvis's ClassicItems and TILER2. I can't thank ThinkInvis (and any other contributors to either) enough for their work on those two mods, as this mod likely wouldn't be here without either.
+First off: A lot of code is taken from ThinkInvis's & chen's ClassicItems. I can't thank them enough for their work on those two mods, as this mod likely wouldn't be here without either.
 With that out of the way,
 
 * Code - chen, swuff★, ThinkInvis
