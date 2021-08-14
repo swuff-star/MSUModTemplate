@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4092519266
+CRC: 611458192
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 557dec19678c80e57b8c7f15e7066802
+    Hash: 47e794ae38705a68085ff6b6dd1f70ae
   TypeTreeHash:
     serializedVersion: 2
     Hash: 4f1615cf3ffdcdd6731c12af22871e89
@@ -42,9 +42,12 @@ Assets:
 - Assets/Textures/Materials/Item/MysteriousVial/T_VialCap_C.png
 - Assets/Textures/Materials/Item/GiganticAmethyst/GiganticAmethyst.mat
 - Assets/Models/Prefabs/Item/BeckoningCat/Materials/CatPickup.prefab
+- Assets/Textures/Materials/Item/TelescopicSight/TelescopicSight.mat
+- Assets/Models/Prefabs/Item/TelescopicSight/TelescopicSight.prefab
 - Assets/Models/Prefabs/Item/GiganticAmethyst/Amethyst.prefab
 - Assets/Textures/Icons/Item/HitList.png
 - Assets/Textures/Materials/Item/HitList/HitListTex.png
+- Assets/Textures/Materials/Item/TelescopicSight/TelescopicSight.png
 - Assets/Models/Prefabs/Item/HitList/Hit_List.prefab
 - Assets/Models/Prefabs/Item/MysteriousVial/VialDisplay.prefab
 - Assets/Models/Prefabs/Item/MortarTube/MortarMissile.prefab

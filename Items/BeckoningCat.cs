@@ -299,6 +299,7 @@ localScale = new Vector3(0.05F, 0.05F, 0.05F)
 
             if (damageReport == null) return;
             CharacterBody victimBody = damageReport.victimBody;
+            CharacterBody attackerBody = damageReport.attackerBody;
             if (victimBody == null || victimBody.teamComponent.teamIndex != TeamIndex.Monster || !victimBody.isElite) return;
             int numberofCats = 0;
             if (globalStack)
@@ -316,12 +317,12 @@ localScale = new Vector3(0.05F, 0.05F, 0.05F)
             float rareChance = Math.Min(baseRare + (numberofCats - 1) * stackRare, capRare);
             float uncommonChance = Math.Min(baseUnc + (numberofCats - 1) * stackUnc, capUnc);
             float anyDropChance = Math.Min(baseChance + (numberofCats - 1) * stackChance, capChance);
-            //Base drop chance is multiplicative with tier chances -- tier chances are applied to upgrade the dropped item
 
             if (numberofCats < 1) return;
             if (anyDropChance < 1) return;
 
             if (Util.CheckRoll(anyDropChance))
+                
             {
                 int tier;
                 if (Util.CheckRoll(rareChance))
@@ -340,6 +341,7 @@ localScale = new Vector3(0.05F, 0.05F, 0.05F)
                         tier = 0;
                 }
                 SpawnItemFromBody(victimBody, tier, rng);
+                //Util.PlaySound("Cat", attackerBody.gameObject);
             }
         }
     }

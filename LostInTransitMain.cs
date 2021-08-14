@@ -44,8 +44,6 @@ namespace LostInTransit
             {"stubbed hopoo games/fx/cloud remap", "shaders/fx/hgcloud remap" }
         };
 
-
-
         public bool ValidateItem(ItemBase item, List<ItemBase> itemList)
         {
             var enabled = Config.Bind<bool>("Item: " + item.ItemName, "Enable Item?", true, "Should this item appear in runs?").Value;
@@ -84,7 +82,7 @@ namespace LostInTransit
                 MainAssets = AssetBundle.LoadFromStream(stream);
             }
 
-            var materialAssets = MainAssets.LoadAllAssets<Material>();
+           var materialAssets = MainAssets.LoadAllAssets<Material>();
 
             foreach (Material material in materialAssets)
             {
@@ -118,6 +116,15 @@ namespace LostInTransit
                     equipment.Init(Config);
                 }
             }
+
+            /*using (var bankStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("LostInTransit.bnk"))
+            {
+                var bytes = new byte[bankStream.Length];
+                bankStream.Read(bytes, 0, bytes.Length);
+                SoundAPI.SoundBanks.Add(bytes);
+            }
+            //Figure this out later - from what I understand, sound effects and be a mess with networking anyway. Wait for someone smarter who can help or investigate at later time.
+            */
 
         }
     }
