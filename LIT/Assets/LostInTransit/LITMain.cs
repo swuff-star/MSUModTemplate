@@ -23,7 +23,7 @@ namespace LostInTransit
     [BepInPlugin(GUID, MODNAME, VERSION)]
     [R2APISubmoduleDependency(new string[]
     {
-        "DotAPI"
+        nameof(DotAPI)       
     })]
     public class LITMain : BaseUnityPlugin
     {
@@ -54,8 +54,8 @@ namespace LostInTransit
         {
             Assets.Initialize();
             LITConfig.Initialize(config);
-            Pickups.Initialize();
             Buffs.Buffs.Initialize();
+            Pickups.Initialize();
         }
     }
 }

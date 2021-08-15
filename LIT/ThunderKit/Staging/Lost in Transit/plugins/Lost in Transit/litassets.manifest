@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3328890014
+CRC: 4099418253
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9befe07b685400ea5559e018b0c02b42
+    Hash: a792cc86ec06dd2eb8bb854320c77ed8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 92596492393e3ebdae18f37b1e891c2f
+    Hash: 71161206d09f7d67f20765603112389e
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -25,6 +25,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -1783169300, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1512808244, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -56,6 +58,7 @@ Assets:
 - Assets/Materials/matMysteriousVialGlass.mat
 - Assets/Mesh/meshGiganticAmethyst.mesh
 - Assets/Materials/matMysteriousVialLiquid.mat
+- Assets/LostInTransit/LITAssets/Items/Thallium/buffThalliumPoison.asset
 - Assets/Textures/texMysteriousVialEmission.png
 - Assets/Shaders/fx/hgintersectioncloudremap.shader
 - Assets/Materials/matMysteriousVialCap.mat
