@@ -245,7 +245,7 @@ localScale = new Vector3(0.13F, 0.13F, 0.13F)
             orig(self);
 
             int vialCount = GetCount(self);
-            self.regen += ((self.baseRegen + self.levelRegen * (self.level - 1))) + (vialRegen * vialCount);
+            self.regen += (self.baseRegen + self.levelRegen * (self.level - 1)) + (vialRegen * vialCount);
         }
 
     }

@@ -55,9 +55,8 @@ MonoBehaviour:
   Name: Lost in Transit
   Icon: {fileID: 0}
   Description: Peepee poopoo
-  Version: Yourmom
-  Dependencies:
-  - {fileID: 11400000, guid: c8c954e10545f6cd0045de066bc4846b, type: 2}
+  Version: 0.0.1
+  Dependencies: []
 --- !u!114 &114431642618062350
 MonoBehaviour:
   m_ObjectHideFlags: 1

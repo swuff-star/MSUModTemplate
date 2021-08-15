@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 684441373
+CRC: 384053404
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 23f3bca57ce82234ad903598a84c7990
+    Hash: bbd609157f60a712feb9787432e47813
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 6aa470cdda5ae8ad7194e4fe7a63a4b8
+    Hash: 92596492393e3ebdae18f37b1e891c2f
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -26,6 +26,8 @@ ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 1512808244, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -35,17 +37,23 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Mesh/meshMysteriousVialCap.mesh
+- Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/GiganticAmethyst.asset
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/pickupMysetriousVial.prefab
 - Assets/Textures/Ramps/texRampTwotone.png
+- Assets/Materials/matGiganticAmethyst.mat
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/iconMysteriousVial.png
 - Assets/LostInTransit/LITAssets/ContentPack.asset
+- Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/iconGiganticAmethyst.png
 - Assets/Mesh/meshMysteriousVialLiquid.mesh
+- Assets/Textures/texGiganticAmethyst.png
 - Assets/Mesh/meshMysteriousVialGlass.mesh
 - Assets/Materials/matMysteriousVialGlass.mat
+- Assets/Mesh/meshGiganticAmethyst.mesh
 - Assets/Materials/matMysteriousVialLiquid.mat
 - Assets/Textures/texMysteriousVialEmission.png
 - Assets/Shaders/fx/hgintersectioncloudremap.shader
 - Assets/Materials/matMysteriousVialCap.mat
+- Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/pickupGiganticAmethyst.prefab
 - Assets/Textures/texMysteriousVialDiffuse.png
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/MysteriousVial.asset
 - Assets/Mesh/meshMysteriousVialSplat.mesh
