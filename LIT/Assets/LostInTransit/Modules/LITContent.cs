@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LostInTransit.Modules
+namespace LostInTransit
 {
     internal class LITContent : IContentPackProvider
     {

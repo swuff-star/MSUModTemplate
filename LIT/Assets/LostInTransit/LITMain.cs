@@ -8,6 +8,7 @@ using System.Security;
 using System.Security.Permissions;
 using UnityEngine;
 using LostInTransit.Utils;
+using LostInTransit.Buffs;
 
 #pragma warning disable CS0618
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -53,6 +54,7 @@ namespace LostInTransit
             Assets.Initialize();
             LITConfig.Initialize(config);
             Pickups.Initialize();
+            Buffs.Buffs.Initialize();
         }
     }
 }

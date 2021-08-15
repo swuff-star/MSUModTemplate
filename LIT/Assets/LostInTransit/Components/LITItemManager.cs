@@ -27,13 +27,21 @@ namespace LostInTransit.Components
             {
                 item.Value.AddBehavior(ref body, body.inventory.GetItemCount(item.Key.itemIndex));
             }
-            /*foreach(var equip in Pickups.Equipments)
+            foreach(var equip in Pickups.Equipments)
             {
                 equip.Value.AddBehavior(ref body, Convert.ToInt32(body.inventory?.GetEquipmentIndex() == equip.Value.EquipmentDef.equipmentIndex));
-            }*/
+            }
             GetInterfaces();
         }
-
+        public void CheckForBuffs()
+        {
+            //The naming scheme here was not intentional
+            foreach (var buffRef in Buffs.Buffs.buffs)
+            {
+                buffRef.Value.AddBehavior(ref body, body.GetBuffCount(buffRef.Key));
+            }
+            GetInterfaces();
+        }
         private void GetInterfaces()
         {
             statItemBehaviors = GetComponents<IStatItemBehavior>();

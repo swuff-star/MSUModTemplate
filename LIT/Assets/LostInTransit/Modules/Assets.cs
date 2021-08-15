@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Path = System.IO.Path;
 
-namespace LostInTransit.Modules
+namespace LostInTransit
 {
     internal static class Assets
     {
