@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 384053404
+CRC: 3328890014
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: bbd609157f60a712feb9787432e47813
+    Hash: 9befe07b685400ea5559e018b0c02b42
   TypeTreeHash:
     serializedVersion: 2
     Hash: 92596492393e3ebdae18f37b1e891c2f
@@ -37,15 +37,21 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Mesh/meshMysteriousVialCap.mesh
+- Assets/Textures/texThalliumC.png
 - Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/GiganticAmethyst.asset
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/pickupMysetriousVial.prefab
 - Assets/Textures/Ramps/texRampTwotone.png
+- Assets/LostInTransit/LITAssets/Items/Thallium/pickupThallium.prefab
 - Assets/Materials/matGiganticAmethyst.mat
+- Assets/LostInTransit/LITAssets/Items/Thallium/iconThallium.png
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/iconMysteriousVial.png
 - Assets/LostInTransit/LITAssets/ContentPack.asset
 - Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/iconGiganticAmethyst.png
 - Assets/Mesh/meshMysteriousVialLiquid.mesh
+- Assets/Textures/texThalliumNormal.png
 - Assets/Textures/texGiganticAmethyst.png
+- Assets/Mesh/meshThallium.mesh
+- Assets/Materials/matThallium.mat
 - Assets/Mesh/meshMysteriousVialGlass.mesh
 - Assets/Materials/matMysteriousVialGlass.mat
 - Assets/Mesh/meshGiganticAmethyst.mesh
@@ -58,4 +64,5 @@ Assets:
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/MysteriousVial.asset
 - Assets/Mesh/meshMysteriousVialSplat.mesh
 - Assets/Shaders/deferred/hgstandard.shader
+- Assets/LostInTransit/LITAssets/Items/Thallium/Thallium.asset
 Dependencies: []
