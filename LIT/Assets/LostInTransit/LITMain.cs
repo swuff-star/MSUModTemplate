@@ -2,6 +2,7 @@
 using BepInEx.Configuration;
 using LostInTransit.Modules;
 using R2API.Utils;
+using R2API;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security;
@@ -22,7 +23,7 @@ namespace LostInTransit
     [BepInPlugin(GUID, MODNAME, VERSION)]
     [R2APISubmoduleDependency(new string[]
     {
-
+        "DotAPI"
     })]
     public class LITMain : BaseUnityPlugin
     {
