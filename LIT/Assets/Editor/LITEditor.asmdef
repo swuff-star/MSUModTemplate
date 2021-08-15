@@ -1,0 +1,23 @@
+{
+    "name": "LITEditor",
+    "references": [
+        "LostInTransit",
+        "ThunderKit.Core",
+        ""
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "BepInEx.dll",
+        "StubbedAssembly-CSharp.dll",
+        "HGUnityUtils.dll",
+        "HGCSharpUtils.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_EDITOR"
+    ]
+}

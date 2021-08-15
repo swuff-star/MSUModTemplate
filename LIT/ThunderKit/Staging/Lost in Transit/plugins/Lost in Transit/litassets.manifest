@@ -1,0 +1,53 @@
+ManifestFileVersion: 0
+CRC: 684441373
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 23f3bca57ce82234ad903598a84c7990
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6aa470cdda5ae8ad7194e4fe7a63a4b8
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Mesh/meshMysteriousVialCap.mesh
+- Assets/LostInTransit/LITAssets/Items/MysteriousVial/pickupMysetriousVial.prefab
+- Assets/Textures/Ramps/texRampTwotone.png
+- Assets/LostInTransit/LITAssets/Items/MysteriousVial/iconMysteriousVial.png
+- Assets/LostInTransit/LITAssets/ContentPack.asset
+- Assets/Mesh/meshMysteriousVialLiquid.mesh
+- Assets/Mesh/meshMysteriousVialGlass.mesh
+- Assets/Materials/matMysteriousVialGlass.mat
+- Assets/Materials/matMysteriousVialLiquid.mat
+- Assets/Textures/texMysteriousVialEmission.png
+- Assets/Shaders/fx/hgintersectioncloudremap.shader
+- Assets/Materials/matMysteriousVialCap.mat
+- Assets/Textures/texMysteriousVialDiffuse.png
+- Assets/LostInTransit/LITAssets/Items/MysteriousVial/MysteriousVial.asset
+- Assets/Mesh/meshMysteriousVialSplat.mesh
+- Assets/Shaders/deferred/hgstandard.shader
+Dependencies: []

@@ -291,6 +291,9 @@ PlayerSettings:
   - m_BuildTarget: WebGLSupport
     m_APIs: 0b000000
     m_Automatic: 1
+  - m_BuildTarget: WindowsStandaloneSupport
+    m_APIs: 1500000002000000
+    m_Automatic: 0
   m_BuildTargetVRSettings:
   - m_BuildTarget: Standalone
     m_Enabled: 0
@@ -531,7 +534,16 @@ PlayerSettings:
   webGLCompressionFormat: 1
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api
+    7: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api
+    13: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api
+    19: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api
+    21: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api
+    25: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api
+    26: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api
+    27: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api
+    28: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
