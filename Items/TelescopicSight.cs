@@ -13,7 +13,7 @@ namespace LostInTransit.Items
     {
         public override string ItemName => "Telescopic Sight";
 
-        public override string ItemLangTokenName => "CRIT_SCOPE";
+        public override string ItemLangTokenName => "TELESCOPIC_SIGHT_LIT";
 
         public override string ItemPickupDesc => "Crits have a chance to crit";
 

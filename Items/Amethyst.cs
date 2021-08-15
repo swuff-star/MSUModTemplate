@@ -17,7 +17,7 @@ namespace LostInTransit.Equipment
     {
         public override string EquipmentName => "Gigantic Amethyst";
 
-        public override string EquipmentLangTokenName => "GIGANTIC_AMETHYST";
+        public override string EquipmentLangTokenName => "GIGANTIC_AMETHYST_LIT";
 
         public override string EquipmentPickupDesc => "Reset skill cooldowns on use.";
 

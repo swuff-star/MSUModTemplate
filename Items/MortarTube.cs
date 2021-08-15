@@ -15,7 +15,7 @@ namespace LostInTransit.Items
     {
         public override string ItemName => "Mortar Tube";
 
-        public override string ItemLangTokenName => "MORTAR";
+        public override string ItemLangTokenName => "MORTAR_LIT";
 
         public override string ItemPickupDesc => "Chance to fire a mortar on-hit.";
 

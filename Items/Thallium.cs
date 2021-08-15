@@ -19,7 +19,7 @@ namespace LostInTransit.Items
     {
         public override string ItemName => "Thallium";
 
-        public override string ItemLangTokenName => "thallium";
+        public override string ItemLangTokenName => "THALLIUM_LIT";
 
         public override string ItemPickupDesc => "Chance to poison and slow enemies.";
 

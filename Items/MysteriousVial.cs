@@ -16,7 +16,7 @@ namespace LostInTransit.Items
     {
         public override string ItemName => "Mysterious Vial";
 
-        public override string ItemLangTokenName => "MYSTERIOUS_VIAL";
+        public override string ItemLangTokenName => "MYSTERIOUS_VIAL_LIT";
 
         public override string ItemPickupDesc => "Regenerate more health.";
 
