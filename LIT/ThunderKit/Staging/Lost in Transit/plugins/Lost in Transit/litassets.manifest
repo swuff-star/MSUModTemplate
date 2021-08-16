@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4099418253
+CRC: 2790695610
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a792cc86ec06dd2eb8bb854320c77ed8
+    Hash: e48b6348fef79900206cb38ed3b781e6
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 71161206d09f7d67f20765603112389e
+    Hash: 9178a68fc2683845d03103e15d1d68a9
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -33,15 +33,21 @@ ClassTypes:
   Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 43e723d799bae994db44fcb537a80a8f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9370445bc9fc2de4c890ef1e54b94202, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 Assets:
+- Assets/LostInTransit/LITAssets/Items/MysteriousVial/displayMysteriousVial.prefab
 - Assets/Mesh/meshMysteriousVialCap.mesh
 - Assets/Textures/texThalliumC.png
 - Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/GiganticAmethyst.asset
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/pickupMysetriousVial.prefab
+- Assets/LostInTransit/LITAssets/IDRS/commandoLITIDRS.asset
 - Assets/Textures/Ramps/texRampTwotone.png
 - Assets/LostInTransit/LITAssets/Items/Thallium/pickupThallium.prefab
 - Assets/Materials/matGiganticAmethyst.mat
@@ -57,6 +63,7 @@ Assets:
 - Assets/Mesh/meshMysteriousVialGlass.mesh
 - Assets/Materials/matMysteriousVialGlass.mat
 - Assets/Mesh/meshGiganticAmethyst.mesh
+- Assets/LostInTransit/LITAssets/LITItemDisplays.asset
 - Assets/Materials/matMysteriousVialLiquid.mat
 - Assets/LostInTransit/LITAssets/Items/Thallium/buffThalliumPoison.asset
 - Assets/Textures/texMysteriousVialEmission.png

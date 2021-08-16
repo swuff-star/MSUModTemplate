@@ -37,6 +37,8 @@ namespace LostInTransit
 
         public static ConfigFile config;
 
+        public static bool DEBUG = true;
+
         public void Awake()
         {
             instance = this;
@@ -46,6 +48,10 @@ namespace LostInTransit
             config = Config;
 
             LITLogger.logger = Logger;
+            if(DEBUG)
+            {
+                LITDebug component = base.gameObject.AddComponent<LITDebug>();
+            }
             Initialize();
             new LITContent().Initialize();
         }
@@ -56,6 +62,13 @@ namespace LostInTransit
             LITConfig.Initialize(config);
             Buffs.Buffs.Initialize();
             Pickups.Initialize();
+
+
+            ItemDisplays.Initialize();
+            RoR2.ContentManagement.ContentManager.onContentPacksAssigned += (_) =>
+            {
+                ItemDisplays.FinishIDRS();
+            };
         }
     }
 }
