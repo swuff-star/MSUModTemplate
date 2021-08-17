@@ -10,6 +10,7 @@ using UnityEngine.Networking;
 using Equipment = LostInTransit.Equipments.EquipmentBase;
 using Item = LostInTransit.Items.ItemBase;
 using LostInTransit.Utils;
+using LostInTransit.Equipments;
 
 namespace LostInTransit.Modules
 {
@@ -37,6 +38,8 @@ namespace LostInTransit.Modules
         public static Dictionary<EquipmentDef, Equipment> Equipments = new Dictionary<EquipmentDef, Equipment>();
         public static Dictionary<string, UnityEngine.Object> EquipmentPickups = new Dictionary<string, UnityEngine.Object>();
 
+        public static Dictionary<EquipmentDef, EliteEquipment> EliteEquipments = new Dictionary<EquipmentDef, EliteEquipment>();
+
         public static void Initialize()
         {
             LITLogger.LogI("Initializing Pickups");
@@ -49,6 +52,7 @@ namespace LostInTransit.Modules
             {
                 LITLogger.LogD("Initializing Equipments...");
                 InitializeEquipments();
+                InitializeEliteEquipments();
             }
             On.RoR2.EquipmentSlot.PerformEquipmentAction += FireLITEqp;
             CharacterBody.onBodyStartGlobal += AddItemManager;
@@ -74,7 +78,7 @@ namespace LostInTransit.Modules
         private static void InitializeEquipments()
         {
             typeof(Pickups).Assembly.GetTypes()
-                .Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Equipment)) /*&& !type.IsSubclassOf(typeof(EliteEquipment))*/)
+                .Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Equipment)) && !type.IsSubclassOf(typeof(EliteEquipment)))
                 .Select(eqpType => (Equipment)Activator.CreateInstance(eqpType))
                 .ToList()
                 .ForEach(equipment =>
@@ -83,6 +87,19 @@ namespace LostInTransit.Modules
                     equipment.Initialize();
                     Equipments.Add(equipment.EquipmentDef, equipment);
                     LITLogger.LogD($"Added equipment {equipment.EquipmentDef.name}");
+                });
+        }
+
+        private static void InitializeEliteEquipments()
+        {
+            typeof(Pickups).Assembly.GetTypes()
+                .Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(EliteEquipment)))
+                .Select(eqpEliteType => (EliteEquipment)Activator.CreateInstance(eqpEliteType))
+                .ToList()
+                .ForEach(equipElite =>
+                {
+                    EliteEquipments.Add(equipElite.EquipmentDef, equipElite);
+                    LITLogger.LogD($"Added Equipment Elite {equipElite.EquipmentDef.name}");
                 });
         }
 

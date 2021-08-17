@@ -59,9 +59,11 @@ namespace LostInTransit
         private void Initialize()
         {
             Assets.Initialize();
+            Interfaces.Initialize();
             LITConfig.Initialize(config);
             Buffs.Buffs.Initialize();
             Pickups.Initialize();
+            Elites.Initialize();
 
 
             ItemDisplays.Initialize();
