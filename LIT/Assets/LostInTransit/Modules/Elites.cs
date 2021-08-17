@@ -49,6 +49,23 @@ namespace LostInTransit.Modules
                     LITLogger.LogD($"Added Elite {def.name}");
                 }
             }
+            foreach (var eliteDef in elites)
+            {
+                switch (eliteDef.eliteTier)
+                {
+                    case EliteTiers.Basic:
+                        HG.ArrayUtils.ArrayAppend(ref CombatDirector.eliteTiers[1].eliteTypes, eliteDef);
+                        HG.ArrayUtils.ArrayAppend(ref CombatDirector.eliteTiers[2].eliteTypes, eliteDef);
+                        LITLogger.LogD($"Added Elite {eliteDef.name} to Combat Director's Tier 1 & 2's Elites.");
+                        break;
+                    case EliteTiers.PostLoop:
+                        HG.ArrayUtils.ArrayAppend(ref CombatDirector.eliteTiers[3].eliteTypes, eliteDef);
+                        LITLogger.LogD($"Added Elite {eliteDef.name} to Combat Director's Tier 3 Elites.");
+                        break;
+                    case EliteTiers.Other:
+                        break;
+                }
+            }
             IL.RoR2.CharacterModel.UpdateMaterials += AddEliteMaterial;
         }
 
