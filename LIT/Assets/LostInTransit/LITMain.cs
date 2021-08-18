@@ -60,6 +60,7 @@ namespace LostInTransit
         {
             Assets.Initialize();
             Interfaces.Initialize();
+            LITLanguage.Initialize();
             LITConfig.Initialize(config);
             Buffs.Buffs.Initialize();
             Pickups.Initialize();
