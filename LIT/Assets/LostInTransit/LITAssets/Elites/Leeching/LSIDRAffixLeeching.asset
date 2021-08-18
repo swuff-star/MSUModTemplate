@@ -1,0 +1,202 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18da6a74153d8114aabedb8f491266cb, type: 3}
+  m_Name: LSIDRAffixLeeching
+  m_EditorClassIdentifier: 
+  KeyAssetName: AffixLeeching
+  displayPrefabName: DisplayLeechingCrown
+  ItemDisplayRules:
+  - VanillaIDRSKey: idrsVulture
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,0.00084,1.66634,-0.40485,90,180,0,0.31519,0.50995,0.50995
+      limbMask: 0
+  - VanillaIDRSKey: idrsBeetle
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,0.02832,-0.03828,-0.29656,297.4901,353.9959,5.28364,0.12736,0.15382,0.15382
+      limbMask: 0
+  - VanillaIDRSKey: idrsBeetleGuard
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,-0.02575,1.82141,0.4431,81.2463,25.75783,30.56643,0.22818,0.34826,0.34826
+      limbMask: 0
+  - VanillaIDRSKey: idrsBeetleQueen
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,0,1.07807,-1.4896,292.3445,-0.00003,0.00003,0.27068,0.5744,0.33296
+      limbMask: 0
+  - VanillaIDRSKey: idrsBison
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,-0.04617,0.67247,-0.06241,44.52484,4.0524,1.95594,0.06407,0.18544,0.16665
+      limbMask: 0
+  - VanillaIDRSKey: idrsClayBruiser
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,-0.00077,0.17053,0.20441,270,180.2482,0,0.06166,0.08323,0.08138
+      limbMask: 0
+  - VanillaIDRSKey: idrsClayBoss
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: PotLidTop,0,0.26677,2.52919,0,180,0,0.26864,0.42747,0.42747
+      limbMask: 0
+  - VanillaIDRSKey: idrsLemurian
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,0,3.06359,0.87267,343.6724,180,0,0.18879,0.29686,0.21083
+      limbMask: 0
+  - VanillaIDRSKey: idrsLemurianBruiser
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,-0.00001,3.62692,-1.46115,0,0,0,0.29635,0.2821,0.32271
+      limbMask: 0
+  - VanillaIDRSKey: idrsWisp
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,0,0.4086,-0.03126,26.37197,0,0,0.09556,0.19826,0.19826
+      limbMask: 0
+  - VanillaIDRSKey: idrsGreaterWisp
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: MaskBase,0,0,0.53678,281.225,180.0236,0.0236,0.14228,0.27387,0.27387
+      limbMask: 0
+  - VanillaIDRSKey: idrsGravekeeperBody
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Mask,0.00147,0.20377,-0.00343,14.74773,0.02102,0.87488,0.23813,0.28681,0.44331
+      limbMask: 0
+  - VanillaIDRSKey: idrsHermitCrab
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Base,-0.14382,0.10999,0.64853,322.7002,166.8134,0.92516,0.08182,0.21696,0.21696
+      limbMask: 0
+  - VanillaIDRSKey: idrsImp
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Neck,0,-0.2791,-0.25856,315.5487,0,0,0.0615,0.0615,0.09269
+      limbMask: 0
+  - VanillaIDRSKey: idrsImpBoss
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Neck,0,-0.77046,-1.05652,315.3978,0.00004,-0.00003,0.23884,0.23884,0.33124
+      limbMask: 0
+  - VanillaIDRSKey: idrsJellyfish
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Hull2,0.39409,1.2613,0.35183,42.64762,185.5824,24.28107,0.12562,0.21934,0.2114
+      limbMask: 0
+  - VanillaIDRSKey: idrsVagrant
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Hull,0,-0.37398,1.04762,274.1104,2.67858,177.8203,0.12961,0.19556,0.19556
+      limbMask: 0
+  - VanillaIDRSKey: idrsMiniMushroom
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,0.80145,-0.91268,0,0.00001,270,180,0.17948,0.17948,0.17948
+      limbMask: 0
+  - VanillaIDRSKey: idrsParent
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,4.38035,108.2677,0.00003,331.9738,271.7915,1.0021,7.23811,10,15.57016
+      limbMask: 0
+  - VanillaIDRSKey: idrsGrandparent
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,-0.00001,10.51415,1.61335,270,180,0,0.60732,0.29037,1.33931
+      limbMask: 0
+  - VanillaIDRSKey: idrsRoboBallMini
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Muzzle,0,0,0,326.4669,177.3654,1.45614,0.14881,0.24804,0.24804
+      limbMask: 0
+  - VanillaIDRSKey: idrsRoboBallBoss
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Center,-0.00317,0.41686,1.24678,0,180,0,0.1703,0.24651,0.24651
+      limbMask: 0
+  - VanillaIDRSKey: idrsGolem
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,0,0.32278,0.36516,289.5861,180,-0.00001,0.15028,0.12599,0.18009
+      limbMask: 0
+  - VanillaIDRSKey: idrsTitan
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,0,1.45765,1.50812,284.4924,180,-0.00001,0.23439,0.55108,1
+      limbMask: 0
+  - VanillaIDRSKey: idrsNullifier
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Muzzle,-0.00226,-1.30802,0.64344,299.231,0.06105,179.1168,0.29065,0.40233,0.48543
+      limbMask: 0
+  - VanillaIDRSKey: idrsScav
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Chest,0.00001,2.8187,-8.13455,339.1021,0,0.00002,1,1,1
+      limbMask: 0
+  - VanillaIDRSKey: idrsCroco
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: HeadCenter,0.00806,2.99324,-1.68064,0,0,0,0.22458,0.51239,0.51239
+      limbMask: 0
+  - VanillaIDRSKey: idrsMage
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,0.00017,-0.03309,0.1588,306.0619,182.2546,348.2849,0.01763,0.03278,0.04946
+      limbMask: 0
+  - VanillaIDRSKey: idrsBandit2
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Hat,-0.00344,-0.0717,0.21096,295.2943,175.0177,351.909,0.02276,0.02995,0.02995
+      limbMask: 0
+  - VanillaIDRSKey: idrsCaptain
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,-0.0115,-0.00879,0.12676,281.5566,186.0019,348.4272,0.02056,0.04237,0.04237
+      limbMask: 0
+  - VanillaIDRSKey: idrsCommando
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,-0.00845,0.18273,0.15216,312.3346,178.8445,358.6915,0.02765,0.05913,0.05538
+      limbMask: 0
+  - VanillaIDRSKey: idrsEngi
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: HeadCenter,-0.00096,-0.0018,0.14629,296.9394,180.3649,0,0.03179,0.03179,0.03179
+      limbMask: 0
+  - VanillaIDRSKey: idrsHuntress
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,-0.00042,0.14974,0.12927,300.2664,180.641,0.86696,0.02001,0.04239,0.04239
+      limbMask: 0
+  - VanillaIDRSKey: idrsLoader
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,-0.00005,0.01009,0.12887,296.9205,179.9281,359.9277,0.01914,0.07966,0.0588
+      limbMask: 0
+  - VanillaIDRSKey: idrsMerc
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,-0.00022,0.05221,0.12255,284.5775,179.9687,359.9689,0.01687,0.04938,0.04075
+      limbMask: 0
+  - VanillaIDRSKey: idrsToolBotBody
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,0,3.17411,-1.55284,0,0,0,0.29823,0.41683,0.41683
+      limbMask: 0
+  - VanillaIDRSKey: idrsTreeBot
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: HeadBase,0,0.13605,-0.74544,90,180,0,0.09959,0.09959,0.16733
+      limbMask: 0

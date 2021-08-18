@@ -49,6 +49,13 @@ namespace LostInTransit.Modules
                     LITLogger.LogD($"Added Elite {def.name}");
                 }
             }
+            IL.RoR2.CharacterModel.UpdateMaterials += AddEliteMaterial;
+            On.RoR2.CombatDirector.Init += AddLITElites;
+        }
+
+        private static void AddLITElites(On.RoR2.CombatDirector.orig_Init orig)
+        {
+            orig();
             foreach (var eliteDef in elites)
             {
                 switch (eliteDef.eliteTier)
@@ -66,7 +73,6 @@ namespace LostInTransit.Modules
                         break;
                 }
             }
-            IL.RoR2.CharacterModel.UpdateMaterials += AddEliteMaterial;
         }
 
         //TYVM Mystic!

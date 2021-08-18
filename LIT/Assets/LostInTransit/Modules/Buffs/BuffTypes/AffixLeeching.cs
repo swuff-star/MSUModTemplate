@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 using LostInTransit.Utils;
+using LostInTransit.Components;
 
 namespace LostInTransit.Buffs
 {
@@ -27,12 +28,15 @@ namespace LostInTransit.Buffs
 
         public class AffixLeechingBehavior : CharacterBody.ItemBehavior, IOnDamageDealtServerReceiver
         {
-            public float timeBetweenHeals = 30f;
+            public float timeBetweenHeals = 15;
+
+            public GameObject VisualEffect = Assets.LITAssets.LoadAsset<GameObject>("VFXLeeching");
 
             private List<HurtBox> hurtBoxes;
 
             private SphereSearch healSearch;
 
+            private GameObject VFXInstance;
 
             private float stopwatch;
 
@@ -40,6 +44,8 @@ namespace LostInTransit.Buffs
             {
                 hurtBoxes = new List<HurtBox>();
                 healSearch = new SphereSearch();
+                var component = VisualEffect.GetComponent<ScaleByBodyRadius>();
+                component.body = body;
             }
             public void Update()
             {
@@ -53,6 +59,7 @@ namespace LostInTransit.Buffs
 
             private void HealNearby()
             {
+                var hasBursted = false;
                 TeamMask mask = default(TeamMask);
                 mask.AddTeam(body.teamComponent.teamIndex);
                 hurtBoxes.Clear();
@@ -65,7 +72,15 @@ namespace LostInTransit.Buffs
                 foreach(HurtBox h in hurtBoxes)
                 {
                     if(h.healthComponent.body != body)
+                    {
                         h.healthComponent.body.AddTimedBuff(RoR2Content.Buffs.CrocoRegen, 5);
+                        if(!hasBursted)
+                        {
+                            VFXInstance = Instantiate(VisualEffect, body.aimOriginTransform);
+                            hasBursted = true;
+                        }
+                    }
+
                 }
             }
             public void OnDamageDealtServer(DamageReport damageReport)
@@ -74,10 +89,8 @@ namespace LostInTransit.Buffs
                 var victimBody = damageReport.victimBody;
                 if ((bool)attackerBody == body && (bool)victimBody)
                 {
-                    if(damageReport.dotType == default)
-                    {
-                        attackerBody.healthComponent.Heal((damageReport.damageDealt * damageReport.damageInfo.procCoefficient), default);
-                    }
+                    Debug.Log(damageReport.dotType);
+                    attackerBody.healthComponent.Heal((damageReport.damageDealt * (damageReport.damageInfo.procCoefficient * 0.25f)), default);
                 }
             }
         }

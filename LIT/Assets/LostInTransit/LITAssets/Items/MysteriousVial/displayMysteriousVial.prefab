@@ -240,8 +240,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3305120174629390406}
+  - component: {fileID: 1282243104052395192}
   m_Layer: 0
-  m_Name: displayMysteriousVial
+  m_Name: DisplayMysteriousVial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,3 +265,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1282243104052395192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3305120174629491814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1479993534, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rendererInfos:
+  - renderer: {fileID: 3305120174631684768}
+    defaultMaterial: {fileID: 2100000, guid: 9f0310fd763ae6448b7f09879c5bd0f2, type: 2}
+    defaultShadowCastingMode: 0
+    ignoreOverlays: 0
+  - renderer: {fileID: 3305120174631684770}
+    defaultMaterial: {fileID: 2100000, guid: 3ea847f83da557b4081723d5f64fbfd9, type: 2}
+    defaultShadowCastingMode: 0
+    ignoreOverlays: 0
+  - renderer: {fileID: 3305120174631684772}
+    defaultMaterial: {fileID: 2100000, guid: 12e5502a90762784f95100c2a3e9fa93, type: 2}
+    defaultShadowCastingMode: 0
+    ignoreOverlays: 0

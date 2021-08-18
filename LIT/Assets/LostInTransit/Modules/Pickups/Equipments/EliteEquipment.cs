@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LostInTransit.ScriptableObjects;
 using LostInTransit.Modules;
+using LostInTransit.Components;
 
 namespace LostInTransit.Equipments
 {
@@ -39,7 +40,14 @@ namespace LostInTransit.Equipments
                     return;
                 }
                 if (elite.effect)
+                {
+                    var scaleComponent = elite.effect.GetComponent<ScaleByBodyRadius>();
+                    if((bool)scaleComponent)
+                    {
+                        scaleComponent.body = body;
+                    }
                     effectInstance = Instantiate(elite.effect, body.aimOriginTransform, false);
+                }
             }
 
             public void OnDestroy()

@@ -98,6 +98,22 @@ namespace LostInTransit.Modules
                         });
                     }
                 });
+            var SingleItemDisplayRules = Assets.LITAssets.LoadAllAssets<LITSingleItemDisplayRule>();
+            for (int i = 0; i < SingleItemDisplayRules.Length; i++)
+            {
+                var currentI = SingleItemDisplayRules[i];
+                for(int j = 0; j < currentI.ItemDisplayRules.Count; j++)
+                {
+                    var currentJ = currentI.ItemDisplayRules[j];
+                    currentJ.FetchIDRS();
+                    for (int k = 0; k < currentJ.ItemDisplayRules.Count; k++)
+                    {
+                        var currentK = currentJ.ItemDisplayRules[k];
+                        var toAppend = currentI.Parse(j);
+                        HG.ArrayUtils.ArrayAppend(ref currentJ.vanillaIDRS.keyAssetRuleGroups, toAppend);
+                    }
+                }
+            }
         }
 
         private static void PopulateFromBody(string bodyName)

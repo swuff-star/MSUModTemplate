@@ -13,6 +13,7 @@ namespace LostInTransit.ScriptableObjects
         public Texture eliteRamp;
         public Material overlay;
         public Material particleMaterial;
+
         public GameObject effect;
     }
 

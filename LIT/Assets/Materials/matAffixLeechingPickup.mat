@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: matAffixLeechingPickup
   m_Shader: {fileID: 4800000, guid: c174445f76f5fa046a90dcd25f7f8d12, type: 3}
-  m_ShaderKeywords: DISABLEREMAP FRESNEL PRINT_CUTOFF VERTEXOFFSET _EMISSION
+  m_ShaderKeywords: DISABLEREMAP FRESNEL FRESNEL_EMISSION VERTEXOFFSET _EMISSION
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FresnelRamp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: c09fdfb4285d6cc45943700fb4d6ff16, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GreenChannelNormalTex:
@@ -69,14 +69,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PrintRamp:
-        m_Texture: {fileID: 2800000, guid: 1f5658270406d26468e991670998a209, type: 3}
+        m_Texture: {fileID: 2800000, guid: 285e16d1d7b5c8a4f9761e8eebc5e165, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RemapTex:
@@ -116,10 +116,10 @@ Material:
     - _EliteBrightnessMax: 1
     - _EliteBrightnessMin: 0
     - _EliteIndex: 0
-    - _EmPower: 1
+    - _EmPower: 0
     - _EnableCutout: 0
     - _ExternalAlpha: 1
-    - _FEON: 0
+    - _FEON: 1
     - _Fade: 1
     - _FadeBias: 0
     - _FadeCloseDistance: 0.5
@@ -133,9 +133,9 @@ Material:
     - _FlowTextureScaleFactor: 1
     - _FlowmapOn: 0
     - _ForceSpecOn: 0
-    - _FresnelBoost: 1
+    - _FresnelBoost: 20
     - _FresnelOn: 1
-    - _FresnelPower: 2
+    - _FresnelPower: 4.11
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -155,7 +155,7 @@ Material:
     - _PrintBoost: 1
     - _PrintDirection: 0
     - _PrintEmissionToAlbedoLerp: 0
-    - _PrintOn: 1
+    - _PrintOn: 0
     - _RampInfo: 0
     - _RimPower: 0.5
     - _SinRate: 0
@@ -165,9 +165,9 @@ Material:
     - _SliceHeight: 5
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
-    - _SpecularExponent: 1
+    - _SpecularExponent: 9.26
     - _SpecularHighlights: 1
-    - _SpecularStrength: 0
+    - _SpecularStrength: 0.258
     - _SplatmapOn: 0
     - _SplatmapTileScale: 1
     - _SrcBlend: 5
@@ -183,7 +183,7 @@ Material:
     - _BorderScale: {r: 0.3, g: 0.19, b: 0, a: 0}
     - _Color: {r: 0, g: 1, b: 0, a: 1}
     - _CutoffScroll: {r: 6, g: 6, b: 0, a: 0}
-    - _EmColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlashColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 1, g: 0.6827586, b: 0, a: 0}

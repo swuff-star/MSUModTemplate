@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1351486642
+CRC: 3938577352
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a8ba829012c70341eeb50a2c6c3d5cb9
+    Hash: fdbda1c258dd7a07f99ed0f386245fc8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 5e0489fd616089c7a6f17fdad2f5b3dd
+    Hash: 0235f9848efc943364c36ea33382e08f
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -28,59 +28,76 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1783169300, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: -335047464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 1512808244, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -1479993534, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 43e723d799bae994db44fcb537a80a8f, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 9370445bc9fc2de4c890ef1e54b94202, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 4ecd7d3a93e851645b9a6c02bf9a8d55, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c134fbbf2f280bc4ba75be3e8aeca8d1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 18da6a74153d8114aabedb8f491266cb, type: 3}
 - Class: 115
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/LostInTransit/LITAssets/Items/MysteriousVial/displayMysteriousVial.prefab
+- Assets/LostInTransit/LITAssets/Items/MysteriousVial/DisplayMysteriousVial.prefab
 - Assets/Mesh/meshMysteriousVialCap.mesh
-- Assets/LostInTransit/LITAssets/Elites/texIconBuffAffixVoid.png
+- Assets/LostInTransit/LITAssets/Elites/Leeching/DisplayLeechingCrown.prefab
 - Assets/Textures/texThalliumC.png
 - Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/GiganticAmethyst.asset
 - Assets/Textures/Stolen/texCloudOrganic2.asset
-- Assets/LostInTransit/LITAssets/Items/MysteriousVial/pickupMysetriousVial.prefab
-- Assets/LostInTransit/LITAssets/Elites/BuffAffixLeeching.asset
+- Assets/Mesh/meshCross.mesh
+- Assets/LostInTransit/LITAssets/Items/MysteriousVial/PickupMysteriousVial.prefab
+- Assets/Textures/Stolen/Ramps/texRampMagmaWorm.asset
+- Assets/LostInTransit/LITAssets/Elites/Leeching/BuffAffixLeeching.asset
 - Assets/Materials/matAffixLeechingPickup.mat
-- Assets/LostInTransit/LITAssets/IDRS/commandoLITIDRS.asset
 - Assets/Textures/Ramps/texRampTwotone.png
-- Assets/LostInTransit/LITAssets/Items/Thallium/pickupThallium.prefab
+- Assets/LostInTransit/LITAssets/Items/Thallium/PickupThallium.prefab
 - Assets/Materials/matGiganticAmethyst.mat
 - Assets/LostInTransit/LITAssets/Items/Thallium/iconThallium.png
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/iconMysteriousVial.png
+- Assets/LostInTransit/LITAssets/Elites/Leeching/VFXLeeching_OLD.prefab
+- Assets/Textures/Stolen/Ramps/texRampCloth.asset
 - Assets/LostInTransit/LITAssets/ContentPack.asset
 - Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/iconGiganticAmethyst.png
+- Assets/LostInTransit/LITAssets/Elites/Leeching/VFXLeeching.prefab
 - Assets/Mesh/meshMysteriousVialLiquid.mesh
 - Assets/Textures/texThalliumNormal.png
 - Assets/Textures/texGiganticAmethyst.png
 - Assets/Mesh/meshThallium.mesh
-- Assets/Textures/Ramps/texRampLeecehingElite.png
-- Assets/LostInTransit/LITAssets/Elites/AffixLeeching.asset
+- Assets/LostInTransit/LITAssets/Elites/Leeching/texIconPickupAffixLeeching.png
+- Assets/LostInTransit/LITAssets/Elites/Leeching/AffixLeeching.asset
 - Assets/Materials/matThallium.mat
-- Assets/LostInTransit/LITAssets/Elites/texIconPickupAffixVoid.png
 - Assets/Mesh/meshMysteriousVialGlass.mesh
 - Assets/Materials/matMysteriousVialGlass.mat
 - Assets/Mesh/meshGiganticAmethyst.mesh
 - Assets/LostInTransit/LITAssets/LITItemDisplays.asset
 - Assets/Materials/matMysteriousVialLiquid.mat
 - Assets/LostInTransit/LITAssets/Items/Thallium/buffThalliumPoison.asset
+- Assets/Mesh/meshLeechingCrown.mesh
+- Assets/Textures/Ramps/texRampEliteLeeching.png
 - Assets/Textures/texMysteriousVialEmission.png
+- Assets/LostInTransit/LITAssets/Elites/Leeching/LSIDRAffixLeeching.asset
 - Assets/Shaders/fx/hgintersectioncloudremap.shader
-- Assets/LostInTransit/LITAssets/Elites/Leeching.asset
+- Assets/LostInTransit/LITAssets/Elites/Leeching/texIconBuffAffixLeeching.png
+- Assets/LostInTransit/LITAssets/Elites/Leeching/Leeching.asset
 - Assets/Materials/matMysteriousVialCap.mat
-- Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/pickupGiganticAmethyst.prefab
-- Assets/LostInTransit/LITAssets/Elites/PickupAffixLeeching.prefab
+- Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/PickupGiganticAmethyst.prefab
+- Assets/LostInTransit/LITAssets/Elites/Leeching/PickupAffixLeeching.prefab
 - Assets/Textures/texMysteriousVialDiffuse.png
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/MysteriousVial.asset
 - Assets/Mesh/meshMysteriousVialSplat.mesh
