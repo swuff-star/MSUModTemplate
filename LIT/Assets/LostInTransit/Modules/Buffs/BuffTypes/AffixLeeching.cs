@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using LostInTransit.Modules;
 using UnityEngine.Networking;
 using LostInTransit.Utils;
 using LostInTransit.Components;
@@ -85,13 +86,7 @@ namespace LostInTransit.Buffs
             }
             public void OnDamageDealtServer(DamageReport damageReport)
             {
-                var attackerBody = damageReport.attackerBody;
-                var victimBody = damageReport.victimBody;
-                if ((bool)attackerBody == body && (bool)victimBody)
-                {
-                    Debug.Log(damageReport.dotType);
-                    attackerBody.healthComponent.Heal((damageReport.damageDealt * (damageReport.damageInfo.procCoefficient * 0.25f)), default);
-                }
+                damageReport.attackerBody?.healthComponent?.Heal((damageReport.damageDealt * (damageReport.damageInfo.procCoefficient * 0.25f)), default);
             }
         }
     }
