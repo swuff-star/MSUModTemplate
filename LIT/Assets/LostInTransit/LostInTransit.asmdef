@@ -14,7 +14,9 @@
         "StubbedAssembly-CSharp.dll",
         "MonoMod.Utils.dll",
         "Mono.Cecil.dll",
-        "DebugToolkit.dll"
+        "DebugToolkit.dll",
+        "AspectAbilities.dll",
+        "MysticsRisky2Utils.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []

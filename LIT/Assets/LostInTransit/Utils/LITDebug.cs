@@ -58,5 +58,23 @@ namespace LostInTransit.Utils
                 });
             #endregion
         }
+        public void Update()
+        {
+            var input0 = Input.GetKeyDown(KeyCode.Insert);
+            //add more if necessary
+            if (input0)
+            {
+                var position = Vector3.zero;
+                var quaternion = Quaternion.identity;
+                if (Run.instance)
+                {
+                    var inputBank = PlayerCharacterMasterController.instances[0].master.GetBodyObject().GetComponent<InputBankTest>();
+                    position = inputBank.aimOrigin + inputBank.aimDirection * 5;
+                    quaternion = Quaternion.LookRotation(inputBank.GetAimRay().direction, Vector3.up);
+                }
+                var materialTester = Assets.LITAssets.LoadAsset<GameObject>("MaterialTester");
+                Instantiate(materialTester, position, quaternion);
+            }
+        }
     }
 }

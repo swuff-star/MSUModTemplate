@@ -535,15 +535,15 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
-    1: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit
-    7: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit
-    13: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit
-    19: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit
-    21: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit
-    25: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit
-    26: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit
-    27: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit
-    28: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit
+    1: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities
+    7: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities
+    13: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities
+    19: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities
+    21: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities
+    25: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities
+    26: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities
+    27: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities
+    28: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;iharbhd-debugtoolkit;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

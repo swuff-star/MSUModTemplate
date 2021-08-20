@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3265002474
+CRC: 4090616574
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6f1954bd09eaa8cdd01dff1f1d331faf
+    Hash: 2a4f7ed3dc741e8ed939bdc798ea9eba
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 4f00386317406167efdab27d4e1a092d
+    Hash: 64f83e5d792a9bba596e28d2ca6a5fc5
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -33,27 +33,51 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 95
   Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 2005159759, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1783169300, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -335047464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 511512695, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 1512808244, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 733712478, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1479993534, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 296141222, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1904172584, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 18da6a74153d8114aabedb8f491266cb, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 43e723d799bae994db44fcb537a80a8f, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 4e79f4d8e124b5e45ad5faae196f0a90, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5ef43859fbae6094ca0d47208f3f0c81, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 4ecd7d3a93e851645b9a6c02bf9a8d55, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 64d40d9bb5dd6214eaec15e84d746249, type: 3}
+- Class: 114
+  Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c134fbbf2f280bc4ba75be3e8aeca8d1, type: 3}
 - Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 136
   Script: {instanceID: 0}
 - Class: 137
   Script: {instanceID: 0}
@@ -74,11 +98,15 @@ Assets:
 - Assets/Mesh/meshCross.mesh
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/PickupMysteriousVial.prefab
 - Assets/Textures/Stolen/Ramps/texRampMagmaWorm.asset
+- Assets/LostInTransit/LITAssets/Elites/Leeching/VFXTracerLeechingElite.prefab
 - Assets/LostInTransit/LITAssets/Elites/Leeching/BuffAffixLeeching.asset
+- Assets/Textures/Stolen/texParticleDust1Mask.asset
 - Assets/Materials/matAffixLeechingPickup.mat
+- Assets/Shaders/fx/hgcloudremap.shader
 - Assets/Textures/Ramps/texRampTwotone.png
 - Assets/LostInTransit/LITAssets/Items/Thallium/PickupThallium.prefab
 - Assets/Materials/matGiganticAmethyst.mat
+- Assets/Materials/matEliteLeechingOverlay.mat
 - Assets/LostInTransit/LITAssets/Items/Thallium/iconThallium.png
 - Assets/LostInTransit/LITAssets/Items/BeckoningCat/animControllerBeckoningCat.controller
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/iconMysteriousVial.png
@@ -104,22 +132,31 @@ Assets:
 - Assets/Mesh/meshMysteriousVialGlass.mesh
 - Assets/Materials/matMysteriousVialGlass.mat
 - Assets/Mesh/meshGiganticAmethyst.mesh
+- Assets/Textures/Stolen/texShockwaveMask.asset
 - Assets/LostInTransit/LITAssets/LITItemDisplays.asset
 - Assets/Materials/matMysteriousVialLiquid.mat
 - Assets/LostInTransit/LITAssets/Items/Thallium/buffThalliumPoison.asset
+- Assets/Materials/matTracerBright.mat
+- Assets/LostInTransit/LITAssets/Elites/Leeching/VFXLeechingAbilityActive.prefab
 - Assets/Mesh/meshLeechingCrown.mesh
 - Assets/Textures/Ramps/texRampEliteLeeching.png
 - Assets/Textures/texMysteriousVialEmission.png
 - Assets/LostInTransit/LITAssets/Elites/Leeching/LSIDRAffixLeeching.asset
 - Assets/Shaders/fx/hgintersectioncloudremap.shader
+- Assets/LostInTransit/LITAssets/OtherPrefabs/MaterialTester.prefab
 - Assets/LostInTransit/LITAssets/Elites/Leeching/texIconBuffAffixLeeching.png
 - Assets/LostInTransit/LITAssets/Elites/Leeching/Leeching.asset
 - Assets/Materials/matMysteriousVialCap.mat
 - Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/PickupGiganticAmethyst.prefab
+- Assets/Textures/Stolen/texRampGenericFire.asset
+- Assets/LostInTransit/LITAssets/Effects.asset
 - Assets/LostInTransit/LITAssets/Elites/Leeching/PickupAffixLeeching.prefab
+- Assets/LostInTransit/LITAssets/Elites/Leeching/AbilityLeeching.asset
 - Assets/LostInTransit/LITAssets/Items/BeckoningCat/PickupBeckoningCat.prefab
 - Assets/Textures/texMysteriousVialDiffuse.png
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/MysteriousVial.asset
+- Assets/LostInTransit/LITAssets/OtherPrefabs/SizeReference.prefab
+- Assets/Materials/matEliteLeechingTracer.mat
 - Assets/Mesh/meshMysteriousVialSplat.mesh
 - Assets/Shaders/deferred/hgstandard.shader
 - Assets/LostInTransit/LITAssets/Items/Thallium/Thallium.asset

@@ -1,4 +1,5 @@
 ﻿using LostInTransit.ScriptableObjects;
+using LostInTransit.Utils;
 using RoR2.ContentManagement;
 using System;
 using System.Collections.Generic;
@@ -43,12 +44,18 @@ namespace LostInTransit
 
         private static void SwapShaders(List<Material> materials)
         {
+            var cloudMat = Resources.Load<GameObject>("Prefabs/Effects/OrbEffects/LightningStrikeOrbEffect").transform.Find("Ring").GetComponent<ParticleSystemRenderer>().material;
             materials.ForEach(Material =>
             {
-                Debug.Log("Swapping material.");
                 if (Material.shader.name.StartsWith("StubbedShader"))
                 {
                     Material.shader = Resources.Load<Shader>("shaders" + Material.shader.name.Substring(13));
+                    if (Material.shader.name.Contains("Cloud Remap"))
+                    {
+                        var eatShit = new RuntimeCloudMaterialMapper(Material);
+                        Material.CopyPropertiesFromMaterial(cloudMat);
+                        eatShit.SetMaterialValues(ref Material);
+                    }
                 }
             });
         }

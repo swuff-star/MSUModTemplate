@@ -12,6 +12,8 @@ namespace LostInTransit.Equipments
     {
         public abstract LITEliteDef EliteDef { get; set; }
 
+        public abstract LITAspectAbility AspectAbility { get; set; }
+
         public override void Initialize()
         {
             base.Initialize();

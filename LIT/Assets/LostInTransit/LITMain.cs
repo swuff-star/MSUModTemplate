@@ -18,12 +18,13 @@ using LostInTransit.Buffs;
 
 namespace LostInTransit
 {
-    [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency(R2API.R2API.PluginGUID, BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency(AspectAbilities.AspectAbilitiesPlugin.PluginGUID, BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(GUID, MODNAME, VERSION)]
     [R2APISubmoduleDependency(new string[]
     {
-        nameof(DotAPI)       
+        nameof(DotAPI)
     })]
     public class LITMain : BaseUnityPlugin
     {
@@ -39,6 +40,8 @@ namespace LostInTransit
 
         public static bool DEBUG = true;
 
+        public static bool AspectAbilitiesInstalled = false;
+
         public void Awake()
         {
             instance = this;
@@ -48,7 +51,11 @@ namespace LostInTransit
             config = Config;
 
             LITLogger.logger = Logger;
-            if(DEBUG)
+
+            AspectAbilitiesInstalled = CheckForExternalMod(AspectAbilities.AspectAbilitiesPlugin.PluginGUID);
+
+
+            if (DEBUG)
             {
                 LITDebug component = base.gameObject.AddComponent<LITDebug>();
             }
@@ -72,6 +79,20 @@ namespace LostInTransit
             {
                 ItemDisplays.FinishIDRS();
             };
+        }
+
+        private bool CheckForExternalMod(string GUID)
+        {
+            var hasMod = BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(GUID);
+            if(hasMod)
+            {
+                LITLogger.LogI($"Plugin {GUID} detected, enabling crosscompat.");
+                return hasMod;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

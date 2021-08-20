@@ -29,11 +29,15 @@ namespace LostInTransit.Buffs
 
         public class AffixLeechingBehavior : CharacterBody.ItemBehavior, IOnDamageDealtServerReceiver
         {
-            public float timeBetweenHeals = 15;
+            public float timeBetweenHeals = 20;
 
-            public GameObject VisualEffect = Assets.LITAssets.LoadAsset<GameObject>("VFXLeeching");
+            public GameObject HealingEffect = Assets.LITAssets.LoadAsset<GameObject>("VFXLeeching");
 
-            private List<HurtBox> hurtBoxes;
+            public GameObject AbilityEffect = Assets.LITAssets.LoadAsset<GameObject>("VFXLeechingAbilityActive");
+
+            public GameObject TracerEffect = Assets.LITAssets.LoadAsset<GameObject>("VFXTracerLeechingElite");
+
+            private List<HealthComponent> healthComponents;
 
             private SphereSearch healSearch;
 
@@ -41,12 +45,16 @@ namespace LostInTransit.Buffs
 
             private float stopwatch;
 
+            private bool doingAbility;
+
+            private float AbilityStopwatch;
+
             public void Awake()
             {
-                hurtBoxes = new List<HurtBox>();
                 healSearch = new SphereSearch();
-                var component = VisualEffect.GetComponent<ScaleByBodyRadius>();
-                component.body = body;
+                healthComponents = new List<HealthComponent>();
+                var component = AbilityEffect.AddComponent<DestroyOnTimer>();
+                component.duration = 20;
             }
             public void Update()
             {
@@ -56,37 +64,94 @@ namespace LostInTransit.Buffs
                     stopwatch = 0;
                     HealNearby();
                 }
+                if(doingAbility)
+                {
+                    AbilityStopwatch += Time.deltaTime;
+                    if(AbilityStopwatch >= 20)
+                    {
+                        doingAbility = false;
+                        AbilityStopwatch = 0;
+                    }
+                }
             }
 
+            internal void Ability()
+            {
+                doingAbility = true;
+                EffectData effectData = new EffectData
+                {
+                    scale = body.bestFitRadius,
+                    origin = body.aimOrigin,
+                    rootObject = body.gameObject
+                };
+                EffectManager.SpawnEffect(AbilityEffect, effectData, true);
+            }
             private void HealNearby()
             {
                 var hasBursted = false;
+                SearchAllies();
+                foreach(HealthComponent healthComponent in healthComponents)
+                {
+                    if(healthComponent.body != body)
+                    {
+                        healthComponent.body.AddTimedBuff(RoR2Content.Buffs.CrocoRegen, 5);
+                        if(!hasBursted)
+                        {
+                            EffectData effectData = new EffectData
+                            {
+                                scale = body.radius,
+                                origin = body.aimOrigin
+                            };
+                            EffectManager.SpawnEffect(HealingEffect, effectData, true);
+                            hasBursted = true;
+                        }
+                    }
+                }
+            }
+            private void SearchAllies()
+            {
+                List<HurtBox> hurtBoxes = new List<HurtBox>();
                 TeamMask mask = default(TeamMask);
                 mask.AddTeam(body.teamComponent.teamIndex);
-                hurtBoxes.Clear();
                 healSearch.mask = LayerIndex.entityPrecise.mask;
                 healSearch.radius = 256;
                 healSearch.origin = body.corePosition;
                 healSearch.RefreshCandidates();
                 healSearch.FilterCandidatesByHurtBoxTeam(mask);
                 healSearch.GetHurtBoxes(hurtBoxes);
+                healthComponents.Clear();
                 foreach(HurtBox h in hurtBoxes)
                 {
-                    if(h.healthComponent.body != body)
+                    if(!healthComponents.Contains(h.healthComponent) && h.healthComponent.health < h.healthComponent.fullHealth)
                     {
-                        h.healthComponent.body.AddTimedBuff(RoR2Content.Buffs.CrocoRegen, 5);
-                        if(!hasBursted)
-                        {
-                            VFXInstance = Instantiate(VisualEffect, body.aimOriginTransform);
-                            hasBursted = true;
-                        }
+                        healthComponents.Add(h.healthComponent);
                     }
-
                 }
             }
             public void OnDamageDealtServer(DamageReport damageReport)
             {
-                damageReport.attackerBody?.healthComponent?.Heal((damageReport.damageDealt * (damageReport.damageInfo.procCoefficient * 0.25f)), default);
+                if(!doingAbility)
+                {
+                    damageReport.attackerBody?.healthComponent?.Heal((damageReport.damageDealt * damageReport.damageInfo.procCoefficient) * 0.25f, default);
+                }
+                else
+                {
+                    SearchAllies();
+                    float healing = damageReport.damageDealt / healthComponents.Count;
+                    foreach(HealthComponent component in healthComponents)
+                    {
+                        if (TracerEffect)
+                        {
+                            EffectData effectData = new EffectData
+                            {
+                                origin = component.body.corePosition,
+                                start = damageReport.attackerBody.corePosition
+                            };
+                            EffectManager.SpawnEffect(TracerEffect, effectData, true);
+                        }
+                        component.Heal(healing, default);
+                    }
+                }
             }
         }
     }

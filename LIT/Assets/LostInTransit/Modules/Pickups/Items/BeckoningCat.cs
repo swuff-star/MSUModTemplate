@@ -20,8 +20,8 @@ namespace LostInTransit.Items
         public override void Initialize()
         {
             section = "Item: " + ItemDef.name;
-            baseChance = LITMain.config.Bind<float>(section, "Base Drop Chance", 4.5f, "Base Chance for Elites droping an item while having this item.").Value;
-            stackChance = LITMain.config.Bind<float>(section, "Stacking Drop Chance", 1.5f, "Value added to the base chance per stack.").Value;
+            baseChance = LITMain.config.Bind<float>(section, "Base Drop Chance", 10f, "Base Chance for Elites droping an item while having this item.").Value;
+            stackChance = LITMain.config.Bind<float>(section, "Stacking Drop Chance", 2.5f, "Value added to the base chance per stack.").Value;
             whiteItemChance = LITMain.config.Bind<float>(section, "Common Item Chance", 5f, "Chance for beckoning cat to drop a white item.").Value;
             greenItemChance = LITMain.config.Bind<float>(section, "Uncommon Item Chance", 3f, "Chance for beckoning cat to drop a green item.").Value;
             redItemChance = LITMain.config.Bind<float>(section, "Red Item Chance", 1f, "Chance for beckoning cat to drop a red item.").Value;
