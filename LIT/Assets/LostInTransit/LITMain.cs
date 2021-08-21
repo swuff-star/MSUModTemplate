@@ -19,7 +19,7 @@ using LostInTransit.Buffs;
 namespace LostInTransit
 {
     [BepInDependency(R2API.R2API.PluginGUID, BepInDependency.DependencyFlags.HardDependency)]
-    [BepInDependency(AspectAbilities.AspectAbilitiesPlugin.PluginGUID, BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.TheMysticSword.AspectAbilities", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(GUID, MODNAME, VERSION)]
     [R2APISubmoduleDependency(new string[]
@@ -39,7 +39,7 @@ namespace LostInTransit
 
         public static ConfigFile config;
 
-        public static bool DEBUG = true;
+        public static bool DEBUG = false;
 
         public static bool AspectAbilitiesInstalled = false;
 
@@ -53,7 +53,8 @@ namespace LostInTransit
 
             LITLogger.logger = Logger;
 
-            AspectAbilitiesInstalled = CheckForExternalMod(AspectAbilities.AspectAbilitiesPlugin.PluginGUID);
+            AspectAbilitiesInstalled = CheckForExternalMod("com.TheMysticSword.AspectAbilities");
+            Debug.Log(AspectAbilitiesInstalled);
 
 
             if (DEBUG)
@@ -89,7 +90,7 @@ namespace LostInTransit
             if(hasMod)
             {
                 LITLogger.LogI($"Plugin {GUID} detected, enabling crosscompat.");
-                return hasMod;
+                return true;
             }
             else
             {

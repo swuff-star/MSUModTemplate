@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using AspectAbilities;
+using System.Runtime.CompilerServices;
 
 namespace LostInTransit.ScriptableObjects
 {
@@ -15,6 +16,7 @@ namespace LostInTransit.ScriptableObjects
         public EquipmentDef equipmentDef;
         public float aiMaxUseDistance;
         public AnimationCurve aiHealthFractionToUseChance;
+
         public AspectAbility CreateAbility()
         {
             var toReturn = new AspectAbility();

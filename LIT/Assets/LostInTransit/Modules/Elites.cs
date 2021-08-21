@@ -39,6 +39,7 @@ namespace LostInTransit.Modules
                 if(flag && flag1)
                 {
                     HG.ArrayUtils.ArrayAppend(ref LITContent.serializableContentPack.equipmentDefs, equipment.EquipmentDef);
+                    Debug.Log(equipment);
                     equipment.Initialize();
                     Pickups.Equipments.Add(equipment.EquipmentDef, equipment);
 

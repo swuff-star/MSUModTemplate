@@ -5,6 +5,7 @@ using UnityEngine;
 using LostInTransit.ScriptableObjects;
 using LostInTransit.Modules;
 using LostInTransit.Components;
+using AspectAbilities;
 
 namespace LostInTransit.Equipments
 {
@@ -16,7 +17,17 @@ namespace LostInTransit.Equipments
 
         public override void Initialize()
         {
-            base.Initialize();
+            if(LITMain.AspectAbilitiesInstalled)
+            {
+                RunAspectAbility();
+            }
+        }
+
+        private void RunAspectAbility()
+        {
+            AspectAbility ability = AspectAbility.CreateAbility();
+            ability.onUseOverride = FireAction;
+            AspectAbilitiesPlugin.RegisterAspectAbility(ability);
         }
 
         public override void AddBehavior(ref CharacterBody body, int stack)
