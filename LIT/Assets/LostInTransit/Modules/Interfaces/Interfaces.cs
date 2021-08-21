@@ -17,6 +17,7 @@ namespace LostInTransit.Modules
             IL.RoR2.GlobalEventManager.OnCharacterDeath += IL_ServerKilledOtherPatch;
             IL.RoR2.HealthComponent.TakeDamage += IL_OnIncomingDamageOther;
         }
+
         private static void IL_ServerKilledOtherPatch(ILContext il)
         {
             var c = new ILCursor(il);
@@ -67,10 +68,14 @@ namespace LostInTransit.Modules
         private static void RunOnIncomingDamageOther(HealthComponent healthComponent, DamageInfo damageInfo)
         {
             if (!damageInfo.attacker)
+            {
                 return;
+            }
             IOnIncomingDamageOtherServerReciever[] interfaces = damageInfo.attacker.GetComponents<IOnIncomingDamageOtherServerReciever>();
             for (int i = 0; i < interfaces.Length; i++)
+            {
                 interfaces[i].OnIncomingDamageOther(damageInfo);
+            }
         }
     }
 }

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4090616574
+CRC: 2053558030
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2a4f7ed3dc741e8ed939bdc798ea9eba
+    Hash: f2a9001f2e9b4d96afa2726ba199d720
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 64f83e5d792a9bba596e28d2ca6a5fc5
+    Hash: dd0f2177f4d3d42c9404db4aff7d829a
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -33,8 +33,6 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 95
   Script: {instanceID: 0}
-- Class: 108
-  Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 2005159759, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -51,8 +49,6 @@ ClassTypes:
   Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1479993534, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
-  Script: {fileID: 296141222, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -89,24 +85,27 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/DisplayMysteriousVial.prefab
+- Assets/LostInTransit/LITAssets/Items/TelescopicSight/PickupTelescopicSight.prefab
 - Assets/Mesh/meshMysteriousVialCap.mesh
 - Assets/LostInTransit/LITAssets/Elites/Leeching/DisplayLeechingCrown.prefab
 - Assets/Textures/texBeckoningCatDiffuse.png
+- Assets/Materials/matTelescopicSight.mat
 - Assets/Textures/texThalliumC.png
 - Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/GiganticAmethyst.asset
 - Assets/Textures/Stolen/texCloudOrganic2.asset
 - Assets/Mesh/meshCross.mesh
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/PickupMysteriousVial.prefab
 - Assets/Textures/Stolen/Ramps/texRampMagmaWorm.asset
-- Assets/LostInTransit/LITAssets/Elites/Leeching/VFXTracerLeechingElite.prefab
+- Assets/Textures/texTelescopicSightNormal.png
 - Assets/LostInTransit/LITAssets/Elites/Leeching/BuffAffixLeeching.asset
-- Assets/Textures/Stolen/texParticleDust1Mask.asset
-- Assets/Materials/matAffixLeechingPickup.mat
+- Assets/Materials/matAffixLeeching.mat
 - Assets/Shaders/fx/hgcloudremap.shader
 - Assets/Textures/Ramps/texRampTwotone.png
 - Assets/LostInTransit/LITAssets/Items/Thallium/PickupThallium.prefab
+- Assets/LostInTransit/LITAssets/Items/Thallium/iconThalliumBuff.png
 - Assets/Materials/matGiganticAmethyst.mat
-- Assets/Materials/matEliteLeechingOverlay.mat
+- Assets/Textures/Stolen/texCloudDifferenceBW2.asset
+- Assets/Materials/matOverlayLeeching.mat
 - Assets/LostInTransit/LITAssets/Items/Thallium/iconThallium.png
 - Assets/LostInTransit/LITAssets/Items/BeckoningCat/animControllerBeckoningCat.controller
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/iconMysteriousVial.png
@@ -118,6 +117,7 @@ Assets:
 - Assets/Mesh/meshMysteriousVialLiquid.mesh
 - Assets/Textures/texThalliumNormal.png
 - Assets/Materials/matBeckoningCat.mat
+- Assets/Textures/Ramps/texRampLeechingAlt.png
 - Assets/Textures/texGiganticAmethyst.png
 - Assets/LostInTransit/LITAssets/Items/BeckoningCat/avatarBeckoningCat.asset
 - Assets/Mesh/meshThallium.mesh
@@ -129,34 +129,38 @@ Assets:
 - Assets/LostInTransit/LITAssets/Items/BeckoningCat/DisplayBeckoningCat.prefab
 - Assets/Materials/matThallium.mat
 - Assets/Mesh/meshBeckoningCat.mesh
+- Assets/LostInTransit/LITAssets/Items/TelescopicSight/IconTelescopicSight.png
 - Assets/Mesh/meshMysteriousVialGlass.mesh
 - Assets/Materials/matMysteriousVialGlass.mat
+- Assets/Textures/Stolen/texOmniExplosion2Mask.asset
+- Assets/Textures/texTelescopicSightDiffuse.png
 - Assets/Mesh/meshGiganticAmethyst.mesh
-- Assets/Textures/Stolen/texShockwaveMask.asset
 - Assets/LostInTransit/LITAssets/LITItemDisplays.asset
+- Assets/Materials/matTracerLeeching.mat
 - Assets/Materials/matMysteriousVialLiquid.mat
 - Assets/LostInTransit/LITAssets/Items/Thallium/buffThalliumPoison.asset
-- Assets/Materials/matTracerBright.mat
 - Assets/LostInTransit/LITAssets/Elites/Leeching/VFXLeechingAbilityActive.prefab
 - Assets/Mesh/meshLeechingCrown.mesh
+- Assets/LostInTransit/LITAssets/Items/TelescopicSight/TelescopicSight.asset
 - Assets/Textures/Ramps/texRampEliteLeeching.png
 - Assets/Textures/texMysteriousVialEmission.png
 - Assets/LostInTransit/LITAssets/Elites/Leeching/LSIDRAffixLeeching.asset
 - Assets/Shaders/fx/hgintersectioncloudremap.shader
-- Assets/LostInTransit/LITAssets/OtherPrefabs/MaterialTester.prefab
+- Assets/LostInTransit/LITAssets/Prefabs/MaterialTester.prefab
 - Assets/LostInTransit/LITAssets/Elites/Leeching/texIconBuffAffixLeeching.png
 - Assets/LostInTransit/LITAssets/Elites/Leeching/Leeching.asset
 - Assets/Materials/matMysteriousVialCap.mat
 - Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/PickupGiganticAmethyst.prefab
-- Assets/Textures/Stolen/texRampGenericFire.asset
+- Assets/LostInTransit/LITAssets/Elites/Leeching/TracerLeeching.prefab
 - Assets/LostInTransit/LITAssets/Effects.asset
 - Assets/LostInTransit/LITAssets/Elites/Leeching/PickupAffixLeeching.prefab
 - Assets/LostInTransit/LITAssets/Elites/Leeching/AbilityLeeching.asset
+- Assets/Mesh/meshTelescopicSight.mesh
 - Assets/LostInTransit/LITAssets/Items/BeckoningCat/PickupBeckoningCat.prefab
 - Assets/Textures/texMysteriousVialDiffuse.png
 - Assets/LostInTransit/LITAssets/Items/MysteriousVial/MysteriousVial.asset
-- Assets/LostInTransit/LITAssets/OtherPrefabs/SizeReference.prefab
-- Assets/Materials/matEliteLeechingTracer.mat
+- Assets/LostInTransit/LITAssets/Prefabs/SizeReference.prefab
+- Assets/Mesh/Stolen/meshQuad.asset
 - Assets/Mesh/meshMysteriousVialSplat.mesh
 - Assets/Shaders/deferred/hgstandard.shader
 - Assets/LostInTransit/LITAssets/Items/Thallium/Thallium.asset

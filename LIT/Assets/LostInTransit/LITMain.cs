@@ -24,7 +24,8 @@ namespace LostInTransit
     [BepInPlugin(GUID, MODNAME, VERSION)]
     [R2APISubmoduleDependency(new string[]
     {
-        nameof(DotAPI)
+        nameof(DotAPI),
+        nameof(DamageAPI)
     })]
     public class LITMain : BaseUnityPlugin
     {
@@ -70,6 +71,7 @@ namespace LostInTransit
             LITLanguage.Initialize();
             LITConfig.Initialize(config);
             Buffs.Buffs.Initialize();
+            DamageTypes.DamageTypes.Initialize();
             Pickups.Initialize();
             Elites.Initialize();
 

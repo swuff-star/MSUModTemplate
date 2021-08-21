@@ -35,7 +35,7 @@ namespace LostInTransit.Buffs
 
             public GameObject AbilityEffect = Assets.LITAssets.LoadAsset<GameObject>("VFXLeechingAbilityActive");
 
-            public GameObject TracerEffect = Assets.LITAssets.LoadAsset<GameObject>("VFXTracerLeechingElite");
+            public GameObject TracerEffect = Assets.LITAssets.LoadAsset<GameObject>("TracerLeeching");
 
             private List<HealthComponent> healthComponents;
 

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Effects
   m_EditorClassIdentifier: 
   effectPrefabs:
-  - {fileID: 1196580954171124, guid: 8c48472257bbd9347aa3580c8a45ff58, type: 3}
+  - {fileID: 1893371237611058, guid: 1a566a0e4505e6045b3fcfd0d34d9eb1, type: 3}
   - {fileID: 6675145145771335488, guid: 0f63b37bc055e494b8292097f8be969b, type: 3}
   - {fileID: 3812340968872541811, guid: 51f7df2581c2a4a4b82e4c96e711a4c1, type: 3}

@@ -14,7 +14,7 @@ namespace LostInTransit.Buffs
         public override void Initialize()
         {
             buff = BuffDef;
-            index = DotAPI.RegisterDotDef(1f, 0.5f, DamageColorIndex.DeathMark, BuffDef);
+            index = DotAPI.RegisterDotDef(1f, 1f, DamageColorIndex.DeathMark, BuffDef);
         }
 
         public override void AddBehavior(ref CharacterBody body, int stack)
