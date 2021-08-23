@@ -41,6 +41,7 @@ namespace LostInTransit.Buffs
             On.RoR2.CharacterBody.OnClientBuffsChanged += CheckForBuffs;
             On.RoR2.CharacterModel.UpdateOverlays += AddBuffOverlay;
         }
+
         private static void CheckForBuffs(On.RoR2.CharacterBody.orig_OnClientBuffsChanged orig, CharacterBody self)
         {
             orig(self);

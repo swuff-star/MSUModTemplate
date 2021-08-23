@@ -95,6 +95,7 @@ namespace LostInTransit.Buffs
                     if(healthComponent.body != body)
                     {
                         healthComponent.body.AddTimedBuff(RoR2Content.Buffs.CrocoRegen, 5);
+                        SpawnTracer(healthComponent.body.corePosition, body.corePosition);
                         if(!hasBursted)
                         {
                             EffectData effectData = new EffectData
@@ -132,26 +133,27 @@ namespace LostInTransit.Buffs
             {
                 if(!doingAbility)
                 {
-                    damageReport.attackerBody?.healthComponent?.Heal((damageReport.damageDealt * damageReport.damageInfo.procCoefficient) * 0.25f, default);
+                    damageReport.attackerBody?.healthComponent?.Heal(damageReport.damageDealt * damageReport.damageInfo.procCoefficient, default);
                 }
                 else
                 {
                     SearchAllies();
-                    float healing = damageReport.damageDealt / healthComponents.Count;
+                    float healing = (damageReport.damageDealt * 1.5f) / healthComponents.Count;
                     foreach(HealthComponent component in healthComponents)
                     {
-                        if (TracerEffect)
-                        {
-                            EffectData effectData = new EffectData
-                            {
-                                origin = component.body.corePosition,
-                                start = damageReport.attackerBody.corePosition
-                            };
-                            EffectManager.SpawnEffect(TracerEffect, effectData, true);
-                        }
+                        SpawnTracer(component.body.corePosition, damageReport.attackerBody.corePosition);
                         component.Heal(healing, default);
                     }
                 }
+            }
+            private void SpawnTracer(Vector3 origin, Vector3 start)
+            {
+                EffectData effectData = new EffectData
+                {
+                    origin = origin,
+                    start = start
+                };
+                EffectManager.SpawnEffect(TracerEffect, effectData, true);
             }
         }
     }

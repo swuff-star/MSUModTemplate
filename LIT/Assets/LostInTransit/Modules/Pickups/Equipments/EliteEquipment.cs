@@ -46,6 +46,10 @@ namespace LostInTransit.Equipments
 
             public void Start()
             {
+                if(Buffs.Buffs.buffs.TryGetValue(elite.eliteEquipmentDef.passiveBuffDef, out var buffBase))
+                {
+                    buffBase.AddBehavior(ref body, stack);
+                }
                 model = body.modelLocator.modelTransform.GetComponent<CharacterModel>();
                 if(!model)
                 {
