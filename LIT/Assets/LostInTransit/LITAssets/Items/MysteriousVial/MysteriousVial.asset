@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: MysteriousVial
   m_EditorClassIdentifier: 
   tier: 0
-  nameToken: ITEM_MYSTERIOUSVIAL_NAME
-  pickupToken: ITEM_MYSTERIOUSVIAL_PICKUP
-  descriptionToken: ITEM_MYSTERIOUSVIAL_DESC
-  loreToken: ITEM_MYSTERIOUSVIAL_LORE
+  nameToken: LIT_ITEM_MYSTERIOUSVIAL_NAME
+  pickupToken: LIT_ITEM_MYSTERIOUSVIAL_PICKUP
+  descriptionToken: LIT_ITEM_MYSTERIOUSVIAL_DESC
+  loreToken: LIT_ITEM_MYSTERIOUSVIAL_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 5725420231832809925, guid: 0761b5d184a038b418a02f4620c3e8a4,
     type: 3}

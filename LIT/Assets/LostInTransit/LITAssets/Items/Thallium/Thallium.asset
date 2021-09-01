@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Thallium
   m_EditorClassIdentifier: 
   tier: 2
-  nameToken: ITEM_THALLIUM_NAME
-  pickupToken: ITEM_THALLIUM_PICKUP
-  descriptionToken: ITEM_THALLIUM_DESC
-  loreToken: ITEM_THALLIUM_LORE
+  nameToken: LIT_ITEM_THALLIUM_NAME
+  pickupToken: LIT_ITEM_THALLIUM_PICKUP
+  descriptionToken: LIT_ITEM_THALLIUM_DESC
+  loreToken: LIT_ITEM_THALLIUM_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 1310029518085523322, guid: d77b44934a2d11646aa74432e77a4ce2,
     type: 3}

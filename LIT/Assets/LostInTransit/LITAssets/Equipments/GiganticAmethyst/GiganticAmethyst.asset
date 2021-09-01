@@ -15,10 +15,10 @@ MonoBehaviour:
   pickupModelPrefab: {fileID: 8975994462599213499, guid: b1e7e30ee4103694b91c85016bf2024e,
     type: 3}
   cooldown: 18
-  nameToken: EQUIP_GIGANTICAMETHYST_NAME
-  pickupToken: EQUIP_GIGANTICAMETHYST_PICKUP
-  descriptionToken: EQUIP_GIGANTICAMETHYST_DESC
-  loreToken: EQUIP_GIGANTICAMETHYST_LORE
+  nameToken: LIT_EQUIP_GIGANTICAMETHYST_NAME
+  pickupToken: LIT_EQUIP_GIGANTICAMETHYST_PICKUP
+  descriptionToken: LIT_EQUIP_GIGANTICAMETHYST_DESC
+  loreToken: LIT_EQUIP_GIGANTICAMETHYST_LORE
   pickupIconSprite: {fileID: 21300000, guid: 962d10f4e5d458e44a62c9d9a5c28e7b, type: 3}
   unlockableDef: {fileID: 0}
   colorIndex: 5

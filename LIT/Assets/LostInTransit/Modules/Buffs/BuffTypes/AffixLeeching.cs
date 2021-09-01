@@ -115,7 +115,7 @@ namespace LostInTransit.Buffs
                 TeamMask mask = default(TeamMask);
                 mask.AddTeam(body.teamComponent.teamIndex);
                 healSearch.mask = LayerIndex.entityPrecise.mask;
-                healSearch.radius = 256;
+                healSearch.radius = 20;
                 healSearch.origin = body.corePosition;
                 healSearch.RefreshCandidates();
                 healSearch.FilterCandidatesByHurtBoxTeam(mask);

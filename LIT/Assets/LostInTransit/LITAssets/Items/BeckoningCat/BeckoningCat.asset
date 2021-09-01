@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: BeckoningCat
   m_EditorClassIdentifier: 
   tier: 1
-  nameToken: ITEM_BECKONINGCAT_NAME
-  pickupToken: ITEM_BECKONINGCAT_PICKUP
-  descriptionToken: ITEM_BECKONINGCAT_DESC
-  loreToken: ITEM_BECKONINGCAT_LORE
+  nameToken: LIT_ITEM_BECKONINGCAT_NAME
+  pickupToken: LIT_ITEM_BECKONINGCAT_PICKUP
+  descriptionToken: LIT_ITEM_BECKONINGCAT_DESC
+  loreToken: LIT_ITEM_BECKONINGCAT_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 4605143468584707651, guid: 205b2fde5dac18542918ead712917f5d,
     type: 3}

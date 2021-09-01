@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconPath: Textures/ItemIcons/texNullIcon
   iconSprite: {fileID: 21300000, guid: 25773cad0951cd3428e6e9aaeb317ba7, type: 3}
-  buffColor: {r: 0, g: 1, b: 0, a: 1}
+  buffColor: {r: 0.40000004, g: 0.69411767, b: 0.3803922, a: 1}
   canStack: 0
   eliteDef: {fileID: 11400000, guid: 983723bd036ec4543bec57fcb2d74932, type: 2}
   isDebuff: 0

@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecd7d3a93e851645b9a6c02bf9a8d55, type: 3}
   m_Name: Leeching
   m_EditorClassIdentifier: 
-  modifierToken: ELITE_MODIFIER_LEECHING
+  modifierToken: LIT_ELITE_MODIFIER_LEECHING
   eliteEquipmentDef: {fileID: 11400000, guid: 57c08d6765a5f1d43a1aff39ef04da42, type: 2}
   color:
     serializedVersion: 2
-    rgba: 65280
+    rgba: 4283337269
   shaderEliteRampIndex: 0
   eliteTier: 0
-  lightColor: {r: 0.124340974, g: 0.573, b: 0.124340974, a: 1}
-  eliteRamp: {fileID: 2800000, guid: 42a445fb95e2e8940a35e731169739ca, type: 3}
+  lightColor: {r: 0.3019608, g: 0.77647066, b: 0.22352943, a: 1}
+  eliteRamp: {fileID: 2800000, guid: e30184ee68a0dbf49b6dab169e0c53e3, type: 3}
   overlay: {fileID: 0}
   particleMaterial: {fileID: 0}
   effect: {fileID: 0}

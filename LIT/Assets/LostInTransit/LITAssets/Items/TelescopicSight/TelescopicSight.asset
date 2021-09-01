@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: TelescopicSight
   m_EditorClassIdentifier: 
   tier: 2
-  nameToken: ITEM_TELESCOPICSIGHT_NAME
-  pickupToken: ITEM_TELESCOPICSIGHT_PICKUP
-  descriptionToken: ITEM_TELESCOPICSIGHT_DESC
-  loreToken: ITEM_TELESCOPICSIGHT_LORE
+  nameToken: LIT_ITEM_TELESCOPICSIGHT_NAME
+  pickupToken: LIT_ITEM_TELESCOPICSIGHT_PICKUP
+  descriptionToken: LIT_ITEM_TELESCOPICSIGHT_DESC
+  loreToken: LIT_ITEM_TELESCOPICSIGHT_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 6443451259882140207, guid: c1fc045035e93b84ab63ecc490612784,
     type: 3}

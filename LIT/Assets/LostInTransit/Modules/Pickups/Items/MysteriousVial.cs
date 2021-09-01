@@ -10,7 +10,7 @@ namespace LostInTransit.Items
         public static float vialRegen;
         public override void Initialize()
         {
-            vialRegen = LITMain.config.Bind<float>("Item: " + ItemDef.name, "Extra Regen Per Vial", 0.4f, "Extra health regeneration adder per vial.").Value;
+            vialRegen = LITMain.config.Bind<float>("Item: " + ItemDef.name, "Extra Regen Per Vial", 0.8f, "Extra health regeneration adder per vial.").Value;
         }
         public override void AddBehavior(ref CharacterBody body, int stack)
         {

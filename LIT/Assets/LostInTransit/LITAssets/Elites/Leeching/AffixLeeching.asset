@@ -15,10 +15,10 @@ MonoBehaviour:
   pickupModelPrefab: {fileID: 1621178573039501, guid: c5b5818ed40e2584c8133d9333626763,
     type: 3}
   cooldown: 35
-  nameToken: EQUIP_AFFIXLEECHING_NAME
-  pickupToken: EQUIP_AFFIXLEECHING_PICKUP
-  descriptionToken: EQUIP_AFFIXLEECHING_DESC
-  loreToken: EQUIP_AFFIXLEECHING_LORE
+  nameToken: LIT_EQUIP_AFFIXLEECHING_NAME
+  pickupToken: LIT_EQUIP_AFFIXLEECHING_PICKUP
+  descriptionToken: LIT_EQUIP_AFFIXLEECHING_DESC
+  loreToken: LIT_EQUIP_AFFIXLEECHING_LORE
   pickupIconSprite: {fileID: 21300000, guid: 989d66e6d753c6e488af5ad08edf7166, type: 3}
   unlockableDef: {fileID: 0}
   colorIndex: 5
