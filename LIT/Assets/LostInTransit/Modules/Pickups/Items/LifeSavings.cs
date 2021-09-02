@@ -45,7 +45,7 @@ namespace LostInTransit.Items
             {
                 float currentMoney = body.master.money;
                 
-                if (checkMoney && grantMoney && stack >= 1)
+                if (checkMoney && grantMoney && stack >= 1 && !Run.instance.isRunStopwatchPaused)
                 {
                     //Debug.WriteLine("Tallying money...");
                     //Debug.WriteLine("Current gold: " + currentMoney);
@@ -55,7 +55,7 @@ namespace LostInTransit.Items
                     //Debug.WriteLine("checkMoney: " + checkMoney);
                     //Debug.WriteLine("grantMoney: " + grantMoney);
                 }
-                if (!checkMoney && !grantMoney && stack >= 1)
+                if (!checkMoney && !grantMoney && stack >= 1 && !Run.instance.isRunStopwatchPaused)
                 {
                     //Debug.WriteLine("Giving money...");
                     body.master.GiveMoney((uint)moneyToGrant);
