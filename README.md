@@ -9,7 +9,7 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 | Icon | Item | Description | Rarity |
 |:-|-|------|-|
-|![](https://i.imgur.com/6NiDhQs.png) | **Life Savings** | Keep 2% (+2% per stack) of gold between stages. | Common |
+|![](https://i.imgur.com/Vqj1kyK.png) | **Life Savings** | Keep 2% (+2% per stack) of gold between stages. | Common |
 |![](https://i.imgur.com/0JpFYMD.png) | **Mysterious Vial** | Regenerate an extra 0.4 (+0.4 per stack) hp per second. | Common |
 |![](https://i.imgur.com/zTCttJR.png) | **Beckoning Cat** | Elite monsters have a 4.5% (+1.5% per stack) chance to drop items on death. | Uncommon |
 |![](https://i.imgur.com/4qpaGr0.png) | **Smart Shopper** | Monsters drop 25% (+25% per stack) more gold.
@@ -28,6 +28,8 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 * Art/Modelling/Animation -  bruh, GEMO, LucidInceptor
 * Writing - BlimBlam, Lyrical Endymion, QandQuestion, swuff★, T_Dimensional
 * Additional support/special thanks - Anreol, Kevin, KomradeSpectre, Nebby, rob, xpcybic
+
+## Changelog
 
 ### 0.1.0
 *First ThunderStore release!*
