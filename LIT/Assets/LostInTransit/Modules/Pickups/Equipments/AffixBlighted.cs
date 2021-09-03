@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace LostInTransit.Equipments
 {
-    public class AffixBlighted : EliteEquipment
+    /*public class AffixBlighted : EliteEquipment
     {
         public override LITEliteDef EliteDef { get; set; } = Assets.LITAssets.LoadAsset<LITEliteDef>("Blighted");
         public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("AffixBlighted");
@@ -27,5 +27,5 @@ namespace LostInTransit.Equipments
             }
             return false;
         }
-    }
+    }*/
 }

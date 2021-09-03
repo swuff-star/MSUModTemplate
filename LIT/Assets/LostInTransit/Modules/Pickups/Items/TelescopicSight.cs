@@ -22,10 +22,10 @@ namespace LostInTransit.Items
         public override void Initialize()
         {
             section = "Item: " + ItemDef.name;
-            ExtraCrit = LITMain.config.Bind<float>(section, "Extra Crit Chance", 10f, "How much extra critical chance the item gives.").Value;
-            BaseChance = LITMain.config.Bind<float>(section, "Base Proc Chance", 10f, "Proc chance for the Telescopic Sight to apply its damage multiplier.").Value;
-            StackChance = LITMain.config.Bind<float>(section, "Stack Proc Chance", 10f, "Extra Proc Chance added with each Stack.").Value;
-            DamageMultiplier = LITMain.config.Bind<float>(section, "Damage Multiplier", 4f, "Damage multiplier").Value;
+            ExtraCrit = LITMain.config.Bind<float>(section, "Extra Crit Chance", 10f, "Amount of flat critical chance the item gives.").Value;
+            BaseChance = LITMain.config.Bind<float>(section, "Base Proc Chance", 10f, "Base Proc chance for Telescopic Sight.").Value;
+            StackChance = LITMain.config.Bind<float>(section, "Stack Proc Chance", 10f, "Added Proc Chance per Stack.").Value;
+            DamageMultiplier = LITMain.config.Bind<float>(section, "Damage Multiplier", 4f, "Amount of extra damage added to procs, x 100.").Value;
         }
 
         public override void AddBehavior(ref CharacterBody body, int stack)

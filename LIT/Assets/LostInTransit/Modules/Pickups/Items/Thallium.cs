@@ -20,8 +20,8 @@ namespace LostInTransit.Items
             procChance = LITMain.config.Bind<float>(section, "Proc Chance", 10f, "Chance to afflict Thallium Poisoning.").Value;
             dmgCoefficient = LITMain.config.Bind<float>(section, "Base Damage", 1.25f, "Damage coefficient of Thallium, multiplied by duration for total damage.").Value;
             dmgStack = LITMain.config.Bind<float>(section, "Stacking Damage", 0.625f, "Extra damage dealt by extra stacks.").Value;
-            slowMultiplier = LITMain.config.Bind<float>(section, "Slot Multiplier", 0.25f, "Multiplier applied to the inflicted body's movement speed.").Value;
-            duration = LITMain.config.Bind<int>(section, "DOT Duration", 4, "Duration of the Thallium Poisoning debuff.").Value;
+            slowMultiplier = LITMain.config.Bind<float>(section, "Slow Multiplier", 0.25f, "Multiplier applied to the inflicted body's movement speed.").Value;
+            duration = LITMain.config.Bind<int>(section, "DoT Duration", 4, "Duration of the Thallium Poisoning debuff.").Value;
         }
         public override void AddBehavior(ref CharacterBody body, int stack)
         {

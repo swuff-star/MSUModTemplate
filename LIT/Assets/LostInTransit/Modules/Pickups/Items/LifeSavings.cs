@@ -8,13 +8,17 @@ namespace LostInTransit.Items
     public class LifeSavings : ItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("LifeSavings");
+        public static string section;
         private static bool checkMoney = false;
         private static bool grantMoney = true;
+        public static float moneyKept;
 
         //★ (godzilla 1998 main character voice)
         //★ that's a lotta Debug.WriteLine()
         public override void Initialize()
         {
+            section = "Item: " + ItemDef.name; 
+            moneyKept = LITMain.config.Bind<float>(section, "Money Kept", 2f, "Percentage of money kept between stages.").Value;
             SceneExitController.onBeginExit += checkGoldAtEndOfStage;
             Stage.onStageStartGlobal += Stage_onServerStageBegin;
         }
@@ -49,7 +53,7 @@ namespace LostInTransit.Items
                 {
                     //Debug.WriteLine("Tallying money...");
                     //Debug.WriteLine("Current gold: " + currentMoney);
-                    moneyToGrant = currentMoney * (stack * 2f) * 0.01f;
+                    moneyToGrant = currentMoney * (stack * moneyKept) * 0.01f;
                     //Debug.WriteLine("Money to grant: " + moneyToGrant);
                     grantMoney = false;
                     //Debug.WriteLine("checkMoney: " + checkMoney);

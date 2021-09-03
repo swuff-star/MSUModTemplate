@@ -21,13 +21,13 @@ namespace LostInTransit.Items
         public override void Initialize()
         {
             section = "Item: " + ItemDef.name;
-            baseChance = LITMain.config.Bind<float>(section, "Base Drop Chance", 4.5f, "Base Chance for Elites droping an item while having this item.").Value;
-            stackChance = LITMain.config.Bind<float>(section, "Stacking Drop Chance", 1.5f, "Value added to the base chance per stack.").Value;
-            greenItemChance = LITMain.config.Bind<float>(section, "Uncommon Item Chance", 6f, "Chance for beckoning cat to drop an Uncommon item.").Value;
-            greenItemStack = LITMain.config.Bind<float>(section, "Uncommon Item Stacking Chance", 1f, "Chance per stack for Beckoning Cat to drop an Uncommon item").Value;
-            redItemChance = LITMain.config.Bind<float>(section, "Rare Item Chance", 0.5f, "Chance for beckoning cat to drop a Rare item.").Value;
-            redItemStack = LITMain.config.Bind<float>(section, "Rare Item Stacking Chance", 0.25f, "Chance per stack of Beckoning Cat to drop a Rare item").Value;
-            usesLuck = LITMain.config.Bind<bool>(section, "Use Luck", true, "Wether or not Beckoning cat will use luck in its calculations.").Value;
+            baseChance = LITMain.config.Bind<float>(section, "Base Drop Chance", 4.5f, "Base chance for Elites to drop an item.").Value;
+            stackChance = LITMain.config.Bind<float>(section, "Stacking Drop Chance", 1.5f, "Added chance for Elites to drop an item per stack.").Value;
+            greenItemChance = LITMain.config.Bind<float>(section, "Uncommon Item Chance", 6f, "Chance for Beckoning Cat to drop an Uncommon item.").Value;
+            greenItemStack = LITMain.config.Bind<float>(section, "Uncommon Item Stacking Chance", 1f, "Chance per stack for Beckoning Cat to drop an Uncommon item.").Value;
+            redItemChance = LITMain.config.Bind<float>(section, "Rare Item Chance", 0.5f, "Chance for Beckoning Cat to drop a Rare item.").Value;
+            redItemStack = LITMain.config.Bind<float>(section, "Rare Item Stacking Chance", 0.25f, "Chance per stack of Beckoning Cat to drop a Rare item.").Value;
+            usesLuck = LITMain.config.Bind<bool>(section, "Use Luck", true, "Whether the luck stat should be considered for Beckoning Cat drops.").Value;
         }
         public override void AddBehavior(ref CharacterBody body, int stack)
         {

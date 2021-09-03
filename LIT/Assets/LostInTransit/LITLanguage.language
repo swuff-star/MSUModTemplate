@@ -38,7 +38,7 @@
 	"LIT_ITEM_SMARTSHOPPER_NAME": "Smart Shopper",
 	"LIT_ITEM_SMARTSHOPPER_PICKUP": "Monsters drop more gold.",
 	"LIT_ITEM_SMARTSHOPPER_DESC": "Monsters drop <style=cIsUtility>25%</style> <style=cStack>(+25% per stack)</style> more gold on death.",
-	"LIT_ITEM_SMARTSHOPPER_LORE": "Order: Wallet\nTracking Number: 100****\nShipping Method: Priority\nShipping Address: PO Box 18789, Alcore, Mars\nShipping Details:\n\nThese were NOT meant to get out. Some kid is already showing off his \"magic wallet\" that prints money! It's all over the damned news! You're gonna pay for this, you hear? For every one that's missing when I see you, I'll take one of your fingers. See you soon, Alex.",
+	"LIT_ITEM_SMARTSHOPPER_LORE": "Order: Wallet\nTracking Number: 100****\nEstimated Delivery: 4/2/2057\nShipping Method: Priority\nShipping Address: PO Box 18789, Alcore, Mars\nShipping Details:\n\nThese were NOT meant to get out. Some kid is already showing off his \"magic wallet\" that prints money! It's all over the damned news! You're gonna pay for this, you hear? For every one that's missing when I see you, I'll take one of your fingers. See you soon, Alex.",
 	
 	"LIT_ITEM_TELESCOPICSIGHT_NAME": "Telescopic Sight",
 	"LIT_ITEM_TELESCOPICSIGHT_PICKUP": "Critical strikes have a chance to do quintupuled damage.",
