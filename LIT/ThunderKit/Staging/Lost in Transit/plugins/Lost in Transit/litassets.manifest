@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1624109986
+CRC: 353732903
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6e709e3f91765ae48105bfa1982dc7f9
+    Hash: 5ba545f2746fa4c8ef786c86bd5c15cf
   TypeTreeHash:
     serializedVersion: 2
-    Hash: dd0f2177f4d3d42c9404db4aff7d829a
+    Hash: fa1a2aed932a6e3e3630b8980146d1d8
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -84,7 +84,7 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/LostInTransit/LITAssets/Items/MysteriousVial/displayMysteriousVial.prefab
+- Assets/LostInTransit/LITAssets/Items/MysteriousVial/DisplayMysteriousVial.prefab
 - Assets/LostInTransit/LITAssets/Items/TelescopicSight/PickupTelescopicSight.prefab
 - Assets/Mesh/meshMysteriousVialCap.mesh
 - Assets/LostInTransit/LITAssets/Elites/Leeching/DisplayLeechingCrown.prefab
@@ -103,7 +103,7 @@ Assets:
 - Assets/Shaders/fx/hgcloudremap.shader
 - Assets/LostInTransit/LITAssets/Items/SmartShopper/SmartShopper.asset
 - Assets/Textures/Ramps/texRampTwotone.png
-- Assets/LostInTransit/LITAssets/Items/Thallium/pickupThallium.prefab
+- Assets/LostInTransit/LITAssets/Items/Thallium/PickupThallium.prefab
 - Assets/LostInTransit/LITAssets/Items/Thallium/iconThalliumBuff.png
 - Assets/Materials/matGiganticAmethyst.mat
 - Assets/Textures/Stolen/texCloudDifferenceBW2.asset
@@ -164,7 +164,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/Elites/Leeching/texIconBuffAffixLeeching.png
 - Assets/LostInTransit/LITAssets/Elites/Leeching/Leeching.asset
 - Assets/Materials/matMysteriousVialCap.mat
-- Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/pickupGiganticAmethyst.prefab
+- Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/PickupGiganticAmethyst.prefab
 - Assets/LostInTransit/LITAssets/Elites/Leeching/TracerLeeching.prefab
 - Assets/LostInTransit/LITAssets/Effects.asset
 - Assets/Textures/texPigyTex_Base_color.png
