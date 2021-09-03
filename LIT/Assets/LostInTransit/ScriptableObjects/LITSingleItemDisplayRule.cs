@@ -2,6 +2,7 @@
 using RoR2;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -108,7 +109,7 @@ namespace LostInTransit.ScriptableObjects
             }
             private Vector3 CreateVector3FromList(List<string> list)
             {
-                Vector3 toReturn = new Vector3(float.Parse(list[0]), float.Parse(list[1]), float.Parse(list[2]));
+                Vector3 toReturn = new Vector3(float.Parse(list[0], CultureInfo.InvariantCulture), float.Parse(list[1], CultureInfo.InvariantCulture), float.Parse(list[2], CultureInfo.InvariantCulture));
 
                 return toReturn;
             }
@@ -134,7 +135,7 @@ namespace LostInTransit.ScriptableObjects
             }
             if(KeyAssetToReturn.keyAsset == null)
             {
-                throw new NullReferenceException($"Could not find key asset of name {KeyAssetName}");
+                return new ItemDisplayRuleSet.KeyAssetRuleGroup { keyAsset = null };
             }
             for(int i = 0; i < ItemDisplayRules[index].ItemDisplayRules.Count; i++)
             {

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using LostInTransit.Modules;
+using System.Globalization;
 
 namespace LostInTransit.ScriptableObjects
 {
@@ -101,7 +102,7 @@ namespace LostInTransit.ScriptableObjects
             }
             private Vector3 CreateVector3FromList(List<string> list)
             {
-                Vector3 toReturn = new Vector3(float.Parse(list[0]), float.Parse(list[1]), float.Parse(list[2]));
+                Vector3 toReturn = new Vector3(float.Parse(list[0], CultureInfo.InvariantCulture), float.Parse(list[1], CultureInfo.InvariantCulture), float.Parse(list[2], CultureInfo.InvariantCulture));
 
                 return toReturn;
             }

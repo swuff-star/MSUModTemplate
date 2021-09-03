@@ -41,8 +41,6 @@ namespace LostInTransit.Buffs
 
             private SphereSearch healSearch;
 
-            private GameObject VFXInstance;
-
             private float stopwatch;
 
             private bool doingAbility;
@@ -90,11 +88,22 @@ namespace LostInTransit.Buffs
             {
                 var hasBursted = false;
                 SearchAllies();
+                float newTime = 20;
+                float timeMult = 1.0f;
                 foreach(HealthComponent healthComponent in healthComponents)
                 {
-                    if(healthComponent.body != body)
+                    if(healthComponent.body != body && !healthComponent.body.HasBuff(RoR2Content.Buffs.CrocoRegen))
                     {
-                        healthComponent.body.AddTimedBuff(RoR2Content.Buffs.CrocoRegen, 5);
+                        if(healthComponent.body.isChampion)
+                        {
+                            healthComponent.body.AddTimedBuff(RoR2Content.Buffs.CrocoRegen, 10);
+                            timeMult += 0.2f;
+                        }
+                        else
+                        {
+                            healthComponent.body.AddTimedBuff(RoR2Content.Buffs.CrocoRegen, 5);
+                            timeMult += 0.1f;
+                        }
                         SpawnTracer(healthComponent.body.corePosition, body.corePosition);
                         if(!hasBursted)
                         {
@@ -107,6 +116,7 @@ namespace LostInTransit.Buffs
                             hasBursted = true;
                         }
                     }
+                    timeBetweenHeals = newTime * timeMult;
                 }
             }
             private void SearchAllies()

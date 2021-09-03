@@ -110,7 +110,8 @@ namespace LostInTransit.Modules
                     {
                         var currentK = currentJ.ItemDisplayRules[k];
                         var toAppend = currentI.Parse(j);
-                        HG.ArrayUtils.ArrayAppend(ref currentJ.vanillaIDRS.keyAssetRuleGroups, toAppend);
+                        if (toAppend.keyAsset != null)
+                            HG.ArrayUtils.ArrayAppend(ref currentJ.vanillaIDRS.keyAssetRuleGroups, toAppend);
                     }
                 }
             }

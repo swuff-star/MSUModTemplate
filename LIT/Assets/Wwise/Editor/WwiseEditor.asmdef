@@ -1,0 +1,17 @@
+{
+    "name": "WwiseEditor",
+    "references": [],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Wwise 1.dll",
+        "Wwise.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": []
+}
