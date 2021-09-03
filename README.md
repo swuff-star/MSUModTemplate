@@ -34,37 +34,37 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 ### 0.1.0
 *First ThunderStore release!*
 * Items
- * Life Savings: No longer preserves any gold when travelling between Hidden Realms
- * Smart Shopper: Added
+	* Life Savings: No longer preserves any gold when travelling between Hidden Realms
+	* Smart Shopper: Added
 
 ### 0.0.4
 * General
- * Added a proper .lang file to un-"Tower of Babel" the mod
+	* Added a proper .lang file to un-"Tower of Babel" the mod
 * Items
- * Life Savings: Added
-  *Developer note: Another changed item. The original Life Savings worked fine in Risk of Rain 2, but felt extremely boring to play with. Instead of passive gold, the item now allows you to keep a small amount of your gold between stages. Hoping this makes the item much more desirable.*
+	* Life Savings: Added
+  (*Developer note: Another changed item. The original Life Savings worked fine in Risk of Rain 2, but felt extremely boring to play with. Instead of passive gold, the item now allows you to keep a small amount of your gold between stages. Hoping this makes the item much more desirable.*)
 * Elites
- * Reduced Leeching Elite healing AoE from 256m to 20m. Oops
+	* Reduced Leeching Elite healing AoE from 256m to 20m. Oops
 
 ### 0.0.3
 * Elites
- * Turns out Leeching Elites weren't actually doing anything before - given an itemBehavior so they start doing stuff, now
- * Buffed the on-hit healing of Leeching Elites significantly (removed x0.25 multiplier)
- * Leeching Elites now create a tracer to nearby monsters when healing them
+	* Turns out Leeching Elites weren't actually doing anything before - given an itemBehavior so they start doing stuff, now
+	* Buffed the on-hit healing of Leeching Elites significantly (removed x0.25 multiplier)
+	* Leeching Elites now create a tracer to nearby monsters when healing them
 
 ### 0.0.2
 * General
- * Added FixPluginTypesSerialzation as a dependency
- * Fixed issue where mod wouldn't load without Aspect Abilities installed
+	* Added FixPluginTypesSerialzation as a dependency
+	* Fixed issue where mod wouldn't load without Aspect Abilities installed
 
 ### 0.0.1
 *Should probably start keeping track of version #'s - this is the first ThunderKit release, so let's start here.*
 * Items
- * Beckoning Cat: Added
-	 *Developer note: This item was originally the "56 Leaf Clover" in Risk of Rain 1, but was changed due to the inclusion of "57 Leaf Clover" in Risk of Rain 2. To help prevent confusion betwen the two, the item was given a complete overhaul - may provide a config option to restore this into the 56 Leaf Clover if there's demand for it.*
+	* Beckoning Cat: Added
+	 (*Developer note: This item was originally the "56 Leaf Clover" in Risk of Rain 1, but was changed due to the inclusion of "57 Leaf Clover" in Risk of Rain 2. To help prevent confusion betwen the two, the item was given a complete overhaul - may provide a config option to restore this into the 56 Leaf Clover if there's demand for it.*)
 	* Mysterious Vial: Added
 	* Telescopic Sight: Added
- 	*Developer note: The original Telescopic Sight is widely considered an overpowered and unfun item. The current implementation instead offers players a 10% chance to quintuple their damage on crit. That said, I'm not happy with this implementation and am looking into alternatives that both better preserve the item's identity, and are more interesting to play with.*
+ 	(*Developer note: The original Telescopic Sight is widely considered an overpowered and unfun item. The current implementation instead offers players a 10% chance to quintuple their damage on crit. That said, I'm not happy with this implementation and am looking into alternatives that both better preserve the item's identity, and are more interesting to play with.*)
 	* Thallium: Added
 * Elites
 	* Added Leeching Elites
