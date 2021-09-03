@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3578899226
+CRC: 1624109986
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f9aee79d0d4d5187182958f619fa18be
+    Hash: 6e709e3f91765ae48105bfa1982dc7f9
   TypeTreeHash:
     serializedVersion: 2
     Hash: dd0f2177f4d3d42c9404db4aff7d829a
@@ -133,7 +133,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/Items/BeckoningCat/animBeckoningCatIdle.anim
 - Assets/LostInTransit/LITAssets/Items/BeckoningCat/BeckoningCat.asset
 - Assets/LostInTransit/LITAssets/Elites/Leeching/AffixLeeching.asset
-- Assets/LostInTransit/LITAssets/Items/BeckoningCat/LSIDRCat.asset
+- Assets/LostInTransit/LITAssets/Items/SmartShopper/iconFartSlopper.png
 - Assets/LostInTransit/LITAssets/Items/BeckoningCat/iconBeckoningCat.png
 - Assets/LostInTransit/LITAssets/Items/BeckoningCat/DisplayBeckoningCat.prefab
 - Assets/Materials/matThallium.mat
@@ -149,7 +149,7 @@ Assets:
 - Assets/Materials/matTracerLeeching.mat
 - Assets/Materials/matMysteriousVialLiquid.mat
 - Assets/LostInTransit/LITAssets/Items/Thallium/buffThalliumPoison.asset
-- Assets/LostInTransit/LITAssets/Items/SmartShopper/iconSmartShopper.png
+- Assets/Textures/texSmartShopperV02_DefaultMaterial_Roughness.png
 - Assets/LostInTransit/LITAssets/Items/LifeSavings/LifeSavings.asset
 - Assets/LostInTransit/LITAssets/Elites/Leeching/VFXLeechingAbilityActive.prefab
 - Assets/Mesh/meshLeechingCrown.mesh
@@ -157,12 +157,12 @@ Assets:
 - Assets/Textures/Ramps/texRampEliteLeeching.png
 - Assets/Textures/texMysteriousVialEmission.png
 - Assets/LostInTransit/LITAssets/Elites/Leeching/LSIDRAffixLeeching.asset
+- Assets/LostInTransit/LITAssets/Items/LifeSavings/iconLifeSavings.png
 - Assets/Mesh/meshLifeSavings.mesh
 - Assets/Shaders/fx/hgintersectioncloudremap.shader
 - Assets/LostInTransit/LITAssets/Prefabs/MaterialTester.prefab
 - Assets/LostInTransit/LITAssets/Elites/Leeching/texIconBuffAffixLeeching.png
 - Assets/LostInTransit/LITAssets/Elites/Leeching/Leeching.asset
-- Assets/LostInTransit/LITAssets/Items/LifeSavings/LifeSavings.png
 - Assets/Materials/matMysteriousVialCap.mat
 - Assets/LostInTransit/LITAssets/Equipments/GiganticAmethyst/pickupGiganticAmethyst.prefab
 - Assets/LostInTransit/LITAssets/Elites/Leeching/TracerLeeching.prefab
