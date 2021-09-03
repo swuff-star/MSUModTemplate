@@ -31,6 +31,23 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 ## Changelog
 
+### 0.1.2
+* General
+	* Fixed issue preventing the game from launching depending on the user's system localization
+	* Disabling Leeching Elites no longer prevents the mod from loading
+* Items
+	* Life Savings: Updated render
+	* Smart Shopper: Updated materials & render
+* Elites
+	* Leeching: Regen buff no longer stacks with itself
+	* Leeching: The more monsters affected by a Leeching Elite's AoE, the longer the duration until the next AoE burst will be
+	* Leeching: Boss monsters now take twice as long to fully regen off of a Leeching Elite's healing AoE
+
+### 0.1.1
+* General
+	* Updated manifest
+	* Mod should actually work now... Oops
+
 ### 0.1.0
 *First ThunderStore release!*
 * Items
@@ -44,13 +61,13 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 	* Life Savings: Added
   (*Developer note: Another changed item. The original Life Savings worked fine in Risk of Rain 2, but felt extremely boring to play with. Instead of passive gold, the item now allows you to keep a small amount of your gold between stages. Hoping this makes the item much more desirable.*)
 * Elites
-	* Reduced Leeching Elite healing AoE from 256m to 20m. Oops
+	* Leeching: Reduced healing AoE from 256m to 20m. Oops
 
 ### 0.0.3
 * Elites
 	* Turns out Leeching Elites weren't actually doing anything before - given an itemBehavior so they start doing stuff, now
 	* Buffed the on-hit healing of Leeching Elites significantly (removed x0.25 multiplier)
-	* Leeching Elites now create a tracer to nearby monsters when healing them
+	* Leeching Elites Now create a tracer to nearby monsters when healing them
 
 ### 0.0.2
 * General
