@@ -3,7 +3,7 @@ Lost in Transit is a mod for Risk of Rain 2 that adapts content from Risk of Rai
 
 In its current state, the mod is intended to be an adaptation over a pure port - some features may have changed function or identities for varying reasons. This is done to help players less familiar with Risk of Rain 1's content ease into it and keep things simple. 
 
-If you have any issues with the mod, any feedback you'd like to give, any ideas for new content, or would like to follow progress, you can either join the Lost in Transit Discord Server (https://discord.gg/jzxXsQEZ5y) or you can contact me on Discord (swuff★#2224) - shoot me a DM or ping me in a mutual server. The mod is in active development, so expect new features soon. And as a personal note: I'm still fairly new to writing mods, so expect issues. 
+If you have any issues with the mod, any feedback you'd like to give, any ideas for new content, or would like to follow progress, you can either join the Lost in Transit Discord Server (https://discord.gg/jzxXsQEZ5y) or you can contact me on Discord (swuff★#2224) - shoot me a DM or ping me in a mutual server. The mod is in active development, so expect new features soon. And as a personal note: I'm still fairly new to modding, so expect issues. 
 
 ## Items / Equipment
 
@@ -12,7 +12,7 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 |![](https://i.imgur.com/Vqj1kyK.png) | **Life Savings** | Keep 2% (+2% per stack) of gold between stages. | Common |
 |![](https://i.imgur.com/0JpFYMD.png) | **Mysterious Vial** | Regenerate an extra 0.4 (+0.4 per stack) hp per second. | Common |
 |![](https://i.imgur.com/zTCttJR.png) | **Beckoning Cat** | Elite monsters have a 4.5% (+1.5% per stack) chance to drop items on death. | Uncommon |
-|![](https://i.imgur.com/4qpaGr0.png) | **Smart Shopper** | Monsters drop 25% (+25% per stack) more gold.
+|![](https://i.imgur.com/4qpaGr0.png) | **Smart Shopper** | Monsters drop 25% (+25% per stack) more gold. | Uncommon |
 |![](https://i.imgur.com/16yqiHX.png) | **Thallium** | 10% chance to inflict thallium poisoning for 500% (+250% per stack) of enemy's base damage and slow by 75%. | Rare |
 |![](https://i.imgur.com/xmQADqk.png) | **Telescopic Sight** | Gain 10% critical chance. 10% (+10% per stack) chance for critical strikes to deal 5x damage. | Rare |
 |![](https://i.imgur.com/27uyOZz.png) | **Gigantic Amethyst** | Reset skill cooldowns on use. | Equipment |
@@ -21,7 +21,7 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 | Elite Type | Name | Description | Tier |
 |:-|-|------|-|
-|![](https://i.imgur.com/CubhqEH.png) | **Leeching** | Damage dealt is returned as healing. Periodically heal nearby allies for a small amount of health. | Tier 1 |
+|![](https://i.imgur.com/CubhqEH.png) | **Leeching** | Damage dealt is returned as healing. Periodically heal nearby allies for a small amount of health. | 1 |
 
 ## Credits
 * Code - Nebby, swuff★
