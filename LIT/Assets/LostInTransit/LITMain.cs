@@ -29,9 +29,9 @@ namespace LostInTransit
     })]
     public class LITMain : BaseUnityPlugin
     {
-        internal const string GUID = "com.swuff★.LostInTransit";
+        internal const string GUID = "com.swuff.LostInTransit";
         internal const string MODNAME = "Lost in Transit";
-        internal const string VERSION = "0.1.2";
+        internal const string VERSION = "0.1.3";
 
         public static LITMain instance;
 

@@ -12,9 +12,9 @@
     "overrideReferences": true,
     "precompiledReferences": [
         "BepInEx.dll",
-        "StubbedAssembly-CSharp.dll",
         "HGUnityUtils.dll",
-        "HGCSharpUtils.dll"
+        "HGCSharpUtils.dll",
+        "StubbedAssembly-CSharp (1).dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [

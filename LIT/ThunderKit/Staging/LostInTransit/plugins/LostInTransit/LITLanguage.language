@@ -1,0 +1,94 @@
+{
+    "strings" : {
+	"LIT_ITEM_BARBEDWIRE_NAME": "Barbed Wire",
+	"LIT_ITEM_BARBEDWIRE_PICKUP": "Damage nearby enemies.",
+	"LIT_ITEM_BARBEDWIRE_DESC": "Deal <style=cIsDamage>80% damage per second</style> to enemies standing within a radius of <style=cIsUtility>7m</style> <style=cStack>(+1.5m per stack)</style>.",
+	"LIT_ITEM_BARDBEDWIRE_LORE": "They found the source of the signal. Perhaps a bit too late, unfortunately.\n\nThe body of a soldier lay dead on the ground, clutching the signal device in his hand.\n\nThe soldier was armed with his standard issue pistol, plus a few other strange and unconventional accessories. Most notable was the roll of barbed wire wrapped around his chest and legs, covering his armored suit.\n\nThe wire was stained with the gore of many different creatures. Seems it did its job. Just not well enough.",
+	
+	"LIT_ITEM_LIFESAVINGS_NAME": "Life Savings",
+	"LIT_ITEM_LIFESAVINGS_PICKUP": "Keep a small amount of gold between stages.",
+	"LIT_ITEM_LIFESAVINGS_DESC": "Keep <style=cIsUtility>2%</style> <style=cStack>(+2% per stack)</style> of <style=cIsUtility>earned gold</style> between stages. Gold is not kept when travelling between <style=cWorldEvent>Hidden Realms</style>.",
+	"LIT_ITEM_LIFESAVINGS_LORE": "<style=cDeath>WORK IN PROGRESS</style>",
+	
+	"LIT_ITEM_MORTARTUBE_NAME": "Mortar Tube",
+	"LIT_ITEM_MORTARTUBE_PICKUP": "Chance to fire a mortar on hit.",
+	"LIT_ITEM_MORTARTUBE_DESC": "<style=cIsDamage>9%</style> chance to fire a <style=cIsDamage>mortar</style> <style=cStack>(+1 per stack)</style> for <style=cIsDamage>170% TOTAL damage</style>.",
+	"LIT_ITEM_MORTARTUBE_LORE": "What do you think it is?\" Graham had placed the strange black tube in front of him, staring down the barrel with a keen eye. Something green and silver sat at the back.\n\nJordan remained uninterested, sifting through scrap and shrapnel. \"Probably a club. Stop bothering me.\"\n\nGraham held it above his head, investigating its faded serial number and tagging. \"I think it's a gun.\" There was a small lever on the bottom, after all. Jordan clearly hadn't been paying attention to his description.\n\nThis piqued Jordan's interest. \"Maybe an antique?\" He clambered back towards Garham, sitting beside him, motioning for the 'gun'.\n\nPassing their new fascination, Graham tipped the end of its barrel downwards, and something began to slide.\n\nBoom.",
+	
+	"LIT_ITEM_MYSTERIOUSVIAL_NAME": "Mysterious Vial",
+	"LIT_ITEM_MYSTERIOUSVIAL_PICKUP": "Increased health regeneration.",
+	"LIT_ITEM_MYSTERIOUSVIAL_DESC": "Regenerate an extra <style=cIsHealing>+0.8</style> <style=cStack>(+0.8 per stack)</style> <style=cIsHealing>hp</style> per second.",
+	"LIT_ITEM_MYSTERIOUSVIAL_LORE": "<style=cDeath>WORK IN PROGRESS</style>",
+	
+	"LIT_ITEM_ARMSRACE_NAME": "Arms Race",
+	"LIT_ITEM_ARMSRACE_PICKUP": "Upgrade purchased drones with missiles, mortars, and shields.",
+	"LIT_ITEM_ARMSRACE_DESC": "Purchased <style=cIsUtility>drones</style> are given <style=cIsHealing>8%</style> <style=cStack>(+8% per stack)</style> of their health as <style=cIsHealing>shield</style>, as well as a <style=cIsDamage>9%</style> <style=cStack>(+9% per stack)</style> chance to fire <style=cIsDamage>mortars</style> and <style=cIsDamage>missiles</style>.",
+	"LIT_ITEM_ARMSRACE_LORE": "<style=cMono>Excerpt from the KS-I Brand Automated Defense Service user manual:</style>\n\nHello, and thank you for your purchase of our Universal Drone Upgrade Kit! (UKUK)\n\nWhile we believe that KS-I brand droids are the pinnacle of automated defense, modern technology has allowed us to push past what we believed possible for user interacing and ordinance installation.\n\nWith your purchase, we recommend reading the full user manual for all new commands available for upgraded drones before committing to any possibly dangerous combat scenarios.\n\nTo install, simply place the unpackaged UDUK into any unmodified KS-I slot. After installation, please wait for at least five minutes before issuing a command.\n\nRemember: Any voices you may hear from your drone after installation are simply a byproduct of high quality AI. If this persists, please contact your local KS-I mechanic specialist!",
+	
+	"LIT_ITEM_BECKONINGCAT_NAME": "Beckoning Cat",
+	"LIT_ITEM_BECKONINGCAT_PICKUP": "Elite monsters have a chance to drop items.",
+	"LIT_ITEM_BECKONINGCAT_DESC": "Elite monsters have a <style=cIsUtility>4.5%</style> <style=cStack>(+1.5% per stack)</style> chance to drop items on death. Dropped items have a <style=cIsUtility>5%</style> <style=cStack>(+1% per stack)</style> chance to be <color=#81d047>Uncommon</color>, and a <style=cIsUtility>0.5%</style> <style=cStack>(+0.25% per stack)</style> chance to be <color=#f26060>Rare</color>.",
+	"LIT_ITEM_BECKONINGCAT_LORE": "Light rain drops fall around an old-timey restaurant. The noise dull, but slowly raising in volume. Their good luck charm sitting there as its paw dip, dip, dipped. \"Hey, Gramps. Don't you think it's about time to close up? No one is going to be visiting like this.\"\n\nThe elderly man simply sits behind the counter, sipping something warm, and musing himself by watching their old plastic cat. Dip, dip, dip. \"No, my boy. It's for this exact reason we should stay open. Someone is on their way.\"\n\nThe young man rolls his eyes and closes the door, as it was now getting too loud to hear. The distant roar of thunder making the old structure creak, the charm rattling on the table. Dip, dip, dip. \"I'm sure they're on their way home at least. Well, we can still tidy up a bit while we wait for this to pass.\"\n\nThe door swings open as an imposing woman strides in, dressed as though she's some commander or government official. As she brushes water off her coat, she scans the menu on the counter with the charm. Dip, dip dip. \"See, my boy? There's always someone who could use a bit of help. And who are we to turn them away? When it rains, it pours after all.\"\n\nThe woman quickly leaves into the storm, and all is quiet, save for the light staccato of raindrops.Soon however, the woman returns, followed by a small platoon of soldiers. Apparently, a night-long celebration for victory at the only half decent store still open. The woman nods to the elderly man as she places her card next to the charm, and its paw dip, dip, dipped.",
+	
+	"LIT_ITEM_BECKONINGCAT_PURIST_NAME": "56 Leaf Clover",
+	"LIT_ITEM_BECKONINGCAT_PURIST_PICKUP": "Elite monsters have a chance to drop items.",
+	"LIT_ITEM_BECKONINGCAT_PURIST_DESC": "Elite monsters have a <style=cIsUtility>4.5%</style> <style=cStack>(+1.5% per stack)</style> chance to drop items on death. Dropped items have a <style=cIsUtility>5%</style> <style=cStack>(+1% per stack)</style> chance to be <color=#81d047>Uncommon</color>, and a <style=cIsUtility>0.5%</style> <style=cStack>(+0.25% per stack)</style> chance to be <color=#f26060>Rare</color>.",
+	"LIT_ITEM_BECKONINGCAT_PURIST_LORE": "<style=cDeath>WORK IN PROGRESS</style>",
+	
+	"LIT_ITEM_GOLDENGUN_NAME": "Golden Gun",
+	"LIT_ITEM_GOLDENGUN_PICKUP": "More gold, more damage.",
+	"LIT_ITEM_GOLDENGUN_DESC": "Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to <style=cIsDamage>+40% damage</style> <style=cStack>(+20% per stack)</style> at <style=cIsUtility>600 gold</style> <style=cStack>(+300 per stack, scaling with time)</style>.",
+	"LIT_ITEM_GOLDENGUN_LORE": "i got-\ni got guns\n\ni got gun for picnic\nit's gun that send texts\nit's gun that make breakfast\ngun that sign breasts\nit's gun that straight faced\ngun with six senses\it's gun that hate texas\ngun that wear vests\n\ntwo clips of hollow tip\n'pon glock and 'pon hip\nka-click your flesh rip\nmy clique been rooted\npull pin and then hold this\nblack out this horseshit\nbrains blow and whole tits\nthese cats can get fixed\n(pop)shoot you no dick (pop pop pop)\nwith authentic gun from my sock (pop pop pop)\nit meanted somebody got shot (pop pop pop pop pop)\nby the nun man who run with the godz of the gunz\n\ng-guns for fake necklaces\nguns that send texts\nit's guns that make breakfast\nguns that sign breasts\nit's guns that straight faced\nguns with six senses\nguns that hate texas\nguns that wear vests\n\ni got gun for picnic\nit's gun that send texts\nit's gun that make breakfast\ngun that sign breasts\nit's gun that straight faced\ngun with six senses\ngun that hate texas\ngun that wear vests\n\ni got guns for fake necklaces\nguns that send texts\nit's guns that make breakfast\nguns that sign breasts\nit's guns that straight faced\nguns with six senses\nguns that hate texas\nguns that wear vests\n\nwe've got proof and then shoot\nwe bull proof then pull chute\nwe knife-proof then nine-shoot\nwe bomb-proof\nyour mom's shot by a gun of the god\n\nwe've got proof and then shoot\nwe bull proof and pull chute\nwe knife-proof and nine-shoot\nwe bomb-proof\nyour mom's shot\n\none for the money\ntwo's for the crew\nthree's for shooting anything i want to\n\nash-a clack clack\nbullet\n\nbulletproof\nyeah one two\nyou shouldn't shoot\na hundred-one hole-in-the-roof\nventilating your new god z suit\nyou midget doo-doo\nwe've the fittin' ta mash you\nbitchin' the fat, little kids in the back\nyou on my pisslist like white girl rhymes\nyour mighty ducks hat\nyou're rockin', you're mad\nwith a chest strapped\nclack clack",
+	
+	
+	"LIT_ITEM_SMARTSHOPPER_NAME": "Smart Shopper",
+	"LIT_ITEM_SMARTSHOPPER_PICKUP": "Monsters drop more gold.",
+	"LIT_ITEM_SMARTSHOPPER_DESC": "Monsters drop <style=cIsUtility>25%</style> <style=cStack>(+25% per stack)</style> more gold on death.",
+	"LIT_ITEM_SMARTSHOPPER_LORE": "Order: Wallet\nTracking Number: 100****\nEstimated Delivery: 4/2/2057\nShipping Method: Priority\nShipping Address: PO Box 18789, Alcore, Mars\nShipping Details:\n\nThese were NOT meant to get out. Some kid is already showing off his \"magic wallet\" that prints money! It's all over the damned news! You're gonna pay for this, you hear? For every one that's missing when I see you, I'll take one of your fingers. See you soon, Alex.",
+	
+	"LIT_ITEM_TELESCOPICSIGHT_NAME": "Telescopic Sight",
+	"LIT_ITEM_TELESCOPICSIGHT_PICKUP": "Critical strikes have a chance to do quintupuled damage.",
+	"LIT_ITEM_TELESCOPICSIGHT_DESC": "Gain <style=cIsUtility>10% critical chance</style>. <style=cIsDamage>10%</style> <style=cStack>(+10% per stack)</style> chance for critical strikes to deal <style=cIsDamage>500% damage</style>.",
+	"LIT_ITEM_TELESCOPICSIGHT_LORE": "\"The sight comes with infrared, night vision, onboard wind assesment, built in scope adjustments between five and twenty five times magnification, and adaptive smart fire technology to ensure the perfect shot. Bought it out of military surplus, but I've got no idea how it ended up there.\"\n\n\"You make it sound like the gun itself is an attachment for the scope.\"\n\n\"Ha! Well it is extra. But I'll give it to you at a discount! Friends and family.\"\n\n\"Just one last question.\"\n\n\"Shoot.\"\n\n\"Do you have two more?\"",
+	
+	"LIT_ITEM_THALLIUM_NAME": "Thallium",
+	"LIT_ITEM_THALLIUM_PICKUP": "Chance to inflict thallium poisoning on hit.",
+	"LIT_ITEM_THALLIUM_DESC": "<style=cIsDamage>10%</style> chance to inflict thallium poisoning for <style=cIsDamage>500%</style> <style=cStack>(+250% per stack)</style> of the victim's base damage and slow by <style=cIsUtility>75% movement speed</style>.",
+	"LIT_ITEM_THALLIUM_LORE": "You found it embedded atop a small hill, surrounded by dead grass.\n\nDead insects.\n\nDead lizards.\n\nThe tree it sat beneath had passed long ago.\n\nBrown bark became white dust, drifting away with the wind.\n\nThe dust smelled of decay.\n\nThis scene, to anyone else, would be overwhelming.\n\nAn unholy site, cursed by something unknown.\n\nBut you dug deeper.\n\nYou found something... worse.\n\nA note. An omen. A promise.\n\nBut you were happy it never arrived.\n\nFor her sake.",
+	
+	"LIT_ITEM_WICKEDRING_NAME": "Wicked Ring",
+	"LIT_ITEM_WICKEDRING_PICKUP": "Critical strikes fully refresh skill cooldowns. Recharges over time.",
+	"LIT_ITEM_WICKEDRING_DESC": "<style=cIsDamage>Critical strikes</style> will <style=cIsUtility>fully refresh all skill cooldowns</style>. Recharges every <style=cIsUtility>10</style> <style=cStack>-25% per stack</style> seconds.",
+	"LIT_ITEM_WICKEDRING_LORE": "A ring of the late King. The last of many cursed artifacts from a forgotten kingdom.\n\nEmpowered by the very souls of his progeny, he sacrificed the future of his kin for the future of his subjects. The King used the strength of his rings to protect and rule for generations.\n\nThe King had sacrificed much, all for the sake of those who would worship him. Worship, however, is a dangerous resource. A resource deserved of deities, not of mere mortals. A simple trugh he had forgotten.\n\nThe King had believed too much in his own people, his own strength, his own rings. The King had defied death for generations. Much longer than any man should live, much less rule. The King felt he'd overcome death. he'd thought he had ascended to a figure worthy of his people's worship.\n\nAlas, his infinite wisdom gave way to hubris. He thought he could challenge <style=cDeath>Her</style>, and allow his kingdom to prosper under his rule for eons to come. But death is something no one can escape, and delivers all to the same end. He was punished with the loss of what he'd sacrificed so much for, before sacrificing himself for one last hope. His soul never escaping the same torment he'd bestowed unto his sons.\n\n~Memento Mori",
+	
+	"LIT_EQUIP_GIGANTICAMETHYST_NAME": "Gigantic Amethyst",
+	"LIT_EQUIP_GIGANTICAMETHYST_PICKUP": "Reset skill cooldowns on use.",
+	"LIT_EQUIP_GIGANTICAMETHYST_DESC": "<style=cIsUtility>Reset all skill cooldowns</style> on use.",
+	"LIT_EQUIP_GIGANTICAMETHYST_LORE": "Rich! Rich I am!\nJealous, jealous they were.\nIt's mine! All mine!\n\nBarry wanted to return it.\nBut we were never returning!\nSo I returned him to the soil.\n\nSamantha wanted to share it.\nBut breaking would ruin its luster!\nSo I broke her.\n\nI told them we weren't going back.\nThey didn't believe me!\nNow we're all here, forever.\n\nMe, my friends, and my crystal.",
+	
+	"LIT_EQUIP_AFFIXLEECHING_NAME": "Guttural Whimpers",
+	"LIT_EQUIP_AFFIXLEECHING_PICKUP": "Become an aspect of parasitism.",
+	"LIT_EQUIP_AFFIXLEECHING_DESC": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
+	"LIT_EQUIP_AFFIXLEECHING_LORE": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
+	
+	"LIT_EQUIP_AFFIXVOLATILE_NAME": "Lingering Torment",
+	"LIT_EQUIP_AFFIXVOLATILE_PICKUP": "Become an aspect of instability.",
+	"LIT_EQUIP_AFFIXVOLATILE_DESC": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
+	"LIT_EQUIP_AFFIXVOLATILE_LORE": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
+	
+	"LIT_EQUIP_AFFIXFRENZIED_NAME": "Primordial Rage",
+	"LIT_EQUIP_AFFIXFRENZIED_PICKUP": "Become an aspect of seething.",
+	"LIT_EQUIP_AFFIXFRENZIED_DESC": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
+	"LIT_EQUIP_AFFIXFRENZIED_LORE": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
+	
+	"LIT_EQUIP_AFFIXBLIGHTED_NAME": "Betrayal of the Bulwark",
+	"LIT_EQUIP_AFFIXBLIGHTED_PICKUP": "Become another wronged soul.",
+	"LIT_EQUIP_AFFIXBLIGHTED_DESC": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
+	"LIT_EQUIP_AFFIXBLIGHTED_LORE": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
+	
+	"LIT_MODIFIER_BLIGHTED": "Blighted {0}",
+	"LIT_ELITE_MODIFIER_LEECHING": "Leeching {0}",
+	"LIT_ELITE_MODIFIER_VOLATILE": "Volatile {0}",
+	"LIT_ELITE_MODIFIER_FRENZIED": "Frenzying {0}",
+    }
+}

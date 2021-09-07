@@ -18,7 +18,7 @@ namespace LostInTransit.Items
         public override void Initialize()
         {
             section = "Item: " + ItemDef.name; 
-            moneyKept = LITMain.config.Bind<float>(section, "Money Kept", 2f, "Percentage of money kept between stages.").Value;
+            moneyKept = LITMain.config.Bind<float>(section, "Money Kept", 4f, "Percentage of money kept between stages.").Value;
             SceneExitController.onBeginExit += checkGoldAtEndOfStage;
             Stage.onStageStartGlobal += Stage_onServerStageBegin;
         }
