@@ -7,7 +7,7 @@ namespace LostInTransit.Buffs
 {
     public class GoldenGunBuff : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("buffGoldenGun");
+        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("GoldenGun");
         public static BuffDef buff;
         public static DotController.DotIndex index;
 

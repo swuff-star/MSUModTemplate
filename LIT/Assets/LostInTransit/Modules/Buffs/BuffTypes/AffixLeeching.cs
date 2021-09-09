@@ -14,7 +14,7 @@ namespace LostInTransit.Buffs
 {
     public class AffixLeeching : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("BuffAffixLeeching");
+        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("AffixLeeching");
         public static BuffDef buff;
 
         public override void Initialize()
@@ -31,9 +31,9 @@ namespace LostInTransit.Buffs
         {
             public float timeBetweenHeals = 20;
 
-            public GameObject HealingEffect = Assets.LITAssets.LoadAsset<GameObject>("VFXLeeching");
+            public GameObject HealingEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingBurst");
 
-            public GameObject AbilityEffect = Assets.LITAssets.LoadAsset<GameObject>("VFXLeechingAbilityActive");
+            public GameObject AbilityEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingAbility");
 
             public GameObject TracerEffect = Assets.LITAssets.LoadAsset<GameObject>("TracerLeeching");
 

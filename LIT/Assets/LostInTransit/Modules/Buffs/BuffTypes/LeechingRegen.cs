@@ -30,7 +30,7 @@ namespace LostInTransit.Buffs
             public float duration = 5;
             public float regen = 0;
 
-            public GameObject VFX = Assets.LITAssets.LoadAsset<GameObject>("VFXLeechingRegen");
+            public GameObject VFX = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingRegen");
             public void Start()
             {
                 if(body.isChampion)

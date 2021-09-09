@@ -15,6 +15,7 @@ namespace LostInTransit.Items
 
         //★ (godzilla 1998 main character voice)
         //★ that's a lotta Debug.WriteLine()
+        //Neb - Why dont use Debug.Log(), lol
         public override void Initialize()
         {
             section = "Item: " + ItemDef.name; 

@@ -33,6 +33,7 @@ namespace LostInTransit.Items
             body.AddItemBehavior<TelescopicSightBehavior>(stack);
         }
 
+        //Todo: make this not shit, i would really like to implement it like isaac's euthanasia
         public class TelescopicSightBehavior : CharacterBody.ItemBehavior, IStatItemBehavior, IOnDamageDealtServerReceiver
         {
 

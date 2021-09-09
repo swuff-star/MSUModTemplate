@@ -14,7 +14,7 @@ namespace LostInTransit.Buffs
 {
     public class AffixFrenzied : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("BuffAffixFrenzied");
+        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("AffixFrenzied");
         public static BuffDef buff;
 
         public override void Initialize()

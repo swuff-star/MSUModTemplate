@@ -49,6 +49,7 @@ namespace LostInTransit.Items
 
             //Swuff's original code hurts me so i'm re-using the one from varianceAPI.
             //★ at least my code dropped items more than 0.9% of the time :smirk:
+            //Yeah thats fair.
             public void OnKilledOtherServer(DamageReport damageReport)
             {
                 RefreshNextItems();
