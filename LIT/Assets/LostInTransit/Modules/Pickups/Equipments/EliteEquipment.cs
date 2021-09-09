@@ -69,9 +69,15 @@ namespace LostInTransit.Equipments
 
             public void OnDestroy()
             {
+                Debug.Log("A");
                 model.propertyStorage.SetTexture(Elites.EliteRampPropertyID, Shader.GetGlobalTexture(Elites.EliteRampPropertyID));
+                Debug.Log("A");
                 if (effectInstance)
+                {
+                    Debug.Log("A");
                     Destroy(effectInstance);
+                    Debug.Log("A");
+                }
             }
         }
     }

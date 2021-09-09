@@ -92,16 +92,18 @@ namespace LostInTransit.Buffs
                 float timeMult = 1.0f;
                 foreach(HealthComponent healthComponent in healthComponents)
                 {
-                    if(healthComponent.body != body && !healthComponent.body.HasBuff(RoR2Content.Buffs.CrocoRegen))
+                    if(healthComponent.body != body && !healthComponent.body.HasBuff(LeechingRegen.leechingRegenDef) && !body.GetComponent<AffixLeechingBehavior>())
                     {
                         if(healthComponent.body.isChampion)
                         {
-                            healthComponent.body.AddTimedBuff(RoR2Content.Buffs.CrocoRegen, 10);
-                            timeMult += 0.2f;
+                            Debug.Log($"Applying buff to {healthComponent.body}");
+                            healthComponent.body.AddTimedBuff(LeechingRegen.leechingRegenDef, 10);
+                            timeMult += 0.25f;
                         }
                         else
                         {
-                            healthComponent.body.AddTimedBuff(RoR2Content.Buffs.CrocoRegen, 5);
+                            Debug.Log($"Applying buff to {healthComponent.body}");
+                            healthComponent.body.AddTimedBuff(LeechingRegen.leechingRegenDef, 5);
                             timeMult += 0.1f;
                         }
                         SpawnTracer(healthComponent.body.corePosition, body.corePosition);
