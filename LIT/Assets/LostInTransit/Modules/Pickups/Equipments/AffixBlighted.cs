@@ -5,7 +5,6 @@ using Moonstorm.Utilities;
 
 namespace LostInTransit.Equipments
 {
-    [DisabledContent]
     public class AffixBlighted : EliteEquipmentBase
     {
         public override MSEliteDef EliteDef { get; set; } = Assets.LITAssets.LoadAsset<MSEliteDef>("Blighted");
@@ -16,7 +15,12 @@ namespace LostInTransit.Equipments
         {
             if(MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
             {
-                Debug.Log("sup? you a fan of aspect abilities? that's pretty rad");
+                var component = slot.characterBody.GetComponent<Buffs.AffixBlighted.AffixBlightedBehavior>();
+                if(component)
+                {
+                    component.MasterBehavior.Ability();
+                    return true;
+                }
             }
             return false;
         }
