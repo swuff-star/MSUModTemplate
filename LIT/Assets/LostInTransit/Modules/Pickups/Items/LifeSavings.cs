@@ -44,7 +44,7 @@ namespace LostInTransit.Items
         }
         public class LifeSavingsBehavior : CharacterBody.ItemBehavior
         {
-            private static float moneyToGrant = 0f;
+            private float moneyToGrant = 0f;
             public void FixedUpdate()
             {
                 float currentMoney = body.master.money;

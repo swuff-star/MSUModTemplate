@@ -34,6 +34,7 @@ namespace LostInTransit.Items
                 //This all works, but the math is the tiniest bit inconsistent. This is due to the fact that 40 does not divide evenly into 700. Fuck Hopoo.
                 //"Fixed" the above by buffing it to a 600 gold cap instead of 700.
                 //Debug.Write("Current cap for Golden Gun: " + gunCap);
+                if (body.master.money < 1) { return; }
                 float goldPerBuff = (gunCap / 40f); //To-do: Change the 40f out for a configurable value. This is hard to explain in words how the math works in a short desc.
                 //Debug.Write("Amount of gold needed for one Golden Gun buff: " + goldPerBuff);
                 float buffToGive = (body.master.money / (int)goldPerBuff);

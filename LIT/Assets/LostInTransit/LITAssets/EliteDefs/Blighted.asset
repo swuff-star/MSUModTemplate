@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 819600919, guid: aac90d9e680f01e4d83b16fdcd1574cf, type: 3}
   m_Name: Blighted
   m_EditorClassIdentifier: 
-  modifierToken: LIT_ELITE_MODIFIER_BLIGHTED
+  modifierToken: LIT_MODIFIER_BLIGHTED
   eliteEquipmentDef: {fileID: 11400000, guid: c572279333409f54f9ba90b9d7614c43, type: 2}
   color:
     serializedVersion: 2

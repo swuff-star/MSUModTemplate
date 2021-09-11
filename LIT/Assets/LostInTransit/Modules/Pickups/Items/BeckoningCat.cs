@@ -50,10 +50,12 @@ namespace LostInTransit.Items
             //Swuff's original code hurts me so i'm re-using the one from varianceAPI.
             //★ at least my code dropped items more than 0.9% of the time :smirk:
             //Yeah thats fair.
+            //★ ily
             public void OnKilledOtherServer(DamageReport damageReport)
             {
                 RefreshNextItems();
                 var victimBody = damageReport.victimBody;
+                var dropLocation = damageReport.attackerBody.transform.position;
                 if(victimBody.isElite && Roll(baseChance + (stackChance * (stack - 1)), 0))
                 {
                     //Debug.Log("Rolling for item...");
@@ -77,6 +79,10 @@ namespace LostInTransit.Items
                         SpawnItem(whiteItems, nextWhiteItem);
                         return;
                     }
+                    void SpawnItem(List<PickupIndex> items, int nextItem)
+                    {
+                        PickupDropletController.CreatePickupDroplet(items[nextItem], victimBody.transform.position, constant);
+                    }
                 }
             }
             private void RefreshNextItems()
@@ -86,10 +92,6 @@ namespace LostInTransit.Items
                 nextRedItem = Run.instance.treasureRng.RangeInt(0, redItems.Count);
             }
 
-            private void SpawnItem(List<PickupIndex> items, int nextItem)
-            {
-                PickupDropletController.CreatePickupDroplet(items[nextItem], body.transform.position, constant);
-            }
 
             private bool Roll(float chance, float usesLuck)
             {
