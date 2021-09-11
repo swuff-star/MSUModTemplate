@@ -16,7 +16,12 @@ namespace LostInTransit.Equipments
         {
             if(MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
             {
-                Debug.Log("sup? you a fan of aspect abilities? that's pretty rad");
+                var component = slot.characterBody.GetComponent<Buffs.AffixBlighted.AffixBlightedBehavior>();
+                if(component)
+                {
+                    component.MasterBehavior.Ability();
+                    return true;
+                }
             }
             return false;
         }

@@ -9,6 +9,7 @@ using Moonstorm;
 using RoR2.ContentManagement;
 using System.Reflection;
 using System.Linq;
+using LostInTransit.Components;
 
 namespace LostInTransit.Modules
 {
@@ -35,7 +36,31 @@ namespace LostInTransit.Modules
                 .Where(elite => LITMain.config.Bind<bool>("Lost in Transit Elites", elite.EliteDef.name, true, "Enable/disable this Elite Type.").Value)
                 .ToList()
                 .ForEach(elite => AddElite(elite, ContentPack));
+            LateEliteSetup();
             return null;
+        }
+
+        private void LateEliteSetup()
+        {
+            if(MoonstormElites.Contains(Assets.LITAssets.LoadAsset<MSEliteDef>("Blighted")))
+            {
+                LITLogger.LogI($"Blighted elites are enabled, setting up systems...");
+                RoR2Application.onLoad += BlightSetup;
+            }
+        }
+
+        private void BlightSetup()
+        {
+            MasterCatalog.masterPrefabs
+                .Where(masterPrefab => masterPrefab.GetComponent<CharacterMaster>().bodyPrefab)
+                .ToList()
+                .ForEach(charMaster =>
+                {
+                    Debug.LogError(charMaster);
+                    var component = charMaster.gameObject.AddComponent<BlightedController>();
+                    component.enabled = false;
+                });
+            LITLogger.LogI($"Finished MasterPrefab modifications.");
         }
     }
     /*

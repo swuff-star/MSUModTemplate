@@ -8,7 +8,7 @@ namespace LostInTransit.Equipments
     {
         public override MSEliteDef EliteDef { get; set; } = Assets.LITAssets.LoadAsset<MSEliteDef>("Leeching");
         public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("AffixLeeching");
-        public override MSAspectAbility AspectAbility { get; set; } = Assets.LITAssets.LoadAsset<MSAspectAbility>("Leeching");
+        public override MSAspectAbility AspectAbility { get; set; } = Assets.LITAssets.LoadAsset<MSAspectAbility>("AbilityLeeching");
 
         public override bool FireAction(EquipmentSlot slot)
         {

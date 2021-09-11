@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 224475054
+CRC: 3567763105
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4d33aea191d63f7e74459eeef9487afa
+    Hash: 79b67e581d713f7c4040f3113beac89a
   TypeTreeHash:
     serializedVersion: 2
     Hash: f259947d75a1d483856a86cc45bf785c
@@ -89,7 +89,7 @@ Assets:
 - Assets/Materials/matTelescopicSight.mat
 - Assets/Textures/texThalliumC.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupLifeSavings.prefab
-- Assets/LostInTransit/LITAssets/EliteAbilities/Frenzied.asset
+- Assets/LostInTransit/LITAssets/EliteAbilities/AbilityFrenzied.asset
 - Assets/LostInTransit/LITAssets/EquipmentDefs/GiganticAmethyst.asset
 - Assets/Textures/Stolen/texCloudOrganic2.asset
 - Assets/Mesh/meshCross.mesh
@@ -105,6 +105,7 @@ Assets:
 - Assets/Textures/Ramps/texRampTwotone.png
 - Assets/Icons/texIconPickupAffixFrenzied.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupThallium.prefab
+- Assets/LostInTransit/LITAssets/EquipmentDefs/AffixBlighted.asset
 - Assets/Icons/texIconBuffThallium.png
 - Assets/Materials/matGiganticAmethyst.mat
 - Assets/Textures/Stolen/texCloudDifferenceBW2.asset
@@ -131,6 +132,7 @@ Assets:
 - Assets/Textures/Ramps/texRampLeechingAlt.png
 - Assets/Materials/matGoldenGun.mat
 - Assets/Textures/texGiganticAmethyst.png
+- Assets/LostInTransit/LITAssets/BuffDefs/AffixBlighted.asset
 - Assets/LostInTransit/LITAssets/Anims/BeckoningCat/avatarBeckoningCat.asset
 - Assets/Mesh/meshThallium.mesh
 - Assets/Icons/texIconPickupAffixLeeching.png
@@ -153,6 +155,7 @@ Assets:
 - Assets/Textures/Stolen/texOmniExplosion2Mask.asset
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/LITItemDisplays.asset
 - Assets/Textures/texTelescopicSightDiffuse.png
+- Assets/Textures/Ramps/texRampEliteBlighted.png
 - Assets/Mesh/meshGiganticAmethyst.mesh
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/Effects.asset
 - Assets/Materials/matTracerLeeching.mat
@@ -169,8 +172,10 @@ Assets:
 - Assets/LostInTransit/LITAssets/ItemDefs/TelescopicSight.asset
 - Assets/Textures/Ramps/texRampEliteLeeching.png
 - Assets/LostInTransit/LITAssets/EliteDefs/Frenzied.asset
+- Assets/LostInTransit/LITAssets/EliteDefs/Blighted.asset
 - Assets/Icons/texIconPickupGoldenGun.png
 - Assets/Textures/texMysteriousVialEmission.png
+- Assets/LostInTransit/LITAssets/EliteAbilities/AbilityBlighted.asset
 - Assets/LostInTransit/LITAssets/SIDRS/AffixLeeching.asset
 - "Assets/Icons/texIconP\xEFckupLifeSavings.png"
 - Assets/Mesh/meshLifeSavings.mesh
@@ -183,7 +188,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/Tracers/TracerLeeching.prefab
 - Assets/Textures/texLifeSavingsDifuse.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixLeeching.prefab
-- Assets/LostInTransit/LITAssets/EliteAbilities/Leeching.asset
+- Assets/LostInTransit/LITAssets/EliteAbilities/AbilityLeeching.asset
 - Assets/Mesh/meshTelescopicSight.mesh
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupBeckoningCat.prefab
 - Assets/Textures/Ramps/texRampEliteLeechingClassic.png
