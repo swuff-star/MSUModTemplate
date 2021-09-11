@@ -1,14 +1,7 @@
 ﻿using RoR2;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Moonstorm;
 using UnityEngine;
-using LostInTransit.Modules;
-using UnityEngine.Networking;
-using LostInTransit.Utils;
-using LostInTransit.Components;
 
 namespace LostInTransit.Buffs
 {
@@ -96,13 +89,11 @@ namespace LostInTransit.Buffs
                     {
                         if(healthComponent.body.isChampion)
                         {
-                            Debug.Log($"Applying buff to {healthComponent.body}");
                             healthComponent.body.AddTimedBuff(LeechingRegen.leechingRegenDef, 10);
                             timeMult += 0.25f;
                         }
                         else
                         {
-                            Debug.Log($"Applying buff to {healthComponent.body}");
                             healthComponent.body.AddTimedBuff(LeechingRegen.leechingRegenDef, 5);
                             timeMult += 0.1f;
                         }

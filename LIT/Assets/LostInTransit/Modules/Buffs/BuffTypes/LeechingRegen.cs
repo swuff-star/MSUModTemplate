@@ -1,7 +1,5 @@
-﻿using LostInTransit.Modules;
-using RoR2;
-using System.Collections;
-using System.Collections.Generic;
+﻿using RoR2;
+using Moonstorm;
 using UnityEngine;
 
 namespace LostInTransit.Buffs
@@ -53,12 +51,12 @@ namespace LostInTransit.Buffs
             {
                 regen = (body.maxHealth / 10) / duration;
             }
-            public void RecalcStatsEnd()
+            public void RecalculateStatsStart()
             {
                 
             }
 
-            public void RecalcStatsStart()
+            public void RecalculateStatsEnd()
             {
                 body.regen += regen;
             }

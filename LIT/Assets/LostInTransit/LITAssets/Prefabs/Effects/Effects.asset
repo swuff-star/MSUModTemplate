@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef43859fbae6094ca0d47208f3f0c81, type: 3}
+  m_Script: {fileID: 580321256, guid: aac90d9e680f01e4d83b16fdcd1574cf, type: 3}
   m_Name: Effects
   m_EditorClassIdentifier: 
   effectPrefabs:
-  - {fileID: 1893371237611058, guid: 1a566a0e4505e6045b3fcfd0d34d9eb1, type: 3}
   - {fileID: 6675145145771335488, guid: 0f63b37bc055e494b8292097f8be969b, type: 3}
   - {fileID: 3812340968872541811, guid: 51f7df2581c2a4a4b82e4c96e711a4c1, type: 3}
   - {fileID: 3812340968872541811, guid: 19b2d4a4131c56840a845c98b5fffa6a, type: 3}
+  - {fileID: 1893371237611058, guid: 1a566a0e4505e6045b3fcfd0d34d9eb1, type: 3}

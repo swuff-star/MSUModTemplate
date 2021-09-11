@@ -1,4 +1,4 @@
-﻿using RoR2;
+﻿/*using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -113,7 +113,7 @@ namespace LostInTransit.ScriptableObjects
         public List<KeyAssetRuleGroup> LITKeyAssetRuleGroups = new List<KeyAssetRuleGroup>();
         public string VanillaIDRSKey;
 
-        public void Awake()
+        /*public void Awake()
         {
             instancesList.Add(this);
         }
@@ -168,3 +168,4 @@ namespace LostInTransit.ScriptableObjects
         }
     }
 }
+*/

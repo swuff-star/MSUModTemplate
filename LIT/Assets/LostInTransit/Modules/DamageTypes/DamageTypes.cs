@@ -1,40 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 using LostInTransit.Utils;
+using Moonstorm;
 using static R2API.DamageAPI;
-using DamageType = LostInTransit.DamageTypes.DamageTypeBase;
 
 namespace LostInTransit.DamageTypes
 {
-    public static class DamageTypes
+    public class DamageTypes : DamageTypeModuleBase
     {
-        public static ModdedDamageType[] moddedDamageTypes
+        public static DamageTypes Instance { get; set; }
+        public override Assembly Assembly { get; set; } = typeof(DamageTypes).Assembly;
+
+        public override void Init()
         {
-            get
-            {
-                return moddedDamageTypes;
-            }
+            Instance = this;
+            base.Init();
+            LITLogger.LogI($"Initializing Damage Types.");
+            InitializeDamageTypes();
         }
 
-        public static Dictionary<ModdedDamageType, DamageType> damageTypes = new Dictionary<ModdedDamageType, DamageType>();
-
-        public static void Initialize()
+        public override IEnumerable<DamageTypeBase> InitializeDamageTypes()
         {
-            LITLogger.LogI("Initializing DamageTypes.");
-
-            typeof(DamageTypes).Assembly.GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(DamageType)))
-                .Select(type => (DamageType)Activator.CreateInstance(type))
+            base.InitializeDamageTypes()
                 .ToList()
-                .ForEach(damageType =>
-                {
-                    damageType.Initialize();
-                    var moddedDamageType = damageType.GetDamageType();
-                    damageTypes.Add(moddedDamageType, damageType);
-                    LITLogger.LogD($"Added damage type {damageType.GetType().Name}");
-                });
+                .ForEach(dType => AddDamageType(dType));
+            return null;
         }
     }
 }

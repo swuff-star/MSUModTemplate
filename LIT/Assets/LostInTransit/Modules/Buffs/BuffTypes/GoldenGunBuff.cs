@@ -1,7 +1,5 @@
-﻿using LostInTransit.Modules;
-using R2API;
-using RoR2;
-using System;
+﻿using RoR2;
+using Moonstorm;
 
 namespace LostInTransit.Buffs
 {
@@ -23,12 +21,12 @@ namespace LostInTransit.Buffs
 
         public class GoldenGunBuffBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {
-            public void RecalcStatsEnd()
+            public void RecalculateStatsEnd()
             {
                 body.damage += (stack * 0.01f) * (body.baseDamage + (body.levelDamage * (body.level - 1)));
             }
 
-            public void RecalcStatsStart()
+            public void RecalculateStatsStart()
             {
             }
         }

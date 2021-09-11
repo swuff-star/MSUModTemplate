@@ -1,31 +1,24 @@
-﻿using LostInTransit.Equipments;
-using LostInTransit.ScriptableObjects;
-using RoR2;
-using LostInTransit.Modules;
-using LostInTransit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AspectAbilities;
+﻿using RoR2;
 using UnityEngine;
+using Moonstorm;
+using Moonstorm.Utilities;
 
 namespace LostInTransit.Equipments
 {
-    /*public class AffixBlighted : EliteEquipment
+    [DisabledContent]
+    public class AffixBlighted : EliteEquipmentBase
     {
-        public override LITEliteDef EliteDef { get; set; } = Assets.LITAssets.LoadAsset<LITEliteDef>("Blighted");
+        public override MSEliteDef EliteDef { get; set; } = Assets.LITAssets.LoadAsset<MSEliteDef>("Blighted");
         public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("AffixBlighted");
-        public override LITAspectAbility AspectAbility { get; set; } = Assets.LITAssets.LoadAsset<LITAspectAbility>("AbilityBlighted");
+        public override MSAspectAbility AspectAbility { get; set; } = Assets.LITAssets.LoadAsset<MSAspectAbility>("AbilityBlighted");
 
         public override bool FireAction(EquipmentSlot slot)
         {
-            if(LITMain.AspectAbilitiesInstalled)
+            if(MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
             {
                 Debug.Log("sup? you a fan of aspect abilities? that's pretty rad");
             }
             return false;
         }
-    }*/
+    }
 }

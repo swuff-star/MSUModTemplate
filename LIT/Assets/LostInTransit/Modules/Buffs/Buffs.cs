@@ -1,70 +1,36 @@
-﻿using LostInTransit.Components;
-using LostInTransit.Modules;
-using LostInTransit.Utils;
+﻿using LostInTransit.Utils;
 using RoR2;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using UnityEngine;
-using Buff = LostInTransit.Buffs.BuffBase;
+using Moonstorm;
+using RoR2.ContentManagement;
 
 namespace LostInTransit.Buffs
 {
-    public static class Buffs
+    public class Buffs : BuffModuleBase
     {
-        public static BuffDef[] loadedBuffDefs
-        {
-            get
-            {
-                return LITContent.serializableContentPack.buffDefs;
-            }
-        }
-        public static Dictionary<BuffDef, Buff> buffs = new Dictionary<BuffDef, Buff>();
-        public static Dictionary<BuffDef, Material> overlayMaterials = new Dictionary<BuffDef, Material>();
+        public static Buffs Instance { get; set; }
+        public static BuffDef[] LoadedLITBuffs { get => LITContent.serializableContentPack.buffDefs; }
+        public override SerializableContentPack ContentPack { get; set; } = LITContent.serializableContentPack;
+        public override Assembly Assembly { get; set; } = typeof(Buffs).Assembly;
 
-        public static void Initialize()
+
+        public override void Init()
         {
-            LITLogger.LogI("Initializing Buffs...");
-            typeof(Buffs).Assembly.GetTypes()
-                .Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Buff)))
-                .Select(buffType => (Buff)Activator.CreateInstance(buffType))
+            Instance = this;
+            base.Init();
+            LITLogger.LogI($"Initializing Buffs...");
+            InitializeBuffs();
+        }
+
+        public override IEnumerable<Moonstorm.BuffBase> InitializeBuffs()
+        {
+            base.InitializeBuffs()
                 .ToList()
-                .ForEach(buff =>
-                {
-                    buff.Initialize();
-                    HG.ArrayUtils.ArrayAppend(ref LITContent.serializableContentPack.buffDefs, buff.BuffDef);
-                    buffs.Add(buff.BuffDef, buff);
-                    LITLogger.LogD($"Added Buff {buff.BuffDef.name}");
-                });
-            On.RoR2.CharacterBody.OnClientBuffsChanged += CheckForBuffs;
-            On.RoR2.CharacterModel.UpdateOverlays += AddBuffOverlay;
+                .ForEach(buff => AddBuff(buff, ContentPack));
+            return null;
         }
 
-        private static void CheckForBuffs(On.RoR2.CharacterBody.orig_OnClientBuffsChanged orig, CharacterBody self)
-        {
-            orig(self);
-            self.GetComponent<LITItemManager>()?.CheckForBuffs();
-        }
-
-        private static void AddBuffOverlay(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel model)
-        {
-            orig(model);
-            if (!model.body)
-                return;
-            foreach (var buffKeyValue in overlayMaterials)
-                if (model.body.HasBuff(buffKeyValue.Key))
-                    AddOverlay(model, buffKeyValue.Value);
-        }
-        private static void AddOverlay(CharacterModel model, Material overlayMaterial)
-        {
-            if (model.activeOverlayCount >= CharacterModel.maxOverlays || !overlayMaterial)
-                return;
-            Material[] array = model.currentOverlays;
-            int num = model.activeOverlayCount;
-            model.activeOverlayCount = num + 1;
-            array[num] = overlayMaterial;
-        }
     }
 }

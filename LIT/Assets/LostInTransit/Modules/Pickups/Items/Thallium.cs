@@ -1,6 +1,7 @@
 ﻿using LostInTransit.Modules;
 using RoR2;
 using LostInTransit.Buffs;
+using Moonstorm;
 
 namespace LostInTransit.Items
 {

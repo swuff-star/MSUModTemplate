@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d40d9bb5dd6214eaec15e84d746249, type: 3}
+  m_Script: {fileID: -1738091984, guid: aac90d9e680f01e4d83b16fdcd1574cf, type: 3}
   m_Name: Leeching
   m_EditorClassIdentifier: 
   equipmentDef: {fileID: 11400000, guid: 57c08d6765a5f1d43a1aff39ef04da42, type: 2}

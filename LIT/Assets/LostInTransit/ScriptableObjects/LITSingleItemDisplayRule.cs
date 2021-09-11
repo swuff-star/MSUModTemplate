@@ -1,4 +1,4 @@
-﻿using LostInTransit.Modules;
+﻿/*using LostInTransit.Modules;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -122,7 +122,7 @@ namespace LostInTransit.ScriptableObjects
         [Space]
         public List<SingleKeyAssetRuleGroup> ItemDisplayRules = new List<SingleKeyAssetRuleGroup>();
 
-        public ItemDisplayRuleSet.KeyAssetRuleGroup Parse(int index)
+        /*public ItemDisplayRuleSet.KeyAssetRuleGroup Parse(int index)
         {
             var KeyAssetToReturn = new ItemDisplayRuleSet.KeyAssetRuleGroup();
             if(Pickups.ItemPickups.TryGetValue(KeyAssetName.ToLower(), out KeyAssetToReturn.keyAsset))
@@ -157,3 +157,4 @@ namespace LostInTransit.ScriptableObjects
         }
     }
 }
+*/

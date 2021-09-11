@@ -2,8 +2,7 @@
     "name": "LITEditor",
     "references": [
         "LostInTransit",
-        "ThunderKit.Core",
-        ""
+        "ThunderKit.Core"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
@@ -14,7 +13,8 @@
         "BepInEx.dll",
         "HGUnityUtils.dll",
         "HGCSharpUtils.dll",
-        "StubbedAssembly-CSharp (1).dll"
+        "StubbedAssembly-CSharp (1).dll",
+        "MoonstormSharedUtils.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [

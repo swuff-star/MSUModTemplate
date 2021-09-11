@@ -19,6 +19,7 @@ using LostInTransit.Buffs;
 namespace LostInTransit
 {
     [BepInDependency(R2API.R2API.PluginGUID, BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.TeamMoonstorm.MoonstormSharedUtils", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.TheMysticSword.AspectAbilities", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(GUID, MODNAME, VERSION)]
@@ -31,7 +32,7 @@ namespace LostInTransit
     {
         internal const string GUID = "com.swuff.LostInTransit";
         internal const string MODNAME = "Lost in Transit";
-        internal const string VERSION = "0.1.3";
+        internal const string VERSION = "0.2.0";
 
         public static LITMain instance;
 
@@ -41,26 +42,18 @@ namespace LostInTransit
 
         public static bool DEBUG = false;
 
-        public static bool AspectAbilitiesInstalled = false;
-
         public void Awake()
         {
             instance = this;
-
             pluginInfo = Info;
-
             config = Config;
-
             LITLogger.logger = Logger;
 
-            AspectAbilitiesInstalled = CheckForExternalMod("com.TheMysticSword.AspectAbilities");
-            Debug.Log(AspectAbilitiesInstalled);
-
-
-            if (DEBUG)
+            /*if (DEBUG)
             {
                 LITDebug component = base.gameObject.AddComponent<LITDebug>();
-            }
+            }*/
+
             Initialize();
             new LITContent().Initialize();
         }
@@ -68,34 +61,15 @@ namespace LostInTransit
         private void Initialize()
         {
             Assets.Initialize();
-            Interfaces.Initialize();
             LITLanguage.Initialize();
             LITConfig.Initialize(config);
-            Buffs.Buffs.Initialize();
-            DamageTypes.DamageTypes.Initialize();
-            Pickups.Initialize();
-            Elites.Initialize();
 
+            new Buffs.Buffs().Init();
+            new DamageTypes.DamageTypes().Init();
+            new Pickups().Init();
+            new Elites().Init();
 
-            ItemDisplays.Initialize();
-            RoR2.ContentManagement.ContentManager.onContentPacksAssigned += (_) =>
-            {
-                ItemDisplays.FinishIDRS();
-            };
-        }
-
-        private bool CheckForExternalMod(string GUID)
-        {
-            var hasMod = BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(GUID);
-            if(hasMod)
-            {
-                LITLogger.LogI($"Plugin {GUID} detected, enabling crosscompat.");
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            new ItemDisplays().Init();
         }
     }
 }

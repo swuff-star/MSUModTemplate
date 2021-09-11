@@ -1,6 +1,5 @@
-﻿using LostInTransit.Modules;
-using RoR2;
-using System.Diagnostics;
+﻿using RoR2;
+using Moonstorm;
 
 namespace LostInTransit.Items
 {

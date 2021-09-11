@@ -1,17 +1,10 @@
 ﻿using RoR2;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using LostInTransit.Modules;
-using UnityEngine.Networking;
-using LostInTransit.Utils;
-using LostInTransit.Components;
+using Moonstorm;
 
 namespace LostInTransit.Buffs
 {
+    [DisabledContent]
     public class AffixFrenzied : BuffBase
     {
         public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("AffixFrenzied");
@@ -57,13 +50,13 @@ namespace LostInTransit.Buffs
                 body.RecalculateStats();
             }
 
-            public void RecalcStatsEnd()
+            public void RecalculateStatsEnd()
             {
                 body.attackSpeed += body.attackSpeed * 5.5f;
                 body.moveSpeed += body.moveSpeed * 5.5f;
             }
 
-            public void RecalcStatsStart()
+            public void RecalculateStatsStart()
             {
 
             }

@@ -1,9 +1,8 @@
-﻿using LostInTransit.Modules;
-using RoR2;
-using System.Diagnostics;
+﻿using RoR2;
 using System;
 using LostInTransit.Buffs;
 using UnityEngine.Networking;
+using Moonstorm;
 
 namespace LostInTransit.Items
 {

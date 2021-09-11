@@ -1,4 +1,4 @@
-﻿using LostInTransit.ScriptableObjects;
+﻿using Moonstorm;
 using LostInTransit.Utils;
 using RoR2.ContentManagement;
 using System;

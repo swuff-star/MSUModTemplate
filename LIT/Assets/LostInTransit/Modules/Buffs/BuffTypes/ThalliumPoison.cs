@@ -1,6 +1,7 @@
 ﻿using LostInTransit.Modules;
 using R2API;
 using RoR2;
+using Moonstorm;
 using System;
 
 namespace LostInTransit.Buffs
@@ -24,12 +25,12 @@ namespace LostInTransit.Buffs
 
         public class ThalDebuffBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {
-            public void RecalcStatsEnd()
+            public void RecalculateStatsEnd()
             {
                 body.moveSpeed *= LostInTransit.Items.Thallium.slowMultiplier;
             }
 
-            public void RecalcStatsStart()
+            public void RecalculateStatsStart()
             {
             }
         }

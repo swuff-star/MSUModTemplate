@@ -1,11 +1,5 @@
-﻿using LostInTransit.Modules;
-using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using RoR2;
+using Moonstorm;
 
 namespace LostInTransit.Items
 {
@@ -37,8 +31,8 @@ namespace LostInTransit.Items
         public class TelescopicSightBehavior : CharacterBody.ItemBehavior, IStatItemBehavior, IOnDamageDealtServerReceiver
         {
 
-            public void RecalcStatsStart() { }
-            public void RecalcStatsEnd()
+            public void RecalculateStatsStart() { }
+            public void RecalculateStatsEnd()
             {
                 body.crit += ExtraCrit;
             }

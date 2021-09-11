@@ -1,5 +1,5 @@
-﻿using LostInTransit.Modules;
-using RoR2;
+﻿using RoR2;
+using Moonstorm;
 
 namespace LostInTransit.Items
 {
@@ -19,8 +19,8 @@ namespace LostInTransit.Items
 
         public class MysteriousVialBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {
-            public void RecalcStatsStart() { }
-            public void RecalcStatsEnd()
+            public void RecalculateStatsStart() { }
+            public void RecalculateStatsEnd()
             {
                 body.regen += vialRegen * stack;
             }

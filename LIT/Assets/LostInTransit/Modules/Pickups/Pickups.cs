@@ -1,141 +1,59 @@
-﻿using LostInTransit.Components;
-using RoR2;
-using System;
+﻿using RoR2;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.Networking;
-using Equipment = LostInTransit.Equipments.EquipmentBase;
-using Item = LostInTransit.Items.ItemBase;
+using Moonstorm;
 using LostInTransit.Utils;
-using LostInTransit.Equipments;
+using RoR2.ContentManagement;
+using System.Reflection;
 
 namespace LostInTransit.Modules
 {
-    internal static class Pickups
+    public class Pickups : PickupModuleBase
     {
-        public static ItemDef[] loadedItemDefs
+        public static Pickups Instance { get; set; }
+        public static ItemDef[] LoadedLITItems { get => LITContent.serializableContentPack.itemDefs; }
+        public static EquipmentDef[] LoadedLITEquipments { get => LITContent.serializableContentPack.equipmentDefs; }
+        public override SerializableContentPack ContentPack { get; set; } = LITContent.serializableContentPack;
+        public override Assembly Assembly { get; set; } = typeof(Pickups).Assembly;
+
+        public override void Init()
         {
-            get
+            Instance = this;
+            base.Init();
+            LITLogger.LogI($"Initializing Pickups...");
+            if(LITConfig.EnableItems.Value)
             {
-                return LITContent.serializableContentPack.itemDefs;
-            }
-        }
-
-        public static EquipmentDef[] loadedEquipmentDefs
-        {
-            get
-            {
-                return LITContent.serializableContentPack.equipmentDefs;
-            }
-        }
-
-        public static Dictionary<ItemDef, Item> Items = new Dictionary<ItemDef, Item>();
-        public static Dictionary<string, UnityEngine.Object> ItemPickups = new Dictionary<string, UnityEngine.Object>();
-
-        public static Dictionary<EquipmentDef, Equipment> Equipments = new Dictionary<EquipmentDef, Equipment>();
-        public static Dictionary<string, UnityEngine.Object> EquipmentPickups = new Dictionary<string, UnityEngine.Object>();
-
-        public static Dictionary<EquipmentDef, EliteEquipment> EliteEquipments = new Dictionary<EquipmentDef, EliteEquipment>();
-
-        public static void Initialize()
-        {
-            LITLogger.LogI("Initializing Pickups");
-            if (LITConfig.EnableItems.Value)
-            {
-                LITLogger.LogD("Initializing Items...");
+                LITLogger.LogD($"Initializing Items...");
                 InitializeItems();
             }
             if(LITConfig.EnableEquipments.Value)
             {
-                LITLogger.LogD("Initializing Equipments...");
+                LITLogger.LogD($"Initializing Equipments...");
                 InitializeEquipments();
                 InitializeEliteEquipments();
             }
-            On.RoR2.EquipmentSlot.PerformEquipmentAction += FireLITEqp;
-            CharacterBody.onBodyStartGlobal += AddItemManager;
-            On.RoR2.CharacterBody.RecalculateStats += OnRecalcStats;
         }
-
-
-        private static void InitializeItems()
+        public override IEnumerable<ItemBase> InitializeItems()
         {
-            typeof(Pickups).Assembly.GetTypes()
-                .Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Item)))
-                .Select(itemType => (Item)Activator.CreateInstance(itemType))
+            base.InitializeItems()
                 .ToList()
-                .ForEach(item =>
-                {
-                    HG.ArrayUtils.ArrayAppend(ref LITContent.serializableContentPack.itemDefs, item.ItemDef);
-                    item.Initialize();
-                    Items.Add(item.ItemDef, item);
-                    LITLogger.LogD($"Added item {item.ItemDef.name}");
-                });
+                .ForEach(item => AddItem(item, ContentPack));
+            return null;
         }
-
-        private static void InitializeEquipments()
+        public override IEnumerable<EquipmentBase> InitializeEquipments()
         {
-            typeof(Pickups).Assembly.GetTypes()
-                .Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Equipment)) && !type.IsSubclassOf(typeof(EliteEquipment)))
-                .Select(eqpType => (Equipment)Activator.CreateInstance(eqpType))
+            base.InitializeEquipments()
                 .ToList()
-                .ForEach(equipment =>
-                {
-                    HG.ArrayUtils.ArrayAppend(ref LITContent.serializableContentPack.equipmentDefs, equipment.EquipmentDef);
-                    equipment.Initialize();
-                    Equipments.Add(equipment.EquipmentDef, equipment);
-                    LITLogger.LogD($"Added equipment {equipment.EquipmentDef.name}");
-                });
+                .ForEach(equip => AddEquipment(equip, ContentPack));
+            return null;
         }
 
-        private static void InitializeEliteEquipments()
+        public override IEnumerable<EliteEquipmentBase> InitializeEliteEquipments()
         {
-            typeof(Pickups).Assembly.GetTypes()
-                .Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(EliteEquipment)))
-                .Select(eqpEliteType => (EliteEquipment)Activator.CreateInstance(eqpEliteType))
+            base.InitializeEliteEquipments()
                 .ToList()
-                .ForEach(equipElite =>
-                {
-                    EliteEquipments.Add(equipElite.EquipmentDef, equipElite);
-                    LITLogger.LogD($"Added Equipment Elite {equipElite.EquipmentDef.name}");
-                });
+                .ForEach(equip => AddEliteEquipment(equip));
+            return null;
         }
-
-        private static void AddItemManager(CharacterBody body)
-        {
-            if(!body.bodyFlags.HasFlag(CharacterBody.BodyFlags.Masterless) && body.master.inventory)
-            {
-                var itemManager = body.gameObject.AddComponent<LITItemManager>();
-                itemManager.CheckForLITItems();
-            }
-        }
-
-        //Kevin moment
-        private static void OnRecalcStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
-        {
-            var manager = self.GetComponent<LITItemManager>();
-            manager?.RunStatRecalculationsStart();
-            orig(self);
-            manager?.RunStatRecalculationsEnd();
-        }
-        //Keving moment 2
-        private static bool FireLITEqp(On.RoR2.EquipmentSlot.orig_PerformEquipmentAction orig, EquipmentSlot self, EquipmentDef equipmentDef)
-        {
-            if(!NetworkServer.active)
-            {
-                Debug.LogWarning("[Server] function 'System.Boolean RoR2.EquipmentSlot::PerformEquipmentAction(RoR2.EquipmentDef)' called on client");
-                return false;
-            }
-            Equipment equipment;
-            if(Equipments.TryGetValue(equipmentDef, out equipment))
-            {
-                var body = self.characterBody;
-                return equipment.FireAction(self);
-            }
-            return orig(self, equipmentDef);
-        }
-
     }
 }
