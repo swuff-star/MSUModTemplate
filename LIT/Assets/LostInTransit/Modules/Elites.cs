@@ -20,7 +20,6 @@ namespace LostInTransit.Modules
         public static MSEliteDef[] LoadedLITElitesAsMSElites { get => LITContent.serializableContentPack.eliteDefs as MSEliteDef[]; }
         public override SerializableContentPack ContentPack { get; set; } = LITContent.serializableContentPack;
         public override AssetBundle AssetBundle { get; set; } = Assets.LITAssets;
-        public override Assembly Assembly { get; set; } = typeof(Elites).Assembly;
 
         public override void Init()
         {
