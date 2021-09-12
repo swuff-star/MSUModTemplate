@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1738091984, guid: aac90d9e680f01e4d83b16fdcd1574cf, type: 3}
+  m_Script: {fileID: -830614127, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: AbilityBlighted
   m_EditorClassIdentifier: 
-  equipmentDef: {fileID: 11400000, guid: c572279333409f54f9ba90b9d7614c43, type: 2}
-  aiMaxUseDistance: 100
-  aiHealthFractionToUseChance:
+  value:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3

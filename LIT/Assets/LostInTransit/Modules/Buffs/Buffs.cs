@@ -13,7 +13,6 @@ namespace LostInTransit.Buffs
         public static Buffs Instance { get; set; }
         public static BuffDef[] LoadedLITBuffs { get => LITContent.serializableContentPack.buffDefs; }
         public override SerializableContentPack ContentPack { get; set; } = LITContent.serializableContentPack;
-        public override Assembly Assembly { get; set; } = typeof(Buffs).Assembly;
 
 
         public override void Init()
@@ -24,7 +23,7 @@ namespace LostInTransit.Buffs
             InitializeBuffs();
         }
 
-        public override IEnumerable<Moonstorm.BuffBase> InitializeBuffs()
+        public override IEnumerable<BuffBase> InitializeBuffs()
         {
             base.InitializeBuffs()
                 .ToList()

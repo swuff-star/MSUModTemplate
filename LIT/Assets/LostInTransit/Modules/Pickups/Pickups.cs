@@ -14,7 +14,6 @@ namespace LostInTransit.Modules
         public static ItemDef[] LoadedLITItems { get => LITContent.serializableContentPack.itemDefs; }
         public static EquipmentDef[] LoadedLITEquipments { get => LITContent.serializableContentPack.equipmentDefs; }
         public override SerializableContentPack ContentPack { get; set; } = LITContent.serializableContentPack;
-        public override Assembly Assembly { get; set; } = typeof(Pickups).Assembly;
 
         public override void Init()
         {

@@ -9,8 +9,8 @@ namespace LostInTransit.Equipments
     {
         public override MSEliteDef EliteDef { get; set; } = Assets.LITAssets.LoadAsset<MSEliteDef>("Frenzied");
         public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("AffixFrenzied");
-        public override MSAspectAbility AspectAbility { get; set; } = Assets.LITAssets.LoadAsset<MSAspectAbility>("AbilityFrenzied");
-
+        public override AnimationCurveAsset AbilityChance { get; set; } = Assets.LITAssets.LoadAsset<AnimationCurveAsset>("AbilityFrenzied");
+        public override float AiMaxUseDistance { get; set; } = 40f;
         public override bool FireAction(EquipmentSlot slot)
         {
             if (MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))

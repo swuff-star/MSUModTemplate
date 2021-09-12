@@ -9,37 +9,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1738091984, guid: aac90d9e680f01e4d83b16fdcd1574cf, type: 3}
+  m_Script: {fileID: -830614127, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: AbilityLeeching
   m_EditorClassIdentifier: 
-  equipmentDef: {fileID: 11400000, guid: 57c08d6765a5f1d43a1aff39ef04da42, type: 2}
-  aiMaxUseDistance: 50
-  aiHealthFractionToUseChance:
+  value:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.016666412
-      value: 0.009433746
-      inSlope: 1.9486558
-      outSlope: 1.9486558
+      time: 0
+      value: 0
+      inSlope: 0.008349306
+      outSlope: 0.008349306
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.49166667
-      value: 1
-      inSlope: 0.021495154
-      outSlope: 0.021495154
+      time: 0.46339858
+      value: 0.0038690567
+      inSlope: 0.017692478
+      outSlope: 0.017692478
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.64754134
-      outWeight: 0.33333334
+      inWeight: 0.33333334
+      outWeight: 0.60118455
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      time: 0.50254357
+      value: 1.0019021
+      inSlope: 0.0034541453
+      outSlope: 0.0034541453
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.4088682
+    - serializedVersion: 3
+      time: 0.999794
+      value: 1.0002213
+      inSlope: -0.0033802907
+      outSlope: -0.0033802907
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

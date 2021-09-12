@@ -8,7 +8,8 @@ namespace LostInTransit.Equipments
     {
         public override MSEliteDef EliteDef { get; set; } = Assets.LITAssets.LoadAsset<MSEliteDef>("Leeching");
         public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("AffixLeeching");
-        public override MSAspectAbility AspectAbility { get; set; } = Assets.LITAssets.LoadAsset<MSAspectAbility>("AbilityLeeching");
+        public override AnimationCurveAsset AbilityChance { get; set; } = Assets.LITAssets.LoadAsset<AnimationCurveAsset>("AbilityLeeching");
+        public override float AiMaxUseDistance { get; set; } = 50f;
 
         public override bool FireAction(EquipmentSlot slot)
         {

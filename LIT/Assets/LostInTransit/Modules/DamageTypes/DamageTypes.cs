@@ -10,7 +10,6 @@ namespace LostInTransit.DamageTypes
     public class DamageTypes : DamageTypeModuleBase
     {
         public static DamageTypes Instance { get; set; }
-        public override Assembly Assembly { get; set; } = typeof(DamageTypes).Assembly;
 
         public override void Init()
         {
