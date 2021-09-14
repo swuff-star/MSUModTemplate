@@ -55,7 +55,6 @@ namespace LostInTransit.Modules
                 .ToList()
                 .ForEach(charMaster =>
                 {
-                    Debug.LogError(charMaster);
                     var component = charMaster.gameObject.AddComponent<BlightedController>();
                     component.enabled = false;
                 });

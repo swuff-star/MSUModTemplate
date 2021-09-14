@@ -8,11 +8,11 @@ namespace LostInTransit.Buffs
     {
         public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("LeechingRegen");
 
-        public static BuffDef leechingRegenDef;
+        public static BuffDef buff;
 
         public override void Initialize()
         {
-            leechingRegenDef = BuffDef;
+            buff = BuffDef;
             var croco = Resources.Load<BuffDef>("buffdefs/CrocoRegen");
             BuffDef.iconSprite = croco.iconSprite;
             BuffDef.startSfx = croco.startSfx;
@@ -31,21 +31,15 @@ namespace LostInTransit.Buffs
             public GameObject VFX = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingRegen");
             public void Start()
             {
-                if(body.isChampion)
-                {
-                    duration = 10;
-                }
                 VFX.GetComponent<DestroyOnTimer>().duration = duration;
                 EffectData effectData = new EffectData
                 {
-                    scale = body.bestFitRadius,
+                    scale = body.bestFitRadius / 10,
                     origin = body.aimOrigin,
                     rootObject = body.gameObject
                 };
-                Debug.Log("SpawningEffect");
                 EffectManager.SpawnEffect(VFX, effectData, true);
                 CalculateRegen();
-                body.statsDirty = true;
             }
             private void CalculateRegen()
             {
@@ -53,9 +47,8 @@ namespace LostInTransit.Buffs
             }
             public void RecalculateStatsStart()
             {
-                
-            }
 
+            }
             public void RecalculateStatsEnd()
             {
                 body.regen += regen;
