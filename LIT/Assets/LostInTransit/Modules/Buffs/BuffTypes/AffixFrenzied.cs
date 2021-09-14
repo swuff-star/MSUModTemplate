@@ -1,10 +1,12 @@
 ﻿using RoR2;
 using System.Collections.Generic;
 using Moonstorm;
+using UnityEngine;
+using System.Linq;
+using EntityStates;
 
 namespace LostInTransit.Buffs
 {
-    [DisabledContent]
     public class AffixFrenzied : BuffBase
     {
         public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("AffixFrenzied");
@@ -18,144 +20,118 @@ namespace LostInTransit.Buffs
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
             body.AddItemBehavior<AffixFrenziedBehavior>(stack);
-            body.RecalculateStats();
         }
 
         public class AffixFrenziedBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {
-            public float timeBetweenHeals = 20;
+            public GameObject BlinkReadyEffect = null;
 
-            //public GameObject HealingEffect = Assets.LITAssets.LoadAsset<GameObject>("VFXLeeching");
+            private bool blinkReady = true;
 
-            //public GameObject AbilityEffect = Assets.LITAssets.LoadAsset<GameObject>("VFXLeechingAbilityActive");
+            internal bool doingAbility = false;
+            
+            private float blinkTimer = 0;
 
-            //public GameObject TracerEffect = Assets.LITAssets.LoadAsset<GameObject>("TracerLeeching");
+            private float abilityStopwatch = 0;
 
-            private List<HealthComponent> healthComponents;
+            private int multiplier = 1;
 
-            private SphereSearch healSearch;
-
-            private float stopwatch;
-
-            private bool doingAbility;
-
-            private float AbilityStopwatch;
-
-            public void Awake()
+            private void Start()
             {
-                //healSearch = new SphereSearch();
-                //healthComponents = new List<HealthComponent>();
-                //var component = AbilityEffect.AddComponent<DestroyOnTimer>();
-                //component.duration = 20;
                 body.RecalculateStats();
+            }
+            public void Update()
+            {
+                UpdateTimers();
+                //We DO NOT want players to be blinked outside of their control. thats just a bad idea.
+                if(body.isPlayerControlled)
+                {
+                    if (Input.GetKeyDown(LITConfig.FrenziedBlink.Value) && blinkReady)
+                    {
+                        var bodyStateMachine = body.GetComponents<EntityStateMachine>().Where(x => x.customName == "Body").FirstOrDefault();
+                        if (bodyStateMachine)
+                            Blink(bodyStateMachine);
+                    }
+                }
+                else
+                {
+                    if(blinkReady)
+                    {
+                        var bodyStateMachine = body.GetComponents<EntityStateMachine>().Where(x => x.customName == "Body").FirstOrDefault();
+                        if (bodyStateMachine)
+                            Blink(bodyStateMachine);
+                    }
+
+                }
+
+            }
+
+            private void UpdateTimers()
+            {
+                if(body.healthComponent.alive)
+                {
+                    blinkTimer += (Time.deltaTime * multiplier);
+                    if (blinkTimer >= 10)
+                    {
+                        blinkReady = true;
+                    }
+                    if(doingAbility)
+                    {
+                        abilityStopwatch += Time.deltaTime;
+                        if(abilityStopwatch >= 10)
+                        {
+                            doingAbility = false;
+                            multiplier = 1;
+                            abilityStopwatch = 0;
+                        }
+                    }
+                }
+            }
+
+            internal void Ability()
+            {
+                doingAbility = true;
+                multiplier = 2;
+                body.RecalculateStats();
+            }
+
+            private void Blink(EntityStateMachine bodyStateMachine)
+            {
+                if(body.healthComponent.alive)
+                {
+                    //Todd Howard Voice: It just works.
+                    //ToDo: Probably make this into a proper entity state instead of re-using the parent's.
+                    bodyStateMachine.SetNextState(new EntityStates.ParentMonster.LoomingPresence());
+                    blinkTimer = 0;
+                    blinkReady = false;
+                }
             }
 
             public void RecalculateStatsEnd()
             {
-                body.attackSpeed += body.attackSpeed * 5.5f;
-                body.moveSpeed += body.moveSpeed * 5.5f;
+                body.moveSpeed *= 2f;
+                body.attackSpeed *= 2f;
+
+                var cooldownModifier = 0.0f;
+                if (doingAbility)
+                {
+                    cooldownModifier = 2.5f;
+                }
+
+                if (body.skillLocator.primary)
+                    body.skillLocator.primary.cooldownScale -= 0.5f + cooldownModifier;
+                if (body.skillLocator.secondary)
+                    body.skillLocator.secondary.cooldownScale -= 0.5f + cooldownModifier;
+                if (body.skillLocator.utility)
+                    body.skillLocator.utility.cooldownScale -= 0.5f + cooldownModifier;
+                if (body.skillLocator.special)
+                    body.skillLocator.special.cooldownScale -= 0.5f + cooldownModifier;
             }
 
             public void RecalculateStatsStart()
             {
 
             }
-
-            /*public void Update()
-{
-   stopwatch += Time.deltaTime;
-   if(stopwatch >= timeBetweenHeals)
-   {
-       stopwatch = 0;
-       HealNearby();
-   }
-   if(doingAbility)
-   {
-       AbilityStopwatch += Time.deltaTime;
-       if(AbilityStopwatch >= 20)
-       {
-           doingAbility = false;
-           AbilityStopwatch = 0;
-       }
-   }
-}*/
-
-            /*internal void Ability()
-            {
-                doingAbility = true;
-                EffectData effectData = new EffectData
-                {
-                    scale = body.bestFitRadius,
-                    origin = body.aimOrigin,
-                    rootObject = body.gameObject
-                };
-                EffectManager.SpawnEffect(AbilityEffect, effectData, true);
-            }*/
-            /*private void HealNearby()
-            {
-                var hasBursted = false;
-                SearchAllies();
-                float newTime = 20;
-                float timeMult = 1.0f;
-                foreach(HealthComponent healthComponent in healthComponents)
-                {
-                    if(healthComponent.body != body && !healthComponent.body.HasBuff(RoR2Content.Buffs.CrocoRegen))
-                    {
-                        if(healthComponent.body.isChampion)
-                        {
-                            healthComponent.body.AddTimedBuff(RoR2Content.Buffs.CrocoRegen, 10);
-                            timeMult += 0.2f;
-                        }
-                        else
-                        {
-                            healthComponent.body.AddTimedBuff(RoR2Content.Buffs.CrocoRegen, 5);
-                            timeMult += 0.1f;
-                        }
-                        SpawnTracer(healthComponent.body.corePosition, body.corePosition);
-                        if(!hasBursted)
-                        {
-                            EffectData effectData = new EffectData
-                            {
-                                scale = body.radius,
-                                origin = body.aimOrigin
-                            };
-                            //EffectManager.SpawnEffect(HealingEffect, effectData, true);
-                            hasBursted = true;
-                        }
-                    }
-                    timeBetweenHeals = newTime * timeMult;
-                }
-            }*/
-            /*private void SearchAllies()
-            {
-                List<HurtBox> hurtBoxes = new List<HurtBox>();
-                TeamMask mask = default(TeamMask);
-                mask.AddTeam(body.teamComponent.teamIndex);
-                healSearch.mask = LayerIndex.entityPrecise.mask;
-                healSearch.radius = 20;
-                healSearch.origin = body.corePosition;
-                healSearch.RefreshCandidates();
-                healSearch.FilterCandidatesByHurtBoxTeam(mask);
-                healSearch.GetHurtBoxes(hurtBoxes);
-                healthComponents.Clear();
-                foreach(HurtBox h in hurtBoxes)
-                {
-                    if(!healthComponents.Contains(h.healthComponent) && h.healthComponent.health < h.healthComponent.fullHealth)
-                    {
-                        healthComponents.Add(h.healthComponent);
-                    }
-                }
-            }*/
-
-            /*private void SpawnTracer(Vector3 origin, Vector3 start)
-            {
-                EffectData effectData = new EffectData
-                {
-                    origin = origin,
-                    start = start
-                };
-                //EffectManager.SpawnEffect(TracerEffect, effectData, true);
-            }*/
         }
     }
 }

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1041462836
+CRC: 3254177294
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0089754c279681a04e076f835e3ba45d
+    Hash: f72f2bf29892d5e093775a188a10d993
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 9e99d4716551b33c8b2503fe57501748
+    Hash: 2fbf916c27d5306dbec9163dd168c5f1
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -52,6 +52,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1479993534, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 488236779, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1904172584, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -67,6 +69,8 @@ ClassTypes:
   Script: {fileID: 751239416, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
 - Class: 114
   Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 341298a8435f2164985e014e28235b74, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 136
@@ -135,7 +139,6 @@ Assets:
 - Assets/LostInTransit/LITAssets/Anims/BeckoningCat/avatarBeckoningCat.asset
 - Assets/Mesh/meshThallium.mesh
 - Assets/Icons/texIconPickupAffixLeeching.png
-- Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayFrenziedCrown.prefab
 - Assets/LostInTransit/LITAssets/Anims/BeckoningCat/animBeckoningCatIdle.anim
 - Assets/LostInTransit/LITAssets/ItemDefs/BeckoningCat.asset
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixLeeching.asset
@@ -143,7 +146,6 @@ Assets:
 - Assets/Icons/texIconPickupSmartShopper.png
 - Assets/Icons/texIconPickupBeckoningCat.png
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayBeckoningCat.prefab
-- Assets/LostInTransit/LITAssets/SIDRS/AffixFrenzied.asset
 - Assets/Materials/matThallium.mat
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupGoldenGun.prefab
 - Assets/Mesh/meshBeckoningCat.mesh
@@ -179,11 +181,14 @@ Assets:
 - "Assets/Icons/texIconP\xEFckupLifeSavings.png"
 - Assets/Mesh/meshLifeSavings.mesh
 - Assets/Shaders/fx/hgintersectioncloudremap.shader
+- Assets/Mesh/meshAffixFrenzied.mesh
 - Assets/Icons/texIconBuffAffixLeeching.png
 - Assets/LostInTransit/LITAssets/EliteDefs/Leeching.asset
 - Assets/Mesh/meshGoldenGun.mesh
 - Assets/Materials/matMysteriousVialCap.mat
+- Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayFrenzied.prefab
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupGiganticAmethyst.prefab
+- Assets/LostInTransit/LITAssets/SIDRS/AffixFrenzied.asset
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/Tracers/TracerLeeching.prefab
 - Assets/Textures/texLifeSavingsDifuse.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixLeeching.prefab

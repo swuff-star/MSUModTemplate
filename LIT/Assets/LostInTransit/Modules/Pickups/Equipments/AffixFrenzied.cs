@@ -4,7 +4,6 @@ using Moonstorm.Utilities;
 
 namespace LostInTransit.Equipments
 {
-    [DisabledContent]
     public class AffixFrenzied : EliteEquipmentBase
     {
         public override MSEliteDef EliteDef { get; set; } = Assets.LITAssets.LoadAsset<MSEliteDef>("Frenzied");
@@ -14,12 +13,12 @@ namespace LostInTransit.Equipments
         {
             if (MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
             {
-                //var component = slot.characterBody.GetComponent<Buffs.AffixFrenzied.AffixFrenziedBehavior>();
-                /*if (component)
+                var component = slot.characterBody.GetComponent<Buffs.AffixFrenzied.AffixFrenziedBehavior>();
+                if (component)
                 {
                     component.Ability();
                     return true;
-                }*/
+                }
             }
             return false;
         }
