@@ -9,9 +9,10 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 | Icon | Item | Description | Rarity |
 |:-|-|------|-|
-|![](https://i.imgur.com/Vqj1kyK.png) | **Life Savings** | Keep 2% (+2% per stack) of gold between stages. | Common |
-|![](https://i.imgur.com/0JpFYMD.png) | **Mysterious Vial** | Regenerate an extra 0.4 (+0.4 per stack) hp per second. | Common |
+|![](https://i.imgur.com/Vqj1kyK.png) | **Life Savings** | Keep 4% (+4% per stack) of gold between stages. | Common |
+|![](https://i.imgur.com/0JpFYMD.png) | **Mysterious Vial** | Regenerate an extra 0.8 (+0.8 per stack) hp per second. | Common |
 |![](https://i.imgur.com/zTCttJR.png) | **Beckoning Cat** | Elite monsters have a 4.5% (+1.5% per stack) chance to drop items on death. | Uncommon |
+|![](https://i.imgur.com/L4TZX13.png) | **Golden Gun** | Deal extra damage based on held gold, up to +40% damage (+20% per stack) at 600 gold (+300 per stack, scaling with time). | Uncommon |
 |![](https://i.imgur.com/4qpaGr0.png) | **Smart Shopper** | Monsters drop 25% (+25% per stack) more gold. | Uncommon |
 |![](https://i.imgur.com/16yqiHX.png) | **Thallium** | 10% chance to inflict thallium poisoning for 500% (+250% per stack) of enemy's base damage and slow by 75%. | Rare |
 |![](https://i.imgur.com/xmQADqk.png) | **Telescopic Sight** | Gain 10% critical chance. 10% (+10% per stack) chance for critical strikes to deal 5x damage. | Rare |
@@ -21,6 +22,7 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 | Elite Type | Name | Description | Tier |
 |:-|-|------|-|
+|![]() | **Frenzying** | Increased attack and move speed. Periodically dash towards enemies at high speeds. | 1 |
 |![](https://i.imgur.com/CubhqEH.png) | **Leeching** | Damage dealt is returned as healing. Periodically heal nearby allies for a small amount of health. | 1 |
 
 ## Credits
@@ -30,6 +32,26 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 * Additional support/special thanks - KevinFromHPCustomerService, KomradeSpectre, rob, xpcybic, /vm/
 
 ## Changelog
+
+### 0.2.0
+* General
+	* Added MoonstormSharedUtils as a dependency
+* Items
+	* Beckoning Cat: Item drops off of slain enemy position rather than player position. Will reintroduce player position drop behavior in future config
+	* Golden Gun: Added (*Developer note: This item's scaling has been changed semi-significantly. In Risk of Rain 1, it capped at 700 gold, with stacks decreasing this capacity. In Lost in Transit, stacks increase the max damage output by +20% per, but also increase the cap by +300 gold per. Cap is also 600 gold for even math, no clue why Hopoo chose 700 - doesn't divide easily by 40. Anyway, yeah, lemme know how this feels.*)
+	* Gigantic Amethyst: Fixed networking
+	* Life Savings: (*Developer note: This item is currently not networked, and I want to get this update out sooner rather than later - I recommend disabling this item for multiplayer games*)
+	* Life Savings: Increased gold kept between stages from 2% to 4%
+	* Mysterious Vial: Added level-based scaling to the regeneration e.g. Cautious Slug
+	* Mysterious Vial: Increased from 0.4 regen to 0.8 regen (*Developer note: This change, as well as Life Savings' balance change, won't take effect unless you either delete your old config or edit it yourself to reflect these changes. This is just the nature of how the config file currently works*)
+* Elites
+	* Frenzying: Added (*Developer note: As a player, you have to press a key to activate the dash. By default, this is 'F', as to not conflict with Aspect Abilities*)
+	* Leeching: Leeching Elites now use a custom buff for their AoE that will always heal 10% and never more than 10%, and also doesn't stack. Hopefully they should feel a bit more tame, now
+	* Leeching: Removed behaviors from 0.1.2 where boss monsters would take twice as long to regen, as well as longer cooldowns based on enemies affected
+
+### 0.1.3
+* General
+	* The mod works this time I swear
 
 ### 0.1.2
 * General
