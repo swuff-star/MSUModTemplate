@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 3542388802
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: msuassets
+      Dependencies: {}

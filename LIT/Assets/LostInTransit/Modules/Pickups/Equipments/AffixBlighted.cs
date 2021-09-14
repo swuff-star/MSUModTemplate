@@ -10,8 +10,8 @@ namespace LostInTransit.Equipments
     {
         public override MSEliteDef EliteDef { get; set; } = Assets.LITAssets.LoadAsset<MSEliteDef>("Blighted");
         public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("AffixBlighted");
-        public override AnimationCurveAsset AbilityChance { get; set; }// = Assets.LITAssets.LoadAsset<AnimationCurveAsset>("AbilityBlighted"); //Uncomment this once we're ready for ability support.
-        public override float AiMaxUseDistance { get; set; } = 100f;
+
+        public override MSAspectAbilityDataHolder AspectAbilityData { get; set; } = Assets.LITAssets.LoadAsset<MSAspectAbilityDataHolder>("AbilityBlighted");
         public override bool FireAction(EquipmentSlot slot)
         {
             if(MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Moonstorm;
 using UnityEngine;
+using System.Linq;
 
 namespace LostInTransit.Buffs
 {
@@ -81,23 +82,13 @@ namespace LostInTransit.Buffs
             {
                 var hasBursted = false;
                 SearchAllies();
-                float newTime = 20;
-                float timeMult = 1.0f;
                 foreach(HealthComponent healthComponent in healthComponents)
                 {
-                    if(healthComponent.body != body && !healthComponent.body.HasBuff(LeechingRegen.leechingRegenDef) && !body.GetComponent<AffixLeechingBehavior>())
+                    var charBody = healthComponent.body;
+                    if(charBody != body && !charBody.HasBuff(LeechingRegen.buff) && !charBody.GetComponent<AffixLeechingBehavior>())
                     {
-                        if(healthComponent.body.isChampion)
-                        {
-                            healthComponent.body.AddTimedBuff(LeechingRegen.leechingRegenDef, 10);
-                            timeMult += 0.25f;
-                        }
-                        else
-                        {
-                            healthComponent.body.AddTimedBuff(LeechingRegen.leechingRegenDef, 5);
-                            timeMult += 0.1f;
-                        }
-                        SpawnTracer(healthComponent.body.corePosition, body.corePosition);
+                        charBody.AddTimedBuff(LeechingRegen.buff, 5);
+                        SpawnTracer(charBody.corePosition, body.corePosition);
                         if(!hasBursted)
                         {
                             EffectData effectData = new EffectData
@@ -109,7 +100,6 @@ namespace LostInTransit.Buffs
                             hasBursted = true;
                         }
                     }
-                    timeBetweenHeals = newTime * timeMult;
                 }
             }
             private void SearchAllies()
