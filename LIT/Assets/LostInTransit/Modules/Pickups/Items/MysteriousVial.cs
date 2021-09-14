@@ -22,7 +22,7 @@ namespace LostInTransit.Items
             public void RecalculateStatsStart() { }
             public void RecalculateStatsEnd()
             {
-                body.regen += vialRegen * stack;
+                body.regen += vialRegen * stack + ((body.level - 1) * vialRegen * 0.2f);
             }
         }
     }
