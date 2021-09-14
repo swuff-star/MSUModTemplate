@@ -13,190 +13,190 @@ MonoBehaviour:
   m_Name: AffixFrenzied
   m_EditorClassIdentifier: 
   KeyAssetName: AffixFrenzied
-  displayPrefabName: DisplayFrenziedCrown
+  displayPrefabName: DisplayFrenzied
   SingleItemDisplayRules:
   - VanillaIDRSKey: idrsVulture
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,0.00084,1.66634,-0.40485,90,180,0,0.31519,0.50995,0.50995
+      IDPHValues: Head,0.61134,2.22371,-0.96271,42.48378,95.09028,232.0437,0.82749,0.82749,0.82749
       limbMask: 0
   - VanillaIDRSKey: idrsBeetle
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,0.02832,-0.03828,-0.29656,297.4901,353.9959,5.28364,0.12736,0.15382,0.15382
+      IDPHValues: Head,-0.29836,0.66482,-0.26909,11.66162,300.0717,288.266,0.34555,0.34555,0.34555
       limbMask: 0
   - VanillaIDRSKey: idrsBeetleGuard
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,-0.02575,1.82141,0.4431,81.2463,25.75783,30.56643,0.22818,0.34826,0.34826
+      IDPHValues: Head,-0.64475,0.48433,1.78077,33.90435,21.53871,300.2317,1,1,1
       limbMask: 0
   - VanillaIDRSKey: idrsBeetleQueen
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,0,1.07807,-1.4896,292.3445,-0.00003,0.00003,0.27068,0.5744,0.33296
+      IDPHValues: Head,-1.55184,3.08808,-0.86242,8.58116,297.7381,308.4616,1,1,1
       limbMask: 0
   - VanillaIDRSKey: idrsBison
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,-0.04617,0.67247,-0.06241,44.52484,4.0524,1.95594,0.06407,0.18544,0.16665
+      IDPHValues: Head,-0.29425,0.49999,0.43487,50.06861,10.7356,314.7477,0.25816,0.25816,0.25816
       limbMask: 0
   - VanillaIDRSKey: idrsClayBruiser
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,-0.00077,0.17053,0.20441,270,180.2482,0,0.06166,0.08323,0.08138
+      IDPHValues: Head,0.23587,0.44324,0.1978,358.4654,141.6591,322.3188,0.1697,0.1697,0.1697
       limbMask: 0
   - VanillaIDRSKey: idrsClayBoss
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: PotLidTop,0,0.26677,2.52919,0,180,0,0.26864,0.42747,0.42747
+      IDPHValues: Center,0.84019,1.1427,1.96949,341.0038,143.2923,330.9727,0.46087,0.46087,0.46087
       limbMask: 0
   - VanillaIDRSKey: idrsLemurian
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,0,3.06359,0.87267,343.6724,180,0,0.18879,0.29686,0.21083
+      IDPHValues: Head,0.50188,3.2491,-0.95468,31.75407,161.4818,281.786,1,1,1
       limbMask: 0
   - VanillaIDRSKey: idrsLemurianBruiser
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,-0.00001,3.62692,-1.46115,0,0,0,0.29635,0.2821,0.32271
+      IDPHValues: Head,-1.04561,3.24675,0.78233,47.35226,23.80733,321.1746,1,1,1
       limbMask: 0
   - VanillaIDRSKey: idrsWisp
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,0,0.4086,-0.03126,26.37197,0,0,0.09556,0.19826,0.19826
+      IDPHValues: Head,0.18909,0.37433,0.41019,31.1403,87.0713,289.6466,0.3562,0.3562,0.3562
       limbMask: 0
   - VanillaIDRSKey: idrsGreaterWisp
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: MaskBase,0,0,0.53678,281.225,180.0236,0.0236,0.14228,0.27387,0.27387
+      IDPHValues: MaskBase,0.30338,0.95564,0.81119,355.601,117.2595,329.9561,0.31662,0.31662,0.31662
       limbMask: 0
   - VanillaIDRSKey: idrsGravekeeperBody
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Mask,0.00147,0.20377,-0.00343,14.74773,0.02102,0.87488,0.23813,0.28681,0.44331
+      IDPHValues: Mask,-1.17871,0.34579,1.57011,13.7234,17.26927,277.6404,1,1,1
       limbMask: 0
   - VanillaIDRSKey: idrsHermitCrab
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Base,-0.14382,0.10999,0.64853,322.7002,166.8134,0.92516,0.08182,0.21696,0.21696
+      IDPHValues: Base,-0.21813,1.28297,0.31152,34.3718,74.11851,353.3149,0.51045,0.51045,0.51045
       limbMask: 0
   - VanillaIDRSKey: idrsImp
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Neck,0,-0.2791,-0.25856,315.5487,0,0,0.0615,0.0615,0.09269
+      IDPHValues: Neck,-0.21261,0.02504,-0.13683,356.4089,303.5173,326.4181,0.13065,0.13065,0.13065
       limbMask: 0
   - VanillaIDRSKey: idrsImpBoss
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Neck,0,-0.77046,-1.05652,315.3978,0.00004,-0.00003,0.23884,0.23884,0.33124
+      IDPHValues: Neck,-0.47033,-0.29126,-1.15158,4.16693,298.2159,326.7353,0.65258,0.65258,0.65258
       limbMask: 0
   - VanillaIDRSKey: idrsJellyfish
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Hull2,0.39409,1.2613,0.35183,42.64762,185.5824,24.28107,0.12562,0.21934,0.2114
+      IDPHValues: Hull2,0.51681,1.19111,-0.00272,0,0,240.2092,0.46003,0.46003,0.46003
       limbMask: 0
   - VanillaIDRSKey: idrsVagrant
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Hull,0,-0.37398,1.04762,274.1104,2.67858,177.8203,0.12961,0.19556,0.19556
+      IDPHValues: Hull,0.75372,1.322,0.59814,12.04254,130.3085,324.1882,0.48583,0.48583,0.48583
       limbMask: 0
   - VanillaIDRSKey: idrsMiniMushroom
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,0.80145,-0.91268,0,0.00001,270,180,0.17948,0.17948,0.17948
+      IDPHValues: Head,-0.04163,-1.39486,0.44345,324.9961,11.36338,54.2353,0.39902,0.39902,0.39902
       limbMask: 0
   - VanillaIDRSKey: idrsParent
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,4.38035,108.2677,0.00003,331.9738,271.7915,1.0021,7.23811,10,15.57016
+      IDPHValues: Head,-19.21638,135.2312,-23.9081,331.1436,2.43245,233.736,52.11575,52.11575,52.11575
       limbMask: 0
   - VanillaIDRSKey: idrsGrandparent
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,-0.00001,10.51415,1.61335,270,180,0,0.60732,0.29037,1.33931
+      IDPHValues: Head,1.24829,0.17859,0.97585,5.78865,74.00384,330.583,1.14973,1.14973,1.14973
       limbMask: 0
   - VanillaIDRSKey: idrsRoboBallMini
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Muzzle,0,0,0,326.4669,177.3654,1.45614,0.14881,0.24804,0.24804
+      IDPHValues: ROOT,0.4371,0.59129,0.75852,8.8535,100.8323,338.016,0.4566,0.4566,0.4566
       limbMask: 0
   - VanillaIDRSKey: idrsRoboBallBoss
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Center,-0.00317,0.41686,1.24678,0,180,0,0.1703,0.24651,0.24651
+      IDPHValues: MainEyeMuzzle,0.34313,0.48936,-0.29926,359.5274,103.9428,339.9439,0.44097,0.44097,0.44097
       limbMask: 0
   - VanillaIDRSKey: idrsGolem
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,0,0.32278,0.36516,289.5861,180,-0.00001,0.15028,0.12599,0.18009
+      IDPHValues: Head,0.50655,0.99457,0.38269,27.44892,103.7806,320.6299,0.49218,0.49218,0.49218
       limbMask: 0
   - VanillaIDRSKey: idrsTitan
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,0,1.45765,1.50812,284.4924,180,-0.00001,0.23439,0.55108,1
+      IDPHValues: Head,1.01091,5.54136,1.4163,9.65597,115.0299,339.9995,1.40373,1.40373,1.40373
       limbMask: 0
   - VanillaIDRSKey: idrsNullifier
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Muzzle,-0.00226,-1.30802,0.64344,299.231,0.06105,179.1168,0.29065,0.40233,0.48543
+      IDPHValues: Muzzle,1.41944,0.12689,1.26994,10.53121,111.3429,338.1502,1,1,1
       limbMask: 0
   - VanillaIDRSKey: idrsScav
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Chest,0.00001,2.8187,-8.13455,339.1021,0,0.00002,1,1,1
+      IDPHValues: Chest,-1.84792,6.68038,-6.06371,343.4102,293.0327,300.6686,2.48084,2.48084,2.48084
       limbMask: 0
   - VanillaIDRSKey: idrsCroco
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: HeadCenter,0.00806,2.99324,-1.68064,0,0,0,0.22458,0.51239,0.51239
+      IDPHValues: Head,-0.78984,2.2591,1.84064,46.24012,53.96872,323.0243,1,1,1
       limbMask: 0
   - VanillaIDRSKey: idrsMage
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,0.00017,-0.03309,0.1588,306.0619,182.2546,348.2849,0.01763,0.03278,0.04946
+      IDPHValues: Head,0.05489,0.11999,0.09296,10.59751,122.9652,321.252,0.12524,0.12524,0.12524
       limbMask: 0
   - VanillaIDRSKey: idrsBandit2
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Hat,-0.00344,-0.0717,0.21096,295.2943,175.0177,351.909,0.02276,0.02995,0.02995
+      IDPHValues: Head,0.12571,0.20842,0.16836,345.7385,142.9493,323.1997,0.11543,0.11543,0.11543
       limbMask: 0
   - VanillaIDRSKey: idrsCaptain
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,-0.0115,-0.00879,0.12676,281.5566,186.0019,348.4272,0.02056,0.04237,0.04237
+      IDPHValues: Head,0.10023,0.21649,0.1263,1.32661,132.1284,330.5701,0.12167,0.12167,0.12167
       limbMask: 0
   - VanillaIDRSKey: idrsCommando
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,-0.00845,0.18273,0.15216,312.3346,178.8445,358.6915,0.02765,0.05913,0.05538
+      IDPHValues: Head,0.09893,0.37385,0.16514,16.88256,121.6975,315.0187,0.07874,0.07874,0.07874
       limbMask: 0
   - VanillaIDRSKey: idrsEngi
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: HeadCenter,-0.00096,-0.0018,0.14629,296.9394,180.3649,0,0.03179,0.03179,0.03179
+      IDPHValues: HeadCenter,0.07716,0.05256,0.15157,341.2352,127.5057,347.3834,0.12068,0.12068,0.12068
       limbMask: 0
   - VanillaIDRSKey: idrsHuntress
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,-0.00042,0.14974,0.12927,300.2664,180.641,0.86696,0.02001,0.04239,0.04239
+      IDPHValues: Head,0.04732,0.29836,0.1182,20.36253,332.935,214.2547,0.07321,0.07321,0.07321
       limbMask: 0
   - VanillaIDRSKey: idrsLoader
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,-0.00005,0.01009,0.12887,296.9205,179.9281,359.9277,0.01914,0.07966,0.0588
+      IDPHValues: Head,0.07037,0.21625,0.08089,46.10899,89.37218,320.238,0.14401,0.14401,0.14401
       limbMask: 0
   - VanillaIDRSKey: idrsMerc
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,-0.00022,0.05221,0.12255,284.5775,179.9687,359.9689,0.01687,0.04938,0.04075
+      IDPHValues: Head,-0.06491,0.21555,0.09619,292.1066,128.1422,279.1408,0.09273,0.09273,0.09273
       limbMask: 0
   - VanillaIDRSKey: idrsToolBotBody
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,0,3.17411,-1.55284,0,0,0,0.29823,0.41683,0.41683
+      IDPHValues: Head,-1.13934,4.30892,-0.19718,353.7467,10.56795,302.541,1,1,1
       limbMask: 0
   - VanillaIDRSKey: idrsTreeBot
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: HeadBase,0,0.13605,-0.74544,90,180,0,0.09959,0.09959,0.16733
+      IDPHValues: PlatformBase,0.42002,0.77606,1.02532,17.28683,116.1244,350.0928,0.41442,0.41442,0.41442
       limbMask: 0
