@@ -27,7 +27,7 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 ## Credits
 * Code - Nebby, swuff★
-* Art/Modelling/Animation - bruh, GEMO, LucidInceptor
+* Art/Modelling/Animation - bruh, GEMO, LucidInceptor, SOM
 * Writing - BlimBlam, Lyrical Endymion, QandQuestion, swuff★, T_Dimensional
 * Additional support/special thanks - KevinFromHPCustomerService, KomradeSpectre, rob, xpcybic, /vm/
 
