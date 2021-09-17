@@ -22,12 +22,12 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 | Elite Type | Name | Description | Tier |
 |:-|-|------|-|
-|![]() | **Frenzying** | Increased attack and move speed. Periodically dash towards enemies at high speeds. | 1 |
+|![](https://i.imgur.com/O7976kP.png) | **Frenzying** | Increased attack and move speed. Periodically dash towards enemies at high speeds. | 1 |
 |![](https://i.imgur.com/CubhqEH.png) | **Leeching** | Damage dealt is returned as healing. Periodically heal nearby allies for a small amount of health. | 1 |
 
 ## Credits
 * Code - Nebby, swuff★
-* Art/Modelling/Animation - bruh, GEMO, LucidInceptor
+* Art/Modelling/Animation - bruh, GEMO, LucidInceptor, SOM
 * Writing - BlimBlam, Lyrical Endymion, QandQuestion, swuff★, T_Dimensional
 * Additional support/special thanks - KevinFromHPCustomerService, KomradeSpectre, rob, xpcybic, /vm/
 
@@ -40,6 +40,7 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 	* Beckoning Cat: Item drops off of slain enemy position rather than player position. Will reintroduce player position drop behavior in future config
 	* Golden Gun: Added (*Developer note: This item's scaling has been changed semi-significantly. In Risk of Rain 1, it capped at 700 gold, with stacks decreasing this capacity. In Lost in Transit, stacks increase the max damage output by +20% per, but also increase the cap by +300 gold per. Cap is also 600 gold for even math, no clue why Hopoo chose 700 - doesn't divide easily by 40. Anyway, yeah, lemme know how this feels.*)
 	* Gigantic Amethyst: Fixed networking
+	* Guttural Whimpers: Updated icon
 	* Life Savings: (*Developer note: This item is currently not networked, and I want to get this update out sooner rather than later - I recommend disabling this item for multiplayer games*)
 	* Life Savings: Increased gold kept between stages from 2% to 4%
 	* Mysterious Vial: Added level-based scaling to the regeneration e.g. Cautious Slug
