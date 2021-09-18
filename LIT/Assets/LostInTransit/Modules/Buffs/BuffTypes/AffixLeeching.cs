@@ -23,7 +23,7 @@ namespace LostInTransit.Buffs
 
         public class AffixLeechingBehavior : CharacterBody.ItemBehavior, IOnDamageDealtServerReceiver
         {
-            public float timeBetweenHeals = 20;
+            public float timeBetweenHeals = 10;
 
             public GameObject HealingEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingBurst");
 
@@ -108,7 +108,7 @@ namespace LostInTransit.Buffs
                 TeamMask mask = default(TeamMask);
                 mask.AddTeam(body.teamComponent.teamIndex);
                 healSearch.mask = LayerIndex.entityPrecise.mask;
-                healSearch.radius = 20;
+                healSearch.radius = 30;
                 healSearch.origin = body.corePosition;
                 healSearch.RefreshCandidates();
                 healSearch.FilterCandidatesByHurtBoxTeam(mask);
