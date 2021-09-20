@@ -8,8 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: matAffixLeeching
-  m_Shader: {fileID: 4800000, guid: c174445f76f5fa046a90dcd25f7f8d12, type: 3}
-  m_ShaderKeywords: DISABLEREMAP FRESNEL FRESNEL_EMISSION VERTEXOFFSET _EMISSION
+  m_Shader: {fileID: 4800000, guid: df82d488c321404abd6fed383a356e56, type: 2}
+  m_ShaderKeywords: DISABLEREMAP FRESNEL FRESNEL_EMISSION PRINT_CUTOFF VERTEXOFFSET
+    _DISPLACEMENTMODE_OFF _DISTORTIONQUALITY_HIGH _EMISSION _REFLECTIONTYPE_NONE
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -27,6 +28,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMapLarge:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Cloud1Tex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 4, y: 4}
@@ -34,6 +43,10 @@ Material:
     - _Cloud2Tex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 6, y: 6}
+        m_Offset: {x: 0, y: 0}
+    - _Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmTex:
         m_Texture: {fileID: 0}
@@ -48,6 +61,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FlowTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -71,12 +88,24 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _NormalTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PrintRamp:
         m_Texture: {fileID: 2800000, guid: 285e16d1d7b5c8a4f9761e8eebc5e165, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectionTex:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RemapTex:
@@ -95,31 +124,46 @@ Material:
     - _AlphaBias: 0.12
     - _AlphaBoost: 1.3
     - _AlphaThreshold: 0.295
+    - _Amplitude: 0.05
+    - _AngleLimit: 0.5
     - _BlueChannelBias: 0
     - _BlueChannelSmoothness: 0
     - _Boost: 1
+    - _BumpLargeStrength: 1
     - _BumpScale: 1
+    - _BumpStrength: 1
     - _CalcTextureAlphaOn: 0
     - _CloudOffsetOn: 0
+    - _CloudOn: 0
     - _CloudsOn: 0
     - _ColorsOn: 0
     - _Cull: 2
     - _Cutoff: 1
+    - _DecalBlendMode: 0
+    - _DecalDstBlend: 10
     - _DecalLayer: 0
+    - _DecalSrcBlend: 1
     - _Depth: 0.2
     - _DepthOffset: 0
     - _DetailNormalMapScale: 1
     - _DisableRemapOn: 1
+    - _DisplacementMode: 0
+    - _Distortion: 50
+    - _DistortionQuality: 0
     - _DistortionStrength: 1.04
     - _DitherOn: 0
     - _DstBlend: 10
+    - _EdgeFade: 1
     - _EliteBrightnessMax: 1
     - _EliteBrightnessMin: 0
     - _EliteIndex: 0
     - _EmPower: 0
     - _EnableCutout: 0
+    - _EnableFog: 0
+    - _EnableLargeBump: 0
     - _ExternalAlpha: 1
     - _FEON: 1
+    - _FOAM: 0
     - _Fade: 1
     - _FadeBias: 0
     - _FadeCloseDistance: 0.5
@@ -132,7 +176,9 @@ Material:
     - _FlowSpeed: 1
     - _FlowTextureScaleFactor: 1
     - _FlowmapOn: 0
+    - _FoamSize: 0.5
     - _ForceSpecOn: 0
+    - _Frequency: 1
     - _FresnelBoost: 20
     - _FresnelOn: 1
     - _FresnelPower: 4.11
@@ -145,8 +191,13 @@ Material:
     - _InvFade: 0
     - _LimbPrimeMask: 1
     - _LimbRemovalOn: 0
+    - _LimitTo: 0
+    - _MaskMultiplier: 1
+    - _MaskNormals: 1
     - _Metallic: 0
     - _Mode: 0
+    - _NormalBlendMode: 0
+    - _NormalMultiplier: 1
     - _NormalStrength: 1
     - _OcclusionStrength: 1
     - _OffsetAmount: 0.001
@@ -155,37 +206,53 @@ Material:
     - _PrintBoost: 1
     - _PrintDirection: 0
     - _PrintEmissionToAlbedoLerp: 0
-    - _PrintOn: 0
+    - _PrintOn: 1
     - _RampInfo: 0
+    - _Reflection: 1
+    - _ReflectionType: 0
     - _RimPower: 0.5
     - _SinRate: 0
     - _SkyboxOnly: 0
     - _SliceAlphaDepth: 0.1
     - _SliceBandHeight: 1
     - _SliceHeight: 5
+    - _Smoothing: 1
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularExponent: 9.26
     - _SpecularHighlights: 1
     - _SpecularStrength: 0.258
+    - _Speed: 1
     - _SplatmapOn: 0
     - _SplatmapTileScale: 1
     - _SrcBlend: 5
+    - _Steepness: 1
+    - _Tess: 4
     - _UVSec: 0
     - _UVSwapOn: 0
     - _UseUV1On: 0
     - _VertexAlphaOn: 0
     - _VertexColorOn: 0
     - _VertexOffsetOn: 1
+    - _WorldSpace: 0
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
     - _BorderScale: {r: 0.3, g: 0.19, b: 0, a: 0}
     - _Color: {r: 0, g: 1, b: 0, a: 1}
+    - _CubeColor: {r: 1, g: 1, b: 1, a: 1}
     - _CutoffScroll: {r: 6, g: 6, b: 0, a: 0}
+    - _DepthColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlashColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 0.6827586, b: 0, a: 0}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Speeds: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+    - _SpeedsLarge: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _TimeScale: {r: 25, g: 10, b: 1, a: 1}
     - _TintColor: {r: 1, g: 0.08627451, b: 0.49411765, a: 0.8627451}
+    - _WDirectionAB: {r: 0.3, g: 0.85, b: 0.85, a: 0.25}
+    - _WDirectionCD: {r: 0.1, g: 0.9, b: 0.5, a: 0.5}
+    - _WSpeed: {r: 1.2, g: 1.375, b: 1.1, a: 1.5}
