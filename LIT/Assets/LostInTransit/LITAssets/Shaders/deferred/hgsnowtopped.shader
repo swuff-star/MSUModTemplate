@@ -1,6 +1,6 @@
 Shader "StubbedShader/deferred/hgsnowtopped" {
 	Properties {
-		_Color ("Main Color", Vector) = (0.5,0.5,0.5,1)
+		_Color ("Main Color", Color) = (0.5,0.5,0.5,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 		_NormalStrength ("Normal Strength", Range(0, 1)) = 1
 		_NormalTex ("Normal Map", 2D) = "bump" {}
@@ -35,6 +35,3 @@ Shader "StubbedShader/deferred/hgsnowtopped" {
 	}
 	Fallback "Diffuse"
 }
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMzE1ODU0NjEyXX0=
--->

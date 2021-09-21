@@ -23,88 +23,93 @@ namespace LostInTransit.Buffs
 
         public class AffixLeechingBehavior : CharacterBody.ItemBehavior, IOnDamageDealtServerReceiver
         {
-            public float timeBetweenHeals = 10;
+            public static float timeBetweenHeals = 10;
 
-            public GameObject HealingEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingBurst");
+            public static float abilityDuration = 20;
+            
+            public static GameObject HealingEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingBurst");
+            
+            public static GameObject TracerEffect = Assets.LITAssets.LoadAsset<GameObject>("TracerLeeching");
 
-            public GameObject AbilityEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingAbility");
+            public static GameObject AbilityEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingAbility");
 
-            public GameObject TracerEffect = Assets.LITAssets.LoadAsset<GameObject>("TracerLeeching");
+            private GameObject AbilityEffectInstance;
 
             private List<HealthComponent> healthComponents;
 
             private SphereSearch healSearch;
 
-            private float stopwatch;
+            private float healingStopwatch;
+
+            private float abilityStopwatch;
 
             private bool doingAbility;
-
-            private float AbilityStopwatch;
-
-            public void Awake()
-            {
-                healSearch = new SphereSearch();
-                healthComponents = new List<HealthComponent>();
-                var component = AbilityEffect.AddComponent<DestroyOnTimer>();
-                component.duration = 20;
-            }
-            public void Update()
-            {
-                stopwatch += Time.deltaTime;
-                if(stopwatch >= timeBetweenHeals)
-                {
-                    stopwatch = 0;
-                    HealNearby();
-                }
-                if(doingAbility)
-                {
-                    AbilityStopwatch += Time.deltaTime;
-                    if(AbilityStopwatch >= 20)
-                    {
-                        doingAbility = false;
-                        AbilityStopwatch = 0;
-                    }
-                }
-            }
 
             internal void Ability()
             {
                 doingAbility = true;
-                EffectData effectData = new EffectData
+                abilityStopwatch = 0;
+                if(!AbilityEffectInstance)
                 {
-                    scale = body.bestFitRadius,
-                    origin = body.aimOrigin,
-                    rootObject = body.gameObject
-                };
-                EffectManager.SpawnEffect(AbilityEffect, effectData, true);
-            }
-            private void HealNearby()
-            {
-                var hasBursted = false;
-                SearchAllies();
-                foreach(HealthComponent healthComponent in healthComponents)
-                {
-                    var charBody = healthComponent.body;
-                    if(charBody != body && !charBody.HasBuff(LeechingRegen.buff) && !charBody.GetComponent<AffixLeechingBehavior>())
+                    AbilityEffectInstance = Instantiate(AbilityEffect, body.transform);
+                    if(AbilityEffectInstance)
                     {
-                        charBody.AddTimedBuff(LeechingRegen.buff, 5);
-                        SpawnTracer(charBody.corePosition, body.corePosition);
-                        if(!hasBursted)
-                        {
-                            EffectData effectData = new EffectData
-                            {
-                                scale = body.radius,
-                                origin = body.aimOrigin
-                            };
-                            EffectManager.SpawnEffect(HealingEffect, effectData, true);
-                            hasBursted = true;
-                        }
+                        AbilityEffectInstance.transform.localScale *= body.bestFitRadius;
                     }
                 }
             }
-            private void SearchAllies()
+            private void Start()
+            {
+                healSearch = new SphereSearch();
+                healthComponents = new List<HealthComponent>();
+            }
+
+            private void Update()
+            {
+                healingStopwatch += Time.deltaTime;
+                if (healingStopwatch > timeBetweenHeals)
+                {
+                    healingStopwatch = 0;
+                    HealNearby();
+                }
+                if(doingAbility)
+                {
+                    abilityStopwatch += Time.deltaTime;
+                    if(abilityStopwatch > abilityDuration)
+                    {
+                        doingAbility = false;
+                        body.RecalculateStats();
+                        abilityStopwatch = 0;
+                        if (AbilityEffectInstance)
+                            Destroy(AbilityEffectInstance);
+                    }
+                }
+            }
+
+            private void HealNearby()
+            {
+                SearchForAllies();
+                bool hasBursted = false;
+                healthComponents.Where(hc => hc.body != body)
+                    .Where(hc => !hc.body.HasBuff(LeechingRegen.buff))
+                    .Where(hc => !hc.body.GetComponent<AffixLeechingBehavior>())
+                    .ToList()
+                    .ForEach(hc =>
+                    {
+                        hc.body.AddTimedBuff(LeechingRegen.buff, 5);
+                        SpawnFX(TracerEffect, hc.body.corePosition, body.corePosition);
+                        if (!hasBursted)
+                        {
+                            SpawnFX(HealingEffect, body.radius, body.aimOrigin);
+                        }
+                    });
+            }
+
+            private void SearchForAllies()
             {
                 List<HurtBox> hurtBoxes = new List<HurtBox>();
+                healthComponents.Clear();
+
                 TeamMask mask = default(TeamMask);
                 mask.AddTeam(body.teamComponent.teamIndex);
                 healSearch.mask = LayerIndex.entityPrecise.mask;
@@ -113,33 +118,49 @@ namespace LostInTransit.Buffs
                 healSearch.RefreshCandidates();
                 healSearch.FilterCandidatesByHurtBoxTeam(mask);
                 healSearch.GetHurtBoxes(hurtBoxes);
-                healthComponents.Clear();
-                foreach(HurtBox h in hurtBoxes)
+
+                hurtBoxes.ForEach(hb =>
                 {
-                    if(!healthComponents.Contains(h.healthComponent) && h.healthComponent.health < h.healthComponent.fullHealth)
-                    {
-                        healthComponents.Add(h.healthComponent);
-                    }
-                }
+                    if (!healthComponents.Contains(hb.healthComponent) && hb.healthComponent.health < hb.healthComponent.fullHealth)
+                        healthComponents.Add(hb.healthComponent);
+                });
             }
+
+
             public void OnDamageDealtServer(DamageReport damageReport)
             {
-                if(!doingAbility)
-                {
+                if (!doingAbility)
                     damageReport.attackerBody?.healthComponent?.Heal(damageReport.damageDealt * damageReport.damageInfo.procCoefficient, default);
-                }
                 else
                 {
-                    SearchAllies();
+                    SearchForAllies();
                     float healing = (damageReport.damageDealt * 1.5f) / healthComponents.Count;
-                    foreach(HealthComponent component in healthComponents)
+                    foreach (HealthComponent component in healthComponents)
                     {
-                        SpawnTracer(component.body.corePosition, damageReport.attackerBody.corePosition);
+                        SpawnFX(TracerEffect, component.body.corePosition, body.corePosition);
                         component.Heal(healing, default);
                     }
                 }
             }
-            private void SpawnTracer(Vector3 origin, Vector3 start)
+
+            public void OnDestroy()
+            {
+                if (AbilityEffectInstance)
+                    Destroy(AbilityEffectInstance);
+            }
+
+            #region Effects
+            private void SpawnFX(GameObject Effect, float scale, Vector3 originPosition)
+            {
+                EffectData effectData = new EffectData
+                {
+                    scale = scale,
+                    origin = originPosition
+                };
+                EffectManager.SpawnEffect(Effect, effectData, true);
+            }
+
+            private void SpawnFX(GameObject Effect, Vector3 origin, Vector3 start)
             {
                 EffectData effectData = new EffectData
                 {
@@ -148,6 +169,8 @@ namespace LostInTransit.Buffs
                 };
                 EffectManager.SpawnEffect(TracerEffect, effectData, true);
             }
+            #endregion
+            
         }
     }
 }

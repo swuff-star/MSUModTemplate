@@ -10,6 +10,7 @@ using System.Security.Permissions;
 using UnityEngine;
 using LostInTransit.Utils;
 using LostInTransit.Buffs;
+using System.Linq;
 
 #pragma warning disable CS0618
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -70,6 +71,11 @@ namespace LostInTransit
             new Elites().Init();
 
             new ItemDisplays().Init();
+
+            GetType().Assembly.GetTypes()
+                .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
+                .ToList()
+                .ForEach(state => HG.ArrayUtils.ArrayAppend(ref LITContent.serializableContentPack.entityStateTypes, new EntityStates.SerializableEntityStateType(state)));
         }
     }
 }

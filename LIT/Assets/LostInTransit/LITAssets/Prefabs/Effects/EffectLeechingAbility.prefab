@@ -318,9 +318,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6640340916400237871}
   - component: {fileID: 7955419053839610985}
-  - component: {fileID: 3633890695839519074}
   m_Layer: 0
-  m_Name: VFXLeechingAbilityActive
+  m_Name: EffectLeechingAbility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,24 +358,6 @@ MonoBehaviour:
   _rotateAroundAxis: 1
   _relativeTo: 1
   _reverse: 0
---- !u!114 &3633890695839519074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6675145145771335488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 511512695, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effectIndex: -1
-  positionAtReferencedTransform: 1
-  parentToReferencedTransform: 1
-  applyScale: 1
-  soundName: 
-  disregardZScale: 0
 --- !u!1 &8805939528719438027
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,6 +22,8 @@ namespace LostInTransit
 
         public static AssetBundle LITAssets { get; } = AssetBundle.LoadFromFile(Path.Combine(assemblyDir, mainAssetBundle));
 
+        public static Material[] cloudRemaps = Array.Empty<Material>();
+
         internal static void Initialize()
         {
             LITContent.serializableContentPack = LITAssets.LoadAsset<SerializableContentPack>("ContentPack");
@@ -55,6 +57,7 @@ namespace LostInTransit
                         var eatShit = new RuntimeCloudMaterialMapper(Material);
                         Material.CopyPropertiesFromMaterial(cloudMat);
                         eatShit.SetMaterialValues(ref Material);
+                        HG.ArrayUtils.ArrayAppend(ref cloudRemaps, Material);
                     }
                 }
             });

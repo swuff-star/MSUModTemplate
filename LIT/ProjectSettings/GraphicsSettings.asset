@@ -2,6 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!30 &1
 GraphicsSettings:
+  m_ObjectHideFlags: 0
   serializedVersion: 12
   m_Deferred:
     m_Mode: 2
@@ -17,16 +18,16 @@ GraphicsSettings:
     m_Shader: {fileID: 0}
   m_DepthNormals:
     m_Mode: 1
-    m_Shader: {fileID: 4800000, guid: 1fb9c7f2860b4346bf179c6952213aa4, type: 2}
+    m_Shader: {fileID: 62, guid: 0000000000000000f000000000000000, type: 0}
   m_MotionVectors:
     m_Mode: 1
-    m_Shader: {fileID: 4800000, guid: 2a07b54c52a14332bfece5129d43cc1a, type: 2}
+    m_Shader: {fileID: 75, guid: 0000000000000000f000000000000000, type: 0}
   m_LightHalo:
     m_Mode: 1
-    m_Shader: {fileID: 4800000, guid: caeb825b2c8744fd92f61033927458fd, type: 2}
+    m_Shader: {fileID: 105, guid: 0000000000000000f000000000000000, type: 0}
   m_LensFlare:
     m_Mode: 1
-    m_Shader: {fileID: 4800000, guid: 526b136d17734e2991052f1b8cb1e639, type: 2}
+    m_Shader: {fileID: 102, guid: 0000000000000000f000000000000000, type: 0}
   m_AlwaysIncludedShaders:
   - {fileID: 4800000, guid: effbccf35be140b4aa5d58281a6068de, type: 2}
   - {fileID: 4800000, guid: ff794c9563ae4d38b1c7a58e457e2ca4, type: 2}
@@ -56,8 +57,11 @@ GraphicsSettings:
   - {fileID: 4800000, guid: 26ae956b976c4641b1927fb1efb41eac, type: 2}
   - {fileID: 4800000, guid: 4995bd8d61d24f94863911d5d09cada8, type: 2}
   - {fileID: 4800000, guid: b79a7c562f2941bea84cbf7a89d08006, type: 2}
+  - {fileID: 16000, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 17000, guid: 0000000000000000f000000000000000, type: 0}
   m_PreloadedShaders: []
-  m_SpritesDefaultMaterial: {fileID: 2100000, guid: 099cb904f3df41fca801ec6ff172c25e, type: 2}
+  m_SpritesDefaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000,
+    type: 0}
   m_CustomRenderPipeline: {fileID: 0}
   m_TransparencySortMode: 0
   m_TransparencySortAxis: {x: 0, y: 0, z: 1}

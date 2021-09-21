@@ -89,8 +89,6 @@ namespace LITEditor
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
 
-            explicitAssets = pipeline.Datums.OfType<AssetBundleDefinitions>().ToArray().SelectMany(abd => abd.assetBundles).SelectMany(ab => ab.assets).ToArray();
-
             var explicitAssetPaths = new List<string>();
             PopulateWithExplicitAssets(explicitAssets, explicitAssetPaths);
 

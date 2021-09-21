@@ -8,8 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: matAffixFrenzied
-  m_Shader: {fileID: 4800000, guid: df82d488c321404abd6fed383a356e56, type: 2}
-  m_ShaderKeywords: DISABLEREMAP FRESNEL FRESNEL_EMISSION VERTEXOFFSET _EMISSION
+  m_Shader: {fileID: 4800000, guid: c174445f76f5fa046a90dcd25f7f8d12, type: 3}
+  m_ShaderKeywords: DISABLEREMAP FRESNEL FRESNEL_EMISSION PRINT_CUTOFF VERTEXOFFSET
+    _EMISSION
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -135,7 +136,7 @@ Material:
     - _ForceSpecOn: 0
     - _FresnelBoost: 20
     - _FresnelOn: 1
-    - _FresnelPower: 4.11
+    - _FresnelPower: 5
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -155,7 +156,7 @@ Material:
     - _PrintBoost: 1
     - _PrintDirection: 0
     - _PrintEmissionToAlbedoLerp: 0
-    - _PrintOn: 0
+    - _PrintOn: 1
     - _RampInfo: 0
     - _RimPower: 0.5
     - _SinRate: 0
@@ -181,9 +182,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BorderScale: {r: 0.3, g: 0.19, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 0, a: 1}
+    - _Color: {r: 1, g: 0.8579727, b: 0, a: 1}
     - _CutoffScroll: {r: 6, g: 6, b: 0, a: 0}
-    - _EmColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmColor: {r: 1, g: 0.8588236, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlashColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 1, g: 0.6827586, b: 0, a: 0}

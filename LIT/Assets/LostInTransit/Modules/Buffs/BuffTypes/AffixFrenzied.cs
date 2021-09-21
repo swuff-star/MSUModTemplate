@@ -24,113 +24,113 @@ namespace LostInTransit.Buffs
 
         public class AffixFrenziedBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {
-            public GameObject BlinkReadyEffect = null;
+            public static float blinkCooldown;
 
-            private bool blinkReady = true;
+            public GameObject BlinkReadyEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectFrenziedTPReady");
 
-            internal bool doingAbility = false;
-            
-            private float blinkTimer = 0;
+            public GameObject AbilityEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectFrenziedAbility");
 
-            private float abilityStopwatch = 0;
+            private GameObject BlinkReadyInstance;
 
-            private int multiplier = 1;
+            private GameObject AbilityInstance;
+
+            private bool blinkReady = false;
+
+            private bool doingAbility = false;
+
+            private float blinkStopwatch;
+
+            private float abilityStopwatch;
+
+            private float cdrMult = 1;
 
             private void Start()
             {
+                blinkCooldown = 10;
                 body.RecalculateStats();
             }
-            public void Update()
+
+            private void Update()
             {
-                UpdateTimers();
-                //We DO NOT want players to be blinked outside of their control. thats just a bad idea.
-                if(body.isPlayerControlled)
+                blinkStopwatch += Time.deltaTime;
+                if(blinkStopwatch > blinkCooldown / cdrMult)
                 {
-                    if (Input.GetKeyDown(LITConfig.FrenziedBlink.Value) && blinkReady)
+                    blinkReady = true;
+                    if(!BlinkReadyInstance)
                     {
-                        var bodyStateMachine = body.GetComponents<EntityStateMachine>().Where(x => x.customName == "Body").FirstOrDefault();
-                        if (bodyStateMachine)
-                            Blink(bodyStateMachine);
+                        BlinkReadyInstance = Instantiate(BlinkReadyEffect, body.aimOriginTransform);
+                        if (BlinkReadyInstance)
+                            BlinkReadyInstance.transform.localScale *= body.radius;
                     }
                 }
-                else
+                if (doingAbility)
                 {
-                    if(blinkReady)
+                    abilityStopwatch += Time.deltaTime;
+                    if (abilityStopwatch >= 10)
                     {
-                        var bodyStateMachine = body.GetComponents<EntityStateMachine>().Where(x => x.customName == "Body").FirstOrDefault();
-                        if (bodyStateMachine)
-                            Blink(bodyStateMachine);
+                        doingAbility = false;
+                        cdrMult = 1;
+                        abilityStopwatch = 0;
+                        if (AbilityInstance)
+                            Destroy(AbilityInstance);
                     }
-
                 }
-
+                if (blinkReady && body.isPlayerControlled && Input.GetKeyDown(LITConfig.FrenziedBlink.Value))
+                    Blink();
+                else if(blinkReady && !body.isPlayerControlled)
+                    Blink();
             }
 
-            private void UpdateTimers()
+            private void Blink()
             {
-                if(body.healthComponent.alive)
+                if (BlinkReadyInstance)
+                    Destroy(BlinkReadyInstance);
+                var bodyStateMachine = body.GetComponents<EntityStateMachine>().Where(x => x.customName == "Body").FirstOrDefault();
+                if (body.healthComponent.alive && bodyStateMachine)
                 {
-                    blinkTimer += (Time.deltaTime * multiplier);
-                    if (blinkTimer >= 10)
-                    {
-                        blinkReady = true;
-                    }
-                    if(doingAbility)
-                    {
-                        abilityStopwatch += Time.deltaTime;
-                        if(abilityStopwatch >= 10)
-                        {
-                            doingAbility = false;
-                            multiplier = 1;
-                            abilityStopwatch = 0;
-                        }
-                    }
+                    //Todd Howard Voice: It just works.
+                    bodyStateMachine.SetNextState(new EntityStates.Elites.FrenziedBlink());
+                    blinkStopwatch = 0;
+                    blinkReady = false;
                 }
             }
 
             internal void Ability()
             {
                 doingAbility = true;
-                multiplier = 2;
+                cdrMult = 2;
+                AbilityInstance = Instantiate(AbilityEffect, body.aimOriginTransform);
+                if (AbilityInstance)
+                    AbilityInstance.transform.localScale *= body.bestFitRadius;
                 body.RecalculateStats();
             }
 
-            private void Blink(EntityStateMachine bodyStateMachine)
-            {
-                if(body.healthComponent.alive)
-                {
-                    //Todd Howard Voice: It just works.
-                    //ToDo: Probably make this into a proper entity state instead of re-using the parent's.
-                    bodyStateMachine.SetNextState(new EntityStates.ParentMonster.LoomingPresence());
-                    blinkTimer = 0;
-                    blinkReady = false;
-                }
-            }
-
+            public void RecalculateStatsStart() { }
             public void RecalculateStatsEnd()
             {
                 body.moveSpeed *= 2f;
                 body.attackSpeed *= 2f;
 
-                var cooldownModifier = 0.0f;
-                if (doingAbility)
-                {
-                    cooldownModifier = 2.5f;
-                }
+                //Ability Innactive = 0.5f, 50% cdr
+                //Ability Active = 0.75f, 75% cdr
+                var cooldownModifier = 0.5f + (0.5f / cdrMult * (cdrMult - 1));
 
                 if (body.skillLocator.primary)
-                    body.skillLocator.primary.cooldownScale -= 0.5f + cooldownModifier;
+                    body.skillLocator.primary.cooldownScale -= cooldownModifier;
                 if (body.skillLocator.secondary)
-                    body.skillLocator.secondary.cooldownScale -= 0.5f + cooldownModifier;
+                    body.skillLocator.secondary.cooldownScale -= cooldownModifier;
                 if (body.skillLocator.utility)
-                    body.skillLocator.utility.cooldownScale -= 0.5f + cooldownModifier;
+                    body.skillLocator.utility.cooldownScale -= cooldownModifier;
                 if (body.skillLocator.special)
-                    body.skillLocator.special.cooldownScale -= 0.5f + cooldownModifier;
+                    body.skillLocator.special.cooldownScale -= cooldownModifier;
             }
 
-            public void RecalculateStatsStart()
+            private void OnDestroy()
             {
-
+                if (BlinkReadyInstance)
+                    Destroy(BlinkReadyInstance);
+                if (AbilityInstance)
+                    Destroy(AbilityInstance);
             }
         }
     }

@@ -4,7 +4,7 @@ Shader "StubbedShader/ui/hguicustomblend" {
 		[HideInInspector] _DstBlend ("Destination Blend", Float) = 1
 		[HideInInspector] _InternalSimpleBlendMode ("Internal Simple Blend Mode", Float) = 0
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
-		[HDR] _Color ("Tint", Vector) = (1,1,1,1)
+		[HDR] _Color ("Tint", Color) = (1,1,1,1)
 		_StencilComp ("Stencil Comparison", Float) = 8
 		_Stencil ("Stencil ID", Float) = 0
 		_StencilOp ("Stencil Operation", Float) = 0
