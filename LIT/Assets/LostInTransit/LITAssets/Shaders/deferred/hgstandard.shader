@@ -64,5 +64,5 @@ Shader "StubbedShader/deferred/hgstandard" {
 		[PerRendererData] _FlashColor ("Flash Color", Vector) = (0,0,0,1)
 		[PerRendererData] _Fade ("Fade", Range(0, 1)) = 1
 	}
-	Fallback "Diffuse"
+	Fallback "1hgstandard"
 }
