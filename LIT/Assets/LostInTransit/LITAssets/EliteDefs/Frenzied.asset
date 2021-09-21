@@ -16,7 +16,7 @@ MonoBehaviour:
   eliteEquipmentDef: {fileID: 11400000, guid: 40ff794bbbf17fa458952cda08f732d1, type: 2}
   color:
     serializedVersion: 2
-    rgba: 4279344800
+    rgba: 4280076231
   shaderEliteRampIndex: 0
   eliteTier: 0
   lightColor: {r: 0.89019614, g: 0.89019614, b: 0.1254902, a: 1}

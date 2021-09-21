@@ -5,9 +5,14 @@
 	"LIT_ITEM_BARBEDWIRE_DESC": "Deal <style=cIsDamage>80% damage per second</style> to enemies standing within a radius of <style=cIsUtility>7m</style> <style=cStack>(+1.5m per stack)</style>.",
 	"LIT_ITEM_BARDBEDWIRE_LORE": "They found the source of the signal. Perhaps a bit too late, unfortunately.\n\nThe body of a soldier lay dead on the ground, clutching the signal device in his hand.\n\nThe soldier was armed with his standard issue pistol, plus a few other strange and unconventional accessories. Most notable was the roll of barbed wire wrapped around his chest and legs, covering his armored suit.\n\nThe wire was stained with the gore of many different creatures. Seems it did its job. Just not well enough.",
 	
+	"LIT_ITEM_BITTERROOT_NAME": "Bitter Root",
+	"LIT_ITEM_BITTERROOT_PICKUP": "Increased maximum health.",
+	"LIT_ITEM_BITTERROOT_DESC": "Increase <style=cIsHealing>maximum health</style> by <style=cIsHealing>+4%</style> <style=cStack>(+4% per stack)</style>",
+	"LIT_ITEM_BITTERROOT_LORE": "For me, it's the <style=cIsHealing>Bitter Root</style>. The best common item. I even ask for extra <style=cIsHealing>Bitter Roots</style> and the <color=#41D1F7>Newt</color> is so friendly and more than willing to oblige.\n\nOne time I asked for a <style=cIsHealing>Bitter Root</style> and he gave me three. I said, \"Wow, <style=cIsDamage>three for free</style>!\" and the nice friendly <color=#41D1F7>Newt</color> laughed and said, \"I'm going to call you <style=cIsDamage>3-for-free</style>!\"\n\nNow the <color=#41D1F7>Newt</color> greets me with \"Hey, it's <style=cIsDamage>3-for-free</style>!\" and ALWAYS gives me three <style=cIsHealing>Bitter Roots</style>. It's such a fun and cool atmosphere at my local <style=cWorldEvent>Bazaar Between Time</style>, I go there at least 3 times a run for <color=#41D1F7>Gesture of the Drowned</color> and the <color=#F45A45>Unstable Tesla Coil cauldron</color> using raw items instead of scrap, on Stage 1 - 2 for <style=cWorldEvent>Void Fields</style> on <color=#B53F80>Typhoon</color>, and maybe once for <color=#41D1F7>Purity</color> when I'm in a rush but want a great run that is fun, fast, and can match my daily entertainment needs.\n\nI even dip my <color=#41D1F7>Lunar Coins</style> in the <color=#41D1F7>Lunar Seer</color>, it's amazing! What a great <style=cWorldEvent>Hidden Realm</style>.",
+	
 	"LIT_ITEM_LIFESAVINGS_NAME": "Life Savings",
 	"LIT_ITEM_LIFESAVINGS_PICKUP": "Keep a small amount of gold between stages.",
-	"LIT_ITEM_LIFESAVINGS_DESC": "Keep <style=cIsUtility>2%</style> <style=cStack>(+2% per stack)</style> of <style=cIsUtility>earned gold</style> between stages. Gold is not kept when travelling between <style=cWorldEvent>Hidden Realms</style>.",
+	"LIT_ITEM_LIFESAVINGS_DESC": "Keep <style=cIsUtility>4%</style> <style=cStack>(+2% per stack)</style> of <style=cIsUtility>earned gold</style> between stages. Gold is not kept when travelling between <style=cWorldEvent>Hidden Realms</style>.",
 	"LIT_ITEM_LIFESAVINGS_LORE": "<style=cDeath>WORK IN PROGRESS</style>",
 	
 	"LIT_ITEM_MORTARTUBE_NAME": "Mortar Tube",
@@ -38,7 +43,7 @@
 	"LIT_ITEM_GOLDENGUN_NAME": "Golden Gun",
 	"LIT_ITEM_GOLDENGUN_PICKUP": "More gold, more damage.",
 	"LIT_ITEM_GOLDENGUN_DESC": "Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to <style=cIsDamage>+40% damage</style> <style=cStack>(+20% per stack)</style> at <style=cIsUtility>600 gold</style> <style=cStack>(+300 per stack, scaling with time)</style>.",
-	"LIT_ITEM_GOLDENGUN_LORE": "<style=cMono>$ Transmitting emergency signals. . .\n\n$ Warning! Transmission failure!</style>\n\n             uu$$$$$$$$$$$uu\n          uu$$$$$$$$$$$$$$$$$uu\n         u$$$$$$$$$$$$$$$$$$$$$u\n        u$$$$$$$$$$$$$$$$$$$$$$$u\n       u$$$$$$$$$$$$$$$$$$$$$$$$$u\n       u$$$$$$$$$$$$$$$$$$$$$$$$$u\n       u$$$$$$\"   \"$$$\"   \"$$$$$$u\n       \"$$$$\"      u$u       $$$$\"\n        $$$u       u$u       u$$$\n        $$$u      u$$$u      u$$$\n         \"$$$$uu$$$   $$$uu$$$$\"\n          \"$$$$$$$\"   \"$$$$$$$\"\n            u$$$$$$$u$$$$$$$u\n             u$\"$\"$\"$\"$\"$\"$u\n  uuu        $$u$ $ $ $ $u$$       uuu\n u$$$$        $$$$$u$u$u$$$       u$$$$\n  $$$$$uu      \"$$$$$$$$$\"     uu$$$$$$\nu$$$$$$$$$$$uu    \"\"\"\"\"    uuuu$$$$$$$$$$\n$$$$\"\"\"$$$$$$$$$$uuu   uu$$$$$$$$$\"\"\"$$$\"\n \"\"\"      \"\"$$$$$$$$$$$uu \"\"$\"\"\"\n           uuuu \"\"$$$$$$$$$$uuu\n  u$$$uuu$$$$$$$$$uu \"\"$$$$$$$$$$$uuu$$$\n  $$$$$$$$$$\"\"\"\"           \"\"$$$$$$$$$$$\"\n   \"$$$$$\"                      \"\"$$$$\"\"\n     $$$\"                         $$$$\"\n\nHijacked by the Roider Union Pistolero.\n\nNext time use a real booter, captain. Money in our pockets.",
+	"LIT_ITEM_GOLDENGUN_LORE": "Order: Venusian Firearm Artifact\nTracking Number: 420****\nEstimated Delivery: 2/19/2056\nShipping Method: Priority\nShipping Address: 3017 Turnbuckle Lane, Old York, Earth\nShipping Details:\n\nNever seen anything like this. Hoping you and your team could take a look.\n\nCarbon dated back over a thousand years, we found it in the ruins of Hazard Sector M-Four, surrounded by a large, crumbled structure. Compared to surrounding artifacts, it is double their age, and carries much higher levels of radiation.\n\nIt appears to be a modified Desert Eagle - Terran production, likely late twentieth century - edited to be top-fed coins, and fire them through its much taller than average barrel. Plated in pure, twenty four karat gold, it'll likely be the most valuable artifact we've ever collected - but I'd like to hold on putting it up for auction.\n\nI'm mystified by two specific details upon the firearm. At the bottom of the stock, a strange triangular symbol, which resembles the \"Eye of Providence\" used on American currency, as well as a pair of initials: \"Y.V.\" Our records do not show any individuals with those specific initials living in M-Four before the collapse. Perhaps your more experienced staff could take a deeper look?\n\nAll the best, Doctor Harold Deluca",
 	
 	"LIT_ITEM_SMARTSHOPPER_NAME": "Smart Shopper",
 	"LIT_ITEM_SMARTSHOPPER_PICKUP": "Monsters drop more gold.",
@@ -67,28 +72,30 @@
 	
 	"LIT_EQUIP_AFFIXLEECHING_NAME": "Guttural Whimpers",
 	"LIT_EQUIP_AFFIXLEECHING_PICKUP": "Become an aspect of parasitism.",
-	"LIT_EQUIP_AFFIXLEECHING_DESC": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
+	"LIT_EQUIP_AFFIXLEECHING_DESC": "Become an aspect of parasitism.",
 	"LIT_EQUIP_AFFIXLEECHING_LORE": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
 	
 	"LIT_EQUIP_AFFIXVOLATILE_NAME": "Lingering Torment",
 	"LIT_EQUIP_AFFIXVOLATILE_PICKUP": "Become an aspect of instability.",
-	"LIT_EQUIP_AFFIXVOLATILE_DESC": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
+	"LIT_EQUIP_AFFIXVOLATILE_DESC": "Become an aspect of instability.",
 	"LIT_EQUIP_AFFIXVOLATILE_LORE": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
 	
 	"LIT_EQUIP_AFFIXFRENZIED_NAME": "Primordial Rage",
 	"LIT_EQUIP_AFFIXFRENZIED_PICKUP": "Become an aspect of seething.",
-	"LIT_EQUIP_AFFIXFRENZIED_DESC": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
+	"LIT_EQUIP_AFFIXFRENZIED_DESC": "Become an aspect of seething.",
 	"LIT_EQUIP_AFFIXFRENZIED_LORE": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
 	
 	"LIT_EQUIP_AFFIXBLIGHTED_NAME": "Betrayal of the Bulwark",
-	"LIT_EQUIP_AFFIXBLIGHTED_PICKUP": "Become another wronged soul.",
-	"LIT_EQUIP_AFFIXBLIGHTED_DESC": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
+	"LIT_EQUIP_AFFIXBLIGHTED_PICKUP": "Become another misguided soul.",
+	"LIT_EQUIP_AFFIXBLIGHTED_DESC": "Become another misguided soul.",
 	"LIT_EQUIP_AFFIXBLIGHTED_LORE": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
 	
 	"LIT_MODIFIER_BLIGHTED": "Blighted {0}",
 	"LIT_ELITE_MODIFIER_LEECHING": "Leeching {0}",
 	"LIT_ELITE_MODIFIER_VOLATILE": "Volatile {0}",
 	"LIT_ELITE_MODIFIER_FRENZIED": "Frenzying {0}",
+	
+	"ELITE_MODIFIER_GOLD": "Gold {0}",
 	
 	"LIT_MECHSPIDER_LORE": "<style=cMono>$ Transmitting emergency signals. . .\n\n$ Warning! Transmission failure!</style>\n\n             uu$$$$$$$$$$$uu\n          uu$$$$$$$$$$$$$$$$$uu\n         u$$$$$$$$$$$$$$$$$$$$$u\n        u$$$$$$$$$$$$$$$$$$$$$$$u\n       u$$$$$$$$$$$$$$$$$$$$$$$$$u\n       u$$$$$$$$$$$$$$$$$$$$$$$$$u\n       u$$$$$$\"   \"$$$\"   \"$$$$$$u\n       \"$$$$\"      u$u       $$$$\"\n        $$$u       u$u       u$$$\n        $$$u      u$$$u      u$$$\n         \"$$$$uu$$$   $$$uu$$$$\"\n          \"$$$$$$$\"   \"$$$$$$$\"\n            u$$$$$$$u$$$$$$$u\n             u$\"$\"$\"$\"$\"$\"$u\n  uuu        $$u$ $ $ $ $u$$       uuu\n u$$$$        $$$$$u$u$u$$$       u$$$$\n  $$$$$uu      \"$$$$$$$$$\"     uu$$$$$$\nu$$$$$$$$$$$uu    \"\"\"\"\"    uuuu$$$$$$$$$$\n$$$$\"\"\"$$$$$$$$$$uuu   uu$$$$$$$$$\"\"\"$$$\"\n \"\"\"      \"\"$$$$$$$$$$$uu \"\"$\"\"\"\n           uuuu \"\"$$$$$$$$$$uuu\n  u$$$uuu$$$$$$$$$uu \"\"$$$$$$$$$$$uuu$$$\n  $$$$$$$$$$\"\"\"\"           \"\"$$$$$$$$$$$\"\n   \"$$$$$\"                      \"\"$$$$\"\"\n     $$$\"                         $$$$\"\n\nHijacked by the Roider Union Pistolero.\n\nNext time use a real booter, captain. Money in our pockets.",
 	

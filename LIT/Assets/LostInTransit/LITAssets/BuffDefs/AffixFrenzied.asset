@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: AffixFrenzied
   m_EditorClassIdentifier: 
   iconPath: Textures/ItemIcons/texNullIcon
-  iconSprite: {fileID: 21300000, guid: 143706772500f9a49aed13872dfa0f76, type: 3}
-  buffColor: {r: 0.7490196, g: 0.8117648, b: 0, a: 1}
+  iconSprite: {fileID: 21300000, guid: aa0da7f9a85b3b440b825cddfaf69404, type: 3}
+  buffColor: {r: 1, g: 0.96190476, b: 0, a: 1}
   canStack: 0
   eliteDef: {fileID: 11400000, guid: e090eb3c2ff60eb42a63228ee97b683b, type: 2}
   isDebuff: 0
