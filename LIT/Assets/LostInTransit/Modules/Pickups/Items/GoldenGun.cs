@@ -44,7 +44,7 @@ namespace LostInTransit.Items
                 if (currentBuffs < (40f + ((40f * 0.5f) * (stack - 1))) && buffToGive > currentBuffs)
                     { body.AddBuff(GoldenGunBuff.buff); }
                 if (buffToGive < currentBuffs)
-                    { body.RemoveBuff(GoldenGunBuff.buff); }
+                { body.RemoveBuff(GoldenGunBuff.buff); } 
                 //body.SetBuffCount(GoldenGunBuff.buffGGIndex, (int)buffToGive); This seemed like a much less hacky implementation, but for some reason gave the Leeching buff rather than Golden Gun buff.
                 //To-do: Find cleaner implementation?
             }

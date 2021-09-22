@@ -51,8 +51,8 @@
 	"LIT_ITEM_SMARTSHOPPER_LORE": "Order: Wallet\nTracking Number: 100****\nEstimated Delivery: 4/2/2057\nShipping Method: Priority\nShipping Address: PO Box 18789, Alcore, Mars\nShipping Details:\n\nThese were NOT meant to get out. Some kid is already showing off his \"magic wallet\" that prints money! It's all over the damned news! You're gonna pay for this, you hear? For every one that's missing when I see you, I'll take one of your fingers. See you soon, Alex.",
 	
 	"LIT_ITEM_TELESCOPICSIGHT_NAME": "Telescopic Sight",
-	"LIT_ITEM_TELESCOPICSIGHT_PICKUP": "Critical strikes have a chance to do quintupuled damage.",
-	"LIT_ITEM_TELESCOPICSIGHT_DESC": "Gain <style=cIsUtility>10% critical chance</style>. <style=cIsDamage>10%</style> <style=cStack>(+10% per stack)</style> chance for critical strikes to deal <style=cIsDamage>500% damage</style>.",
+	"LIT_ITEM_TELESCOPICSIGHT_PICKUP": "Critical strikes have a chance to instantly kill enemies.",
+	"LIT_ITEM_TELESCOPICSIGHT_DESC": "Gain <style=cIsUtility>10% critical chance</style>. <style=cIsDamage>5%</style> <style=cStack>(+5% per stack)</style> chance for critical strikes to <style=cIsDamage>instantly kill</style> enemies. Bosses receive <style=cIsDamage>300%</style> TOTAL damage instead of being instantly killed.",
 	"LIT_ITEM_TELESCOPICSIGHT_LORE": "\"The sight comes with infrared, night vision, onboard wind assesment, built in scope adjustments between five and twenty five times magnification, and adaptive smart fire technology to ensure the perfect shot. Bought it out of military surplus, but I've got no idea how it ended up there.\"\n\n\"You make it sound like the gun itself is an attachment for the scope.\"\n\n\"Ha! Well it is extra. But I'll give it to you at a discount! Friends and family.\"\n\n\"Just one last question.\"\n\n\"Shoot.\"\n\n\"Do you have two more?\"",
 	
 	"LIT_ITEM_THALLIUM_NAME": "Thallium",

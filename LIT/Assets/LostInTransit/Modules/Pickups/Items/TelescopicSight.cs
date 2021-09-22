@@ -9,16 +9,16 @@ namespace LostInTransit.Items
 
         public static string section;
         public static float ExtraCrit;
-        public static float BaseChance;
-        public static float StackChance;
+        public static float NewBaseChance;
+        public static float NewStackChance;
         public static float DamageMultiplier;
 
         public override void Initialize()
         {
             section = "Item: " + ItemDef.name;
             ExtraCrit = LITMain.config.Bind<float>(section, "Extra Crit Chance", 10f, "Amount of flat critical chance the item gives.").Value;
-            BaseChance = LITMain.config.Bind<float>(section, "Base Proc Chance", 10f, "Base Proc chance for Telescopic Sight.").Value;
-            StackChance = LITMain.config.Bind<float>(section, "Stack Proc Chance", 10f, "Added Proc Chance per Stack.").Value;
+            NewBaseChance = LITMain.config.Bind<float>(section, "Base Proc Chance", 5f, "Base Proc chance for Telescopic Sight.").Value;
+            NewStackChance = LITMain.config.Bind<float>(section, "Stack Proc Chance", 5f, "Added Proc Chance per Stack.").Value;
             DamageMultiplier = LITMain.config.Bind<float>(section, "Boss Damage Multiplier", 3f, "Extra damage dealt to bosses instead of insta-killing them.").Value; /*LITMain.config.Bind<float>(section, "Damage Multiplier", 4f, "Amount of extra damage added to procs, x 100.").Value;*/
         }
 
@@ -78,8 +78,8 @@ namespace LostInTransit.Items
             private float CalcChance()
             {
                 float chance;
-                float baseChance = BaseChance;
-                float stackChance = StackChance * (stack - 1);
+                float baseChance = NewBaseChance;
+                float stackChance = NewStackChance * (stack - 1);
                 baseChance /= 100;
                 stackChance /= 100;
 
