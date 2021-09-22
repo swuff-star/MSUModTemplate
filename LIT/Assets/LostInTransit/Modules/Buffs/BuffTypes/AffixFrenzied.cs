@@ -71,6 +71,7 @@ namespace LostInTransit.Buffs
                         doingAbility = false;
                         cdrMult = 1;
                         abilityStopwatch = 0;
+                        body.RecalculateStats();
                         if (AbilityInstance)
                             Destroy(AbilityInstance);
                     }
