@@ -22,4 +22,4 @@ MonoBehaviour:
   pickupIconSprite: {fileID: 0}
   hidden: 0
   canRemove: 1
-  tags: 
+  tags: 02000000
