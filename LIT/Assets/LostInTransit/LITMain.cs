@@ -3,6 +3,7 @@ using BepInEx.Configuration;
 using LostInTransit.Modules;
 using R2API.Utils;
 using R2API;
+using RoR2;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security;
@@ -57,6 +58,7 @@ namespace LostInTransit
 
             Initialize();
             new LITContent().Initialize();
+            RoR2Application.onLoad += EndingSetup;
         }
 
         private void Initialize()
@@ -76,6 +78,11 @@ namespace LostInTransit
                 .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
                 .ToList()
                 .ForEach(state => HG.ArrayUtils.ArrayAppend(ref LITContent.serializableContentPack.entityStateTypes, new EntityStates.SerializableEntityStateType(state)));
+        }
+
+        private void EndingSetup()
+        {
+
         }
     }
 }

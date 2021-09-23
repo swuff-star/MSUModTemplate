@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: matMysteriousVialGlass
-  m_Shader: {fileID: 4800000, guid: 076e215da2eb19348a57d3785d3a434b, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0490ae83e31446b88aebf77706334386, type: 2}
   m_ShaderKeywords: USE_CLOUDS _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

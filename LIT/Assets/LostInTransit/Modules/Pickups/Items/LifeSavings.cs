@@ -1,78 +1,124 @@
 ﻿using RoR2;
 using UnityEngine.Networking;
 using Moonstorm;
+using System;
+using UnityEngine;
 
 namespace LostInTransit.Items
 {
     public class LifeSavings : ItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("LifeSavings");
+        public static ItemDef itemDef;
         public static string section;
-        private static bool checkMoney = false;
-        private static bool grantMoney = true;
         public static float moneyKept;
 
         //★ (godzilla 1998 main character voice)
         //★ that's a lotta Debug.WriteLine()
-        //Neb - Why dont use Debug.Log(), lol
+        //Neb - Why dont use Debug.Log(), lol | Doesnt matter, i killed this code and rewrote it as my child.
         public override void Initialize()
         {
+            itemDef = ItemDef;
             section = "Item: " + ItemDef.name; 
             moneyKept = LITMain.config.Bind<float>(section, "Money Kept", 4f, "Percentage of money kept between stages.").Value;
-            SceneExitController.onBeginExit += checkGoldAtEndOfStage;
-            Stage.onStageStartGlobal += Stage_onServerStageBegin;
         }
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
             body.AddItemBehavior<LifeSavingsBehavior>(stack);
         }
-        private void checkGoldAtEndOfStage(SceneExitController obj)
-        {
-            if (!NetworkServer.active) return;
-            checkMoney = true;
-            //Debug.WriteLine("Stage ended! Right now, the bools are lookin' like:");
-            //Debug.WriteLine("checkMoney: " + checkMoney);
-            //Debug.WriteLine("grantMoney: " + grantMoney);
-        }
-        private void Stage_onServerStageBegin(Stage obj)
-        {
-            if (!NetworkServer.active) return;
-            checkMoney = false;
-            //Debug.WriteLine("Stage started! Right now, the bools are lookin' like:");
-            //Debug.WriteLine("checkMoney: " + checkMoney);
-            //Debug.WriteLine("grantMoney: " + grantMoney);
-        }
+
         public class LifeSavingsBehavior : CharacterBody.ItemBehavior
         {
-            private float moneyToGrant = 0f;
-            public void FixedUpdate()
+            public LifeSavingsMasterBehavior MasterBehavior
             {
-                float currentMoney = body.master.money;
-                
-                if (checkMoney && grantMoney && stack >= 1 && !Run.instance.isRunStopwatchPaused)
+                get
                 {
-                    //Debug.WriteLine("Tallying money...");
-                    //Debug.WriteLine("Current gold: " + currentMoney);
-                    moneyToGrant = currentMoney * (stack * moneyKept) * 0.01f;
-                    //Debug.WriteLine("Money to grant: " + moneyToGrant);
-                    grantMoney = false;
-                    //Debug.WriteLine("checkMoney: " + checkMoney);
-                    //Debug.WriteLine("grantMoney: " + grantMoney);
-                }
-                if (!checkMoney && !grantMoney && stack >= 1 && !Run.instance.isRunStopwatchPaused)
-                {
-                    //Debug.WriteLine("Giving money...");
-                    body.master.GiveMoney((uint)moneyToGrant);
-                    //Debug.WriteLine("Money given: " + moneyToGrant);
-                    moneyToGrant = 0f;
-                    //Debug.WriteLine("moneyToGrant set to: " + moneyToGrant);
-                    //Debug.WriteLine("checkMoney: " + checkMoney);
-                    //Debug.WriteLine("grantMoney: " + grantMoney);
-                    grantMoney = true;
+                    if (!_masterBehavior)
+                    {
+                        var component = body.master?.GetComponent<LifeSavingsMasterBehavior>();
+                        if (component)
+                        {
+                            _masterBehavior = component;
+                            return _masterBehavior;
+                        }
+                        else
+                        {
+                            _masterBehavior = body.master?.gameObject.AddComponent<LifeSavingsMasterBehavior>();
+                            return _masterBehavior;
+                        }
+                    }
+                    else
+                        return _masterBehavior;
                 }
             }
 
+            private LifeSavingsMasterBehavior _masterBehavior;
 
+            public void Start()
+            {
+                //Only add master behaviors to players.
+                if(body.isPlayerControlled)
+                    MasterBehavior.UpdateStacks();
+            }
+
+            private void OnDestroy()
+            {
+                if(body.isPlayerControlled)
+                    MasterBehavior.CheckIfShouldDestroy();
+            }
+        }
+
+        //This is one of the rare few cases where an item behavior is not enough.
+        public class LifeSavingsMasterBehavior : MonoBehaviour
+        {
+            public CharacterMaster CharMaster { get => gameObject.GetComponent<CharacterMaster>(); }
+            public int stack;
+            public bool moneyPending;
+            public uint storedGold;
+
+            public void Start()
+            {
+                CharMaster.inventory.onInventoryChanged += UpdateStacks;
+                SceneExitController.onBeginExit += ExtractMoney;
+                Stage.onStageStartGlobal += GiveMoney;
+            }
+
+            internal void UpdateStacks()
+            {
+                stack = (int)CharMaster?.inventory.GetItemCount(itemDef);
+            }
+
+            private void ExtractMoney(SceneExitController obj)
+            {
+                moneyPending = true;
+                storedGold = CalculatePercentage();
+            }
+
+            private uint CalculatePercentage()
+            {
+                uint toReturn;
+                toReturn = (uint)(CharMaster.money / 100 * Mathf.Min(moneyKept * stack, 100));
+                CharMaster.money -= toReturn;
+                return toReturn;
+            }
+            private void GiveMoney(Stage obj)
+            {
+                CharMaster.GiveMoney(storedGold);
+                storedGold = 0;
+                moneyPending = false;
+            }
+
+            public void CheckIfShouldDestroy()
+            {
+                if (!moneyPending)
+                    Destroy(this);
+            }
+
+            public void OnDestroy()
+            {
+                SceneExitController.onBeginExit -= ExtractMoney;
+                Stage.onStageStartGlobal -= GiveMoney;
+            }
         }
     }
 }
