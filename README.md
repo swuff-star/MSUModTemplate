@@ -29,9 +29,21 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 * Code - Nebby, swuff★
 * Art/Modelling/Animation - bruh, GEMO, LucidInceptor, SOM
 * Writing - BlimBlam, Lyrical Endymion, QandQuestion, swuff★, T_Dimensional
-* Additional support/special thanks - KevinFromHPCustomerService, KomradeSpectre, rob, xpcybic, /vm/
+* Additional support/special thanks - Draymarc, KevinFromHPCustomerService, KomradeSpectre, Moffein, rob, Shared, TheTimesweeper, xpcybic, /vm/
 
 ## Changelog
+
+### 0.2.1
+* General
+	* Added proper item tags for items (*Developer note: Apparently none of these items have been tagged properly, allowing Life Savings to show up in Healing chests and other similar occurances. They're all sorted nicely, now.*)
+* Items
+	* Bitter Root: Added
+	* Life Savings: Rewritten entirely and should now be networked, we hope
+	* Repulsion Armor: Added (*Developer note: I'd like to eventually make it so projectiles bounce off entirely, but it also sounds like a bitch to do.*)
+	* Telescopic Sight: Reworked -> Critical hits have a 5% (+5% per stack, hyperbolically) chance to instantly kill enemies. Bosses recieve 300% TOTAL damage instead of instant death. (*Developer note: Apparently, this is "just like Euthanasia from Isaac"... whatever that means. I'm personally not entirely sold on the instant kill, and feel the odds may be a bit too high. I do like the direction it's going in, I believe. Thoughts?*)
+* Elites
+	* Frenzying: Updated buff icon
+	* Leeching: Updated buff icon
 
 ### 0.2.0
 * General
