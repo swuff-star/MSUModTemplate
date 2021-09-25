@@ -22,15 +22,10 @@ namespace LostInTransit.Components
 
         public AffixBlighted.AffixBlightedBehavior buffBehavior;
 
-        private Xoroshiro128Plus RNG;
+        private Xoroshiro128Plus RNG => Run.instance.runRNG;
 
         public void Start()
         {
-            availableElites = CombatDirector.eliteTiers[1].eliteTypes;
-
-            //Only Server handles RNG.
-            if(NetworkServer.active)
-                RNG = new Xoroshiro128Plus(Run.instance.runRNG.nextUlong);
             RandomizeElites();
         }
 

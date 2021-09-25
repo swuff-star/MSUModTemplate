@@ -79,7 +79,6 @@ MonoBehaviour:
   - assetBundleName: LITAssets
     assets:
     - {fileID: 102900000, guid: 8a2bdba4aea598b449c6bb2e19029aab, type: 3}
-    - {fileID: 102900000, guid: 7408562af4fa94641a8e1ff6175c654c, type: 3}
 --- !u!114 &114987763159783732
 MonoBehaviour:
   m_ObjectHideFlags: 0

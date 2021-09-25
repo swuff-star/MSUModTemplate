@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2204343522
+CRC: 1774443076
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 293ef435647d15fcf4bebe3bbf6bd5b9
+    Hash: c2d7919b469fcce69f404aed2d89e8c8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 03999c7c95ced1a95a584e224661142e
+    Hash: f25475140f9cf57dffd650a43fe0341e
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -33,6 +33,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 95
   Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
 - Class: 114
   Script: {fileID: 2005159759, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -71,6 +73,8 @@ ClassTypes:
   Script: {fileID: 751239416, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
 - Class: 114
   Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1a89379c7c140cf4c8fcd89de65fe247, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 136
@@ -93,30 +97,22 @@ Assets:
 - Assets/Materials/matTelescopicSight.mat
 - Assets/Textures/texThalliumC.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupLifeSavings.prefab
-- Assets/LostInTransit/LITAssets/Shaders/fx/hgdistortion.shader
 - Assets/LostInTransit/LITAssets/EquipmentDefs/GiganticAmethyst.asset
 - Assets/Textures/Stolen/texCloudOrganic2.asset
 - Assets/Mesh/meshCross.mesh
-- Assets/LostInTransit/LITAssets/Shaders/environment/hgdistantwater.shader
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupMysteriousVial.prefab
 - Assets/Textures/Stolen/Ramps/texRampMagmaWorm.asset
-- Assets/LostInTransit/LITAssets/Shaders/fx/hgsolidparallax.shader
 - Assets/LostInTransit/LITAssets/BuffDefs/LeechingRegen.asset
 - Assets/Materials/matAffixFrenzied.mat
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectFrenziedAbility.prefab
 - Assets/Textures/texTelescopicSightNormal.png
 - Assets/LostInTransit/LITAssets/BuffDefs/AffixLeeching.asset
 - Assets/Textures/Stolen/texParticleDust1Mask.asset
-- Assets/LostInTransit/LITAssets/Shaders/ui/hguibarremap.shader
 - Assets/Materials/matAffixLeeching.mat
-- Assets/LostInTransit/LITAssets/Shaders/environment/hggrass.shader
 - Assets/Icons/RepulsionCharging.png
-- Assets/LostInTransit/LITAssets/Shaders/fx/hgcloudremap.shader
 - Assets/LostInTransit/LITAssets/ItemDefs/SmartShopper.asset
-- Assets/LostInTransit/LITAssets/Shaders/ui/hguiignorez.shader
 - Assets/Textures/Ramps/texRampTwotone.png
 - Assets/Icons/texIconPickupAffixFrenzied.png
-- Assets/LostInTransit/LITAssets/Shaders/fx/hgvertexonly.shader
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupThallium.prefab
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixBlighted.asset
 - Assets/Icons/texIconBuffThallium.png
@@ -146,11 +142,10 @@ Assets:
 - Assets/Icons/texIconBuffGoldenGun.png
 - Assets/Textures/texThalliumNormal.png
 - Assets/Textures/texGoldenGun_n.png
+- Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/fx/hgcloudremap.shader
 - Assets/Materials/matBeckoningCat.mat
-- Assets/LostInTransit/LITAssets/Shaders/postprocess/hgscreendamage.shader
 - Assets/Textures/Ramps/texRampLeechingAlt.png
 - Assets/Materials/matGoldenGun.mat
-- Assets/LostInTransit/LITAssets/Shaders/ui/hguicustomblend.shader
 - Assets/Textures/texGiganticAmethyst.png
 - Assets/LostInTransit/LITAssets/BuffDefs/RepulsionArmorCD.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/AffixBlighted.asset
@@ -163,6 +158,7 @@ Assets:
 - Assets/Icons/texIconPickupSmartShopper.png
 - Assets/Icons/texIconPickupBeckoningCat.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupGoldenGun.prefab
+- Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/deferred/hgstandard.shader
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayBeckoningCat.prefab
 - Assets/Materials/matThallium.mat
 - Assets/Mesh/meshBeckoningCat.mesh
@@ -172,12 +168,10 @@ Assets:
 - Assets/Materials/matMysteriousVialGlass.mat
 - Assets/Textures/Stolen/texOmniExplosion2Mask.asset
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/LITItemDisplays.asset
-- Assets/LostInTransit/LITAssets/Shaders/postprocess/hgoutlinehighlight.shader
 - Assets/Textures/texTelescopicSightDiffuse.png
 - Assets/Textures/Ramps/texRampEliteBlighted.png
 - Assets/Mesh/meshGiganticAmethyst.mesh
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectsForEffectManager/Effects.asset
-- Assets/LostInTransit/LITAssets/Shaders/fx/hgopaquecloudremap.shader
 - Assets/LostInTransit/LITAssets/ItemDefs/RepulsionArmor.asset
 - Assets/Materials/matTracerLeeching.mat
 - Assets/LostInTransit/LITAssets/BuffDefs/GoldenGun.asset
@@ -186,14 +180,14 @@ Assets:
 - Assets/LostInTransit/LITAssets/BuffDefs/ThalliumPoison.asset
 - Assets/LostInTransit/LITAssets/EliteAbilities/AbilityBlighted.asset
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixFrenzied.prefab
+- Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/fx/hgintersectioncloudremap.shader
 - Assets/Textures/texSmartShopperRoughness.png
-- Assets/LostInTransit/LITAssets/Shaders/fx/hgforwardplanet.shader
 - Assets/LostInTransit/LITAssets/ItemDefs/LifeSavings.asset
 - Assets/Mesh/meshGoldenGun.mesh
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixFrenzied.asset
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectLeechingAbility.prefab
+- Assets/LostInTransit/LITAssets/Prefabs/NetworkedObjects/BlightedDirector.prefab
 - Assets/LostInTransit/LITAssets/ItemDefs/BitterRoot.asset
-- Assets/LostInTransit/LITAssets/Shaders/environment/hgwaterfall.shader
 - Assets/Mesh/meshLeechingCrown.mesh
 - Assets/LostInTransit/LITAssets/ItemDefs/TelescopicSight.asset
 - Assets/Textures/Ramps/texRampEliteLeeching.png
@@ -201,23 +195,15 @@ Assets:
 - Assets/LostInTransit/LITAssets/EliteDefs/Frenzied.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/RepulsionArmorActive.asset
 - Assets/LostInTransit/LITAssets/EliteDefs/Blighted.asset
-- Assets/LostInTransit/LITAssets/Shaders/deferred/hgsnowtopped.shader
 - Assets/Icons/texIconPickupGoldenGun.png
 - Assets/Textures/texMysteriousVialEmission.png
-- Assets/LostInTransit/LITAssets/Shaders/postprocess/hgsobelbuffer.shader
 - Assets/LostInTransit/LITAssets/SIDRS/AffixLeeching.asset
-- Assets/LostInTransit/LITAssets/Shaders/ui/hguioverbrighten.shader
 - Assets/LostInTransit/LITAssets/EliteAbilities/AbilityFrenzying.asset
 - "Assets/Icons/texIconP\xEFckupLifeSavings.png"
 - Assets/Mesh/meshLifeSavings.mesh
-- Assets/LostInTransit/LITAssets/Shaders/fx/hgintersectioncloudremap.shader
-- Assets/LostInTransit/LITAssets/Shaders/ui/hguiblur.shader
 - Assets/Mesh/meshAffixFrenzied.mesh
-- Assets/LostInTransit/LITAssets/Shaders/deferred/hgwavycloth.shader
-- Assets/LostInTransit/LITAssets/Shaders/deferred/hgtriplanarterrainblend.shader
 - Assets/Icons/texIconBuffAffixLeeching.png
 - Assets/LostInTransit/LITAssets/EliteDefs/Leeching.asset
-- Assets/LostInTransit/LITAssets/Shaders/fx/hgdamagenumber.shader
 - Assets/Materials/matMysteriousVialCap.mat
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayFrenzied.prefab
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupGiganticAmethyst.prefab
@@ -236,9 +222,6 @@ Assets:
 - Assets/Mesh/Stolen/meshQuad.asset
 - Assets/Mesh/meshMysteriousVialSplat.mesh
 - Assets/LostInTransit/LITAssets/ItemDefs/GoldenGun.asset
-- Assets/LostInTransit/LITAssets/Shaders/deferred/hgstandard.shader
 - Assets/LostInTransit/LITAssets/ItemDefs/Thallium.asset
-- Assets/LostInTransit/LITAssets/Shaders/ui/hguianimatealpha.shader
-- Assets/LostInTransit/LITAssets/Shaders/postprocess/hgscopeshader.shader
 - Assets/Textures/Ramps/texRampEliteFrenzied.png
 Dependencies: []

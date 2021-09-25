@@ -10,6 +10,7 @@ using RoR2.ContentManagement;
 using System.Reflection;
 using System.Linq;
 using LostInTransit.Components;
+using UnityEngine.Networking;
 
 namespace LostInTransit.Modules
 {
@@ -18,8 +19,11 @@ namespace LostInTransit.Modules
         public static Elites Instance { get; set; }
         public static EliteDef[] LoadedLITElites { get => LITContent.serializableContentPack.eliteDefs; }
         public static MSEliteDef[] LoadedLITElitesAsMSElites { get => LITContent.serializableContentPack.eliteDefs as MSEliteDef[]; }
+        public static List<EliteDef> EliteDefsForBlightedElites = new List<EliteDef>();
         public override SerializableContentPack ContentPack { get; set; } = LITContent.serializableContentPack;
         public override AssetBundle AssetBundle { get; set; } = Assets.LITAssets;
+
+        private static bool spawnedDirector = false;
 
         public override void Init()
         {
@@ -44,10 +48,13 @@ namespace LostInTransit.Modules
             if(MoonstormElites.Contains(Assets.LITAssets.LoadAsset<MSEliteDef>("Blighted")))
             {
                 LITLogger.LogI($"Blighted elites are enabled, setting up systems...");
+                var blightedDirector = Assets.LITAssets.LoadAsset<GameObject>("BlightedDirector");
+                HG.ArrayUtils.ArrayAppend(ref ContentPack.networkedObjectPrefabs, blightedDirector);
                 RoR2Application.onLoad += BlightSetup;
             }
         }
 
+        #region blight
         private void BlightSetup()
         {
             MasterCatalog.masterPrefabs
@@ -58,8 +65,28 @@ namespace LostInTransit.Modules
                     var component = charMaster.gameObject.AddComponent<BlightedController>();
                     component.enabled = false;
                 });
+            List<EliteDef> availableElites = new List<EliteDef>() { RoR2Content.Elites.Fire, RoR2Content.Elites.Ice, RoR2Content.Elites.Lightning };
+
+            for(int i = 0; i < MoonstormElites.Count; i++)
+                if (MoonstormElites[i].eliteTier == EliteTiers.Basic)
+                    availableElites.Add(MoonstormElites[i]);
+
+            EliteDefsForBlightedElites.AddRange(availableElites);
+
+
+            Run.onRunStartGlobal += SpawnDirector;
             LITLogger.LogI($"Finished MasterPrefab modifications.");
         }
+
+        private void SpawnDirector(Run obj)
+        {
+            if (Run.instance && NetworkServer.active && !spawnedDirector)
+            {
+                NetworkServer.Spawn(UnityEngine.Object.Instantiate(Assets.LITAssets.LoadAsset<GameObject>("BlightedDirector")));
+                spawnedDirector = true;
+            }
+        }
+        #endregion
     }
     /*
     public static class Elites

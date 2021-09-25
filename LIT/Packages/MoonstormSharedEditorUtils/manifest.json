@@ -1,0 +1,8 @@
+{
+    "name": "MoonstormSharedEditorUtils",
+    "version_number": "0.0.1",
+    "website_url": "https://discord.gg/UpQpWqPAtZ",
+    "description": "Editor Classes used by team members of TeamMoonstorm for Risk of Rain 2 Modding",
+    "dependencies": [
+    ]
+}

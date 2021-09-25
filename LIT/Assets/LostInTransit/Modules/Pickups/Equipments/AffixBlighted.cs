@@ -5,7 +5,6 @@ using Moonstorm.Utilities;
 
 namespace LostInTransit.Equipments
 {
-    [DisabledContent]
     public class AffixBlighted : EliteEquipmentBase
     {
         public override MSEliteDef EliteDef { get; set; } = Assets.LITAssets.LoadAsset<MSEliteDef>("Blighted");

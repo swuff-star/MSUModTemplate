@@ -5,7 +5,6 @@ using LostInTransit.Components;
 
 namespace LostInTransit.Buffs
 {
-    [DisabledContent]
     public class AffixBlighted : BuffBase
     {
         public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("AffixBlighted");

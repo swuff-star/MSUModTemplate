@@ -535,15 +535,15 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
-    1: thunderkit
-    7: thunderkit
-    13: thunderkit
-    19: thunderkit
-    21: thunderkit
-    25: thunderkit
-    26: thunderkit
-    27: thunderkit
-    28: thunderkit
+    1: thunderkit;teammoonstorm-moonstormsharededitorutils
+    7: thunderkit;teammoonstorm-moonstormsharededitorutils
+    13: thunderkit;teammoonstorm-moonstormsharededitorutils
+    19: thunderkit;teammoonstorm-moonstormsharededitorutils
+    21: thunderkit;teammoonstorm-moonstormsharededitorutils
+    25: thunderkit;teammoonstorm-moonstormsharededitorutils
+    26: thunderkit;teammoonstorm-moonstormsharededitorutils
+    27: thunderkit;teammoonstorm-moonstormsharededitorutils
+    28: thunderkit;teammoonstorm-moonstormsharededitorutils
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
