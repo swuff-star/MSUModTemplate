@@ -7,6 +7,7 @@ using Moonstorm;
 using RoR2;
 using UnityEngine.Networking;
 using LostInTransit.Buffs;
+using LostInTransit.Modules;
 
 namespace LostInTransit.Components
 {
@@ -18,7 +19,7 @@ namespace LostInTransit.Components
         [SyncVar]
         public int SecondEliteIndex;
 
-        public EliteDef[] availableElites;
+        public EliteDef[] availableElites { get => Blight.EliteDefsForBlightedElites.ToArray(); }
 
         public AffixBlighted.AffixBlightedBehavior buffBehavior;
 

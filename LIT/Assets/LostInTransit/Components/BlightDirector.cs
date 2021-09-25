@@ -16,8 +16,6 @@ namespace LostInTransit.Components
     {
         public static BlightDirector Instance { get; private set; }
 
-        public EliteDef[] eliteDefsForBlighted = Elites.EliteDefsForBlightedElites.ToArray();
-
         private PlayerCharacterMasterController[] PlayerCharMasters { get => PlayerCharacterMasterController.instances.ToArray(); }
 
         public DifficultyDef RunDifficulty { get => DifficultyCatalog.GetDifficultyDef(Run.instance.selectedDifficulty); }
@@ -63,7 +61,6 @@ namespace LostInTransit.Components
             Run.onRunDestroyGlobal += Reset;
         }
 
-        [Server]
         private void Reset(Run obj)
         {
             monstersKilled = 0;
@@ -73,8 +70,7 @@ namespace LostInTransit.Components
         [Server]
         private void OnEnemyKilled(DamageReport obj)
         {
-            var victim = obj.victimBody;
-            if(victim.teamComponent.teamIndex == TeamIndex.Monster || victim.teamComponent.teamIndex == TeamIndex.Lunar)
+            if(obj.victimTeamIndex == TeamIndex.Monster || obj.victimTeamIndex == TeamIndex.Lunar)
             {
                 if(obj.attackerBody.isPlayerControlled)
                 {
@@ -96,7 +92,6 @@ namespace LostInTransit.Components
                         var inventory = body.inventory;
                         
                         inventory.SetEquipmentIndex(BlightedEquipIndex);
-                        body.master.GetComponent<BlightedController>().availableElites = eliteDefsForBlighted;
                         body.isElite = true;
 
                         inventory.RemoveItem(RoR2Content.Items.BoostHp, inventory.GetItemCount(RoR2Content.Items.BoostHp));
