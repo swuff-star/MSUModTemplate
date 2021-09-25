@@ -1,7 +1,11 @@
 ﻿using Moonstorm;
 using RoR2;
+using System.Collections.Generic;
+using R2API.Utils;
 using UnityEngine.Networking;
 using LostInTransit.Components;
+using UnityEngine;
+using Moonstorm;
 
 namespace LostInTransit.Buffs
 {
@@ -28,6 +32,9 @@ namespace LostInTransit.Buffs
             public BuffDef firstBuff;
 
             public BuffDef secondBuff;
+
+            private float stopwatch;
+            private static float checkTimer = 0.25f;
 
             public void Start()
             {
@@ -63,6 +70,19 @@ namespace LostInTransit.Buffs
                 }
             }
 
+            public void FixedUpdate()
+            {
+                stopwatch += Time.fixedDeltaTime;
+                if (stopwatch > checkTimer && body.GetBuffCount(RoR2Content.Buffs.Cloak.buffIndex) > 1)
+                {
+                    stopwatch -= checkTimer;
+                    body.AddBuff(RoR2Content.Buffs.Cloak.buffIndex);
+                }
+                if (body.skillLocator.primary.cooldownRemaining > 0 ^ body.skillLocator.secondary.cooldownRemaining > 0 ^ body.skillLocator.utility.cooldownRemaining > 0 ^ body.skillLocator.special.cooldownRemaining > 0 ^ Util.CheckRoll(1))
+                    { body.RemoveBuff(RoR2Content.Buffs.Cloak.buffIndex); }
+                //This is entirely untested but SHOULD work. We're all about untested code here, right?
+            }
+
             public void RecalculateStatsStart() { }
 
             public void RecalculateStatsEnd()
@@ -76,6 +96,8 @@ namespace LostInTransit.Buffs
                     body.skillLocator.utility.cooldownScale -= 0.5f;
                 if (body.skillLocator.special)
                     body.skillLocator.special.cooldownScale -= 0.5f;
+                //Is there a reason you subtract CDR instead of multiply? If two things gave 0.5 CDR like this, then it'd have 0 CDR... Right?
+                //Also, if these need nerfed, I say this is the first thing to go.
             }
 
             public void OnDestroy()

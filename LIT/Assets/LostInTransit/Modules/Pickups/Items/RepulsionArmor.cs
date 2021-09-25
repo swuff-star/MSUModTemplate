@@ -64,6 +64,8 @@ namespace LostInTransit.Items
                         { 
                             body.AddTimedBuff(RepulsionArmorActive.buff, repulCount);
                             //hitsNeededToActivate = hitsNeededConfig; //I'm honestly not the happiest about this, but it gets the job done. To-do: Look into making it so the armor only recharges after the buff ends?
+                            stopwatch -= 3f;
+                            //This SHOULD be a sneaky way to add a three second buffer to the cooldown.
                         }
                         if (body.HasBuff(RepulsionArmorActive.buff))
                         { hitsNeededToActivate = hitsNeededConfig; } //...This isn't exactly the result I'm looking for with the above, but who am I to complain about working code? Should probably make a new timer for it.

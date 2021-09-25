@@ -92,7 +92,7 @@ namespace LostInTransit.Components
                 if (body.teamComponent?.teamIndex != TeamIndex.Player)
                     if (body.master?.GetComponent<BlightedController>() && Util.CheckRoll(SpawnRate))
                     {
-                        LITLogger.LogE($"Turning  {body} into a blighted enemy.");
+                        LITLogger.LogE($"Turning {body} into a blighted enemy.");
                         var inventory = body.inventory;
                         
                         inventory.SetEquipmentIndex(BlightedEquipIndex);
