@@ -73,7 +73,7 @@ namespace LostInTransit.Buffs
             public void FixedUpdate()
             {
                 stopwatch += Time.fixedDeltaTime;
-                if (stopwatch > checkTimer && body.GetBuffCount(RoR2Content.Buffs.Cloak.buffIndex) > 1)
+                if (stopwatch > checkTimer && body.GetBuffCount(RoR2Content.Buffs.Cloak.buffIndex) <= 1)
                 {
                     stopwatch -= checkTimer;
                     body.AddBuff(RoR2Content.Buffs.Cloak.buffIndex);

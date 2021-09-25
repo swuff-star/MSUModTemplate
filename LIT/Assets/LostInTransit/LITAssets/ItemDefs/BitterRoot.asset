@@ -19,7 +19,7 @@ MonoBehaviour:
   loreToken: LIT_ITEM_BITTERROOT_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 0}
-  pickupIconSprite: {fileID: 0}
+  pickupIconSprite: {fileID: 21300000, guid: 9d84c361a41a5b840b48796624f1efb0, type: 3}
   hidden: 0
   canRemove: 1
   tags: 02000000
