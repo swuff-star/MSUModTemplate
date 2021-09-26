@@ -41,13 +41,6 @@ namespace LostInTransit.Buffs
                 MasterBehavior.enabled = true;
                 MasterBehavior.buffBehavior = this;
 
-                body.baseMaxHealth *= 7.0f;
-                body.baseDamage *= 3.2f;
-                body.baseMoveSpeed *= 1.1f;
-                body.PerformAutoCalculateLevelStats();
-
-                body.healthComponent.health = body.healthComponent.fullHealth;
-
                 body.onSkillActivatedServer += RemoveBuff;
             }
 
@@ -116,12 +109,10 @@ namespace LostInTransit.Buffs
                 MasterBehavior.enabled = false;
                 body.RemoveBuff(firstBuff);
                 body.RemoveBuff(secondBuff);
-                body.baseMaxHealth /= 7.0f;
-                body.baseDamage /= 3.2f;
-                body.baseMoveSpeed /= 1.1f;
-                body.PerformAutoCalculateLevelStats();
 
                 body.onSkillActivatedServer -= RemoveBuff;
+
+                body.RemoveBuff(RoR2Content.Buffs.Cloak);
             }
         }
     }

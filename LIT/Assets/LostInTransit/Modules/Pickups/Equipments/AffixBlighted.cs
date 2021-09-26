@@ -11,6 +11,12 @@ namespace LostInTransit.Equipments
         public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("AffixBlighted");
 
         public override MSAspectAbilityDataHolder AspectAbilityData { get; set; } = Assets.LITAssets.LoadAsset<MSAspectAbilityDataHolder>("AbilityBlighted");
+
+        public override void AddBehavior(ref CharacterBody body, int stack)
+        {
+            body.AddItemBehavior<BlightStatIncrease>(stack);
+        }
+
         public override bool FireAction(EquipmentSlot slot)
         {
             if(MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
@@ -23,6 +29,27 @@ namespace LostInTransit.Equipments
                 }
             }
             return false;
+        }
+
+        public class BlightStatIncrease : CharacterBody.ItemBehavior
+        {
+            public void Start()
+            {
+                body.baseMaxHealth *= 7.0f;
+                body.baseDamage *= 3.2f;
+                body.baseMoveSpeed *= 1.1f;
+                body.PerformAutoCalculateLevelStats();
+
+                body.healthComponent.health = body.healthComponent.fullHealth;
+            }
+
+            public void OnDestroy()
+            {
+                body.baseMaxHealth /= 7.0f;
+                body.baseDamage /= 3.2f;
+                body.baseMoveSpeed /= 1.1f;
+                body.PerformAutoCalculateLevelStats();
+            }
         }
     }
 }

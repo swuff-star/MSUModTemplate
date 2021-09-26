@@ -20,14 +20,14 @@ namespace LostInTransit.Components
 
         public DifficultyDef RunDifficulty { get => DifficultyCatalog.GetDifficultyDef(Run.instance.selectedDifficulty); }
 
-        public const float maxSpawnRate = 1.5f;
+        public const float maxSpawnRate = 1f;
 
-        public float MaxSpawnRateWithDiffCoef { get => maxSpawnRate * RunDifficulty.scalingValue; }
+        public float MaxSpawnRateWithDiffCoef { get => maxSpawnRate * RunDifficulty.scalingValue * GetTotalBeadCount(); }
 
         [SyncVar]
         public float SpawnRate = 0;
 
-        public const float spawnRatePerMonsterKilled = 0.0025f;
+        public const float spawnRatePerMonsterKilled = 0.001f;
 
         [SyncVar]
         private ulong monstersKilled;
@@ -51,13 +51,12 @@ namespace LostInTransit.Components
         
         void Start()
         {
-            LITLogger.LogI($"BlightDirector.Start()");
             Instance = this;
             DontDestroyOnLoad(gameObject);
             RecalculateSpawnChance();
 
             GlobalEventManager.onCharacterDeathGlobal += OnEnemyKilled;
-            CharacterBody.onBodyStartGlobal += MakeBlighted;
+            CharacterBody.onBodyStartGlobal += TrySpawn;
             Run.onRunDestroyGlobal += Reset;
         }
 
@@ -70,8 +69,6 @@ namespace LostInTransit.Components
         [Server]
         private void OnEnemyKilled(DamageReport obj)
         {
-            Debug.Log(obj);
-            Debug.Log(obj.victimTeamIndex);
             if (obj.victimTeamIndex == TeamIndex.Monster || obj.victimTeamIndex == TeamIndex.Lunar)
             {
                 if((bool)obj.attackerBody?.isPlayerControlled)
@@ -82,34 +79,40 @@ namespace LostInTransit.Components
             }
         }
 
-        private void MakeBlighted(CharacterBody body)
+        private void TrySpawn(CharacterBody body)
         {
-            LITLogger.LogI($"Attempting to turn {body} into a blighted elite.");
-            if (Stage.instance?.sceneDef?.sceneDefIndex != CommencementScene.sceneDefIndex)
-                if (body.teamComponent?.teamIndex != TeamIndex.Player)
-                    if (body.master?.GetComponent<BlightedController>() && Util.CheckRoll(SpawnRate))
-                    {
-                        LITLogger.LogE($"Turning {body} into a blighted enemy.");
-                        var inventory = body.inventory;
-                        
-                        inventory.SetEquipmentIndex(BlightedEquipIndex);
-                        body.isElite = true;
-
-                        inventory.RemoveItem(RoR2Content.Items.BoostHp, inventory.GetItemCount(RoR2Content.Items.BoostHp));
-                        inventory.RemoveItem(RoR2Content.Items.BoostDamage, inventory.GetItemCount(RoR2Content.Items.BoostDamage));
-
-                        SetDeathRewards(body);
-                    }
-                        
+            var flag1 = (Stage.instance?.sceneDef.sceneDefIndex != CommencementScene.sceneDefIndex);
+            var flag2 = (body.teamComponent?.teamIndex != TeamIndex.Player);
+            var flag3 = ((bool)body.master?.GetComponent<BlightedController>());
+            var flag4 = body.isChampion;
+            if(flag1 && flag2 && flag3 && !flag4)
+            {
+                if(body.isBoss)
+                    if(Util.CheckRoll(SpawnRate, -1))
+                        MakeBlighted(body);
+                else if(Util.CheckRoll(SpawnRate))
+                    MakeBlighted(body);
+            }       
         }
 
-        private void SetDeathRewards(CharacterBody body)
+        private void MakeBlighted(CharacterBody body)
         {
-            DeathRewards rewards = body.GetComponent<DeathRewards>();
-            if(rewards)
+            if (body.master?.GetComponent<BlightedController>() && Util.CheckRoll(SpawnRate))
             {
-                rewards.expReward *= 2;
-                rewards.goldReward *= 2;
+                var inventory = body.inventory;
+
+                inventory.SetEquipmentIndex(BlightedEquipIndex);
+                body.isElite = true;
+
+                inventory.RemoveItem(RoR2Content.Items.BoostHp, inventory.GetItemCount(RoR2Content.Items.BoostHp));
+                inventory.RemoveItem(RoR2Content.Items.BoostDamage, inventory.GetItemCount(RoR2Content.Items.BoostDamage));
+
+                DeathRewards rewards = body.GetComponent<DeathRewards>();
+                if (rewards)
+                {
+                    rewards.expReward *= 2;
+                    rewards.goldReward *= 2;
+                }
             }
         }
 
@@ -118,7 +121,6 @@ namespace LostInTransit.Components
         {
             if (!NetworkServer.active)
                 return;
-            LITLogger.LogI($"Old spawn rate: {SpawnRate}");
             if(IsArtifactEnabled)
             {
                 SpawnRate = 10f;
@@ -127,23 +129,27 @@ namespace LostInTransit.Components
 
             float baseSpawnChance = 0;
             if (RunDifficulty.scalingValue > 3)
-                baseSpawnChance = 0.5f * (RunDifficulty.scalingValue / 3);
+                baseSpawnChance = 0.1f * (RunDifficulty.scalingValue / 3);
 
-            float monstersKilledModifier = (monstersKilled * spawnRatePerMonsterKilled) * RunDifficulty.scalingValue;
+            float monstersKilledModifier = 0;
+            int divisor = 1;
+            if (RunArtifactManager.instance.IsArtifactEnabled(RoR2Content.Artifacts.Swarms))
+                divisor = 2;
+            monstersKilledModifier = (monstersKilled * spawnRatePerMonsterKilled * RunDifficulty.scalingValue) / divisor;
 
-            float beadsModifier;
-            int sharedBeadCount = 0;
-            for(int i = 0; i < PlayerCharMasters.Length; i++)
+            float finalSpawnChance = baseSpawnChance + monstersKilledModifier;
+            SpawnRate = Mathf.Min(finalSpawnChance, MaxSpawnRateWithDiffCoef);
+        }
+
+        private float GetTotalBeadCount()
+        {
+            float sharedBeadCount = 0;
+            for (int i = 0; i < PlayerCharMasters.Length; i++)
             {
                 var inventory = PlayerCharMasters[i].master?.inventory;
                 sharedBeadCount += inventory.GetItemCount(RoR2Content.Items.LunarTrinket);
             }
-            beadsModifier = sharedBeadCount * 0.5f;
-
-
-            float finalSpawnChance = baseSpawnChance + monstersKilledModifier + beadsModifier;
-            SpawnRate = Mathf.Min(finalSpawnChance, MaxSpawnRateWithDiffCoef);
-            LITLogger.LogI($"New spawn rate: {SpawnRate}");
+            return sharedBeadCount;
         }
     }
 }
