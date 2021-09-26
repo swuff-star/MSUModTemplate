@@ -114,16 +114,16 @@ namespace LostInTransit.Buffs
 
                 //Ability Innactive = 0.5f, 50% cdr
                 //Ability Active = 0.75f, 75% cdr
-                var cooldownModifier = 0.5f + (0.5f / cdrMult * (cdrMult - 1));
+                var cooldownModifier = 0.5f - (0.5f / cdrMult * (cdrMult - 1));
 
                 if (body.skillLocator.primary)
-                    body.skillLocator.primary.cooldownScale -= cooldownModifier;
+                    body.skillLocator.primary.cooldownScale *= cooldownModifier;
                 if (body.skillLocator.secondary)
-                    body.skillLocator.secondary.cooldownScale -= cooldownModifier;
+                    body.skillLocator.secondary.cooldownScale *= cooldownModifier;
                 if (body.skillLocator.utility)
-                    body.skillLocator.utility.cooldownScale -= cooldownModifier;
+                    body.skillLocator.utility.cooldownScale *= cooldownModifier;
                 if (body.skillLocator.special)
-                    body.skillLocator.special.cooldownScale -= cooldownModifier;
+                    body.skillLocator.special.cooldownScale *= cooldownModifier;
             }
 
             private void OnDestroy()

@@ -22,6 +22,7 @@ namespace LostInTransit.Modules
             HG.ArrayUtils.ArrayAppend(ref LITContent.serializableContentPack.networkedObjectPrefabs, blightedDirector);
             RoR2Application.onLoad += BlightSetup;
             IL.RoR2.Util.GetBestBodyName += GetBlightName;
+            
             //On.RoR2.Util.GetBestBodyName += Util_GetBestBodyName;
         }
 

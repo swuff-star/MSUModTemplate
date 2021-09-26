@@ -51,38 +51,43 @@ namespace LostInTransit.Items
             //★ at least my code dropped items more than 0.9% of the time :smirk:
             //Yeah thats fair.
             //★ ily
+            //Funnily enough this didn't work like in ror1 where it used every elite modifier, now it does, chad.
             public void OnKilledOtherServer(DamageReport damageReport)
             {
                 RefreshNextItems();
                 var victimBody = damageReport.victimBody;
                 var dropLocation = damageReport.attackerBody.transform.position;
-                if(victimBody.isElite && Roll(baseChance + (stackChance * (stack - 1)), 0))
+                for(int i = 0; i < victimBody.eliteBuffCount; i++)
                 {
-                    //Debug.Log("Rolling for item...");
-                    var redItem = usesLuck ? Roll(redItemChance + (redItemStack * (stack - 1)), body.master.luck) : Roll(redItemChance + (redItemStack * (stack - 1)), 0);
-                    //Debug.Log($"red Item? {redItem}");
-                    if(redItem)
+                    if (victimBody.isElite && Roll(baseChance + (stackChance * (stack - 1)), 0))
                     {
+                        //Debug.Log("Rolling for item...");
+                        var redItem = usesLuck ? Roll(redItemChance + (redItemStack * (stack - 1)), body.master.luck) : Roll(redItemChance + (redItemStack * (stack - 1)), 0);
+                        //Debug.Log($"red Item? {redItem}");
+                        if (redItem)
+                        {
 
-                        SpawnItem(redItems, nextRedItem);
-                        return;
+                            SpawnItem(redItems, nextRedItem);
+                            return;
+                        }
+                        var greenItem = usesLuck ? Roll(greenItemChance + (greenItemStack * (stack - 1)), body.master.luck) : Roll(greenItemChance + (greenItemStack * (stack - 1)), 0);
+                        //Debug.Log($"green Item? {greenItem}");
+                        if (greenItem)
+                        {
+                            SpawnItem(greenItems, nextGreenItem);
+                            return;
+                        }
+                        else
+                        {
+                            SpawnItem(whiteItems, nextWhiteItem);
+                            return;
+                        }
                     }
-                    var greenItem = usesLuck ? Roll(greenItemChance + (greenItemStack * (stack - 1)), body.master.luck) : Roll(greenItemChance + (greenItemStack * (stack - 1)), 0);
-                    //Debug.Log($"green Item? {greenItem}");
-                    if (greenItem)
-                    {
-                        SpawnItem(greenItems, nextGreenItem);
-                        return;
-                    }
-                    else
-                    {
-                        SpawnItem(whiteItems, nextWhiteItem);
-                        return;
-                    }
-                    void SpawnItem(List<PickupIndex> items, int nextItem)
-                    {
-                        PickupDropletController.CreatePickupDroplet(items[nextItem], victimBody.transform.position, constant);
-                    }
+
+                }
+                void SpawnItem(List<PickupIndex> items, int nextItem)
+                {
+                    PickupDropletController.CreatePickupDroplet(items[nextItem], victimBody.transform.position, constant);
                 }
             }
             private void RefreshNextItems()

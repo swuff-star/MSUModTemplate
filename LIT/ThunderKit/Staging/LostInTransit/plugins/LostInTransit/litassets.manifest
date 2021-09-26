@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 717214491
+CRC: 3053597399
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5695610570d06a482c1253e37a362de5
+    Hash: a2bfbe67616eb6a8df2504e7c96f4fe1
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 67b5b17e363765dc6e9cbfa7cd7e23e1
+    Hash: aaa6eb61b51b82d71b59e806638c00f0
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -46,8 +46,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 511512695, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
-  Script: {fileID: -585069481, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
   Script: {fileID: 1512808244, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 733712478, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -70,13 +68,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1937965295, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
 - Class: 114
+  Script: {fileID: 819600919, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
+- Class: 114
   Script: {fileID: 751239416, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
 - Class: 114
   Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1a89379c7c140cf4c8fcd89de65fe247, type: 3}
-- Class: 114
-  Script: {fileID: 819600919, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 136
@@ -172,6 +170,7 @@ Assets:
 - Assets/Textures/Stolen/texOmniExplosion2Mask.asset
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/LITItemDisplays.asset
 - Assets/Textures/texTelescopicSightDiffuse.png
+- Assets/Textures/Ramps/texRampEliteBlighted.png
 - Assets/Mesh/meshGiganticAmethyst.mesh
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectsForEffectManager/Effects.asset
 - Assets/LostInTransit/LITAssets/ItemDefs/RepulsionChestplate.asset

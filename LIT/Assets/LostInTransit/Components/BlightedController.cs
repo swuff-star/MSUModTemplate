@@ -25,7 +25,7 @@ namespace LostInTransit.Components
 
         private Xoroshiro128Plus RNG => Run.instance.runRNG;
 
-        public void Start()
+        public void OnEnable()
         {
             RandomizeElites();
         }

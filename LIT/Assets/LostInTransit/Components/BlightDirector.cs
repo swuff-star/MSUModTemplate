@@ -36,7 +36,7 @@ namespace LostInTransit.Components
         {
             get
             {
-                var blightArtifact = Assets.LITAssets.LoadAsset<ArtifactDef>("Blighted");
+                var blightArtifact = Assets.LITAssets.LoadAsset<ArtifactDef>("Prestige");
                 if(blightArtifact)
                 {
                     return RunArtifactManager.instance.IsArtifactEnabled(blightArtifact);
@@ -70,9 +70,11 @@ namespace LostInTransit.Components
         [Server]
         private void OnEnemyKilled(DamageReport obj)
         {
-            if(obj.victimTeamIndex == TeamIndex.Monster || obj.victimTeamIndex == TeamIndex.Lunar)
+            Debug.Log(obj);
+            Debug.Log(obj.victimTeamIndex);
+            if (obj.victimTeamIndex == TeamIndex.Monster || obj.victimTeamIndex == TeamIndex.Lunar)
             {
-                if(obj.attackerBody.isPlayerControlled)
+                if((bool)obj.attackerBody?.isPlayerControlled)
                 {
                     monstersKilled++;
                     RecalculateSpawnChance();
@@ -80,7 +82,6 @@ namespace LostInTransit.Components
             }
         }
 
-        [Server]
         private void MakeBlighted(CharacterBody body)
         {
             LITLogger.LogI($"Attempting to turn {body} into a blighted elite.");
@@ -96,13 +97,27 @@ namespace LostInTransit.Components
 
                         inventory.RemoveItem(RoR2Content.Items.BoostHp, inventory.GetItemCount(RoR2Content.Items.BoostHp));
                         inventory.RemoveItem(RoR2Content.Items.BoostDamage, inventory.GetItemCount(RoR2Content.Items.BoostDamage));
+
+                        SetDeathRewards(body);
                     }
                         
+        }
+
+        private void SetDeathRewards(CharacterBody body)
+        {
+            DeathRewards rewards = body.GetComponent<DeathRewards>();
+            if(rewards)
+            {
+                rewards.expReward *= 2;
+                rewards.goldReward *= 2;
+            }
         }
 
         [Server]
         private void RecalculateSpawnChance()
         {
+            if (!NetworkServer.active)
+                return;
             LITLogger.LogI($"Old spawn rate: {SpawnRate}");
             if(IsArtifactEnabled)
             {

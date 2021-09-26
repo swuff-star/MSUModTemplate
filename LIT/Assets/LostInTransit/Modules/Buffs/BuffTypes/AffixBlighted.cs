@@ -27,14 +27,14 @@ namespace LostInTransit.Buffs
         public class AffixBlightedBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {
 
-            public BlightedController MasterBehavior { get => body.masterObject.GetComponent<BlightedController>(); }
+            public BlightedController MasterBehavior { get => body.masterObject?.GetComponent<BlightedController>(); }
 
             public BuffDef firstBuff;
 
             public BuffDef secondBuff;
 
             private float stopwatch;
-            private static float checkTimer = 0.25f;
+            private static float checkTimer = 0.5f;
 
             public void Start()
             {
@@ -47,6 +47,14 @@ namespace LostInTransit.Buffs
                 body.PerformAutoCalculateLevelStats();
 
                 body.healthComponent.health = body.healthComponent.fullHealth;
+
+                body.onSkillActivatedServer += RemoveBuff;
+            }
+
+            private void RemoveBuff(GenericSkill obj)
+            {
+                if (body.hasCloakBuff)
+                    body.RemoveBuff(RoR2Content.Buffs.Cloak);
             }
 
             public void SetElites(int index1, int index2)
@@ -73,13 +81,15 @@ namespace LostInTransit.Buffs
             public void FixedUpdate()
             {
                 stopwatch += Time.fixedDeltaTime;
-                if (stopwatch > checkTimer && body.GetBuffCount(RoR2Content.Buffs.Cloak.buffIndex) <= 1)
+                if (stopwatch > checkTimer && !body.HasBuff(RoR2Content.Buffs.Cloak))
                 {
-                    stopwatch -= checkTimer;
-                    body.AddBuff(RoR2Content.Buffs.Cloak.buffIndex);
+                    stopwatch = 0;
+                    body.AddBuff(RoR2Content.Buffs.Cloak);
                 }
-                if (body.skillLocator.primary.cooldownRemaining > 0 ^ body.skillLocator.secondary.cooldownRemaining > 0 ^ body.skillLocator.utility.cooldownRemaining > 0 ^ body.skillLocator.special.cooldownRemaining > 0 ^ Util.CheckRoll(1))
-                    { body.RemoveBuff(RoR2Content.Buffs.Cloak.buffIndex); }
+                else if (Util.CheckRoll(1))
+                    body.RemoveBuff(RoR2Content.Buffs.Cloak);
+                /*if (body.skillLocator.primary.cooldownRemaining > 0 ^ body.skillLocator.secondary.cooldownRemaining > 0 ^ body.skillLocator.utility.cooldownRemaining > 0 ^ body.skillLocator.special.cooldownRemaining > 0 ^ Util.CheckRoll(1))
+                    { body.RemoveBuff(RoR2Content.Buffs.Cloak.buffIndex); }*/
                 //This is entirely untested but SHOULD work. We're all about untested code here, right?
             }
 
@@ -89,15 +99,16 @@ namespace LostInTransit.Buffs
             {
                 //Reduces cooldowns by 50%
                 if (body.skillLocator.primary)
-                    body.skillLocator.primary.cooldownScale -= 0.5f;
+                    body.skillLocator.primary.cooldownScale *= 0.5f;
                 if (body.skillLocator.secondary)
-                    body.skillLocator.secondary.cooldownScale -= 0.5f;
+                    body.skillLocator.secondary.cooldownScale *= 0.5f;
                 if (body.skillLocator.utility)
-                    body.skillLocator.utility.cooldownScale -= 0.5f;
+                    body.skillLocator.utility.cooldownScale *= 0.5f;
                 if (body.skillLocator.special)
-                    body.skillLocator.special.cooldownScale -= 0.5f;
+                    body.skillLocator.special.cooldownScale *= 0.5f;
                 //Is there a reason you subtract CDR instead of multiply? If two things gave 0.5 CDR like this, then it'd have 0 CDR... Right?
                 //Also, if these need nerfed, I say this is the first thing to go.
+                //Neb: i supose i can change it to multiply by 0.5 if they need nerfed. we'll see in the future.
             }
 
             public void OnDestroy()
@@ -109,6 +120,8 @@ namespace LostInTransit.Buffs
                 body.baseDamage /= 3.2f;
                 body.baseMoveSpeed /= 1.1f;
                 body.PerformAutoCalculateLevelStats();
+
+                body.onSkillActivatedServer -= RemoveBuff;
             }
         }
     }
