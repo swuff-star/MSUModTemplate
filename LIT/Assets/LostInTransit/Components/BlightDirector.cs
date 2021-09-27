@@ -81,11 +81,11 @@ namespace LostInTransit.Components
 
         private void TrySpawn(CharacterBody body)
         {
-            var flag1 = (Stage.instance?.sceneDef.sceneDefIndex != CommencementScene.sceneDefIndex);
+            var flag1 = (Stage.instance?.sceneDef?.sceneDefIndex != CommencementScene.sceneDefIndex);
             var flag2 = (body.teamComponent?.teamIndex != TeamIndex.Player);
             var flag3 = ((bool)body.master?.GetComponent<BlightedController>());
-            var flag4 = body.isChampion;
-            if(flag1 && flag2 && flag3 && !flag4)
+            var flag4 = !body.isChampion;
+            if(flag1 && flag2 && flag3 && flag4)
             {
                 if(body.isBoss)
                     if(Util.CheckRoll(SpawnRate, -1))

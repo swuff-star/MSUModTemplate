@@ -71,7 +71,7 @@ namespace LostInTransit.Buffs
                 }
             }
 
-            public void FixedUpdate()
+            /*public void FixedUpdate()
             {
                 stopwatch += Time.fixedDeltaTime;
                 if (stopwatch > checkTimer && !body.HasBuff(RoR2Content.Buffs.Cloak))
@@ -82,9 +82,9 @@ namespace LostInTransit.Buffs
                 else if (Util.CheckRoll(1))
                     body.RemoveBuff(RoR2Content.Buffs.Cloak);
                 /*if (body.skillLocator.primary.cooldownRemaining > 0 ^ body.skillLocator.secondary.cooldownRemaining > 0 ^ body.skillLocator.utility.cooldownRemaining > 0 ^ body.skillLocator.special.cooldownRemaining > 0 ^ Util.CheckRoll(1))
-                    { body.RemoveBuff(RoR2Content.Buffs.Cloak.buffIndex); }*/
+                    { body.RemoveBuff(RoR2Content.Buffs.Cloak.buffIndex); }
                 //This is entirely untested but SHOULD work. We're all about untested code here, right?
-            }
+            }*/
 
             public void RecalculateStatsStart() { }
 
