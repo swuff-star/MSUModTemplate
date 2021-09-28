@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
+using static MonoMod.Cil.RuntimeILReferenceBag.FastDelegateInvokers;
 
 namespace LostInTransit.Modules
 {
@@ -21,50 +22,39 @@ namespace LostInTransit.Modules
             var blightedDirector = Assets.LITAssets.LoadAsset<GameObject>("BlightedDirector");
             HG.ArrayUtils.ArrayAppend(ref LITContent.serializableContentPack.networkedObjectPrefabs, blightedDirector);
             RoR2Application.onLoad += BlightSetup;
-            IL.RoR2.Util.GetBestBodyName += GetBlightName;
-            
-            //On.RoR2.Util.GetBestBodyName += Util_GetBestBodyName;
+            On.RoR2.Util.GetBestBodyName += GetBlightedName;
         }
 
-        /*private static string Util_GetBestBodyName(On.RoR2.Util.orig_GetBestBodyName orig, GameObject bodyObject)
+        private static string GetBlightedName(On.RoR2.Util.orig_GetBestBodyName orig, GameObject bodyObject)
         {
-            var returnval = orig(bodyObject);
-            var charBody = bodyObject.GetComponent<CharacterBody>();
-            var buffDef = Assets.LITAssets.LoadAsset<BuffDef>("AffixBlighted");
-            if (charBody.HasBuff(buffDef))
+            var text2 = orig(bodyObject);
+            CharacterBody charBody = null;
+            BuffDef blightBuff = Assets.LITAssets.LoadAsset<BuffDef>("AffixBlighted");
+            if ((bool)bodyObject)
             {
-                Debug.Log(returnval);
-                foreach (BuffIndex buffIndex in BuffCatalog.eliteBuffIndices)
+                charBody = bodyObject.GetComponent<CharacterBody>();
+            }
+            if(charBody)
+            {
+                if(charBody.HasBuff(blightBuff))
                 {
-                    if (charBody.HasBuff(buffIndex))
+                    var AllEliteBuffsExceptBlight = BuffCatalog.eliteBuffIndices.Where(x => x != blightBuff.buffIndex);
+                    foreach (BuffIndex buffIndex in AllEliteBuffsExceptBlight)
                     {
-                        var modifierToken = Language.GetString(BuffCatalog.GetBuffDef(buffIndex).eliteDef.modifierToken);
-                        modifierToken.Replace("{0}", string.Empty);
-                        returnval.Replace(modifierToken, string.Empty);
-                        Debug.Log(returnval);
+                        if (charBody.HasBuff(buffIndex))
+                        {
+                            var eliteToken = Language.GetString(BuffCatalog.GetBuffDef(buffIndex).eliteDef.modifierToken);
+                            eliteToken = eliteToken.Replace("{0}", string.Empty);
+                            text2 = text2.Replace(eliteToken, string.Empty);
+                        }
                     }
                 }
-                returnval = Language.GetStringFormatted(buffDef.eliteDef.modifierToken, new object[]
-                {
-                    returnval
-                });
-                Debug.Log(returnval);
-                return returnval;
+                return text2;
             }
             else
             {
-                return returnval;
+                return text2;
             }
-
-        }*/
-
-        private static void GetBlightName(ILContext il)
-        {
-            ILCursor c = new ILCursor(il);
-            c.GotoNext(MoveType.After,
-                x => x.MatchLdloc(0),
-                x => x.MatchCallvirt<CharacterBody>("get_isElite"));
-            Debug.Log(c.ToString());
         }
 
         private static void BlightSetup()
@@ -92,10 +82,9 @@ namespace LostInTransit.Modules
 
         private static void SpawnDirector(Run obj)
         {
-            if (Run.instance && NetworkServer.active && !spawnedDirector)
+            if (Run.instance && NetworkServer.active)
             {
                 NetworkServer.Spawn(UnityEngine.Object.Instantiate(Assets.LITAssets.LoadAsset<GameObject>("BlightedDirector")));
-                spawnedDirector = true;
             }
         }
     }

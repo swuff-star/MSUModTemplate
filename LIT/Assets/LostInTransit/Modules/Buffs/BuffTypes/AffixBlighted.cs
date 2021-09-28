@@ -106,13 +106,17 @@ namespace LostInTransit.Buffs
 
             public void OnDestroy()
             {
-                MasterBehavior.enabled = false;
-                body.RemoveBuff(firstBuff);
-                body.RemoveBuff(secondBuff);
+                if(MasterBehavior)
+                    MasterBehavior.enabled = false;
+                if(body)
+                {
+                    body?.RemoveBuff(firstBuff);
+                    body?.RemoveBuff(secondBuff);
 
-                body.onSkillActivatedServer -= RemoveBuff;
+                    body.onSkillActivatedServer -= RemoveBuff;
 
-                body.RemoveBuff(RoR2Content.Buffs.Cloak);
+                    body?.RemoveBuff(RoR2Content.Buffs.Cloak);
+                }
             }
         }
     }

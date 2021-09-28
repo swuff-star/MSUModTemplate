@@ -200,3 +200,8 @@ MonoBehaviour:
     - ruleType: 0
       IDPHValues: PlatformBase,0.42002,0.77606,1.02532,17.28683,116.1244,350.0928,0.41442,0.41442,0.41442
       limbMask: 0
+  - VanillaIDRSKey: idrsBell
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: BellEnd,-0.00001,0.00011,-1.60525,0.02009,269.6364,3.16092,1,1,1
+      limbMask: 0

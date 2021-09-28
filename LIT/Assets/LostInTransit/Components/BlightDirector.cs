@@ -22,7 +22,7 @@ namespace LostInTransit.Components
 
         public const float maxSpawnRate = 1f;
 
-        public float MaxSpawnRateWithDiffCoef { get => maxSpawnRate * RunDifficulty.scalingValue * GetTotalBeadCount(); }
+        public float MaxSpawnRateWithDiffCoef { get => (maxSpawnRate * RunDifficulty.scalingValue) + GetTotalBeadCount(); }
 
         [SyncVar]
         public float SpawnRate = 0;
@@ -52,29 +52,30 @@ namespace LostInTransit.Components
         void Start()
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
             RecalculateSpawnChance();
 
             GlobalEventManager.onCharacterDeathGlobal += OnEnemyKilled;
             CharacterBody.onBodyStartGlobal += TrySpawn;
-            Run.onRunDestroyGlobal += Reset;
-        }
-
-        private void Reset(Run obj)
-        {
-            monstersKilled = 0;
-            SpawnRate = 0;
         }
 
         [Server]
         private void OnEnemyKilled(DamageReport obj)
         {
-            if (obj.victimTeamIndex == TeamIndex.Monster || obj.victimTeamIndex == TeamIndex.Lunar)
+            var victimBody = obj.victimBody;
+            var attackerBody = obj.attackerBody;
+            if(victimBody && attackerBody)
             {
-                if((bool)obj.attackerBody?.isPlayerControlled)
+                var victimTeamComponent = victimBody.teamComponent;
+                if(victimTeamComponent)
                 {
-                    monstersKilled++;
-                    RecalculateSpawnChance();
+                    if(victimTeamComponent.teamIndex == TeamIndex.Monster || victimTeamComponent.teamIndex == TeamIndex.Lunar)
+                    {
+                        if (attackerBody.isPlayerControlled && SpawnRate < MaxSpawnRateWithDiffCoef)
+                        {
+                            monstersKilled += 1 * ((ulong)Run.instance?.loopClearCount + 1);
+                            RecalculateSpawnChance();
+                        }
+                    }
                 }
             }
         }
@@ -87,18 +88,18 @@ namespace LostInTransit.Components
             var flag4 = !body.isChampion;
             if(flag1 && flag2 && flag3 && flag4)
             {
-                if(body.isBoss)
-                    if(Util.CheckRoll(SpawnRate, -1))
-                        MakeBlighted(body);
-                else if(Util.CheckRoll(SpawnRate))
+                if(Util.CheckRoll(SpawnRate))
+                {
                     MakeBlighted(body);
+                }
             }       
         }
 
         private void MakeBlighted(CharacterBody body)
         {
-            if (body.master?.GetComponent<BlightedController>() && Util.CheckRoll(SpawnRate))
+            if (body.master?.GetComponent<BlightedController>())
             {
+                monstersKilled -= 10;
                 var inventory = body.inventory;
 
                 inventory.SetEquipmentIndex(BlightedEquipIndex);
@@ -110,8 +111,8 @@ namespace LostInTransit.Components
                 DeathRewards rewards = body.GetComponent<DeathRewards>();
                 if (rewards)
                 {
-                    rewards.expReward *= 2;
-                    rewards.goldReward *= 2;
+                    rewards.expReward *= 3;
+                    rewards.goldReward *= 3;
                 }
             }
         }
@@ -119,8 +120,6 @@ namespace LostInTransit.Components
         [Server]
         private void RecalculateSpawnChance()
         {
-            if (!NetworkServer.active)
-                return;
             if(IsArtifactEnabled)
             {
                 SpawnRate = 10f;
@@ -129,7 +128,7 @@ namespace LostInTransit.Components
 
             float baseSpawnChance = 0;
             if (RunDifficulty.scalingValue > 3)
-                baseSpawnChance = 0.1f * (RunDifficulty.scalingValue / 3);
+                baseSpawnChance = 0.1f * (RunDifficulty.scalingValue - 2);
 
             float monstersKilledModifier = 0;
             int divisor = 1;

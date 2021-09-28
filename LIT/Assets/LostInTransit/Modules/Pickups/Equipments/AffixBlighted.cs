@@ -35,7 +35,7 @@ namespace LostInTransit.Equipments
             public void Start()
             {
                 body.baseMaxHealth *= 7.0f;
-                body.baseDamage *= 3.2f;
+                body.baseDamage *= 3;
                 body.baseMoveSpeed *= 1.1f;
                 body.PerformAutoCalculateLevelStats();
 
@@ -45,7 +45,7 @@ namespace LostInTransit.Equipments
             public void OnDestroy()
             {
                 body.baseMaxHealth /= 7.0f;
-                body.baseDamage /= 3.2f;
+                body.baseDamage /= 3f;
                 body.baseMoveSpeed /= 1.1f;
                 body.PerformAutoCalculateLevelStats();
             }

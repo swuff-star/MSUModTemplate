@@ -11,15 +11,15 @@ namespace LostInTransit.Items
         public static float ExtraCrit;
         public static float NewBaseChance;
         public static float NewStackChance;
-        public static float DamageMultiplier;
+        public static float BossHealthPercentage;
 
         public override void Initialize()
         {
             section = "Item: " + ItemDef.name;
             ExtraCrit = LITMain.config.Bind<float>(section, "Extra Crit Chance", 10f, "Amount of flat critical chance the item gives.").Value;
-            NewBaseChance = LITMain.config.Bind<float>(section, "Base Proc Chance", 5f, "Base Proc chance for Telescopic Sight.").Value;
-            NewStackChance = LITMain.config.Bind<float>(section, "Stack Proc Chance", 5f, "Added Proc Chance per Stack.").Value;
-            DamageMultiplier = LITMain.config.Bind<float>(section, "Boss Damage Multiplier", 3f, "Extra damage dealt to bosses instead of insta-killing them.").Value; /*LITMain.config.Bind<float>(section, "Damage Multiplier", 4f, "Amount of extra damage added to procs, x 100.").Value;*/
+            NewBaseChance = LITMain.config.Bind<float>(section, "Base Proc Chance", 1f, "Base Proc chance for Telescopic Sight.").Value;
+            NewStackChance = LITMain.config.Bind<float>(section, "Stack Proc Chance", 1f, "Added Proc Chance per Stack.").Value;
+            BossHealthPercentage = LITMain.config.Bind<float>(section, "Boss Health Percentage", 10f, "Amount of damage dealt to bosses, equal to their remaining health divided by (current value)").Value;
         }
 
         public override void AddBehavior(ref CharacterBody body, int stack)
@@ -27,7 +27,6 @@ namespace LostInTransit.Items
             body.AddItemBehavior<TelescopicSightBehavior>(stack);
         }
 
-        //Todo: make this not shit, i would really like to implement it like isaac's euthanasia
         public class TelescopicSightBehavior : CharacterBody.ItemBehavior, IStatItemBehavior, IOnDamageDealtServerReceiver
         {
 
@@ -49,7 +48,7 @@ namespace LostInTransit.Items
                         {
                             DamageInfo newDamageInfo = report.damageInfo;
                             R2API.DamageAPI.AddModdedDamageType(newDamageInfo, DamageTypes.Hypercrit.hypercritDamageType);
-                            newDamageInfo.damage = report.damageInfo.damage * DamageMultiplier;
+                            newDamageInfo.damage = report.victimBody.healthComponent.health / BossHealthPercentage;
                             report.victimBody.healthComponent.TakeDamage(newDamageInfo);
                         }
                         else

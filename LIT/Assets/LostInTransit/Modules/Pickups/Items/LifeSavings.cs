@@ -41,11 +41,12 @@ namespace LostInTransit.Items
                             _masterBehavior = component;
                             return _masterBehavior;
                         }
-                        else
+                        else if (body.master?.playerCharacterMasterController != null)
                         {
                             _masterBehavior = body.master?.gameObject.AddComponent<LifeSavingsMasterBehavior>();
                             return _masterBehavior;
                         }
+                        return _masterBehavior;
                     }
                     else
                         return _masterBehavior;
@@ -58,13 +59,13 @@ namespace LostInTransit.Items
             {
                 //Only add master behaviors to players.
                 if(body.isPlayerControlled)
-                    MasterBehavior.UpdateStacks();
+                    MasterBehavior?.UpdateStacks();
             }
 
             private void OnDestroy()
             {
                 if(body.isPlayerControlled)
-                    MasterBehavior.CheckIfShouldDestroy();
+                    MasterBehavior?.CheckIfShouldDestroy();
             }
         }
 
@@ -81,6 +82,7 @@ namespace LostInTransit.Items
                 CharMaster.inventory.onInventoryChanged += UpdateStacks;
                 SceneExitController.onBeginExit += ExtractMoney;
                 Stage.onStageStartGlobal += GiveMoney;
+                UpdateStacks();
             }
 
             internal void UpdateStacks()
@@ -90,8 +92,11 @@ namespace LostInTransit.Items
 
             private void ExtractMoney(SceneExitController obj)
             {
-                moneyPending = true;
-                storedGold = CalculatePercentage();
+                if((bool)!Run.instance?.isRunStopwatchPaused)
+                {
+                    moneyPending = true;
+                    storedGold = CalculatePercentage();
+                }
             }
 
             private uint CalculatePercentage()
@@ -118,6 +123,7 @@ namespace LostInTransit.Items
             {
                 SceneExitController.onBeginExit -= ExtractMoney;
                 Stage.onStageStartGlobal -= GiveMoney;
+                CharMaster.inventory.onInventoryChanged -= UpdateStacks;
             }
         }
     }
