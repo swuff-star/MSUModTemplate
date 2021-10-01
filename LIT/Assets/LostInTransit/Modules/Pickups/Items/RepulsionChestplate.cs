@@ -65,7 +65,7 @@ namespace LostInTransit.Items
                         { 
                             body.AddTimedBuff(RepulsionArmorActive.buff, repulCount);
                             //hitsNeededToActivate = hitsNeededConfig; //I'm honestly not the happiest about this, but it gets the job done.
-                            stopwatch -= 2.75f;
+                            stopwatch -= repulCount + 0.05f;
                             //This SHOULD be a sneaky way to add a buffer to the cooldown. Could do this better by actually checking # of buffs. To-do: That, later.
                         }
                         if (body.HasBuff(RepulsionArmorActive.buff))

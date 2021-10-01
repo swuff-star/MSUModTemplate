@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3465970131
+CRC: 2386819316
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6260dc2329a5ed561cc9b6bca0fec790
+    Hash: 11280771c6d05cce12e9fb19d69f6fe3
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 9e7bd0b0717d77136b94b35ec7e0b85b
+    Hash: 6bc92a058128139252ba73c16fb477b6
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -70,13 +70,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1937965295, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
 - Class: 114
-  Script: {fileID: 819600919, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
-- Class: 114
   Script: {fileID: 751239416, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
 - Class: 114
   Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1a89379c7c140cf4c8fcd89de65fe247, type: 3}
+- Class: 114
+  Script: {fileID: 819600919, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 136
@@ -112,13 +112,11 @@ Assets:
 - Assets/LostInTransit/LITAssets/BuffDefs/AffixLeeching.asset
 - Assets/Textures/Stolen/texParticleDust1Mask.asset
 - Assets/Materials/matAffixLeeching.mat
-- Assets/Icons/RepulsionCharging.png
 - Assets/LostInTransit/LITAssets/ItemDefs/SmartShopper.asset
 - Assets/Textures/Ramps/texRampTwotone.png
 - Assets/Icons/texIconPickupAffixFrenzied.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupThallium.prefab
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixBlighted.asset
-- Assets/Icons/texIconBuffThallium.png
 - Assets/Materials/matGiganticAmethyst.mat
 - Assets/Textures/Stolen/texCloudDifferenceBW2.asset
 - Assets/Materials/matGoldenGunGrip.mat
@@ -145,7 +143,6 @@ Assets:
 - Assets/Icons/texIconBuffGoldenGun.png
 - Assets/Textures/texThalliumNormal.png
 - Assets/Textures/texGoldenGun_n.png
-- Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/fx/hgcloudremap.shader
 - Assets/Materials/matBeckoningCat.mat
 - Assets/Textures/Ramps/texRampLeechingAlt.png
 - Assets/Materials/matGoldenGun.mat
@@ -162,7 +159,6 @@ Assets:
 - Assets/Icons/texIconPickupSmartShopper.png
 - Assets/Icons/texIconPickupBeckoningCat.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupGoldenGun.prefab
-- Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/deferred/hgstandard.shader
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayBeckoningCat.prefab
 - Assets/Materials/matThallium.mat
 - Assets/Mesh/meshBeckoningCat.mesh
@@ -184,10 +180,8 @@ Assets:
 - Assets/LostInTransit/LITAssets/BuffDefs/ThalliumPoison.asset
 - Assets/LostInTransit/LITAssets/EliteAbilities/AbilityBlighted.asset
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixFrenzied.prefab
-- Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/fx/hgintersectioncloudremap.shader
 - Assets/Textures/texSmartShopperRoughness.png
 - Assets/LostInTransit/LITAssets/ItemDefs/LifeSavings.asset
-- Assets/Icons/texIconBuffAffixBlight.png
 - Assets/Mesh/meshGoldenGun.mesh
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixFrenzied.asset
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectLeechingAbility.prefab
@@ -215,7 +209,6 @@ Assets:
 - Assets/LostInTransit/LITAssets/SIDRS/AffixFrenzied.asset
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectsForEffectManager/Tracers/TracerLeeching.prefab
 - Assets/Mesh/meshGoldenGunGrip.mesh
-- Assets/Icons/RepulsionActive.png
 - Assets/Textures/texLifeSavingsDifuse.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixLeeching.prefab
 - Assets/Mesh/meshTelescopicSight.mesh

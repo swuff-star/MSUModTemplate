@@ -16,10 +16,10 @@ namespace LostInTransit.Items
         public override void Initialize()
         {
             section = "Item: " + ItemDef.name;
-            ExtraCrit = LITMain.config.Bind<float>(section, "Extra Crit Chance", 10f, "Amount of flat critical chance the item gives.").Value;
+            //ExtraCrit = LITMain.config.Bind<float>(section, "Extra Crit Chance", 10f, "Amount of flat critical chance the item gives.").Value;
             NewBaseChance = LITMain.config.Bind<float>(section, "Base Proc Chance", 1f, "Base Proc chance for Telescopic Sight.").Value;
-            NewStackChance = LITMain.config.Bind<float>(section, "Stack Proc Chance", 1f, "Added Proc Chance per Stack.").Value;
-            BossHealthPercentage = LITMain.config.Bind<float>(section, "Boss Health Percentage", 10f, "Amount of damage dealt to bosses, equal to their remaining health divided by (current value)").Value;
+            NewStackChance = LITMain.config.Bind<float>(section, "Stack Proc Chance", 0.5f, "Added Proc Chance per Stack.").Value;
+            BossHealthPercentage = LITMain.config.Bind<float>(section, "Boss Health Percentage", 20f, "Percent of remaining health that is dealt to bosses.").Value;
         }
 
         public override void AddBehavior(ref CharacterBody body, int stack)
@@ -33,13 +33,12 @@ namespace LostInTransit.Items
             public void RecalculateStatsStart() { }
             public void RecalculateStatsEnd()
             {
-                body.crit += ExtraCrit;
             }
 
             //Euthanasia Behavior
             public void OnDamageDealtServer(DamageReport report)
             {
-                if (!R2API.DamageAPI.HasModdedDamageType(report.damageInfo, DamageTypes.Hypercrit.hypercritDamageType) && report.dotType == DotController.DotIndex.None && report.damageInfo.crit)
+                if (!R2API.DamageAPI.HasModdedDamageType(report.damageInfo, DamageTypes.Hypercrit.hypercritDamageType) && report.dotType == DotController.DotIndex.None)
                 {
                     if (Util.CheckRoll(CalcChance() * report.damageInfo.procCoefficient))
                     {
@@ -79,11 +78,13 @@ namespace LostInTransit.Items
                 float chance;
                 float baseChance = NewBaseChance;
                 float stackChance = NewStackChance * (stack - 1);
-                baseChance /= 100;
-                stackChance /= 100;
+                //baseChance /= 100;
+                //stackChance /= 100;
 
                 //This rougly equates to 9.09% chance on 1 telesight. Hyperbolic so it never reaches 100%.
-                chance = (1 - 1 / (1 + (baseChance + stackChance) * stack)) * 100;
+                //chance = (1 - 1 / (1 + (baseChance + (stackChance * (stack - 1)))) * 100);
+                //I should be able to figure out how this math works but I simply cannot. Just making it linear like RoR1 for now, reaching 3% is pretty much impossible in a non-cheated run.
+                chance = baseChance + stackChance;
 
                 return chance;
             }
