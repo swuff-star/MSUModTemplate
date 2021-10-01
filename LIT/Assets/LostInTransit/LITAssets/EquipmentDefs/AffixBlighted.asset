@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 1512808244, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: AffixBlighted
   m_EditorClassIdentifier: 
-  pickupModelPrefab: {fileID: 0}
+  pickupModelPrefab: {fileID: 809000719368877455, guid: c7634d17d5ab36d4a9546ce00c79cf52,
+    type: 3}
   cooldown: 60
   nameToken: LIT_EQUIPMENT_AFFIXBLIGHTED_NAME
   pickupToken: LIT_EQUIPMENT_AFFIXBLIGHTED_PICKUP

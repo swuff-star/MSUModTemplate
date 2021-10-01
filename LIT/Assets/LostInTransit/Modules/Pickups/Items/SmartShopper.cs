@@ -1,5 +1,6 @@
 ﻿using RoR2;
 using Moonstorm;
+using System;
 
 namespace LostInTransit.Items
 {
@@ -8,10 +9,12 @@ namespace LostInTransit.Items
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("SmartShopper");
         public static string section;
         public static float goldAmount;
+        public static bool usesExpScaling;
         public override void Initialize()
         {
             section = "Item: " + ItemDef.name;
             goldAmount = LITMain.config.Bind<float>(section, "Money Bonus", 0.25f, "Amount of extra money gained per stack.").Value;
+            usesExpScaling = LITMain.config.Bind<bool>(section, "Use Exponential Scaling", true, "Whether scaling should be done exponentially (money bonus ^ (1 / stack)) or linearally (money bonus * stack).").Value;
         }
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
@@ -27,9 +30,10 @@ namespace LostInTransit.Items
                 if (deathRewards)
                 {
                     //Debug.WriteLine("Gold before Smart Shopper: " + deathRewards.goldReward);
-                    smartShopperGold = (uint)(deathRewards.goldReward * (stack * 0.25f));
+                    smartShopperGold = usesExpScaling ? (uint)(deathRewards.goldReward * Math.Pow(goldAmount, 1/stack)) : (uint)(deathRewards.goldReward * goldAmount * stack);
                     //Debug.WriteLine("And that, times " + 0.25f * stack + "...");
                     //Debug.WriteLine("Comes out to " + smartShopperGold + " extra gold!");
+                    
                     body.master.GiveMoney((uint)smartShopperGold);
                 }
             }
