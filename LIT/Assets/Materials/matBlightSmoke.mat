@@ -7,10 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: matFrenzyingElectric
-  m_Shader: {fileID: 4800000, guid: 7a2955c512914d92881753c455346dd9, type: 3}
-  m_ShaderKeywords: USE_CLOUDS VERTEXCOLOR _DISPLACEMENTMODE_OFF _DISTORTIONQUALITY_HIGH
-    _REFLECTIONTYPE_NONE
+  m_Name: matBlightSmoke
+  m_Shader: {fileID: 4800000, guid: 0f39c309b3614724a887f20499a4006f, type: 3}
+  m_ShaderKeywords: USE_CLOUDS
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -24,20 +23,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _BumpMapLarge:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _Cloud1Tex:
         m_Texture: {fileID: 2800000, guid: d0715e4136b49b746b35bd916369f050, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cloud2Tex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Cube:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 201331d33b5a9a84fbbd27a437812d8f, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -56,15 +47,15 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _FoamTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d9b71d92b9bf49d488fe431f8fd38df6, type: 2}
+        m_Texture: {fileID: 2800000, guid: e643bc447dd898548a31c4ac811a9141, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -76,89 +67,78 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _ReflectionTex:
+    - _RemapTex:
+        m_Texture: {fileID: 2800000, guid: 6f0ed89ab1227244f9025d0a88351bb5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScrollingNormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _RemapTex:
-        m_Texture: {fileID: 2800000, guid: 25773cad0951cd3428e6e9aaeb317ba7, type: 3}
-        m_Scale: {x: 11, y: 11}
-        m_Offset: {x: 11, y: 11}
     m_Floats:
     - _AlphaBias: 0
-    - _AlphaBoost: 2.1
-    - _Amplitude: 0.05
+    - _AlphaBoost: 1
     - _Boost: 1
-    - _BumpLargeStrength: 1
     - _BumpScale: 1
-    - _BumpStrength: 1
     - _CalcTextureAlphaOn: 0
+    - _CloudNormalMap: 0
     - _CloudOffsetOn: 0
     - _CloudsOn: 1
-    - _Cull: 0
+    - _Cull: 2
     - _Cutoff: 0.5
-    - _Depth: 0.5
     - _DepthOffset: 0
     - _DetailNormalMapScale: 1
     - _DisableRemapOn: 0
-    - _DisplacementMode: 0
-    - _Distortion: 50
-    - _DistortionQuality: 0
     - _DistortionStrength: 0.1
-    - _DstBlend: 1
-    - _EdgeFade: 1
-    - _EnableFog: 0
-    - _EnableLargeBump: 0
+    - _DstBlend: 0
+    - _DstBlendFloat: 1
+    - _EmissionFromAlbedo: 0
+    - _EnableVertexColorDistortion: 0
     - _ExternalAlpha: 1
-    - _FOAM: 0
+    - _ExtrusionStrength: 1
     - _Fade: 1
     - _FadeCloseDistance: 0.5
     - _FadeCloseOn: 0
-    - _FoamSize: 0.5
-    - _Frequency: 1
+    - _FadeFromVertexColorsOn: 0
     - _FresnelOn: 0
     - _FresnelPower: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _InternalSimpleBlendMode: 0
-    - _InvFade: 1.3
+    - _IntersectionStrength: 0
+    - _InvFade: 1
     - _Metallic: 0
     - _Mode: 0
+    - _NormalStrength: 1
     - _OcclusionStrength: 1
     - _OffsetAmount: 0
     - _Parallax: 0.02
-    - _Reflection: 1
-    - _ReflectionType: 0
-    - _RimPower: 5
+    - _RampInfo: 0
+    - _RimPower: 1
+    - _RimStrength: 1
     - _SkyboxOnly: 0
-    - _Smoothing: 1
-    - _Smoothness: 0.5
+    - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
+    - _SoftPower: 1
+    - _SpecularExponent: 1
     - _SpecularHighlights: 1
-    - _Speed: 1
-    - _SrcBlend: 3
-    - _Steepness: 1
-    - _Tess: 4
+    - _SpecularStrength: 0
+    - _SrcBlend: 1
+    - _SrcBlendFloat: 1
+    - _TriplanarOn: 0
     - _UVSec: 0
     - _UseUV1On: 0
     - _VertexAlphaOn: 0
-    - _VertexColorOn: 1
+    - _VertexColorOn: 0
     - _VertexOffsetOn: 0
-    - _WorldSpace: 0
+    - _VertexOffsetStrength: 0
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _CubeColor: {r: 1, g: 1, b: 1, a: 1}
-    - _CutoffScroll: {r: 20, g: 30, b: 0, a: 20}
-    - _DepthColor: {r: 0, g: 0, b: 0, a: 0}
+    - _CutoffScroll: {r: -5, g: 10, b: 5, a: -10}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Speeds: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
-    - _SpeedsLarge: {r: 0.5, g: 0.5, b: 0, a: 0}
-    - _TintColor: {r: 1, g: 0.9564266, b: 0, a: 1}
-    - _WDirectionAB: {r: 0.3, g: 0.85, b: 0.85, a: 0.25}
-    - _WDirectionCD: {r: 0.1, g: 0.9, b: 0.5, a: 0.5}
-    - _WSpeed: {r: 1.2, g: 1.375, b: 1.1, a: 1.5}
+    - _Scroll: {r: 0, g: 0, b: 0, a: 0}
+    - _TintColor: {r: 1, g: 1, b: 1, a: 1}
+    - _WindVector: {r: 0, g: 0, b: 0, a: 0}

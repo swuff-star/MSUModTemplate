@@ -33,6 +33,8 @@ namespace LostInTransit.Buffs
 
             public BuffDef secondBuff;
 
+            private GameObject SmokeEffect = Assets.LITAssets.LoadAsset<GameObject>("BlightSmoke");
+
             private float stopwatch;
             private static float checkTimer = 0.5f;
 
@@ -71,7 +73,7 @@ namespace LostInTransit.Buffs
                 }
             }
 
-            /*public void FixedUpdate()
+            public void FixedUpdate()
             {
                 stopwatch += Time.fixedDeltaTime;
                 if (stopwatch > checkTimer && !body.HasBuff(RoR2Content.Buffs.Cloak))
@@ -80,11 +82,21 @@ namespace LostInTransit.Buffs
                     body.AddBuff(RoR2Content.Buffs.Cloak);
                 }
                 else if (Util.CheckRoll(1))
+                {
                     body.RemoveBuff(RoR2Content.Buffs.Cloak);
-                /*if (body.skillLocator.primary.cooldownRemaining > 0 ^ body.skillLocator.secondary.cooldownRemaining > 0 ^ body.skillLocator.utility.cooldownRemaining > 0 ^ body.skillLocator.special.cooldownRemaining > 0 ^ Util.CheckRoll(1))
-                    { body.RemoveBuff(RoR2Content.Buffs.Cloak.buffIndex); }
-                //This is entirely untested but SHOULD work. We're all about untested code here, right?
-            }*/
+                    SpawnEffect();
+                }
+            }
+
+            private void SpawnEffect()
+            {
+                EffectData data = new EffectData
+                {
+                    scale = body.radius,
+                    origin = body.transform.position
+                };
+                EffectManager.SpawnEffect(SmokeEffect, data, true);
+            }
 
             public void RecalculateStatsStart() { }
 
