@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2386819316
+CRC: 3903269195
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 11280771c6d05cce12e9fb19d69f6fe3
+    Hash: 2f50a31c6f34efd34cde209108061615
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 6bc92a058128139252ba73c16fb477b6
+    Hash: 9e7bd0b0717d77136b94b35ec7e0b85b
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -70,13 +70,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1937965295, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
 - Class: 114
+  Script: {fileID: 819600919, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
+- Class: 114
   Script: {fileID: 751239416, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
 - Class: 114
   Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1a89379c7c140cf4c8fcd89de65fe247, type: 3}
-- Class: 114
-  Script: {fileID: 819600919, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 136
@@ -143,6 +143,7 @@ Assets:
 - Assets/Icons/texIconBuffGoldenGun.png
 - Assets/Textures/texThalliumNormal.png
 - Assets/Textures/texGoldenGun_n.png
+- Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/fx/hgcloudremap.shader
 - Assets/Materials/matBeckoningCat.mat
 - Assets/Textures/Ramps/texRampLeechingAlt.png
 - Assets/Materials/matGoldenGun.mat
@@ -159,6 +160,7 @@ Assets:
 - Assets/Icons/texIconPickupSmartShopper.png
 - Assets/Icons/texIconPickupBeckoningCat.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupGoldenGun.prefab
+- Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/deferred/hgstandard.shader
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayBeckoningCat.prefab
 - Assets/Materials/matThallium.mat
 - Assets/Mesh/meshBeckoningCat.mesh
@@ -180,6 +182,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/BuffDefs/ThalliumPoison.asset
 - Assets/LostInTransit/LITAssets/EliteAbilities/AbilityBlighted.asset
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixFrenzied.prefab
+- Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/fx/hgintersectioncloudremap.shader
 - Assets/Textures/texSmartShopperRoughness.png
 - Assets/LostInTransit/LITAssets/ItemDefs/LifeSavings.asset
 - Assets/Mesh/meshGoldenGun.mesh
