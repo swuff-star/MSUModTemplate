@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 964db0fc1170f91418d228010b97fb0f, type: 2}
+  - {fileID: 2100000, guid: b0ff85d36cf309d4a9e188f583d52d24, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 806435279590913787}
   m_Layer: 0
-  m_Name: PickupAffixBlighted 1
+  m_Name: PickupAffixBlighted
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,7 +245,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 964db0fc1170f91418d228010b97fb0f, type: 2}
+  - {fileID: 2100000, guid: b0ff85d36cf309d4a9e188f583d52d24, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

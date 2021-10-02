@@ -70,6 +70,7 @@ namespace LostInTransit
             new Buffs.Buffs().Init();
             new DamageTypes.DamageTypes().Init();
             new Pickups().Init();
+            new LostInTransit.Modules.Projectiles().Init();
             new Elites().Init();
 
             new ItemDisplays().Init();

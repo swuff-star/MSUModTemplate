@@ -18,7 +18,7 @@ MonoBehaviour:
   pickupToken: LIT_EQUIPMENT_AFFIXBLIGHTED_PICKUP
   descriptionToken: LIT_EQUIPMENT_AFFIXBLIGHTED_DESC
   loreToken: LIT_EQUIPMENT_AFFIXBLIGHTED_LORE
-  pickupIconSprite: {fileID: 0}
+  pickupIconSprite: {fileID: 21300000, guid: 36f1f180572357144a8224ea0ec56436, type: 3}
   unlockableDef: {fileID: 0}
   colorIndex: 5
   canDrop: 0
