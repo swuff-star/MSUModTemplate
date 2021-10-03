@@ -35,6 +35,7 @@ namespace LostInTransit.Modules
         public override IEnumerable<ItemBase> InitializeItems()
         {
             base.InitializeItems()
+                .Where(item => LITMain.config.Bind<bool>("Item: " + item.ItemDef.name, "Enable Item", true, "Wether or not to enable this item.").Value)
                 .ToList()
                 .ForEach(item => AddItem(item, ContentPack));
             return null;
@@ -42,6 +43,7 @@ namespace LostInTransit.Modules
         public override IEnumerable<EquipmentBase> InitializeEquipments()
         {
             base.InitializeEquipments()
+                .Where(equip => LITMain.config.Bind<bool>("Equipment: " + equip.EquipmentDef.name, "Enable Equipment", true, "Wether or not to enable this equipment.").Value)
                 .ToList()
                 .ForEach(equip => AddEquipment(equip, ContentPack));
             return null;

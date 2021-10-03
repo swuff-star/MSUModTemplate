@@ -9,12 +9,12 @@ namespace LostInTransit.Equipments
 
         public override bool FireAction(EquipmentSlot slot)
         {
-                var sloc = slot.characterBody?.skillLocator;
-                if((bool)!sloc)
-                {
-                    return false;
-                }
-                sloc.ApplyAmmoPack();
+            var sloc = slot.characterBody?.skillLocator;
+            if((bool)!sloc)
+            {
+                return false;
+            }
+            sloc.ApplyAmmoPack();
             return true;
         }
     }

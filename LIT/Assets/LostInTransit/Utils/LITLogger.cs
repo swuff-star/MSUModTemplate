@@ -1,7 +1,7 @@
 ﻿using BepInEx.Logging;
 using System.Runtime.CompilerServices;
 
-namespace LostInTransit.Utils
+namespace LostInTransit
 {
     public class LITLogger
     {
