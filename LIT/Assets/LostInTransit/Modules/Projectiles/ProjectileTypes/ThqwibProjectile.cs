@@ -22,6 +22,7 @@ namespace LostInTransit.Projectiles
                 var onKillComponent = ProjectilePrefab.GetComponent<ProjectileGrantOnKillOnDestroy>();
                 if (onKillComponent)
                     GameObject.Destroy(onKillComponent);
+                ProjectilePrefab.AddComponent<ProjectileChanceForOnKillOnDestroy>();
                 ThqwibProj = ProjectilePrefab;
             }
         }

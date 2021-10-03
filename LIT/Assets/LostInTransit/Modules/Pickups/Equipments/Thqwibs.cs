@@ -21,6 +21,9 @@ namespace LostInTransit.Equipments
 			var section = "Equipment: " + EquipmentDef.name;
 			damage = LITMain.config.Bind<float>(section, "Damage per Projectile", 200, "Amount of %damage done by each projectile").Value;
 			thqwibAmount = LITMain.config.Bind<int>(section, "Amount of Thqwibs", 30, "Amount of thqwibs to throw.").Value;
+			var component = Projectiles.ThqwibProjectile.ThqwibProj.GetComponent<ProjectileChanceForOnKillOnDestroy>();
+			if (component)
+				component.chance = LITMain.config.Bind<float>(section, "Chance for On Kill", 10f, "Chance for each Thqwib to trigger an on kill effect.").Value;
         }
         public override bool FireAction(EquipmentSlot slot)
         {

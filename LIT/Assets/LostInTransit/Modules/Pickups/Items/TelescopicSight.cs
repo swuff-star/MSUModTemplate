@@ -81,10 +81,13 @@ namespace LostInTransit.Items
                 //baseChance /= 100;
                 //stackChance /= 100;
 
-                //This rougly equates to 9.09% chance on 1 telesight. Hyperbolic so it never reaches 100%.
-                //chance = (1 - 1 / (1 + (baseChance + (stackChance * (stack - 1)))) * 100);
+
                 //I should be able to figure out how this math works but I simply cannot. Just making it linear like RoR1 for now, reaching 3% is pretty much impossible in a non-cheated run.
-                chance = baseChance + stackChance;
+                //chance = baseChance + stackChance;
+                //Oh no you dont.
+
+                //This rougly equates to 9.09% chance on 1 telesight. Hyperbolic so it never reaches 100%.
+                chance = (1 - 1 / (1 + (baseChance + (stackChance * (stack - 1)))) * 100);
 
                 return chance;
             }
