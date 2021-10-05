@@ -1,5 +1,6 @@
 ﻿using RoR2;
 using Moonstorm;
+using LostInTransit.Buffs;
 
 namespace LostInTransit.Items
 {
@@ -12,6 +13,9 @@ namespace LostInTransit.Items
         public static float NewBaseChance;
         public static float NewStackChance;
         public static float BossHealthPercentage;
+        public static bool BossInstakill;
+        public static float TeleCooldown;
+        public static float TeleCooldownStack;
 
         public override void Initialize()
         {
@@ -19,7 +23,10 @@ namespace LostInTransit.Items
             //ExtraCrit = LITMain.config.Bind<float>(section, "Extra Crit Chance", 10f, "Amount of flat critical chance the item gives.").Value;
             NewBaseChance = LITMain.config.Bind<float>(section, "Base Proc Chance", 1f, "Base Proc chance for Telescopic Sight.").Value;
             NewStackChance = LITMain.config.Bind<float>(section, "Stack Proc Chance", 0.5f, "Added Proc Chance per Stack.").Value;
-            BossHealthPercentage = LITMain.config.Bind<float>(section, "Boss Health Percentage", 20f, "Percent of remaining health that is dealt to bosses.").Value;
+            TeleCooldown = LITMain.config.Bind<float>(section, "Cooldown", 20f, "Cooldown until Telescopic Sight can proc a second time.").Value;
+            TeleCooldownStack = LITMain.config.Bind<float>(section, "Cooldown Reduction per Stack", 2f, "Seconds removed from the cooldown per stack.").Value;
+            BossHealthPercentage = LITMain.config.Bind<float>(section, "Boss Health Percentage", 20f, "Percent of max health that is dealt to bosses.").Value;
+            BossInstakill = LITMain.config.Bind<bool>(section, "Instakill Bosses", false, "Whether the Telescopic Sight should instakill bosses.").Value;
         }
 
         public override void AddBehavior(ref CharacterBody body, int stack)
@@ -40,14 +47,15 @@ namespace LostInTransit.Items
             {
                 if (!R2API.DamageAPI.HasModdedDamageType(report.damageInfo, DamageTypes.Hypercrit.hypercritDamageType) && report.dotType == DotController.DotIndex.None)
                 {
-                    if (Util.CheckRoll(CalcChance() * report.damageInfo.procCoefficient))
+                    if (Util.CheckRoll(CalcChance() * report.damageInfo.procCoefficient) && body.GetBuffCount(TeleSightCD.buff) < 1)
                     {
+                        body.AddTimedBuff(TeleSightCD.buff, TeleCooldown - (stack - 1) * TeleCooldownStack);
                         //Bosses recieve 3 times the damage.
-                        if (report.victimIsBoss)
+                        if (report.victimIsBoss && !BossInstakill)
                         {
                             DamageInfo newDamageInfo = report.damageInfo;
                             R2API.DamageAPI.AddModdedDamageType(newDamageInfo, DamageTypes.Hypercrit.hypercritDamageType);
-                            newDamageInfo.damage = report.victimBody.healthComponent.health / BossHealthPercentage;
+                            newDamageInfo.damage = report.victimBody.maxHealth / BossHealthPercentage;
                             report.victimBody.healthComponent.TakeDamage(newDamageInfo);
                         }
                         else

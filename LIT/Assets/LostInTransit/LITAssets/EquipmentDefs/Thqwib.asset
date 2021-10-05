@@ -18,7 +18,7 @@ MonoBehaviour:
   pickupToken: LIT_EQUIP_THQWIB_PICKUP
   descriptionToken: LIT_EQUIP_THQWIB_DESC
   loreToken: LIT_EQUIP_THQWIB_LORE
-  pickupIconSprite: {fileID: 0}
+  pickupIconSprite: {fileID: 21300000, guid: 0d89d55a1d936d94bb01657eb03ad5fb, type: 3}
   unlockableDef: {fileID: 0}
   colorIndex: 5
   canDrop: 1

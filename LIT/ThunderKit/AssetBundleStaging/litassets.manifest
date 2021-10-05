@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1769773043
+CRC: 1742255622
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 21128ce4a43af5f06e0d3eb543fe2036
+    Hash: 5a8794013fb53c86249e718c5d21ce6a
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9e7bd0b0717d77136b94b35ec7e0b85b
@@ -94,7 +94,6 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayMysteriousVial.prefab
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupTelescopicSight.prefab
 - Assets/Mesh/meshMysteriousVialCap.mesh
-- Assets/Icons/texIconPickupAffixBlight.png
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayLeechingCrown.prefab
 - Assets/Textures/texBeckoningCatDiffuse.png
 - Assets/Materials/matTelescopicSight.mat
@@ -142,6 +141,7 @@ Assets:
 - Assets/Textures/texGoldenGun.png
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectsForEffectManager/EffectLeechingBurst.prefab
 - Assets/Mesh/meshMysteriousVialLiquid.mesh
+- Assets/Icons/RepulsionActive.png
 - Assets/Icons/texIconPickupRepulsionArmor.png
 - Assets/Icons/texIconBuffGoldenGun.png
 - Assets/Textures/texThalliumNormal.png
@@ -156,6 +156,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/BuffDefs/AffixBlighted.asset
 - Assets/LostInTransit/LITAssets/Anims/BeckoningCat/avatarBeckoningCat.asset
 - Assets/Mesh/meshThallium.mesh
+- Assets/Icons/texIconBuffThallium.png
 - Assets/Icons/texIconPickupAffixLeeching.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixBlighted.prefab
 - Assets/LostInTransit/LITAssets/Anims/BeckoningCat/animBeckoningCatIdle.anim
@@ -167,6 +168,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupGoldenGun.prefab
 - Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/deferred/hgstandard.shader
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayBeckoningCat.prefab
+- Assets/Icons/RepulsionCharging.png
 - Assets/Materials/matThallium.mat
 - Assets/LostInTransit/LITAssets/EquipmentDefs/Thqwib.asset
 - Assets/Mesh/meshBeckoningCat.mesh
@@ -207,6 +209,7 @@ Assets:
 - Assets/Icons/texIconPickupGoldenGun.png
 - Assets/Textures/texMysteriousVialEmission.png
 - Assets/LostInTransit/LITAssets/SIDRS/AffixLeeching.asset
+- Assets/Materials/matAffixBlighted 1.mat
 - Assets/LostInTransit/LITAssets/EliteAbilities/AbilityFrenzying.asset
 - "Assets/Icons/texIconP\xEFckupLifeSavings.png"
 - Assets/Mesh/meshLifeSavings.mesh

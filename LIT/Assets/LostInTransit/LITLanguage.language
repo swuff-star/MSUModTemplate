@@ -85,6 +85,11 @@
 	"LIT_EQUIP_SHATTEREDMIRROR_DESC": "<style=cIsUtility>Summon a shadow partner</style> for 15 seconds on use.",
 	"LIT_EQUIP_SHATTEREDMIRROR_LORE": "Do you know what makes you who you are? What you are capable of achieving? What you are unable to accomplish? Many people do not know how to answer these questions. Some live their lives in search of such answers.\n\nThe answers are available to all who search for them, only found deep within. Only found in the deepest recesses of the psyche that most wish to avoid. Only to those who have a determination to see their darkest shadows.\n\nDo you have the resolve to search for those answers? The will to truly face yourself? If so, then stand tall with fortitude known to too few. Stand proud beside yourself, and turn your weakness into growth. Accept your demons as your closest ally, and overcome your hardships.",
 	
+	"LIT_EQUIP_THQWIB_NAME": "Thqwib",
+	"LIT_EQUIP_THQWIB_PICKUP": "Release a bloom of thqwibs, detonating on impact with a chance to trigger 'On Kill' effects.",
+	"LIT_EQUIP_THQWIB_DESC": "Release a bloom of <style=cIsDamage>30 thqwibs</style>, detonating on impact for <style=cIsDamage>200%</style> damage. Each thqwib has a <style=cIsDamage>10%</style> chance to trigger <style=cIsDamage>On-Kill</style> effects.",
+	"LIT_EQUIP_THQWIB_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/ForgiveMePlease</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read </style=cIsHealing>more information</style> about this type of error.",
+	
 	"LIT_EQUIP_AFFIXLEECHING_NAME": "Guttural Whimpers",
 	"LIT_EQUIP_AFFIXLEECHING_PICKUP": "Become an aspect of parasitism.",
 	"LIT_EQUIP_AFFIXLEECHING_DESC": "Become an aspect of parasitism.",
@@ -110,7 +115,7 @@
 	"LIT_ELITE_MODIFIER_VOLATILE": "Volatile {0}",
 	"LIT_ELITE_MODIFIER_FRENZIED": "Frenzying {0}",
 	
-	"ELITE_MODIFIER_GOLD": "Gold {0}",
+	"ELITE_MODIFIER_GOLD": "Auric {0}",
 	
 	"LIT_MECHSPIDER_LORE": "<style=cMono>$ Transmitting emergency signals. . .\n\n$ Warning! Transmission failure!</style>\n\n             uu$$$$$$$$$$$uu\n          uu$$$$$$$$$$$$$$$$$uu\n         u$$$$$$$$$$$$$$$$$$$$$u\n        u$$$$$$$$$$$$$$$$$$$$$$$u\n       u$$$$$$$$$$$$$$$$$$$$$$$$$u\n       u$$$$$$$$$$$$$$$$$$$$$$$$$u\n       u$$$$$$\"   \"$$$\"   \"$$$$$$u\n       \"$$$$\"      u$u       $$$$\"\n        $$$u       u$u       u$$$\n        $$$u      u$$$u      u$$$\n         \"$$$$uu$$$   $$$uu$$$$\"\n          \"$$$$$$$\"   \"$$$$$$$\"\n            u$$$$$$$u$$$$$$$u\n             u$\"$\"$\"$\"$\"$\"$u\n  uuu        $$u$ $ $ $ $u$$       uuu\n u$$$$        $$$$$u$u$u$$$       u$$$$\n  $$$$$uu      \"$$$$$$$$$\"     uu$$$$$$\nu$$$$$$$$$$$uu    \"\"\"\"\"    uuuu$$$$$$$$$$\n$$$$\"\"\"$$$$$$$$$$uuu   uu$$$$$$$$$\"\"\"$$$\"\n \"\"\"      \"\"$$$$$$$$$$$uu \"\"$\"\"\"\n           uuuu \"\"$$$$$$$$$$uuu\n  u$$$uuu$$$$$$$$$uu \"\"$$$$$$$$$$$uuu$$$\n  $$$$$$$$$$\"\"\"\"           \"\"$$$$$$$$$$$\"\n   \"$$$$$\"                      \"\"$$$$\"\"\n     $$$\"                         $$$$\"\n\nHijacked by the Roider Union Pistolero.\n\nNext time use a real booter, captain. Money in our pockets."
 	
