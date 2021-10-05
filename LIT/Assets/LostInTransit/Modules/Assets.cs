@@ -49,11 +49,6 @@ namespace LostInTransit
             var cloudMat = Resources.Load<GameObject>("Prefabs/Effects/OrbEffects/LightningStrikeOrbEffect").transform.Find("Ring").GetComponent<ParticleSystemRenderer>().material;
             materials.ForEach(Material =>
             {
-                Debug.Log(Material);
-                if(Material.name == "matBlightSmoke")
-                {
-                    Debug.Log(Material.shader);
-                }
                 if (Material.shader.name.StartsWith("StubbedShader"))
                 {
                     Material.shader = Resources.Load<Shader>("shaders" + Material.shader.name.Substring(13));

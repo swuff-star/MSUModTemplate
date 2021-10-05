@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1937965295, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
+  m_Name: AbilityVolatile
+  m_EditorClassIdentifier: 
+  equipmentDef: {fileID: 11400000, guid: 40ff794bbbf17fa458952cda08f732d1, type: 2}
+  aiMaxUseDistance: 50
+  aiHealthFractionToUseChance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.007080078
+      inSlope: 0.6723507
+      outSlope: 0.6723507
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.76637
+      value: 0.5081893
+      inSlope: 0.7696341
+      outSlope: 0.7696341
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.2526366
+    - serializedVersion: 3
+      time: 0.79041034
+      value: 0.99799895
+      inSlope: -0.05830908
+      outSlope: -0.05830908
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.7855813
+    - serializedVersion: 3
+      time: 1
+      value: 0.9929199
+      inSlope: -0.024233213
+      outSlope: -0.024233213
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
