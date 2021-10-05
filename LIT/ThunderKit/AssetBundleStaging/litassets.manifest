@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1769773043
+CRC: 1768546803
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 21128ce4a43af5f06e0d3eb543fe2036
+    Hash: 8d635057e9fe56656e7cb68cc1b9a8c3
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9e7bd0b0717d77136b94b35ec7e0b85b
@@ -93,6 +93,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/BuffDefs/AffixFrenzied.asset
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayMysteriousVial.prefab
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupTelescopicSight.prefab
+- Assets/Textures/Ramps/texRampEliteVolatile.png
 - Assets/Mesh/meshMysteriousVialCap.mesh
 - Assets/Icons/texIconPickupAffixBlight.png
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayLeechingCrown.prefab
@@ -119,6 +120,7 @@ Assets:
 - Assets/Icons/texIconBuffAffixBlight.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupThallium.prefab
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixBlighted.asset
+- Assets/Materials/matAffixVolatile.mat
 - Assets/Materials/matGiganticAmethyst.mat
 - Assets/Textures/Stolen/texCloudDifferenceBW2.asset
 - Assets/Materials/matAffixBlighted2.mat
@@ -143,17 +145,22 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectsForEffectManager/EffectLeechingBurst.prefab
 - Assets/Mesh/meshMysteriousVialLiquid.mesh
 - Assets/Icons/texIconPickupRepulsionArmor.png
+- Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixVolatile.prefab
 - Assets/Icons/texIconBuffGoldenGun.png
 - Assets/Textures/texThalliumNormal.png
 - Assets/Textures/texGoldenGun_n.png
+- Assets/LostInTransit/LITAssets/BuffDefs/AffixVolatile.asset
 - Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/fx/hgcloudremap.shader
 - Assets/Materials/matBeckoningCat.mat
+- Assets/Icons/texIconBuffAffixVolatile.png
 - Assets/Textures/Ramps/texRampLeechingAlt.png
 - Assets/Materials/matGoldenGun.mat
 - Assets/Materials/matBlightSmoke2.mat
 - Assets/Textures/texGiganticAmethyst.png
+- Assets/LostInTransit/LITAssets/EquipmentDefs/AffixVolatile.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/RepulsionArmorCD.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/AffixBlighted.asset
+- Assets/Icons/texIconPickupAffixVolatile.png
 - Assets/LostInTransit/LITAssets/Anims/BeckoningCat/avatarBeckoningCat.asset
 - Assets/Mesh/meshThallium.mesh
 - Assets/Icons/texIconPickupAffixLeeching.png
@@ -222,6 +229,7 @@ Assets:
 - Assets/Textures/texLifeSavingsDifuse.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixLeeching.prefab
 - Assets/LostInTransit/LITAssets/Meshes/meshPlane.mesh
+- Assets/LostInTransit/LITAssets/EliteDefs/Volatile.asset
 - Assets/Mesh/meshTelescopicSight.mesh
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupBeckoningCat.prefab
 - Assets/Textures/Ramps/texRampEliteLeechingClassic.png
@@ -233,4 +241,5 @@ Assets:
 - Assets/LostInTransit/LITAssets/ItemDefs/GoldenGun.asset
 - Assets/LostInTransit/LITAssets/ItemDefs/Thallium.asset
 - Assets/Textures/Ramps/texRampEliteFrenzied.png
+- Assets/LostInTransit/LITAssets/EliteAbilities/AbilityVolatile.asset
 Dependencies: []

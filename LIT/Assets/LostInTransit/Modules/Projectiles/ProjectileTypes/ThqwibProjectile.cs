@@ -16,7 +16,6 @@ namespace LostInTransit.Projectiles
         public override void Initialize()
         {
             var go = Resources.Load<GameObject>("prefabs/characterbodies/scavsackprojectile");
-            Debug.Log(go);
             if (ProjectilePrefab)
             {
                 var onKillComponent = ProjectilePrefab.GetComponent<ProjectileGrantOnKillOnDestroy>();

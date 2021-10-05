@@ -1,5 +1,6 @@
 ﻿using RoR2;
 using Moonstorm;
+using UnityEngine;
 
 namespace LostInTransit.Items
 {
@@ -27,7 +28,7 @@ namespace LostInTransit.Items
             body.AddItemBehavior<TelescopicSightBehavior>(stack);
         }
 
-        public class TelescopicSightBehavior : CharacterBody.ItemBehavior, IStatItemBehavior, IOnDamageDealtServerReceiver
+        public class TelescopicSightBehavior : CharacterBody.ItemBehavior, IStatItemBehavior, IOnDamageDealtServerReceiver, IOnIncomingDamageOtherServerReciever
         {
 
             public void RecalculateStatsStart() { }
@@ -90,6 +91,11 @@ namespace LostInTransit.Items
                 chance = (1 - 1 / (1 + (baseChance + (stackChance * (stack - 1)))) * 100);
 
                 return chance;
+            }
+
+            public void OnIncomingDamageOther(HealthComponent victimHealthComponent, DamageInfo damageInfo)
+            {
+                
             }
 
             //Original behavior

@@ -20,7 +20,7 @@ using System.Linq;
 
 namespace LostInTransit
 {
-    [BepInDependency(R2API.R2API.PluginGUID, BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.TeamMoonstorm.MoonstormSharedUtils", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.TheMysticSword.AspectAbilities", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
@@ -28,7 +28,8 @@ namespace LostInTransit
     [R2APISubmoduleDependency(new string[]
     {
         nameof(DotAPI),
-        nameof(DamageAPI)
+        nameof(DamageAPI),
+        nameof(PrefabAPI)
     })]
     public class LITMain : BaseUnityPlugin
     {
@@ -69,7 +70,7 @@ namespace LostInTransit
 
             new Buffs.Buffs().Init();
             new DamageTypes.DamageTypes().Init();
-            new LostInTransit.Modules.Projectiles().Init();
+            new Modules.Projectiles().Init();
             new Pickups().Init();
             new Elites().Init();
 
