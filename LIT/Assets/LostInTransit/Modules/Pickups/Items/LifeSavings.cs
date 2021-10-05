@@ -6,21 +6,35 @@ using UnityEngine;
 
 namespace LostInTransit.Items
 {
-    public class LifeSavings : ItemBase
+    public class LifeSavings : LITItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("LifeSavings");
         public static ItemDef itemDef;
-        public static string section;
-        public static float moneyKept;
+        public static float moneyKeptBase;
+        public static float moneyKeptStack;
 
         //★ (godzilla 1998 main character voice)
         //★ that's a lotta Debug.WriteLine()
         //Neb - Why dont use Debug.Log(), lol | Doesnt matter, i killed this code and rewrote it as my child.
         public override void Initialize()
         {
+            Config();
+            DescriptionToken();
             itemDef = ItemDef;
-            section = "Item: " + ItemDef.name; 
-            moneyKept = LITMain.config.Bind<float>(section, "Money Kept", 4f, "Percentage of money kept between stages.").Value;
+        }
+
+        public override void Config()
+        {
+            var section = $"Item: {ItemDef.name}";
+            moneyKeptBase = LITMain.config.Bind<float>(section, "Money Kept Base", 4f, "Percentage of money kept between stages.").Value;
+            moneyKeptStack = LITMain.config.Bind<float>(section, "Money kept Stacks", 2f, "Amount of kept money added for each stack of LifeSavings").Value;
+        }
+
+        public override void DescriptionToken()
+        {
+            LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
+                $"Keep <style=cIsUtility>%{moneyKeptBase}</style> <style=cStack>(+{moneyKeptStack}% per stack)</style> of <style=cIsUtility>earned gold</style> between stages. Gold is not kept when travelling between <style=cWorldEvent>Hidden Realms</style>.",
+                LangEnum.en);
         }
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
@@ -101,8 +115,9 @@ namespace LostInTransit.Items
 
             private uint CalculatePercentage()
             {
+                var percentage = moneyKeptBase * (moneyKeptStack * (stack - 1));
                 uint toReturn;
-                toReturn = (uint)(CharMaster.money / 100 * Mathf.Min(moneyKept * stack, 100));
+                toReturn = (uint)(CharMaster.money / 100 * Mathf.Min(percentage, 100));
                 CharMaster.money -= toReturn;
                 return toReturn;
             }

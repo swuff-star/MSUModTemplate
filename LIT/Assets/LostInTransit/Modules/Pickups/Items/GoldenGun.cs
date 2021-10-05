@@ -3,35 +3,76 @@ using System;
 using LostInTransit.Buffs;
 using UnityEngine.Networking;
 using Moonstorm;
+using UnityEngine;
 
 namespace LostInTransit.Items
 {
-    public class GoldenGun : ItemBase
+    public class GoldenGun : LITItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("GoldenGun");
+        public static uint goldCap;
+        public static uint goldNeeded;
+
         public override void Initialize()
         {
-            Stage.onStageStartGlobal += Stage_onServerStageBegin;
+            Config();
+            DescriptionToken();
+        }
+        public override void Config()
+        {
+            var section = $"Item: {ItemDef.name}";
+            goldCap = LITMain.config.Bind<uint>(section, "Gold Cap", 600, "The cap on gold where the golden gun will no longer consider adding extra damage.").Value;
+            goldNeeded = LITMain.config.Bind<uint>(section, "Gold needed for Each buff", 40, "Amount of gold needed for an extra stack of the golden gun buff to be added.").Value;
+        }
+
+        public override void DescriptionToken()
+        {
+            LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
+                $"Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to <style=cIsDamage>+{goldNeeded}% damage</style> <style=cStack>(+{goldNeeded/2}% per stack)</style> at <style=cIsUtility>{goldCap} gold</style> <style=cStack>(+{goldCap/2} per stack, scaling with time)</style>.",
+                LangEnum.en);
         }
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
             body.AddItemBehavior<GoldenGunBehavior>(stack);
         }
 
-        public static float gunCap; //Gets calculated by taking the scaled cost of the gold cap.
-        public static float goldCap = 600f; //Amount of gold to reach the cap, Stage 1
-
-        private void Stage_onServerStageBegin(Stage obj)
-        {
-            if (!NetworkServer.active) return;
-            gunCap = Run.instance.GetDifficultyScaledCost((int)goldCap); //If this isn't done here, scaling will update on the minute instead of with stages cleared. Feels inconsistent as fuck like that.
-        }
-
         public class GoldenGunBehavior : CharacterBody.ItemBehavior
         {
+            public float gunCap = 0;
+            private float goldForBuff = 0;
+            private int buffsToGive = 0;
+
+            private void Start()
+            {
+                body.onInventoryChanged += UpdateStacks;
+                UpdateStacks();
+            }
+
+            private void UpdateStacks()
+            {
+                gunCap = Run.instance.GetDifficultyScaledCost((int)GetCap(goldCap));
+                goldForBuff = goldNeeded;
+            }
+
+            private float GetCap(uint value)
+            {
+                return value + (value / 2) * (stack - 1);
+            }
+
             private void FixedUpdate()
             {
-                //This all works, but the math is the tiniest bit inconsistent. This is due to the fact that 40 does not divide evenly into 700. Fuck Hopoo.
+                if (body.master.money > 0)
+                {
+                    buffsToGive = (int)(Mathf.Min(body.master.money, gunCap) / goldForBuff);
+                    if (buffsToGive != body.GetBuffCount(GoldenGunBuff.buff))
+                    {
+                        body.SetBuffCount(GoldenGunBuff.buff.buffIndex, buffsToGive);
+                    }
+                }
+                    
+
+
+                /*//This all works, but the math is the tiniest bit inconsistent. This is due to the fact that 40 does not divide evenly into 700. Fuck Hopoo.
                 //"Fixed" the above by buffing it to a 600 gold cap instead of 700.
                 //Debug.Write("Current cap for Golden Gun: " + gunCap);
                 if (body.master.money < 1) { return; }
@@ -46,7 +87,7 @@ namespace LostInTransit.Items
                 if (buffToGive < currentBuffs)
                 { body.RemoveBuff(GoldenGunBuff.buff); } 
                 //body.SetBuffCount(GoldenGunBuff.buffGGIndex, (int)buffToGive); This seemed like a much less hacky implementation, but for some reason gave the Leeching buff rather than Golden Gun buff.
-                //To-do: Find cleaner implementation?
+                //To-do: Find cleaner implementation?*/
             }
         }
     }

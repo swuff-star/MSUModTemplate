@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace LostInTransit.Items
 {
-    public class RepulsionArmor : ItemBase
+    public class RepulsionArmor : LITItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("RepulsionChestplate");
 
@@ -19,13 +19,27 @@ namespace LostInTransit.Items
         public static float durCap;
         public override void Initialize()
         {
-            hitsNeededConfig = LITMain.config.Bind<float>("Item: " + ItemDef.name, "Hits Needed to Activate", 6f, "Amount of times to be hit to activate Repulsion Armor.").Value;
-            hitsNeededConfigStack = LITMain.config.Bind<float>("Item: " + ItemDef.name, "Hits Needed per Stack", 0f, "Amount of extra hits needed per stack to activate Repulsion Armor.").Value; //I don't think anyone wants this, but easy to implement and better safe than sorry.
-            buffBaseLength = LITMain.config.Bind<float>("Item: " + ItemDef.name, "Base Duration of Buff", 3f, "Amount of time the buff lasts with one stack.").Value;
-            buffStackLength = LITMain.config.Bind<float>("Item: " + ItemDef.name, "Stacking Duration of Buff", 1.5f, "Amount of time added to the Repulsion Armor buff per extra stack.").Value;
-            durCap = LITMain.config.Bind<float>("Item: " + ItemDef.name, "Maximum Duration", 0f, "Maximum length of the Repulsion Armor buff. Set to 0 to disable.").Value;
-            damageResist = LITMain.config.Bind<float>("Item: " + ItemDef.name, "Damage Reduction", 83f, "Amount of damage reduced while the Repulsion Armor buff is active, as a percent.").Value;
+            Config();
+            DescriptionToken();
         }
+        public override void Config()
+        {
+            var section = $"Item: {ItemDef.name}";
+            hitsNeededConfig = LITMain.config.Bind<float>(section, "Hits Needed to Activate", 6f, "Amount of times to be hit to activate Repulsion Armor.").Value;
+            hitsNeededConfigStack = LITMain.config.Bind<float>(section, "Hits Needed per Stack", 0f, "Amount of extra hits needed per stack to activate Repulsion Armor.").Value; //I don't think anyone wants this, but easy to implement and better safe than sorry.
+            buffBaseLength = LITMain.config.Bind<float>(section, "Base Duration of Buff", 3f, "Amount of time the buff lasts with one stack.").Value;
+            buffStackLength = LITMain.config.Bind<float>(section, "Stacking Duration of Buff", 1.5f, "Amount of time added to the Repulsion Armor buff per extra stack.").Value;
+            durCap = LITMain.config.Bind<float>(section, "Maximum Duration", 0f, "Maximum length of the Repulsion Armor buff. Set to 0 to disable.").Value;
+            damageResist = LITMain.config.Bind<float>(section, "Damage Reduction", 83f, "Amount of damage reduced while the Repulsion Armor buff is active, as a percent.").Value;
+        }
+
+        public override void DescriptionToken()
+        {
+            LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
+                $"After <style=cIsUtility>taking damage</style> {hitsNeededConfig} times, gain a temporary <style=cIsUtility>{damageResist}% damage reduction</style> buff for <style=cIsUtility>{buffBaseLength}</style> <style=cStack>(+{buffStackLength} per stack)</style> seconds.",
+                LangEnum.en);
+        }
+
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
             body.AddItemBehavior<RepulsionArmorBehavior>(stack);

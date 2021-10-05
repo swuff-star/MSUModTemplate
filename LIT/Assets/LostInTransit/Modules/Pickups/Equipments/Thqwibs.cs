@@ -10,22 +10,39 @@ using UnityEngine;
 
 namespace LostInTransit.Equipments
 {
-    public class Thqwib : EquipmentBase
+    public class Thqwib : LITEquipmentBase
     {
         public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("Thqwib");
 		public static float damage;
 		public static int thqwibAmount;
+		public static float chance;
 
         public override void Initialize()
+        {
+			Config();
+			DescriptionToken();
+        }
+
+        public override void Config()
         {
 			var section = "Equipment: " + EquipmentDef.name;
 			damage = LITMain.config.Bind<float>(section, "Damage per Projectile", 200, "Amount of %damage done by each projectile").Value;
 			thqwibAmount = LITMain.config.Bind<int>(section, "Amount of Thqwibs", 30, "Amount of thqwibs to throw.").Value;
 			var component = Projectiles.ThqwibProjectile.ThqwibProj.GetComponent<ProjectileChanceForOnKillOnDestroy>();
 			if (component)
-				component.chance = LITMain.config.Bind<float>(section, "Chance for On Kill", 10f, "Chance for each Thqwib to trigger an on kill effect.").Value;
-        }
-        public override bool FireAction(EquipmentSlot slot)
+			{
+				chance = LITMain.config.Bind<float>(section, "Chance for On Kill", 10f, "Chance for each Thqwib to trigger an on kill effect.").Value; ;
+				component.chance = chance;
+			}
+		}
+
+        public override void DescriptionToken()
+		{
+			LITUtil.AddTokenToLanguage(EquipmentDef.descriptionToken,
+				$"Release a bloom of <style=cIsDamage>{thqwibAmount} thqwibs</style>, detonating on impact for <style=cIsDamage>{damage}%</style> damage. Each thqwib has a <style=cIsDamage>{chance}%</style> chance to trigger <style=cIsDamage>On-Kill</style> effects.",
+				LangEnum.en);
+		}
+		public override bool FireAction(EquipmentSlot slot)
         {
 			InputBankTest inputBank = slot.inputBank;
 			CharacterBody charBody = slot.characterBody;
@@ -67,6 +84,5 @@ namespace LostInTransit.Equipments
 			}
             return false;
         }
-
     }
 }

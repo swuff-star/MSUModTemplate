@@ -4,7 +4,7 @@ using System;
 
 namespace LostInTransit.Items
 {
-    public class SmartShopper : ItemBase
+    public class SmartShopper : LITItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("SmartShopper");
         public static string section;
@@ -12,10 +12,24 @@ namespace LostInTransit.Items
         public static bool usesExpScaling;
         public override void Initialize()
         {
+            Config();
+            DescriptionToken();
+        }
+
+        public override void Config()
+        {
             section = "Item: " + ItemDef.name;
             goldAmount = LITMain.config.Bind<float>(section, "Money Bonus", 0.25f, "Amount of extra money gained per stack.").Value;
             usesExpScaling = LITMain.config.Bind<bool>(section, "Use Exponential Scaling", true, "Whether scaling should be done exponentially (money bonus ^ (1 / stack)) or linearally (money bonus * stack).").Value;
         }
+
+        public override void DescriptionToken()
+        {
+            LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
+                $"Monsters drop <style=cIsUtility>{goldAmount}%</style> <style=cStack>(+{goldAmount}% per stack)</style> more gold on death.",
+                LangEnum.en);
+        }
+
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
             body.AddItemBehavior<SmartShopperBehavior>(stack);

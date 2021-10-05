@@ -3,9 +3,20 @@ using Moonstorm;
 
 namespace LostInTransit.Equipments
 {
-    public class GiganticAmethyst : EquipmentBase
+    public class GiganticAmethyst : LITEquipmentBase
     {
         public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("GiganticAmethyst");
+
+        public override void Initialize()
+        {
+            DescriptionToken();
+        }
+        public override void DescriptionToken()
+        {
+            LITUtil.AddTokenToLanguage(EquipmentDef.descriptionToken,
+                $"<style=cIsUtility>Reset all skill cooldowns</style> on use.",
+                LangEnum.en);
+        }
 
         public override bool FireAction(EquipmentSlot slot)
         {
