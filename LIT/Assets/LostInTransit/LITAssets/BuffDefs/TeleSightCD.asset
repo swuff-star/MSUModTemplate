@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TeleSightCD
   m_EditorClassIdentifier: 
   iconPath: Textures/ItemIcons/texNullIcon
-  iconSprite: {fileID: 21300000, guid: 1057c9254be79dd4d85ed4a519d6b29b, type: 3}
-  buffColor: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
+  iconSprite: {fileID: 21300000, guid: da71f8ec32b85024ba9d70e4bef8f447, type: 3}
+  buffColor: {r: 0.6509434, g: 0.4267978, b: 0.4267978, a: 1}
   canStack: 1
   eliteDef: {fileID: 0}
   isDebuff: 1
