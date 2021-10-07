@@ -38,11 +38,12 @@ namespace Moonstorm.EditorUtils.Pipelines
                                                 .SelectMany(ab => ab.assets)
                                                 .ToArray();
 
+            Material[] allMaterials = Util.FindAssetsByType<Material>().ToArray();
+
             Material[] materials = Util.FindAssetsByType<Material>()
                                         .Where(material => material.shader.name.StartsWith("Hopoo Games"))
                                         .ToArray();
-
-            if (materials.Length != 0 || materials != null)
+            if (materials.Length != 0)
             {
                 var count = SwapRealShadersForStubbed(materials);
                 Debug.Log($"Replaced a total of {count} stubbed shaders for real shaders.");
@@ -152,7 +153,12 @@ namespace Moonstorm.EditorUtils.Pipelines
                 }
                 pipeline.ManifestIndex = -1;
             }
-            if (materials.Length != 0 || materials != null)
+
+            materials = Util.FindAssetsByType<Material>()
+                                        .Where(material => material.shader.name.StartsWith("StubbedShader"))
+                                        .ToArray();
+
+            if (materials.Length != 0)
             {
                 var count = RestoreMaterialShaders(materials);
                 Debug.Log($"Restored a total of {count} materials' shaders.");

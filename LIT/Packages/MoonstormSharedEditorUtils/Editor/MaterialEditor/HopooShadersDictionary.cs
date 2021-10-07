@@ -17,15 +17,14 @@ namespace Moonstorm.EditorUtils
 
         static HopooShaderDictionary()
         {
-            PopulateDictionary(realToStubbed, true);
-            PopulateDictionary(stubbedToReal, false);
+            PopulateDictionary();
             if (realToStubbed.Count == 0 || stubbedToReal.Count == 0)
                 Debug.Log($"There was an error while trying to populate the Hopoo Shaders dictionary.");
             else
                 Debug.Log("Populated Hopoo Shader dictionary.");
         }
 
-        public static void PopulateDictionary(Dictionary<Shader, Shader> shaderDictionary, bool realToStubbed)
+        public static void PopulateDictionary()
         {
             var allShadersInAssets = (List<Shader>)Util.FindAssetsByType<Shader>("hg");
 
@@ -50,10 +49,8 @@ namespace Moonstorm.EditorUtils
 
                     if (real && stubbed)
                     {
-                        if (realToStubbed)
-                            shaderDictionary.Add(real, stubbed);
-                        else
-                            shaderDictionary.Add(stubbed, real);
+                        stubbedToReal.Add(stubbed, real);
+                        realToStubbed.Add(real, stubbed);
                     }
                 }
             }

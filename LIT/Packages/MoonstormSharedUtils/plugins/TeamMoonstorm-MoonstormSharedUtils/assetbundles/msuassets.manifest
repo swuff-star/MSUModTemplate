@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4086171299
+CRC: 2989833388
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 39afb5ae8efb33b4f808c21c419b4fd5
+    Hash: bd61a4cd32b603f3ea14b2a17288ea33
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d625bd5e18f4317f22807dac6ddfaec9
+    Hash: 7b28f97d83e17efb6ade9d8bf31ca680
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -16,6 +16,8 @@ ClassTypes:
 - Class: 21
   Script: {instanceID: 0}
 - Class: 23
+  Script: {instanceID: 0}
+- Class: 28
   Script: {instanceID: 0}
 - Class: 33
   Script: {instanceID: 0}
@@ -29,4 +31,5 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/Prefabs/MaterialTester.prefab
+- Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/Blank.png
 Dependencies: []

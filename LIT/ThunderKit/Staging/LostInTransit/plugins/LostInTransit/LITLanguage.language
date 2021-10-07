@@ -70,7 +70,6 @@
 	
 	"LIT_EQUIP_GIGANTICAMETHYST_NAME": "Gigantic Amethyst",
 	"LIT_EQUIP_GIGANTICAMETHYST_PICKUP": "Reset skill cooldowns on use.",
-	"LIT_EQUIP_GIGANTICAMETHYST_DESC": "<style=cIsUtility>Reset all skill cooldowns</style> on use.",
 	"LIT_EQUIP_GIGANTICAMETHYST_LORE": "Rich! Rich I am!\nJealous, jealous they were.\nIt's mine! All mine!\n\nBarry wanted to return it.\nBut we were never returning!\nSo I returned him to the soil.\n\nSamantha wanted to share it.\nBut breaking would ruin its luster!\nSo I broke her.\n\nI told them we weren't going back.\nThey didn't believe me!\nNow we're all here, forever.\n\nMe, my friends, and my crystal.",
 	
 	"LIT_EQUIP_SHATTEREDMIRROR_NAME": "Shattered Mirror",
@@ -80,7 +79,6 @@
 	
 	"LIT_EQUIP_THQWIB_NAME": "Thqwib",
 	"LIT_EQUIP_THQWIB_PICKUP": "Release a bloom of thqwibs, detonating on impact with a chance to trigger 'On Kill' effects.",
-	"LIT_EQUIP_THQWIB_DESC": "Release a bloom of <style=cIsDamage>30 thqwibs</style>, detonating on impact for <style=cIsDamage>200%</style> damage. Each thqwib has a <style=cIsDamage>10%</style> chance to trigger <style=cIsDamage>On-Kill</style> effects.",
 	"LIT_EQUIP_THQWIB_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/ForgiveMePlease</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read </style=cIsHealing>more information</style> about this type of error.",
 	
 	"LIT_EQUIP_AFFIXLEECHING_NAME": "Guttural Whimpers",
