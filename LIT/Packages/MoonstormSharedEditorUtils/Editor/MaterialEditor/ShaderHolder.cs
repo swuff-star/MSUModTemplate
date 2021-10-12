@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
-namespace Assets.LostInTransit
-{
-    public interface IDescriptionLangInterface
+namespace Moonstorm.EditorUtils
+{ 
+    public class ShaderHolder : ScriptableObject
     {
-        void LanguageTokens();
+
     }
 }

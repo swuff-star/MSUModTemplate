@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 789650680
+CRC: 3835312818
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: bdf7185bb1c7cd4fbc3a3219db697fe9
+    Hash: 6c48dc5acd87d5676dbbdbac45aa9f48
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 9e7bd0b0717d77136b94b35ec7e0b85b
+    Hash: c04ba516ef895f6e7b3167a943b54387
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -33,6 +33,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 95
   Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
 - Class: 114
@@ -46,6 +48,10 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 511512695, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 89795172, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1297580292, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 1512808244, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 733712478, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -54,7 +60,15 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1479993534, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 296141222, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1985007777, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1918207524, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 488236779, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 2137989374, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -66,7 +80,7 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 580321256, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
 - Class: 114
-  Script: {fileID: 529451145, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
+  Script: {fileID: -1350347239, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
 - Class: 114
   Script: {fileID: 1937965295, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
 - Class: 114
@@ -102,8 +116,10 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupLifeSavings.prefab
 - Assets/LostInTransit/LITAssets/EquipmentDefs/GiganticAmethyst.asset
 - Assets/Textures/Stolen/texCloudOrganic2.asset
+- Assets/Textures/Stolen/texCloudLightning1.asset
 - Assets/Icons/texIconPickupBitterRoot.png
 - Assets/Mesh/meshCross.mesh
+- Assets/LostInTransit/LITAssets/Prefabs/NetworkedObjects/VolatileEquipBodyAttachment.prefab
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupMysteriousVial.prefab
 - Assets/Textures/Stolen/Ramps/texRampMagmaWorm.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/LeechingRegen.asset
@@ -117,6 +133,7 @@ Assets:
 - Assets/Textures/Ramps/texRampTwotone.png
 - Assets/Icons/texIconPickupAffixFrenzied.png
 - Assets/Icons/texIconBuffAffixBlight.png
+- Assets/Materials/matVolatileChargeExplosion.mat
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupThallium.prefab
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixBlighted.asset
 - Assets/Materials/matAffixVolatile.mat
@@ -155,6 +172,7 @@ Assets:
 - Assets/Icons/texIconBuffAffixVolatile.png
 - Assets/Textures/Ramps/texRampLeechingAlt.png
 - Assets/Materials/matGoldenGun.mat
+- Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectVolatileChargeExplosion.prefab
 - Assets/Materials/matBlightSmoke2.mat
 - Assets/Textures/texGiganticAmethyst.png
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixVolatile.asset
@@ -185,13 +203,14 @@ Assets:
 - Assets/Mesh/meshMysteriousVialGlass.mesh
 - Assets/Materials/matMysteriousVialGlass.mat
 - Assets/Textures/Stolen/texOmniExplosion2Mask.asset
-- Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/LITItemDisplays.asset
 - Assets/Textures/texTelescopicSightDiffuse.png
 - Assets/Textures/Ramps/texRampEliteBlighted.png
 - Assets/Mesh/meshGiganticAmethyst.mesh
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectsForEffectManager/Effects.asset
+- Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/KADPH.asset
 - Assets/LostInTransit/LITAssets/ItemDefs/RepulsionChestplate.asset
 - Assets/Materials/matTracerLeeching.mat
+- Assets/LostInTransit/LITAssets/EntityStateConfigs/EntityStates.Elites.VolatileExplosion.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/GoldenGun.asset
 - Assets/Icons/texIconBuffAffixFrenzied.png
 - Assets/Materials/matMysteriousVialLiquid.mat

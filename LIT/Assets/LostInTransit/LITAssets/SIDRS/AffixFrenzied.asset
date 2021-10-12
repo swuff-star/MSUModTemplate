@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AffixFrenzied
   m_EditorClassIdentifier: 
   KeyAssetName: AffixFrenzied
-  displayPrefabName: DisplayFrenzied
+  displayPrefabName: AffixFrenziedDisplayPrefab_0
   SingleItemDisplayRules:
   - VanillaIDRSKey: idrsVulture
     ItemDisplayRules:

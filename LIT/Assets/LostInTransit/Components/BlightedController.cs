@@ -19,7 +19,7 @@ namespace LostInTransit.Components
         [SyncVar]
         public int SecondEliteIndex;
 
-        public EliteDef[] availableElites { get => Blight.EliteDefsForBlightedElites.ToArray(); }
+        public EliteDef[] availableElites { get => Elites.Blight.EliteDefsForBlightedElites.ToArray(); }
 
         public AffixBlighted.AffixBlightedBehavior buffBehavior;
 

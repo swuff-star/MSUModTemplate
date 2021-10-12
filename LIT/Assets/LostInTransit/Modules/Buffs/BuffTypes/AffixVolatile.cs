@@ -7,6 +7,9 @@ using Moonstorm;
 using RoR2;
 using UnityEngine;
 using R2API;
+using RoR2.Artifacts;
+using LostInTransit.Elites;
+using UnityEngine.Networking;
 
 namespace LostInTransit.Buffs
 {
@@ -34,21 +37,108 @@ namespace LostInTransit.Buffs
 
         public class AffixVolatileBehavior : CharacterBody.ItemBehavior, IOnTakeDamageServerReceiver
         {
+            private float diffScaling { get => DifficultyCatalog.GetDifficultyDef(Run.instance.selectedDifficulty).scalingValue; }
+            private GameObject bomb;
+
+            public float damageThreshold;
+            public float tankedDamage;
+
             private void Start()
             {
                 if (body.healthComponent)
                 {
                     HG.ArrayUtils.ArrayAppend(ref body.healthComponent.onTakeDamageReceivers, this);
                 }
+
+                damageThreshold = (body.maxHealth / 1.5f) / diffScaling;
+                bomb = VolatileSpitebomb.VolatileSpiteBomb;
             }
             internal void Ability()
             {
-
+                var bodyStateMachine = body.GetComponents<EntityStateMachine>().Where(x => x.customName == "Weapon").First();
+                if(bodyStateMachine && body.healthComponent.alive)
+                {
+                    bodyStateMachine.SetNextState(new EntityStates.VagrantMonster.ChargeMegaNova());
+                }
             }
 
             public void OnTakeDamageServer(DamageReport damageReport)
             {
-                Debug.Log("On take Damage!");
+                tankedDamage += damageReport.damageDealt;
+            }
+
+            private void Update()
+            {
+                if(tankedDamage > damageThreshold)
+                {
+                    tankedDamage = 0f;
+                    PrepBombs();
+                }
+            }
+
+            private void PrepBombs()
+            {
+                if (!NetworkServer.active)
+                    return;
+
+                if(bomb)
+                {
+                    int bombAmount = Mathf.Min(BombArtifactManager.maxBombCount, Mathf.CeilToInt(body.bestFitRadius * BombArtifactManager.extraBombPerRadius));
+                    List<(BombArtifactManager.BombRequest, float)> bombs = new List<(BombArtifactManager.BombRequest, float)>();
+                    for(int i = 0; i < bombAmount; i++)
+                    {
+                        Vector3 b = UnityEngine.Random.insideUnitSphere * (BombArtifactManager.bombSpawnBaseRadius + body.bestFitRadius * BombArtifactManager.bombSpawnRadiusCoefficient);
+                        BombArtifactManager.BombRequest bomb = new BombArtifactManager.BombRequest
+                        {
+                            spawnPosition = body.corePosition,
+                            raycastOrigin = body.corePosition + b,
+                            bombBaseDamage = body.damage * BombArtifactManager.bombDamageCoefficient,
+                            attacker = body.gameObject,
+                            teamIndex = body.teamComponent.teamIndex,
+                            velocityY = UnityEngine.Random.Range(5f, 25f)
+                        };
+                        Ray ray = new Ray(bomb.raycastOrigin + new Vector3(0f, BombArtifactManager.maxBombStepUpDistance, 0f), Vector3.down);
+                        float maxDistance = BombArtifactManager.maxBombStepUpDistance + BombArtifactManager.maxBombFallDistance;
+                        RaycastHit rayCastHit;
+                        if(Physics.Raycast(ray, out rayCastHit, maxDistance, LayerIndex.world.mask, QueryTriggerInteraction.Ignore))
+                        {
+                            bombs.Add((bomb, rayCastHit.point.y));
+                        }
+                    }
+                    SpawnBombs(bombs);
+                }
+            }
+
+            private void SpawnBombs(List<(BombArtifactManager.BombRequest, float)> bombs)
+            {
+                foreach((BombArtifactManager.BombRequest bomb, float groundY) in bombs)
+                {
+                    Vector3 spawnPosition = bomb.spawnPosition;
+                    if (spawnPosition.y < groundY + 4f)
+                    {
+                        spawnPosition.y = groundY + 4f;
+                    }
+                    Vector3 raycastOrigin = bomb.raycastOrigin;
+                    raycastOrigin.y = groundY;
+                    GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(BombArtifactManager.bombPrefab, spawnPosition, UnityEngine.Random.rotation);
+                    SpiteBombController component = gameObject.GetComponent<SpiteBombController>();
+                    DelayBlast delayBlast = component.delayBlast;
+                    TeamFilter component2 = gameObject.GetComponent<TeamFilter>();
+                    component.bouncePosition = raycastOrigin;
+                    component.initialVelocityY = bomb.velocityY;
+                    delayBlast.position = spawnPosition;
+                    delayBlast.baseDamage = bomb.bombBaseDamage;
+                    delayBlast.baseForce = 2300f;
+                    delayBlast.attacker = bomb.attacker;
+                    delayBlast.radius = BombArtifactManager.bombBlastRadius;
+                    delayBlast.crit = false;
+                    delayBlast.procCoefficient = 0.75f;
+                    delayBlast.maxTimer = BombArtifactManager.bombFuseTimeout;
+                    delayBlast.timerStagger = 0f;
+                    delayBlast.falloffModel = BlastAttack.FalloffModel.None;
+                    component2.teamIndex = bomb.teamIndex;
+                    NetworkServer.Spawn(gameObject);
+                }
             }
 
 
@@ -58,7 +148,7 @@ namespace LostInTransit.Buffs
                 if (dmgInfo.procCoefficient != 0f && !DamageAPI.HasModdedDamageType(dmgInfo, DamageTypes.Volatile.volatileDamageType))
                 {
                     float radius = 1.5f + (2.5f * dmgInfo.procCoefficient);
-                    float dmgCoef = 0.75f;
+                    float dmgCoef = 0.3f;
                     float baseDamage = Util.OnHitProcDamage(dmgInfo.damage, atkBody.damage, dmgCoef);
                     EffectManager.SpawnEffect(Resources.Load<GameObject>("Prefabs/Effects/OmniEffect/OmniExplosionVFXQuick"), new EffectData
                     {

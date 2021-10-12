@@ -83,21 +83,25 @@
 	
 	"LIT_EQUIP_AFFIXLEECHING_NAME": "Guttural Whimpers",
 	"LIT_EQUIP_AFFIXLEECHING_PICKUP": "Become an aspect of parasitism.",
+	"ASPECTABILITIES_LIT_EQUIP_AFFIXLEECHING_PICKUP" : "Restore nearby allies's health on hit.",
 	"LIT_EQUIP_AFFIXLEECHING_DESC": "Become an aspect of parasitism.",
 	"LIT_EQUIP_AFFIXLEECHING_LORE": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
 	
 	"LIT_EQUIP_AFFIXVOLATILE_NAME": "Lingering Torment",
 	"LIT_EQUIP_AFFIXVOLATILE_PICKUP": "Become an aspect of instability.",
+	"ASPECTABILITIES_LIT_EQUIP_AFFIXVOLATILE_PICKUP" : "Charge a Mini Explosion that harms nearby enemies",
 	"LIT_EQUIP_AFFIXVOLATILE_DESC": "Become an aspect of instability.",
 	"LIT_EQUIP_AFFIXVOLATILE_LORE": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
 	
 	"LIT_EQUIP_AFFIXFRENZIED_NAME": "Primordial Rage",
 	"LIT_EQUIP_AFFIXFRENZIED_PICKUP": "Become an aspect of seething.",
+	"ASPECTABILITIES_LIT_EQUIP_AFFIXFRENZIED_PICKUP" : "Reduced Cooldowns on Use.",
 	"LIT_EQUIP_AFFIXFRENZIED_DESC": "Become an aspect of seething.",
 	"LIT_EQUIP_AFFIXFRENZIED_LORE": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
 	
 	"LIT_EQUIP_AFFIXBLIGHTED_NAME": "Betrayal of the Bulwark",
 	"LIT_EQUIP_AFFIXBLIGHTED_PICKUP": "Become another misguided soul.",
+	"ASPECTABILITIES_LIT_EQUIP_AFFIXBLIGHTED_PICKUP" : "Reshuffle your 2 Elite Buffs.",
 	"LIT_EQUIP_AFFIXBLIGHTED_DESC": "Become another misguided soul.",
 	"LIT_EQUIP_AFFIXBLIGHTED_LORE": "<style=cDeath>Whoa, hold up there, partner! You weren't supposed to see this... Do me a favor, and report this to the authors, will ya? ...And don't do it again!</style>",
 	

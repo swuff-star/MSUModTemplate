@@ -8,9 +8,10 @@ using UnityEngine;
 using UnityEngine.Networking;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
+using Elites = LostInTransit.Modules.Elites;
 using static MonoMod.Cil.RuntimeILReferenceBag.FastDelegateInvokers;
 
-namespace LostInTransit.Modules
+namespace LostInTransit.Elites
 {
     public static class Blight
     {
@@ -69,9 +70,9 @@ namespace LostInTransit.Modules
                 });
             List<EliteDef> availableElites = new List<EliteDef>() { RoR2Content.Elites.Fire, RoR2Content.Elites.Ice, RoR2Content.Elites.Lightning };
 
-            for (int i = 0; i < Elites.MoonstormElites.Count; i++)
-                if (Elites.MoonstormElites[i].eliteTier == EliteTiers.Basic)
-                    availableElites.Add(Elites.MoonstormElites[i]);
+            for (int i = 0; i < EliteModuleBase.MoonstormElites.Count; i++)
+                if (EliteModuleBase.MoonstormElites[i].eliteTier == EliteTiers.Basic)
+                    availableElites.Add(EliteModuleBase.MoonstormElites[i]);
 
             EliteDefsForBlightedElites.AddRange(availableElites);
 

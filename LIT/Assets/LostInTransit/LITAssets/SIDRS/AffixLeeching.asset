@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AffixLeeching
   m_EditorClassIdentifier: 
   KeyAssetName: AffixLeeching
-  displayPrefabName: DisplayLeechingCrown
+  displayPrefabName: AffixLeechingDisplayPrefab_0
   SingleItemDisplayRules:
   - VanillaIDRSKey: idrsVulture
     ItemDisplayRules:

@@ -2,7 +2,8 @@
     "name": "LITEditor",
     "references": [
         "LostInTransit",
-        "ThunderKit.Core"
+        "ThunderKit.Core",
+        "MoonstormEditorUtils"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
@@ -14,7 +15,8 @@
         "HGUnityUtils.dll",
         "HGCSharpUtils.dll",
         "StubbedAssembly-CSharp (1).dll",
-        "MoonstormSharedUtils.dll"
+        "MoonstormSharedUtils.dll",
+        ""
     ],
     "autoReferenced": true,
     "defineConstraints": [

@@ -71,7 +71,7 @@ namespace LostInTransit
             new DamageTypes.DamageTypes().Init();
             new Modules.Projectiles().Init();
             new Pickups().Init();
-            new Elites().Init();
+            new Modules.Elites().Init();
 
             new ItemDisplays().Init();
 

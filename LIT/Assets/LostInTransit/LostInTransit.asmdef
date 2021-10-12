@@ -17,7 +17,8 @@
         "AspectAbilities.dll",
         "MysticsRisky2Utils.dll",
         "StubbedAssembly-CSharp (1).dll",
-        "MoonstormSharedUtils.dll"
+        "MoonstormSharedUtils.dll",
+        "HGUnityUtils.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []

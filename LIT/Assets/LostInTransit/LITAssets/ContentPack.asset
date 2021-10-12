@@ -16,7 +16,8 @@ MonoBehaviour:
   masterPrefabs: []
   projectilePrefabs: []
   gameModePrefabs: []
-  networkedObjectPrefabs: []
+  networkedObjectPrefabs:
+  - {fileID: 5605638329512005404, guid: c50d31a1b60e23147b406c98b6e4ae69, type: 3}
   skillDefs: []
   skillFamilies: []
   sceneDefs: []
@@ -31,5 +32,6 @@ MonoBehaviour:
   networkSoundEventDefs: []
   musicTrackDefs: []
   gameEndingDefs: []
-  entityStateConfigurations: []
+  entityStateConfigurations:
+  - {fileID: 11400000, guid: 2fbcfec9346736f4fad759eb10c6bf57, type: 2}
   entityStateTypes: []
