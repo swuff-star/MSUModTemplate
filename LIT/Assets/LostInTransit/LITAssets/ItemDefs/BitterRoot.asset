@@ -20,7 +20,7 @@ MonoBehaviour:
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 8209252503542907621, guid: b084b0145ab88d14493cc40249434c9b,
     type: 3}
-  pickupIconSprite: {fileID: 21300000, guid: 9d84c361a41a5b840b48796624f1efb0, type: 3}
+  pickupIconSprite: {fileID: 21300000, guid: c47f849140f2d7541b95d0e2f79ebf09, type: 3}
   hidden: 0
   canRemove: 1
   tags: 02000000

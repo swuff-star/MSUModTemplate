@@ -9,8 +9,8 @@ namespace LostInTransit.Items
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("TelescopicSight");
 
         public static string section;
-        public static float BaseChance;
-        public static float StackChance;
+        public static float newBaseChance;
+        public static float newStackChance;
         public static float TeleCooldown;
         public static float TeleCooldownStack;
         public static float ExceptionHealthPercentage;
@@ -25,8 +25,8 @@ namespace LostInTransit.Items
         public override void Config()
         {
             section = "Item: " + ItemDef.name;
-            BaseChance = LITMain.config.Bind<float>(section, "Base Proc Chance", 1f, "Base Proc Chance for Telescopic Sight.").Value;
-            StackChance = LITMain.config.Bind<float>(section, "Stack Proc Chance", 0.5f, "Stack proc chance for each telescopic sight.").Value;
+            newBaseChance = LITMain.config.Bind<float>(section, "Base Proc Chance", 1f, "Base Proc Chance for Telescopic Sight.").Value;
+            newStackChance = LITMain.config.Bind<float>(section, "Stack Proc Chance", 0.5f, "Stack proc chance for each telescopic sight.").Value;
             TeleCooldown = LITMain.config.Bind<float>(section, "Cooldown", 20f, "Cooldown until Telescopic Sight can proc again.").Value;
             TeleCooldownStack = LITMain.config.Bind<float>(section, "Cooldown Reduction Per Stack", 2f, "Seconds removed from the cooldown per stack.").Value;
             ExceptionHealthPercentage = LITMain.config.Bind<float>(section, "Exceptions Health Percentage", 20f, "Percentage of max health that's dealt to set exceptions.").Value;
@@ -37,7 +37,7 @@ namespace LostInTransit.Items
         public override void DescriptionToken()
         {
             LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
-                $"<style=cIsDamage>{BaseChance}%</style> <style=cStack>(+{StackChance}% per stack)</style> chance to <style=cIsDamage>instakill monsters</style>. Boss monsters instead take <style=cIsDamage>{ExceptionHealthPercentage}% of their maximum health</style> in damage. Recharges every <style=cIsUtility>{TeleCooldown}</style> <style=cStack>(-{TeleCooldownStack} per stack)</style> seconds.",
+                $"<style=cIsDamage>{newBaseChance}%</style> <style=cStack>(+{newStackChance}% per stack)</style> chance to <style=cIsDamage>instakill monsters</style>. Boss monsters instead take <style=cIsDamage>{ExceptionHealthPercentage}% of their maximum health</style> in damage. Recharges every <style=cIsUtility>{TeleCooldown}</style> <style=cStack>(-{TeleCooldownStack} per stack)</style> seconds.",
                 LangEnum.en);
         }
 
@@ -69,8 +69,8 @@ namespace LostInTransit.Items
             }
             private float CalcChance()
             {
-                float stackChance = StackChance * (stack - 1);
-                return BaseChance + stackChance;
+                float stackChance = newStackChance * (stack - 1);
+                return newBaseChance + stackChance;
             }
             private float CalcCooldown()
             {

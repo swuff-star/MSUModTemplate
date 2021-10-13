@@ -12,7 +12,7 @@
 	
 	"LIT_ITEM_LIFESAVINGS_NAME": "Life Savings",
 	"LIT_ITEM_LIFESAVINGS_PICKUP": "Keep a small amount of gold between stages.",
-	"LIT_ITEM_LIFESAVINGS_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/MoltenCoin</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read </style=cIsHealing>more information</style> about this type of error.",
+	"LIT_ITEM_LIFESAVINGS_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.</style>\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/MoltenCoin</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read <style=cIsHealing>more information</style> about this type of error.",
 	
 	"LIT_ITEM_MORTARTUBE_NAME": "Mortar Tube",
 	"LIT_ITEM_MORTARTUBE_PICKUP": "Chance to fire a mortar on hit.",
@@ -21,7 +21,7 @@
 	
 	"LIT_ITEM_MYSTERIOUSVIAL_NAME": "Mysterious Vial",
 	"LIT_ITEM_MYSTERIOUSVIAL_PICKUP": "Increased health regeneration.",
-	"LIT_ITEM_MYSTERIOUSVIAL_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/CautiousSlug</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read </style=cIsHealing>more information</style> about this type of error.",
+	"LIT_ITEM_MYSTERIOUSVIAL_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.</style>\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/CautiousSlug</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read <style=cIsHealing>more information</style> about this type of error.",
 	
 	"LIT_ITEM_ARMSRACE_NAME": "Arms Race",
 	"LIT_ITEM_ARMSRACE_PICKUP": "Upgrade purchased drones with missiles, mortars, and shields.",
@@ -47,7 +47,7 @@
 	
 	"LIT_ITEM_PRISONSHACKLES_NAME": "Prison Shackles",
 	"LIT_ITEM_PRISONSHACKLES_PICKUP": "Slow enemy attacks on hit.",
-	"LIT_ITEM_PRISONSHACKLES_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/Chronobauble</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read </style=cIsHealing>more information</style> about this type of error.",
+	"LIT_ITEM_PRISONSHACKLES_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.</style>\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/Chronobauble</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read <style=cIsHealing>more information</style> about this type of error.",
 	
 	"LIT_ITEM_OLLOPPER_NAME": "The Ol' Lopper",
 	"LIT_ITEM_OLLOPPER_PICKUP": "Instantly kill monsters below <style=cIsHealth>7.5%</style> <style=cStack>(+7.5% per stack)</style> <style=cIsHealth>health</style>.",

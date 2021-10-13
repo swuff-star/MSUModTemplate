@@ -30,7 +30,7 @@ namespace LostInTransit.Items
         public override void DescriptionToken()
         {
             LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
-                $"<style=cIsUtility>Slow</style> enemies on hit for <style=cIsUtility>-{slowMultiplier}% attack speed</style> for <style=cIsUtility>{duration}s</style> <style=cStack>(+{durationStack}s per stack)</style>.",
+                $"<style=cIsUtility>Slow</style> enemies on hit for <style=cIsUtility>-{slowMultiplier * 100}% attack speed</style> for <style=cIsUtility>{duration}s</style> <style=cStack>(+{durationStack}s per stack)</style>.",
                 LangEnum.en);
         }
         public override void AddBehavior(ref CharacterBody body, int stack)

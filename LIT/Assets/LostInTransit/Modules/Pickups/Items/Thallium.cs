@@ -36,7 +36,7 @@ namespace LostInTransit.Items
         public override void DescriptionToken()
         {
             LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
-                $"<style=cIsDamage>{procChance}%</style> chance to inflict thallium poisoning for <style=cIsDamage>{dmgCoefficient * duration}%</style> <style=cStack>(+{dmgCoefficient * durationStack}% per stack)</style> of the victim's base damage and slow by <style=cIsUtility>{newSlowMultiplier}% movement speed</style>.",
+                $"<style=cIsDamage>{procChance}%</style> chance to inflict thallium poisoning for <style=cIsDamage>{dmgCoefficient * duration * 100}%</style> <style=cStack>(+{dmgCoefficient * durationStack * 100}% per stack)</style> of the victim's base damage and slow for <style=cIsUtility>{newSlowMultiplier * 100}% movement speed</style>.",
                 LangEnum.en);
         }
         public override void AddBehavior(ref CharacterBody body, int stack)

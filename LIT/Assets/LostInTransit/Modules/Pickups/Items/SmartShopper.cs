@@ -26,7 +26,7 @@ namespace LostInTransit.Items
         public override void DescriptionToken()
         {
             LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
-                $"Monsters drop <style=cIsUtility>{goldAmount}%</style> <style=cStack>(+{goldAmount}% per stack)</style> more gold.",
+                $"Monsters drop <style=cIsUtility>{goldAmount * 100}%</style> <style=cStack>(+{goldAmount * 100}% per stack)</style> more gold.",
                 LangEnum.en);
         }
 

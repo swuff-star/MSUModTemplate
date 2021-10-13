@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2290468825
+CRC: 1711894084
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: cd59a7cf2f70b3aebe990114f6a8a2c5
+    Hash: f01f74e08e1980f930826452023b5147
   TypeTreeHash:
     serializedVersion: 2
     Hash: 84be276650e058d0516a8b3aaa553c8f
@@ -117,8 +117,8 @@ Assets:
 - Assets/LostInTransit/LITAssets/EquipmentDefs/GiganticAmethyst.asset
 - Assets/Textures/Stolen/texCloudOrganic2.asset
 - Assets/Textures/Stolen/texCloudLightning1.asset
-- Assets/Icons/texIconPickupBitterRoot.png
 - Assets/Mesh/meshCross.mesh
+- Assets/Icons/texIconPickupBitterRoot.png
 - Assets/LostInTransit/LITAssets/Prefabs/NetworkedObjects/VolatileEquipBodyAttachment.prefab
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupMysteriousVial.prefab
 - Assets/Textures/Stolen/Ramps/texRampMagmaWorm.asset
@@ -148,6 +148,7 @@ Assets:
 - Assets/Textures/texSmartShopperDifuse.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupSmartShopper.prefab
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupBitterRoot.prefab
+- Assets/Mesh/meshPrisonShackles.mesh
 - Assets/Textures/texLifeSavingsNormal.png
 - Assets/Materials/matOverlayLeeching.mat
 - Assets/Icons/texIconPickupThallium.png
@@ -183,6 +184,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/BuffDefs/RepulsionArmorCD.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/AffixBlighted.asset
 - Assets/Icons/texIconPickupAffixVolatile.png
+- Assets/Textures/texPrisonShacklesN.png
 - Assets/LostInTransit/LITAssets/Anims/BeckoningCat/avatarBeckoningCat.asset
 - Assets/Mesh/meshThallium.mesh
 - Assets/Icons/texIconBuffThallium.png
@@ -191,6 +193,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/Anims/BeckoningCat/animBeckoningCatIdle.anim
 - Assets/LostInTransit/LITAssets/ItemDefs/BeckoningCat.asset
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixLeeching.asset
+- Assets/Textures/texPrisonShackles.png
 - Assets/Materials/matOverlayBlighted.mat
 - Assets/Icons/texIconPickupSmartShopper.png
 - Assets/Icons/texIconPickupBeckoningCat.png
@@ -200,6 +203,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayBeckoningCat.prefab
 - Assets/Icons/texIconRepulsionCharging.png
 - Assets/Materials/matThallium.mat
+- Assets/Materials/matPrisonShackles.mat
 - Assets/LostInTransit/LITAssets/EquipmentDefs/Thqwib.asset
 - Assets/Mesh/meshBeckoningCat.mesh
 - Assets/Textures/texSmartShopperNormal.png
@@ -216,6 +220,7 @@ Assets:
 - Assets/Materials/matTracerLeeching.mat
 - Assets/LostInTransit/LITAssets/EntityStateConfigs/EntityStates.Elites.VolatileExplosion.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/GoldenGun.asset
+- Assets/LostInTransit/LITAssets/Prefabs/Pickups/pickupPrisonShackles.prefab
 - Assets/Icons/texIconBuffAffixFrenzied.png
 - Assets/Materials/matMysteriousVialLiquid.mat
 - Assets/LostInTransit/LITAssets/BuffDefs/ThalliumPoison.asset
