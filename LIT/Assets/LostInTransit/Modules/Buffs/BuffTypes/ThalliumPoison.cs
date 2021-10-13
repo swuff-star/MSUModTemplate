@@ -27,7 +27,7 @@ namespace LostInTransit.Buffs
         {
             public void RecalculateStatsEnd()
             {
-                body.moveSpeed *= LostInTransit.Items.Thallium.slowMultiplier;
+                body.moveSpeed *= LostInTransit.Items.Thallium.newSlowMultiplier;
             }
 
             public void RecalculateStatsStart()

@@ -12,7 +12,7 @@
 	
 	"LIT_ITEM_LIFESAVINGS_NAME": "Life Savings",
 	"LIT_ITEM_LIFESAVINGS_PICKUP": "Keep a small amount of gold between stages.",
-	"LIT_ITEM_LIFESAVINGS_LORE": "<style=cDeath>WORK IN PROGRESS</style>",
+	"LIT_ITEM_LIFESAVINGS_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/MoltenCoin</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read </style=cIsHealing>more information</style> about this type of error.",
 	
 	"LIT_ITEM_MORTARTUBE_NAME": "Mortar Tube",
 	"LIT_ITEM_MORTARTUBE_PICKUP": "Chance to fire a mortar on hit.",
@@ -21,7 +21,7 @@
 	
 	"LIT_ITEM_MYSTERIOUSVIAL_NAME": "Mysterious Vial",
 	"LIT_ITEM_MYSTERIOUSVIAL_PICKUP": "Increased health regeneration.",
-	"LIT_ITEM_MYSTERIOUSVIAL_LORE": "<style=cDeath>WORK IN PROGRESS</style>",
+	"LIT_ITEM_MYSTERIOUSVIAL_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/CautiousSlug</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read </style=cIsHealing>more information</style> about this type of error.",
 	
 	"LIT_ITEM_ARMSRACE_NAME": "Arms Race",
 	"LIT_ITEM_ARMSRACE_PICKUP": "Upgrade purchased drones with missiles, mortars, and shields.",
@@ -39,12 +39,15 @@
 	
 	"LIT_ITEM_GOLDENGUN_NAME": "Golden Gun",
 	"LIT_ITEM_GOLDENGUN_PICKUP": "More gold, more damage.",
-
 	"LIT_ITEM_GOLDENGUN_LORE": "Order: Venusian Firearm Artifact\nTracking Number: 420****\nEstimated Delivery: 2/19/2056\nShipping Method: Priority\nShipping Address: 3017 Turnbuckle Lane, Old York, Earth\nShipping Details:\n\nNever seen anything like this. Hoping you and your team could take a look.\n\nCarbon dated back over a thousand years, we found it in the ruins of Hazard Sector M-Four, surrounded by a large, crumbled structure. Compared to surrounding artifacts, it is double their age, and carries much higher levels of radiation.\n\nIt appears to be a modified Desert Eagle - Terran production, likely late twentieth century - edited to be top-fed coins, and fire them through its much taller than average barrel. Plated in pure, twenty four karat gold, it'll likely be the most valuable artifact we've ever collected - but I'd like to hold on putting it up for auction.\n\nI'm mystified by two specific details upon the firearm. At the bottom of the stock, a strange triangular symbol, which resembles the \"Eye of Providence\" used on American currency, as well as a pair of initials: \"Y.V.\" Our records do not show any individuals with those specific initials living in M-Four before the collapse. Perhaps your more experienced staff could take a deeper look?\n\nAll the best, Doctor Harold Deluca",
 	
 	"LIT_ITEM_SMARTSHOPPER_NAME": "Smart Shopper",
 	"LIT_ITEM_SMARTSHOPPER_PICKUP": "Monsters drop more gold.",
 	"LIT_ITEM_SMARTSHOPPER_LORE": "Order: Wallet\nTracking Number: 100****\nEstimated Delivery: 4/2/2057\nShipping Method: Priority\nShipping Address: PO Box 18789, Alcore, Mars\nShipping Details:\n\nThese were NOT meant to get out. Some kid is already showing off his \"magic wallet\" that prints money! It's all over the damned news! You're gonna pay for this, you hear? For every one that's missing when I see you, I'll take one of your fingers. See you soon, Alex.",
+	
+	"LIT_ITEM_PRISONSHACKLES_NAME": "Prison Shackles",
+	"LIT_ITEM_PRISONSHACKLES_PICKUP": "Slow enemy attacks on hit.",
+	"LIT_ITEM_PRISONSHACKLES_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/Chronobauble</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read </style=cIsHealing>more information</style> about this type of error.",
 	
 	"LIT_ITEM_OLLOPPER_NAME": "The Ol' Lopper",
 	"LIT_ITEM_OLLOPPER_PICKUP": "Instantly kill monsters below <style=cIsHealth>7.5%</style> <style=cStack>(+7.5% per stack)</style> <style=cIsHealth>health</style>.",
@@ -79,7 +82,7 @@
 	
 	"LIT_EQUIP_THQWIB_NAME": "Thqwib",
 	"LIT_EQUIP_THQWIB_PICKUP": "Release a bloom of thqwibs, detonating on impact with a chance to trigger 'On Kill' effects.",
-	"LIT_EQUIP_THQWIB_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/ForgiveMePlease</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read </style=cIsHealing>more information</style> about this type of error.",
+	"LIT_EQUIP_THQWIB_LORE": "Thqwib <style=cStack>(pl. Thqwibs, see below for variants)</style> are soft-bodied, mollusc-like creatures of a currently unestablished order. Unlike most molluscs and cephalopods, Thqwibs are asymmetric, and may have anywhere between five to nine tentacle appendages, and either one or two eyes on each side of its body. No mouthparts have been discovered upon dissection. Their soft bodies can radically alter their shape, but easily burst upon small force being applied. Due to high amounts of acidic liquid stored within their body, this can be dangerous for biological material in the area around the explosion. Like cephalopods, Thqwibs use their appendages in conjunction with a specialized siphon to locomote through the atmosphere of Petrichor V.\n\nThqwibs inhabit various regions of Petrichor V, at all altitutdes and temperatures, and grow quickly, maturing in only a few months. With their excellent environmental resistance and speedy reproduction, they can easily overtake an area in swarms, which can cause other inhabitants to evacuate in droves. These swarms are known as \"odes.\" Stepping into an ode is not recommended.",
 	
 	"LIT_EQUIP_AFFIXLEECHING_NAME": "Guttural Whimpers",
 	"LIT_EQUIP_AFFIXLEECHING_PICKUP": "Become an aspect of parasitism.",

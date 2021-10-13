@@ -28,16 +28,16 @@ namespace LostInTransit.Items
             BaseChance = LITMain.config.Bind<float>(section, "Base Proc Chance", 1f, "Base Proc Chance for Telescopic Sight.").Value;
             StackChance = LITMain.config.Bind<float>(section, "Stack Proc Chance", 0.5f, "Stack proc chance for each telescopic sight.").Value;
             TeleCooldown = LITMain.config.Bind<float>(section, "Cooldown", 20f, "Cooldown until Telescopic Sight can proc again.").Value;
-            TeleCooldownStack = LITMain.config.Bind<float>(section, "Cooldown Reduction Per Stack", 2f, "Seconds Removed from the cooldown per stack.").Value;
-            ExceptionHealthPercentage = LITMain.config.Bind<float>(section, "Exceptions Health Percentage", 20f, "Health Percentage of remaining health that's dealt to Exceptions.").Value;
-            InstakillBosses = LITMain.config.Bind<bool>(section, "Instakill Bosses", false, "Wether the Telescopic Sight should instakill bosses.\nIf false, The bosses are treated as Exceptions.").Value;
-            InstakillElites = LITMain.config.Bind<bool>(section, "Instakill Elites", true, "Wether the Telescopic Sight should Instakill Elites.\nIf false, the Elites are treated as Exceptions.").Value;
+            TeleCooldownStack = LITMain.config.Bind<float>(section, "Cooldown Reduction Per Stack", 2f, "Seconds removed from the cooldown per stack.").Value;
+            ExceptionHealthPercentage = LITMain.config.Bind<float>(section, "Exceptions Health Percentage", 20f, "Percentage of max health that's dealt to set exceptions.").Value;
+            InstakillBosses = LITMain.config.Bind<bool>(section, "Instakill Bosses", false, "Whether Telescopic Sight should instakill boss monsters.").Value;
+            InstakillElites = LITMain.config.Bind<bool>(section, "Instakill Elites", true, "Whether Telescopic Sight should instakill elite monsters.").Value;
         }
         //Good luck i guess, lol.
         public override void DescriptionToken()
         {
             LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
-                $"Gain <style=cIsUtility>10% critical chance</style>. <style=cIsDamage>5%</style> <style=cStack>(+5% per stack)</style> chance for critical strikes to <style=cIsDamage>instantly kill</style> enemies. Bosses receive <style=cIsDamage>300%</style> TOTAL damage instead of being instantly killed.",
+                $"<style=cIsDamage>{BaseChance}%</style> <style=cStack>(+{StackChance}% per stack)</style> chance to <style=cIsDamage>instakill monsters</style>. Boss monsters instead take <style=cIsDamage>{ExceptionHealthPercentage}% of their maximum health</style> in damage. Recharges every <style=cIsUtility>{TeleCooldown}</style> <style=cStack>(-{TeleCooldownStack} per stack)</style> seconds.",
                 LangEnum.en);
         }
 
@@ -62,7 +62,7 @@ namespace LostInTransit.Items
                         }
                         else
                         {
-                            damageInfo.damage = victimHealthComponent.health * (ExceptionHealthPercentage / 100);
+                            damageInfo.damage = victimHealthComponent.body.maxHealth * (ExceptionHealthPercentage / 100);
                         }
                     }
                 }
@@ -76,11 +76,13 @@ namespace LostInTransit.Items
             {
                 //Yknow, we should NEVER reach a cooldown of 0, so this caps the cooldown at around 10 seconds.
                 return TeleCooldown - ((1 - 1 / (1 + 0.25f * (stack - 1))) * 10);
+                //Agreeable.
             }
             /*
              * This code dictates wether the body can be instakilled or not, based off the config and the CharacterBody.
              * By default, only normal enemies & elites should be instakillable, Bosses are treated as exceptions.
              */
+            //Hey, English lesson: "whether". There's no need for the 'h', but it's there for... some reason.
             private bool ChooseWetherToInstakill(CharacterBody body)
             {
 
