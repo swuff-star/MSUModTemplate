@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1711894084
+CRC: 3160688610
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f01f74e08e1980f930826452023b5147
+    Hash: a0d081363d6455b317b3a51463465309
   TypeTreeHash:
     serializedVersion: 2
     Hash: 84be276650e058d0516a8b3aaa553c8f
@@ -131,6 +131,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/BuffDefs/AffixLeeching.asset
 - Assets/Textures/Stolen/texParticleDust1Mask.asset
 - Assets/Materials/matAffixLeeching.mat
+- Assets/LostInTransit/LITAssets/SIDRS/GoldenGun.asset
 - Assets/LostInTransit/LITAssets/ItemDefs/SmartShopper.asset
 - Assets/Textures/Ramps/texRampTwotone.png
 - Assets/Icons/texIconPickupAffixFrenzied.png
@@ -188,6 +189,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/Anims/BeckoningCat/avatarBeckoningCat.asset
 - Assets/Mesh/meshThallium.mesh
 - Assets/Icons/texIconBuffThallium.png
+- Assets/LostInTransit/LITAssets/SIDRS/BLANKIDRSTEMPLATE.asset
 - Assets/Icons/texIconPickupAffixLeeching.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixBlighted.prefab
 - Assets/LostInTransit/LITAssets/Anims/BeckoningCat/animBeckoningCatIdle.anim
@@ -223,6 +225,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/pickupPrisonShackles.prefab
 - Assets/Icons/texIconBuffAffixFrenzied.png
 - Assets/Materials/matMysteriousVialLiquid.mat
+- Assets/LostInTransit/LITAssets/SIDRS/MysteriousVial.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/ThalliumPoison.asset
 - Assets/LostInTransit/LITAssets/EliteAbilities/AbilityBlighted.asset
 - Assets/Icons/Thqwib.png
@@ -251,9 +254,11 @@ Assets:
 - Assets/Icons/texIconTeleSightCD.png
 - Assets/Materials/matAffixBlighted 1.mat
 - Assets/LostInTransit/LITAssets/BuffDefs/TeleSightCD.asset
+- Assets/LostInTransit/LITAssets/SIDRS/BeckoningCat.asset
 - Assets/LostInTransit/LITAssets/EliteAbilities/AbilityFrenzying.asset
 - "Assets/Icons/texIconP\xEFckupLifeSavings.png"
 - Assets/Mesh/meshLifeSavings.mesh
+- Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayGoldenGun.prefab
 - Assets/Mesh/meshAffixFrenzied.mesh
 - Assets/Icons/texIconBuffAffixLeeching.png
 - Assets/LostInTransit/LITAssets/EliteDefs/Leeching.asset

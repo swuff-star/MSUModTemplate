@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 751239416, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
+  m_Name: BLANKIDRSTEMPLATE
+  m_EditorClassIdentifier: 
+  KeyAssetName: 
+  displayPrefabName: 
+  SingleItemDisplayRules:
+  - VanillaIDRSKey: idrsScav
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Chest,0,0,0,0,0,0,1,1,1
+      limbMask: 0
+  - VanillaIDRSKey: idrsCroco
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: ThighR,0,0,0,0,0,0,1,1,1
+      limbMask: 0
+  - VanillaIDRSKey: idrsMage
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Pelvis,0,0,0,0,0,0,1,1,1
+      limbMask: 0
+  - VanillaIDRSKey: idrsBandit2
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Stomach,0,0,0,0,0,0,1,1,1
+      limbMask: 0
+  - VanillaIDRSKey: idrsCaptain
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Pelvis,0,0,0,0,0,0,1,1,1
+      limbMask: 0
+  - VanillaIDRSKey: idrsCommando
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Pelvis,0,0,0,0,0,0,1,1,1
+      limbMask: 0
+  - VanillaIDRSKey: idrsEngi
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Pelvis,0,0,0,0,0,0,1,1,1
+      limbMask: 0
+  - VanillaIDRSKey: idrsHuntress
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Pelvis,0,0,0,0,0,0,1,1,1
+      limbMask: 0
+  - VanillaIDRSKey: idrsLoader
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Pelvis,0,0,0,0,0,0,1,1,1
+      limbMask: 0
+  - VanillaIDRSKey: idrsMerc
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Pelvis,0,0,0,0,0,0,1,1,1
+      limbMask: 0
+  - VanillaIDRSKey: idrsToolBotBody
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Hip,0,0,0,0,0,0,1,1,1
+      limbMask: 0
+  - VanillaIDRSKey: idrsTreeBot
+    ItemDisplayRules:
+    - ruleType: 0
+      IDPHValues: WeaponPlatform,0,0,0,0,0,0,1,1,1
+      limbMask: 0

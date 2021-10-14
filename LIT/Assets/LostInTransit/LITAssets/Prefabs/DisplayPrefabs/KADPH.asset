@@ -25,3 +25,6 @@ MonoBehaviour:
   - keyAsset: {fileID: 11400000, guid: a2694f0f45d89814680006eafbcd1881, type: 2}
     displayPrefabs:
     - {fileID: 3305120174629491814, guid: 825722308d2281b42b1d874844126f8d, type: 3}
+  - keyAsset: {fileID: 11400000, guid: 5921dc4f37fa23040a5d65d5d07c8e9c, type: 2}
+    displayPrefabs:
+    - {fileID: 9034877116308939467, guid: b53784e7c6a1ae4429fca564862b6ff4, type: 3}
