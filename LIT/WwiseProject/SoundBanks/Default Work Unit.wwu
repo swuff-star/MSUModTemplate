@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{AF09A18C-1D46-4FD7-9401-2F5168AD3884}" SchemaVersion="89">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{AF09A18C-1D46-4FD7-9401-2F5168AD3884}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{AF09A18C-1D46-4FD7-9401-2F5168AD3884}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="LostInTransitSBNK" ID="{E91183F8-33AA-4040-B9FD-501C31E69E0A}">
+					<ObjectInclusionList>
+						<ObjectRef Name="BlightSpawn" ID="{A8A42AED-1A35-4162-868D-ADABDE7E405C}" WorkUnitID="{6CE622E3-EBDD-4286-80FD-EB0653EE8DC1}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>

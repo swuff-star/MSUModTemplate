@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{6CE622E3-EBDD-4286-80FD-EB0653EE8DC1}" SchemaVersion="89">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{6CE622E3-EBDD-4286-80FD-EB0653EE8DC1}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{6CE622E3-EBDD-4286-80FD-EB0653EE8DC1}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="BlightSpawn" ID="{A8A42AED-1A35-4162-868D-ADABDE7E405C}">
+					<ChildrenList>
+						<Action Name="" ID="{27999319-CCA7-41A2-B79C-7152F6857355}" ShortID="374724594">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BlightedSpawn" ID="{24C042B0-8441-452D-8BBC-7DE867F12E4B}" WorkUnitID="{BD477103-1CA3-4923-9101-4B492B53FB24}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

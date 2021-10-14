@@ -12,9 +12,10 @@ namespace LostInTransit.Items
         public static string section;
         public static float procChance;
         public static float dmgCoefficient;
-        public static float dmgStack;
-        public static float slowMultiplier;
+        public static float newDmgStack;
+        public static float newSlowMultiplier;
         public static int duration;
+        public static int durationStack;
         public override void Initialize()
         {
             Config();
@@ -26,15 +27,16 @@ namespace LostInTransit.Items
             section = "Item: " + ItemDef.name;
             procChance = LITMain.config.Bind<float>(section, "Proc Chance", 10f, "Chance to afflict Thallium Poisoning.").Value;
             dmgCoefficient = LITMain.config.Bind<float>(section, "Base Damage", 1.25f, "Damage coefficient of Thallium, multiplied by duration for total damage.").Value;
-            dmgStack = LITMain.config.Bind<float>(section, "Stacking Damage", 0.625f, "Extra damage dealt by extra stacks.").Value;
-            slowMultiplier = LITMain.config.Bind<float>(section, "Slow Multiplier", 0.25f, "Multiplier applied to the inflicted body's movement speed.").Value;
+            newDmgStack = LITMain.config.Bind<float>(section, "Stacking Damage", 0f, "Extra damage dealt by extra stacks.").Value;
+            newSlowMultiplier = LITMain.config.Bind<float>(section, "Slow Multiplier", 0.75f, "Multiplier applied to the inflicted body's movement speed.").Value;
             duration = LITMain.config.Bind<int>(section, "DoT Duration", 4, "Duration of the Thallium Poisoning debuff.").Value;
+            durationStack = LITMain.config.Bind<int>(section, "DoT Stacking", 2, "Added duration to Thallium Poisoning per stack").Value;
         }
 
         public override void DescriptionToken()
         {
             LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
-                $"<style=cIsDamage>10%</style> chance to inflict thallium poisoning for <style=cIsDamage>500%</style> <style=cStack>(+250% per stack)</style> of the victim's base damage and slow by <style=cIsUtility>75% movement speed</style>.",
+                $"<style=cIsDamage>{procChance}%</style> chance to inflict thallium poisoning for <style=cIsDamage>{dmgCoefficient * duration * 100}%</style> <style=cStack>(+{dmgCoefficient * durationStack * 100}% per stack)</style> of the victim's base damage and slow for <style=cIsUtility>{newSlowMultiplier * 100}% movement speed</style>.",
                 LangEnum.en);
         }
         public override void AddBehavior(ref CharacterBody body, int stack)
@@ -59,8 +61,8 @@ namespace LostInTransit.Items
                         attackerObject = victim.gameObject,
                         victimObject = victim.gameObject,
                         dotIndex = ThalliumPoison.index,
-                        duration = duration,
-                        damageMultiplier = dmgCoefficient + dmgStack * (stack -1)
+                        duration = duration + (durationStack * (stack - 1)),
+                        damageMultiplier = dmgCoefficient + newDmgStack * (stack -1)
                     };
                     DotController.InflictDot(ref dotInfo);
                 }

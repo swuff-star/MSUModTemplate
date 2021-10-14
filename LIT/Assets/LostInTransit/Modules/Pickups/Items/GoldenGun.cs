@@ -21,14 +21,14 @@ namespace LostInTransit.Items
         public override void Config()
         {
             var section = $"Item: {ItemDef.name}";
-            goldCap = LITMain.config.Bind<uint>(section, "Gold Cap", 600, "The cap on gold where the golden gun will no longer consider adding extra damage.").Value;
-            goldNeeded = LITMain.config.Bind<uint>(section, "Gold needed for Each buff", 40, "Amount of gold needed for an extra stack of the golden gun buff to be added.").Value;
+            goldCap = LITMain.config.Bind<uint>(section, "Maximum Gold Threshold", 600, "The maximum amount of gold that Golden Gun will account for.").Value;
+            goldNeeded = LITMain.config.Bind<uint>(section, "Maximum Damage Bonus", 40, "The maximum amount of added damage Golden Gun will give.").Value;
         }
 
         public override void DescriptionToken()
         {
             LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
-                $"Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to <style=cIsDamage>+{goldNeeded}% damage</style> <style=cStack>(+{goldNeeded/2}% per stack)</style> at <style=cIsUtility>{goldCap} gold</style> <style=cStack>(+{goldCap/2} per stack, scaling with time)</style>.",
+                $"Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to an extra <style=cIsDamage>+{goldNeeded}% damage</style> <style=cStack>(+{goldNeeded/2}% per stack)</style> at <style=cIsUtility>{goldCap} gold</style> <style=cStack>(+{goldCap/2} per stack, scaling with time)</style>.",
                 LangEnum.en);
         }
         public override void AddBehavior(ref CharacterBody body, int stack)

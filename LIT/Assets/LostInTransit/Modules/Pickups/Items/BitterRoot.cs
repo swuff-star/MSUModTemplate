@@ -24,7 +24,7 @@ namespace LostInTransit.Items
         public override void DescriptionToken()
         {
             LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
-                $"Increase <style=cIsHealing>maximum health</style> by <style=cIsHealing>+{rootIncrease}%</style> <style=cStack>(+{rootIncrease}% per stack)</style>",
+                $"Increase <style=cIsHealing>maximum health</style> by <style=cIsHealing>+{rootIncrease}%</style> <style=cStack>(+{rootIncrease}% per stack)</style>.",
                 LangEnum.en);
         }
         public override void AddBehavior(ref CharacterBody body, int stack)
