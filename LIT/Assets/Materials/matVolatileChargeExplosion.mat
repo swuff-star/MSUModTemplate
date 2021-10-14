@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RemapTex:
-        m_Texture: {fileID: 2800000, guid: e75fb1709416917408ea57855d4f6370, type: 3}
+        m_Texture: {fileID: 2800000, guid: c01bfd84bcbdb0e4aacabc459e0f3fe5, type: 3}
         m_Scale: {x: 4, y: 4}
         m_Offset: {x: 0, y: 0}
     m_Floats:
