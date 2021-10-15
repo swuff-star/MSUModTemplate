@@ -18,7 +18,8 @@
         "MysticsRisky2Utils.dll",
         "StubbedAssembly-CSharp (1).dll",
         "MoonstormSharedUtils.dll",
-        "HGUnityUtils.dll"
+        "HGUnityUtils.dll",
+        "Wwise.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []

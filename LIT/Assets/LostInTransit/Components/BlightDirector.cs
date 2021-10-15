@@ -143,6 +143,7 @@ namespace LostInTransit.Components
                     rewards.expReward *= 5;
                     rewards.goldReward *= 5;
                 }
+                Util.PlaySound("BlightSpawn", body.gameObject);
             }
         }
 
