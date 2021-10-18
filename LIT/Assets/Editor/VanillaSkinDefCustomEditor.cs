@@ -1,19 +1,20 @@
 ﻿using Moonstorm;
 using RoR2;
+using RoR2.ContentManagement;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
 
-[CustomEditor(typeof(EntityStateConfiguration))]
-public class EntityStateConfigCustomEditor : Editor
+[CustomEditor(typeof(VanillaSkinDef))]
+public class VanillaSkinDefCustomEditor : Editor
 {
     [OnOpenAsset]
     public static bool OpenEditor(int instanceID, int line)
     {
-        EntityStateConfiguration obj = EditorUtility.InstanceIDToObject(instanceID) as EntityStateConfiguration;
+        VanillaSkinDef obj = EditorUtility.InstanceIDToObject(instanceID) as VanillaSkinDef;
         if (obj != null)
         {
-            EntityStateConfigEditorWindow.Open(obj);
+            VanillaSkinDefEditorWindow.Open(obj);
             return true;
         }
         return false;
@@ -22,7 +23,7 @@ public class EntityStateConfigCustomEditor : Editor
     {
         if (GUILayout.Button("Open Editor"))
         {
-            EntityStateConfigEditorWindow.Open((EntityStateConfiguration)target);
+            VanillaSkinDefEditorWindow.Open((VanillaSkinDef)target);
         }
     }
 }

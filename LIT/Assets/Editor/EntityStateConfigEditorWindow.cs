@@ -1,15 +1,20 @@
 ﻿using EntityStates;
 using RoR2;
+using RoR2.Skills;
 using UnityEditor;
 using UnityEngine;
 
 public class EntityStateConfigEditorWindow : ExtendedEditorWindow
 {
     Vector2 scrollPos = new Vector2();
+
+    static SerializedObject dummySkillDef;
     public static void Open(EntityStateConfiguration esc)
     {
         EntityStateConfigEditorWindow window = GetWindow<EntityStateConfigEditorWindow>("Entity State Configuration Editor");
         window.mainSerializedObject = new SerializedObject(esc);
+
+        dummySkillDef = new SerializedObject(SkillDef.CreateInstance<SkillDef>());
     }
 
     private void OnGUI()
@@ -19,7 +24,7 @@ public class EntityStateConfigEditorWindow : ExtendedEditorWindow
 
         mainCurrentProperty = collectionProperty.FindPropertyRelative("serializedFields");
 
-        DrawField(systemTypeProp.FindPropertyRelative("assemblyQualifiedName"), true);
+        EditorGUILayout.PropertyField(systemTypeProp.FindPropertyRelative("assemblyQualifiedName"));
 
         EditorGUILayout.BeginHorizontal(GUILayout.ExpandWidth(true));
         EditorGUILayout.BeginVertical("box", GUILayout.MaxWidth(150), GUILayout.ExpandHeight(true));
@@ -39,6 +44,8 @@ public class EntityStateConfigEditorWindow : ExtendedEditorWindow
         }
         EditorGUILayout.EndVertical();
         EditorGUILayout.EndHorizontal();
+
+        ApplyChanges();
     }
 
     private void DrawSelectedSerializableFieldPropPanel()
@@ -54,8 +61,22 @@ public class EntityStateConfigEditorWindow : ExtendedEditorWindow
 
         var fieldValueProp = mainSelectedProperty.FindPropertyRelative("fieldValue");
 
-        DrawField(fieldValueProp.FindPropertyRelative("stringValue"), true);
-        DrawField(fieldValueProp.FindPropertyRelative("objectValue"), true);
+        var stringValue = fieldValueProp.FindPropertyRelative("stringValue");
+        var objValue = fieldValueProp.FindPropertyRelative("objectValue");
+
+        if(!string.IsNullOrEmpty(stringValue.stringValue))
+        {
+            DrawField(stringValue, true);
+        }
+        else if(objValue.objectReferenceValue != null)
+        {
+            DrawField(objValue, true);
+        }
+        else if(objValue.objectReferenceValue == null && string.IsNullOrEmpty(stringValue.stringValue))
+        {
+            DrawField(stringValue, true);
+            DrawField(objValue, true);
+        }
 
         EditorGUILayout.EndVertical();
         EditorGUILayout.EndHorizontal();
