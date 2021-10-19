@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 4060501884
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: litassets
+      Dependencies: {}
