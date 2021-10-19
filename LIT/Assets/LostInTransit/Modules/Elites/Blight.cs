@@ -10,7 +10,6 @@ using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Elites = LostInTransit.Modules.Elites;
 using static MonoMod.Cil.RuntimeILReferenceBag.FastDelegateInvokers;
-using System;
 
 namespace LostInTransit.Elites
 {
@@ -18,7 +17,6 @@ namespace LostInTransit.Elites
     {
         public static List<EliteDef> EliteDefsForBlightedElites = new List<EliteDef>();
         private static bool spawnedDirector = false;
-        internal static List<CharacterBody> blacklistedBodies = new List<CharacterBody>();
         internal static void BeginSetup()
         {
             LITLogger.LogI($"Blighted elites are enabled, setting up systems...");
@@ -62,16 +60,6 @@ namespace LostInTransit.Elites
 
         private static void BlightSetup()
         {
-            ModifyPrefabs();
-            AddElites();
-            SetupBlacklist();
-
-            Run.onRunStartGlobal += SpawnDirector;
-            LITLogger.LogI($"Finished Blighted Elite Setup.");
-        }
-
-        private static void ModifyPrefabs()
-        {
             MasterCatalog.masterPrefabs
                 .Where(masterPrefab => masterPrefab.GetComponent<CharacterMaster>().bodyPrefab)
                 .ToList()
@@ -80,10 +68,6 @@ namespace LostInTransit.Elites
                     var component = charMaster.gameObject.AddComponent<BlightedController>();
                     component.enabled = false;
                 });
-        }
-
-        private static void AddElites()
-        {
             List<EliteDef> availableElites = new List<EliteDef>() { RoR2Content.Elites.Fire, RoR2Content.Elites.Ice, RoR2Content.Elites.Lightning };
 
             for (int i = 0; i < EliteModuleBase.MoonstormElites.Count; i++)
@@ -91,24 +75,10 @@ namespace LostInTransit.Elites
                     availableElites.Add(EliteModuleBase.MoonstormElites[i]);
 
             EliteDefsForBlightedElites.AddRange(availableElites);
-        }
 
-        private static void SetupBlacklist()
-        {
-            string[] blacklistedBodiesNames = LITConfig.BlightBlacklist.Value.Replace(" ", string.Empty).Split(',');
-            foreach(string body in blacklistedBodiesNames)
-            {
-                try
-                {
-                    var bodyComponent = BodyCatalog.GetBodyPrefabBodyComponent(BodyCatalog.FindBodyIndexCaseInsensitive(body));
-                    if (bodyComponent)
-                        blacklistedBodies.Add(bodyComponent);
-                }
-                catch (Exception e)
-                {
-                    LITLogger.LogE(e);
-                }
-            }
+
+            Run.onRunStartGlobal += SpawnDirector;
+            LITLogger.LogI($"Finished MasterPrefab modifications.");
         }
 
         private static void SpawnDirector(Run obj)

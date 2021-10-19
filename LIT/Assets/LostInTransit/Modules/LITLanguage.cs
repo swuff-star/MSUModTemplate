@@ -16,7 +16,7 @@ namespace LostInTransit.Modules
         public static void Initialize()
         {
             LITLogger.LogI("Initializing Language...");
-            var path = Path.Combine(Assets.AssemblyDir, languageFileName);
+            var path = Path.Combine(Assets.assemblyDir, languageFileName);
             LanguageAPI.AddPath(path);
         }
     }

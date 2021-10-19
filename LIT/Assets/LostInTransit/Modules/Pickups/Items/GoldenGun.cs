@@ -50,7 +50,7 @@ namespace LostInTransit.Items
 
             private void UpdateStacks()
             {
-                gunCap = GetCap(goldCap);
+                gunCap = Run.instance.GetDifficultyScaledCost((int)GetCap(goldCap));
                 goldForBuff = goldNeeded;
             }
 

@@ -32,7 +32,7 @@ namespace LostInTransit.Components
         [SyncVar]
         private ulong monstersKilled;
 
-        private bool IsPrestigeArtifactEnabled
+        private bool IsArtifactEnabled
         {
             get
             {
@@ -44,16 +44,6 @@ namespace LostInTransit.Components
                 return false;
             }
         }
-
-        private bool IsHonorArtifactEnabled
-        {
-            get
-            {
-                return RunArtifactManager.instance.IsArtifactEnabled(RoR2Content.Artifacts.eliteOnlyArtifactDef);
-            }
-        }
-
-        private CharacterBody[] BlacklistedBodies { get => Elites.Blight.blacklistedBodies.ToArray(); }
 
         private SceneDef CommencementScene { get => SceneCatalog.GetSceneDefFromSceneName("moon2"); }
 
@@ -92,36 +82,17 @@ namespace LostInTransit.Components
 
         private void TrySpawn(CharacterBody body)
         {
-            var stageNotCommencement = (Stage.instance?.sceneDef?.sceneDefIndex != CommencementScene.sceneDefIndex);
-            var isEnemy = (body.teamComponent?.teamIndex != TeamIndex.Player);
-            var hasComponent = ((bool)body.master?.GetComponent<BlightedController>());
-            var isntChampion = !body.isChampion;
-            var isBlacklisted = CheckBlacklist(body);
-
-            if (isBlacklisted)
-                return;
-            if(IsHonorArtifactEnabled)
+            var flag1 = (Stage.instance?.sceneDef?.sceneDefIndex != CommencementScene.sceneDefIndex);
+            var flag2 = (body.teamComponent?.teamIndex != TeamIndex.Player);
+            var flag3 = ((bool)body.master?.GetComponent<BlightedController>());
+            var flag4 = !body.isChampion;
+            if(flag1 && flag2 && flag3 && flag4)
             {
-                if (stageNotCommencement && isEnemy && hasComponent)
-                {
-                    if (Util.CheckRoll(SpawnRate))
-                    {
-                        MakeBlighted(body);
-                    }
-                }
-            }
-            else if(stageNotCommencement && isEnemy && hasComponent && isntChampion)
-            {
-                if (Util.CheckRoll(SpawnRate))
+                if(Util.CheckRoll(SpawnRate))
                 {
                     MakeBlighted(body);
                 }
-            }     
-        }
-
-        private bool CheckBlacklist(CharacterBody body)
-        {
-            return BlacklistedBodies.Contains(body);
+            }       
         }
 
         private void MakeBlighted(CharacterBody body)
@@ -140,17 +111,16 @@ namespace LostInTransit.Components
                 DeathRewards rewards = body.GetComponent<DeathRewards>();
                 if (rewards)
                 {
-                    rewards.expReward *= 5;
-                    rewards.goldReward *= 5;
+                    rewards.expReward *= 3;
+                    rewards.goldReward *= 3;
                 }
-                Util.PlaySound("BlightSpawn", body.gameObject);
             }
         }
 
         [Server]
         private void RecalculateSpawnChance()
         {
-            if(IsPrestigeArtifactEnabled)
+            if(IsArtifactEnabled)
             {
                 SpawnRate = 10f;
                 return;
@@ -179,12 +149,6 @@ namespace LostInTransit.Components
                 sharedBeadCount += inventory.GetItemCount(RoR2Content.Items.LunarTrinket);
             }
             return sharedBeadCount;
-        }
-
-        void OnDestroy()
-        {
-            GlobalEventManager.onCharacterDeathGlobal -= OnEnemyKilled;
-            CharacterBody.onBodyStartGlobal -= TrySpawn;
         }
     }
 }
