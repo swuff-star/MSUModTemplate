@@ -6,21 +6,28 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Path = System.IO.Path;
+using System.IO;
+using R2API;
 
 namespace LostInTransit
 {
     internal static class Assets
     {
-        internal static string assemblyDir
+        internal static string AssemblyDir
         {
             get
             {
                 return Path.GetDirectoryName(LITMain.pluginInfo.Location);
             }
         }
-        private const string mainAssetBundle = "litassets";
 
-        public static AssetBundle LITAssets { get; } = AssetBundle.LoadFromFile(Path.Combine(assemblyDir, mainAssetBundle));
+        private static string MainAssetBundlePath { get => Path.Combine(AssemblyDir, mainAssetBundle); }
+        private static string SoundBankPath { get => Path.Combine(AssemblyDir, soundBank); }
+
+        private const string mainAssetBundle = "litassets";
+        private const string soundBank = "LostInTransitSBNK.bnk";
+
+        public static AssetBundle LITAssets { get; } = AssetBundle.LoadFromFile(MainAssetBundlePath);
 
         public static Material[] cloudRemaps = Array.Empty<Material>();
 
@@ -29,6 +36,7 @@ namespace LostInTransit
             LITContent.serializableContentPack = LITAssets.LoadAsset<SerializableContentPack>("ContentPack");
             SwapShaders(LITAssets.LoadAllAssets<Material>().ToList());
             LoadEffects(LITAssets.LoadAllAssets<EffectDefHolder>().ToList());
+            LoadSoundBank();
         }
 
         private static void LoadEffects(List<EffectDefHolder> effectDefHolders)
@@ -61,6 +69,12 @@ namespace LostInTransit
                     }
                 }
             });
+        }
+
+        private static void LoadSoundBank()
+        {
+            byte[] array = File.ReadAllBytes(SoundBankPath);
+            SoundAPI.SoundBanks.Add(array);
         }
     }
 }
