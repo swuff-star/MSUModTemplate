@@ -10,6 +10,7 @@ using UnityEngine;
 
 namespace LostInTransit.Equipments
 {
+	[DisabledContent]
     public class Thqwib : LITEquipmentBase
     {
         public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("Thqwib");

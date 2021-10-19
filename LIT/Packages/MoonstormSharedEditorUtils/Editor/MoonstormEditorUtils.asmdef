@@ -44,7 +44,7 @@
         "BepInEx.dll",
         "BepInEx.MonoMod.Loader.dll",
         "Assembly-CSharp.dll",
-        ""
+        "MoonstormSharedUtils.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [

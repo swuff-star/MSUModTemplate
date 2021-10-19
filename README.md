@@ -9,10 +9,12 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 | Icon | Item | Description | Rarity |
 |:-|-|------|-|
-|![](https://i.imgur.com/Vqj1kyK.png) | **Life Savings** | Keep 4% (+4% per stack) of gold between stages. | Common |
+|![](https://i.imgur.com/yd6Pzxi.png) | **Bitter Root** | Gain 4% (+4% per stack) maximum health. | Common |
+|![](https://i.imgur.com/Vqj1kyK.png) | **Life Savings** | Keep 5% (+2.5% per stack) of gold between stages. | Common |
 |![](https://i.imgur.com/0JpFYMD.png) | **Mysterious Vial** | Regenerate an extra 0.8 (+0.8 per stack) hp per second. | Common |
 |![](https://i.imgur.com/zTCttJR.png) | **Beckoning Cat** | Elite monsters have a 4.5% (+1.5% per stack) chance to drop items on death. | Uncommon |
 |![](https://i.imgur.com/L4TZX13.png) | **Golden Gun** | Deal extra damage based on held gold, up to +40% damage (+20% per stack) at 600 gold (+300 per stack, scaling with time). | Uncommon |
+|![](https://i.imgur.com/oI6SJMs.png) | **Prison Shackles** | Slow monsters for -60% attack speed for 2 (+2 per stack) seconds. | Uncommon |
 |![](https://i.imgur.com/4qpaGr0.png) | **Smart Shopper** | Monsters drop 25% (+25% per stack) more gold. | Uncommon |
 |![](https://i.imgur.com/16yqiHX.png) | **Thallium** | 10% chance to inflict thallium poisoning for 500% (+250% per stack) of enemy's base damage and slow by 75%. | Rare |
 |![](https://i.imgur.com/xmQADqk.png) | **Telescopic Sight** | Gain 10% critical chance. 10% (+10% per stack) chance for critical strikes to deal 5x damage. | Rare |
@@ -24,6 +26,8 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 |:-|-|------|-|
 |![](https://i.imgur.com/O7976kP.png) | **Frenzying** | Increased attack and move speed. Periodically dash towards enemies at high speeds. | 1 |
 |![](https://i.imgur.com/CubhqEH.png) | **Leeching** | Damage dealt is returned as healing. Periodically heal nearby allies for a small amount of health. | 1 |
+|![](https://i.imgur.com/Ze8oyIg.png) | **Volatile** | Attacks explode on hit. Occasionally drop Spite bombs when damaged. | 1 |
+|![](https://i.imgur.com/Xrn4MvE.png) | **Blighted** | An unknown force of the Planet, these phantasms are as mysterious as they are deadly. | ? |
 
 ## Credits
 * Code - Nebby, swuff★
@@ -32,6 +36,12 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 * Additional support/special thanks - Draymarc, KevinFromHPCustomerService, KomradeSpectre, Moffein, rob, Shared, TheTimesweeper, xpcybic, /vm/
 
 ## Changelog
+
+### 0.3.1
+* General
+	* No, this is not a readme update disguised as fix
+* Items
+	* Prison Shackles: Fixed icon
 
 ### 0.3.0
 *I strongly recommend deleting old config and starting fresh. I think things should update either way, but am not sure. If values seem off in game - try this before reporting it to me.*

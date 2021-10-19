@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:LIT/Assets/Editor/MigratorAspectAbility.cs.meta
 guid: d061fb971cd059448b3bd5b7f8f95253
+=======
+guid: c7c9248b185b8fa4f93e60cc2c977d39
+>>>>>>> b0298c2cd958d0fc46b5f4c03a9c80aca5422de3:LIT/Packages/MoonstormSharedEditorUtils/Editor/EditorWindows/ExtendedEditorWindow.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

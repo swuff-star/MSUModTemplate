@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace LostInTransit.Items
 {
+    [DisabledContent]
     public class RepulsionArmor : LITItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("RepulsionChestplate");
