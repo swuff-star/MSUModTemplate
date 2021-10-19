@@ -53,14 +53,6 @@ namespace LostInTransit.Buffs
                 damageThreshold = (body.maxHealth / 1.5f) / diffScaling;
                 bomb = VolatileSpitebomb.VolatileSpiteBomb;
             }
-            internal void Ability()
-            {
-                var bodyStateMachine = body.GetComponents<EntityStateMachine>().Where(x => x.customName == "Weapon").First();
-                if(bodyStateMachine && body.healthComponent.alive)
-                {
-                    bodyStateMachine.SetNextState(new EntityStates.VagrantMonster.ChargeMegaNova());
-                }
-            }
 
             public void OnTakeDamageServer(DamageReport damageReport)
             {
