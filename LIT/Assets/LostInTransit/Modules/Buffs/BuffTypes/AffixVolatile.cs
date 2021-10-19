@@ -57,6 +57,7 @@ namespace LostInTransit.Buffs
             public void OnTakeDamageServer(DamageReport damageReport)
             {
                 tankedDamage += damageReport.damageDealt;
+                damageThreshold = (body.maxHealth / 1.5f) / diffScaling;
             }
 
             private void Update()

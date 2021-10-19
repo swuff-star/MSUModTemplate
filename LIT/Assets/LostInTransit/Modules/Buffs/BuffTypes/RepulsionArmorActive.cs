@@ -8,7 +8,6 @@ namespace LostInTransit.Buffs
     {
         public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("RepulsionArmorActive");
         public static BuffDef buff;
-        public static DotController.DotIndex index;
 
         public override void Initialize()
         {

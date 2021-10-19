@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 1937965295, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
   m_Name: AbilityVolatile
   m_EditorClassIdentifier: 
-  equipmentDef: {fileID: 11400000, guid: 40ff794bbbf17fa458952cda08f732d1, type: 2}
+  equipmentDef: {fileID: 11400000, guid: 0721b5569d82a8d4e9aa030155affbd1, type: 2}
   aiMaxUseDistance: 50
   aiHealthFractionToUseChance:
     serializedVersion: 2
@@ -20,14 +20,14 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: -0.007080078
-      inSlope: 0.6723507
-      outSlope: 0.6723507
+      inSlope: 0.6989448
+      outSlope: 0.6989448
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.76637
+      time: 0.73721045
       value: 0.5081893
       inSlope: 0.7696341
       outSlope: 0.7696341
@@ -36,8 +36,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.2526366
     - serializedVersion: 3
-      time: 0.79041034
-      value: 0.99799895
+      time: 0.8112386
+      value: 0.981405
       inSlope: -0.05830908
       outSlope: -0.05830908
       tangentMode: 0
@@ -45,10 +45,10 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.7855813
     - serializedVersion: 3
-      time: 1
-      value: 0.9929199
-      inSlope: -0.024233213
-      outSlope: -0.024233213
+      time: 0.9791667
+      value: 0.9858093
+      inSlope: 0.026227335
+      outSlope: 0.026227335
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

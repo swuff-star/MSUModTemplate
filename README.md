@@ -17,7 +17,7 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 |![](https://i.imgur.com/oI6SJMs.png) | **Prison Shackles** | Slow monsters for -60% attack speed for 2 (+2 per stack) seconds. | Uncommon |
 |![](https://i.imgur.com/4qpaGr0.png) | **Smart Shopper** | Monsters drop 25% (+25% per stack) more gold. | Uncommon |
 |![](https://i.imgur.com/16yqiHX.png) | **Thallium** | 10% chance to inflict thallium poisoning for 500% (+250% per stack) of enemy's base damage and slow by 75%. | Rare |
-|![](https://i.imgur.com/xmQADqk.png) | **Telescopic Sight** | Gain 10% critical chance. 10% (+10% per stack) chance for critical strikes to deal 5x damage. | Rare |
+|![](https://i.imgur.com/xmQADqk.png) | **Telescopic Sight** | 1% (+0.5% per stack) chance to instakill monsters. Boss monsters instead take 20% of their maximum health in damage. Recharges every 20 (-2 per stack) seconds. | Rare |
 |![](https://i.imgur.com/27uyOZz.png) | **Gigantic Amethyst** | Reset skill cooldowns on use. | Equipment |
 
 ## Elites
@@ -36,6 +36,23 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 * Additional support/special thanks - Draymarc, KevinFromHPCustomerService, KomradeSpectre, Moffein, rob, Shared, TheTimesweeper, xpcybic, /vm/
 
 ## Changelog
+
+### 0.3.3
+* Items
+	* Golden Gun: Fixed the Item Display causing a ton of null reference exceptions, alongside causing invisible enemies.
+	
+### 0.3.2
+* General
+	* Fixed the readme file not having the proper description for the new Telescopic Sight
+* Elites
+	* Blighted: Fixed smoke particles lingering indefinetly.
+	* Blighted: Fixed spawn sound effect not playing.
+	* Frenzying: New ramp is now properly applied.
+	* Leeching: New ramp is now properly applied.
+	* Volatile: New ramp is now properly applied.
+	* Volatile: Fixed crown not having proper materials.
+* Items
+	* Life Savings: I swear it should work now
 
 ### 0.3.1
 * General

@@ -73,13 +73,13 @@ namespace LostInTransit.Items
             {
                 //Only add master behaviors to players.
                 if(body.isPlayerControlled)
-                    MasterBehavior?.UpdateStacks();
+                    MasterBehavior.UpdateStacks();
             }
 
             private void OnDestroy()
             {
                 if(body.isPlayerControlled)
-                    MasterBehavior?.CheckIfShouldDestroy();
+                    MasterBehavior.CheckIfShouldDestroy();
             }
         }
 
@@ -93,6 +93,7 @@ namespace LostInTransit.Items
 
             public void Start()
             {
+                Debug.LogError("Start");
                 CharMaster.inventory.onInventoryChanged += UpdateStacks;
                 SceneExitController.onBeginExit += ExtractMoney;
                 Stage.onStageStartGlobal += GiveMoney;
@@ -101,13 +102,16 @@ namespace LostInTransit.Items
 
             internal void UpdateStacks()
             {
+                Debug.LogError("Updating Stacks");
                 stack = (int)CharMaster?.inventory.GetItemCount(itemDef);
             }
 
             private void ExtractMoney(SceneExitController obj)
             {
+                Debug.LogError("Attempting to extract money");
                 if((bool)!Run.instance?.isRunStopwatchPaused)
                 {
+                    Debug.LogError("Not hidden realm, extracting money...");
                     moneyPending = true;
                     storedGold = CalculatePercentage();
                 }
@@ -115,14 +119,20 @@ namespace LostInTransit.Items
 
             private uint CalculatePercentage()
             {
-                var percentage = newMoneyKeptBase * (newMoneyKeptStack * (stack - 1));
+                Debug.LogError("Calculating Percentage");
+                var percentage = newMoneyKeptBase + (newMoneyKeptStack * (stack - 1));
+
+                Debug.Log($"Percentage to Extract: {percentage}");
+                Debug.Log($"Money that master has: {CharMaster.money}");
                 uint toReturn;
                 toReturn = (uint)(CharMaster.money / 100 * Mathf.Min(percentage, 100));
+                Debug.Log($"Amount of money to extract: {toReturn}");
                 CharMaster.money -= toReturn;
                 return toReturn;
             }
             private void GiveMoney(Stage obj)
             {
+                Debug.LogError("Giving Money");
                 CharMaster.GiveMoney(storedGold);
                 storedGold = 0;
                 moneyPending = false;
@@ -130,12 +140,14 @@ namespace LostInTransit.Items
 
             public void CheckIfShouldDestroy()
             {
+                Debug.LogError("Check if should destroy");
                 if (!moneyPending)
                     Destroy(this);
             }
 
             public void OnDestroy()
             {
+                Debug.LogError("Destroyed");
                 SceneExitController.onBeginExit -= ExtractMoney;
                 Stage.onStageStartGlobal -= GiveMoney;
                 CharMaster.inventory.onInventoryChanged -= UpdateStacks;

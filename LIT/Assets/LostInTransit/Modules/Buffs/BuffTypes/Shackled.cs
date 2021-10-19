@@ -10,7 +10,6 @@ namespace LostInTransit.Buffs
     {
         public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("Shackled");
         public static BuffDef buff;
-        public static DotController.DotIndex index;
 
         public override void Initialize()
         {

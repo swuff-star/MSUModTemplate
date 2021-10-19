@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4225323391
+CRC: 2139150037
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8009eb514268e1db98fb6f94bc116007
+    Hash: 6e366a0317d96ff9294e97b7d4938257
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 26b7262ca159c03a385768a18adfa28f
+    Hash: 7bc14adddbf16fe5e2030b9cb87cef14
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -66,6 +66,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1985007777, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 1931460509, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 1918207524, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 488236779, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -77,8 +79,6 @@ ClassTypes:
   Script: {fileID: -1218053310, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1904172584, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 7942344591de38144b90a2b573a9d839, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 341298a8435f2164985e014e28235b74, type: 3}
 - Class: 114
@@ -95,6 +95,8 @@ ClassTypes:
   Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1a89379c7c140cf4c8fcd89de65fe247, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a8c3d85e3fde20f4b8df08c0fe388190, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 136
@@ -188,9 +190,10 @@ Assets:
 - Assets/Textures/Ramps/texRampLeechingAlt.png
 - Assets/Mesh/meshVolatileWick.mesh
 - Assets/Materials/matGoldenGun.mat
+- Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayTelescopicSight.prefab
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectVolatileChargeExplosion.prefab
 - Assets/Materials/matBlightSmoke2.mat
-- Assets/Icons/texIconPickupPrisonShacklesPLACEHOLDER.png
+- Assets/Icons/texIconPickupPrisonShackles.png
 - Assets/Textures/texGiganticAmethyst.png
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixVolatile.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/RepulsionArmorCD.asset
@@ -225,6 +228,7 @@ Assets:
 - Assets/Mesh/meshMysteriousVialGlass.mesh
 - Assets/Materials/matMysteriousVialGlass.mat
 - Assets/Textures/Stolen/texOmniExplosion2Mask.asset
+- Assets/LostInTransit/LITAssets/SIDRS/TelescopicSight.asset
 - Assets/Textures/texTelescopicSightDiffuse.png
 - Assets/Textures/Ramps/texRampEliteBlighted.png
 - Assets/Mesh/meshGiganticAmethyst.mesh
@@ -292,6 +296,7 @@ Assets:
 - Assets/Textures/Ramps/texRampEliteLeechingClassic.png
 - Assets/LostInTransit/LITAssets/BuffDefs/Shackled.asset
 - Assets/Textures/texMysteriousVialDiffuse.png
+- Assets/LostInTransit/LITAssets/Misc/NetworkSoundDef/BlightSpawn.asset
 - Assets/LostInTransit/LITAssets/ItemDefs/MysteriousVial.asset
 - Assets/LostInTransit/LITAssets/Prefabs/SizeReference.prefab
 - Assets/Mesh/Stolen/meshQuad.asset

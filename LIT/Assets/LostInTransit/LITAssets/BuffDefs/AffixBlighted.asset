@@ -18,4 +18,4 @@ MonoBehaviour:
   canStack: 0
   eliteDef: {fileID: 11400000, guid: 9429ac6c56f20ce4581d41a92834d6b1, type: 2}
   isDebuff: 0
-  startSfx: {fileID: 0}
+  startSfx: {fileID: 11400000, guid: 21c6abfe1418ef74d9d08f545ab33fb7, type: 2}

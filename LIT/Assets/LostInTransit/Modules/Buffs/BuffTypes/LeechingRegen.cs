@@ -23,7 +23,7 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<LeechingRegenBehavior>(stack);
         }
 
-        public class LeechingRegenBehavior : CharacterBody.ItemBehavior, IStatItemBehavior, IOnIncomingDamageServerReceiver
+        public class LeechingRegenBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {
             public float duration = 5;
             public float regen = 0;
@@ -52,13 +52,6 @@ namespace LostInTransit.Buffs
             public void RecalculateStatsEnd()
             {
                 body.regen += regen;
-            }
-
-            public void OnIncomingDamageServer(DamageInfo damageInfo)
-            {
-                regen /= 2;
-                body.RecalculateStats();
-                //I think this should be a simple nerf that makes it so their regen isn't as overwhelming. I hope.
             }
         }
     }
