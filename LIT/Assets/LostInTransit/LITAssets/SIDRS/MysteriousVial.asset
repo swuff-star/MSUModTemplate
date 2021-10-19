@@ -18,60 +18,60 @@ MonoBehaviour:
   - VanillaIDRSKey: idrsScav
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Chest,0,0,0,0,0,0,1,1,1
+      IDPHValues: Backpack,-6.8839,6.98037,-3.35114,2.94279,26.76179,317.9324,5,5,5
       limbMask: 0
   - VanillaIDRSKey: idrsCroco
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: ThighR,0,0,0,0,0,0,1,1,1
+      IDPHValues: SpineChest3,-0.46972,0.2678,0.03669,355.9795,271.7658,48.44053,1.3,1.3,1.3
       limbMask: 0
   - VanillaIDRSKey: idrsMage
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Pelvis,0,0,0,0,0,0,1,1,1
+      IDPHValues: Pelvis,0.12292,-0.00428,-0.14824,13.00858,348.6321,133.7226,0.2,0.2,0.2
       limbMask: 0
   - VanillaIDRSKey: idrsBandit2
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Stomach,0,0,0,0,0,0,1,1,1
+      IDPHValues: Stomach,0.13204,0.03711,0.17526,2.54679,348.7358,327.0284,0.2,0.2,0.2
       limbMask: 0
   - VanillaIDRSKey: idrsCaptain
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Pelvis,0,0,0,0,0,0,1,1,1
+      IDPHValues: Head,-0.18903,0.11353,-0.12602,348.3894,138.6653,76.73285,0.15,0.15,0.15
       limbMask: 0
   - VanillaIDRSKey: idrsCommando
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Pelvis,0,0,0,0,0,0,1,1,1
+      IDPHValues: Pelvis,0.18784,-0.06269,-0.03983,350.7484,211.9994,140.6538,0.2,0.2,0.2
       limbMask: 0
   - VanillaIDRSKey: idrsEngi
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Pelvis,0,0,0,0,0,0,1,1,1
+      IDPHValues: CannonHeadR,-0.19489,0.23178,0.19722,3.77621,45.5294,226.9719,0.3,0.3,0.3
       limbMask: 0
   - VanillaIDRSKey: idrsHuntress
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Pelvis,0,0,0,0,0,0,1,1,1
+      IDPHValues: Pelvis,-0.10156,-0.06403,-0.11924,355.0381,1.27165,151.2674,0.15,0.15,0.15
       limbMask: 0
   - VanillaIDRSKey: idrsLoader
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Pelvis,0,0,0,0,0,0,1,1,1
+      IDPHValues: MechBase,-0.24685,0.42307,-0.02317,0.33191,0.03792,314.441,0.2,0.2,0.2
       limbMask: 0
   - VanillaIDRSKey: idrsMerc
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Pelvis,0,0,0,0,0,0,1,1,1
+      IDPHValues: Pelvis,-0.10771,0.02141,-0.16161,4.78912,182.8701,125.9883,0.15,0.15,0.15
       limbMask: 0
   - VanillaIDRSKey: idrsToolBotBody
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: Hip,0,0,0,0,0,0,1,1,1
+      IDPHValues: Chest,1.87425,2.27347,3.20175,-0.00003,267.9859,0.00003,1.3,1.3,1.3
       limbMask: 0
   - VanillaIDRSKey: idrsTreeBot
     ItemDisplayRules:
     - ruleType: 0
-      IDPHValues: WeaponPlatform,0,0,0,0,0,0,1,1,1
+      IDPHValues: WeaponPlatform,0.00075,-0.47253,0.41381,359.7844,358.6301,312.1083,0.7,0.7,0.7
       limbMask: 0

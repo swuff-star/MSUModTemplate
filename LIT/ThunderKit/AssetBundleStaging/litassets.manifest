@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3160688610
+CRC: 959738994
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a0d081363d6455b317b3a51463465309
+    Hash: ef2b1f6d1a2779251a861bee723387a7
   TypeTreeHash:
     serializedVersion: 2
     Hash: 84be276650e058d0516a8b3aaa553c8f
@@ -177,6 +177,7 @@ Assets:
 - Assets/Icons/texIconBuffAffixVolatile.png
 - Assets/Textures/Ramps/texRampLeechingAlt.png
 - Assets/Materials/matGoldenGun.mat
+- Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayTelescopicSight.prefab
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectVolatileChargeExplosion.prefab
 - Assets/Materials/matBlightSmoke2.mat
 - Assets/Icons/texIconPickupPrisonShacklesPLACEHOLDER.png
@@ -213,6 +214,7 @@ Assets:
 - Assets/Mesh/meshMysteriousVialGlass.mesh
 - Assets/Materials/matMysteriousVialGlass.mat
 - Assets/Textures/Stolen/texOmniExplosion2Mask.asset
+- Assets/LostInTransit/LITAssets/SIDRS/TelescopicSight.asset
 - Assets/Textures/texTelescopicSightDiffuse.png
 - Assets/Textures/Ramps/texRampEliteBlighted.png
 - Assets/Mesh/meshGiganticAmethyst.mesh
