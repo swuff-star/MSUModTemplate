@@ -36,7 +36,7 @@ namespace LostInTransit.Buffs
             private GameObject SmokeEffect = Assets.LITAssets.LoadAsset<GameObject>("BlightSmoke");
 
             private float stopwatch;
-            private static float checkTimer = 0.5f;
+            private static float checkTimer = 0.75f;
 
             public void Start()
             {
@@ -50,6 +50,7 @@ namespace LostInTransit.Buffs
             {
                 if (body.hasCloakBuff)
                     body.RemoveBuff(RoR2Content.Buffs.Cloak);
+                stopwatch = 0f;
             }
 
             public void SetElites(int index1, int index2)
@@ -83,6 +84,7 @@ namespace LostInTransit.Buffs
                 }
                 else if (Util.CheckRoll(1))
                 {
+                    stopwatch = 0; //Doing this to ensure they're visible for a moment
                     body.RemoveBuff(RoR2Content.Buffs.Cloak);
                     SpawnEffect();
                 }
