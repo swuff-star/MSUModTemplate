@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3316514289
+CRC: 3253434057
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 083aa4d6c30f978c5a1b54fd9c25650e
+    Hash: 6f270f5cf1d45f214dc9cd250fcea179
   TypeTreeHash:
     serializedVersion: 2
     Hash: 7bc14adddbf16fe5e2030b9cb87cef14
@@ -235,6 +235,7 @@ Assets:
 - Assets/Mesh/meshGiganticAmethyst.mesh
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectsForEffectManager/Effects.asset
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/KADPH.asset
+- Assets/Icons/texIconEnergyCellPLACEHOLDER.png
 - Assets/LostInTransit/LITAssets/ItemDefs/RepulsionChestplate.asset
 - Assets/Materials/matTracerLeeching.mat
 - Assets/LostInTransit/LITAssets/EntityStateConfigs/EntityStates.Elites.VolatileExplosion.asset
@@ -245,7 +246,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/SIDRS/MysteriousVial.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/ThalliumPoison.asset
 - Assets/LostInTransit/LITAssets/EliteAbilities/AbilityBlighted.asset
-- Assets/Icons/Thqwib.png
+- Assets/Icons/texIconThqwibPLACEHOLDER.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixFrenzied.prefab
 - Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/fx/hgintersectioncloudremap.shader
 - Assets/Textures/texSmartShopperRoughness.png
