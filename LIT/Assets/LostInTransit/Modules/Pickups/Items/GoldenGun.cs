@@ -23,6 +23,8 @@ namespace LostInTransit.Items
             var section = $"Item: {ItemDef.name}";
             goldCap = LITMain.config.Bind<uint>(section, "Maximum Gold Threshold", 600, "The maximum amount of gold that Golden Gun will account for.").Value;
             goldNeeded = LITMain.config.Bind<uint>(section, "Maximum Damage Bonus", 40, "The maximum amount of added damage Golden Gun will give.").Value;
+            //★ 'goldNeeded' is a really bad variable name for this. More accurate would be 'maxDamage' or something - since you SHOULD need 15 gold per buff, not 40.
+            //★ Not changing it, but am bitching about it.
         }
 
         public override void DescriptionToken()
@@ -50,8 +52,8 @@ namespace LostInTransit.Items
 
             private void UpdateStacks()
             {
-                gunCap = GetCap(goldCap);
-                goldForBuff = goldNeeded;
+                gunCap = Run.instance.GetDifficultyScaledCost((int)GetCap(goldCap));
+                goldForBuff = Run.instance.GetDifficultyScaledCost((int)GetCap(goldCap)) / GetCap(goldNeeded); //★ This is the same stacking behavior so I will simply reuse it.
             }
 
             private float GetCap(uint value)
@@ -64,6 +66,10 @@ namespace LostInTransit.Items
                 if (body.master.money > 0)
                 {
                     buffsToGive = (int)(Mathf.Min(body.master.money, gunCap) / goldForBuff);
+                    /*if (buffsToGive > goldNeeded + (goldNeeded / 2) * (stack - 1))
+                    {
+                        buffsToGive = (int)(goldNeeded + (goldNeeded / 2) * (stack - 1));
+                    }*/ //★ I'm very tired and struggling to read through how this works. I'm just fucking hardcoding a second cap check.
                     if (buffsToGive != body.GetBuffCount(GoldenGunBuff.buff))
                     {
                         body.SetBuffCount(GoldenGunBuff.buff.buffIndex, buffsToGive);

@@ -43,7 +43,7 @@ namespace LostInTransit.Items
                 else
                     rootTotal = rootIncrease * stack;
 
-                float rootGain = (rootTotal / 100) * (body.baseMaxHealth + (body.levelMaxHealth * body.level - 1));
+                float rootGain = (rootTotal / 100) * (body.baseMaxHealth + (body.levelMaxHealth * (body.level - 1)));
                 body.maxHealth += rootGain;
             }
         }

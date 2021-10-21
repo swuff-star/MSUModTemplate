@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2139150037
+CRC: 3316514289
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6e366a0317d96ff9294e97b7d4938257
+    Hash: 083aa4d6c30f978c5a1b54fd9c25650e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 7bc14adddbf16fe5e2030b9cb87cef14
@@ -133,6 +133,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/BuffDefs/LeechingRegen.asset
 - Assets/Materials/matAffixFrenzied.mat
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectFrenziedAbility.prefab
+- Assets/LostInTransit/LITAssets/ItemDefs/EnergyCell.asset
 - Assets/Mesh/meshBitterRoot.mesh
 - Assets/Textures/texTelescopicSightNormal.png
 - Assets/LostInTransit/LITAssets/BuffDefs/AffixLeeching.asset
