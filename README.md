@@ -37,6 +37,15 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 ## Changelog
 
+### 0.3.4
+* Items
+	* Bitter Root: Temporariliy disabled. Go join Mortar Tube!
+	* Energy Cell: Added (*Developer note: Eventually a lot of these items are going to retroactively be getting unlocks. Also, happy birthday, Rux.*)
+	* Golden Gun: Hopefully tackled some issues with how the number of buffs was calculated
+* Elites
+	* Blighted: Lowered extra damage (300% -> 200%)
+	* Blighted: Changed how visibility / invisiblity is handled to make them visible for longer periods of time
+
 ### 0.3.3
 * Items
 	* Golden Gun: Fixed the Item Display causing a ton of null reference exceptions, alongside causing invisible enemies.
