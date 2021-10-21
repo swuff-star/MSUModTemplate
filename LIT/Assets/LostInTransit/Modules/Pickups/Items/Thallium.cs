@@ -5,7 +5,7 @@ using Moonstorm;
 
 namespace LostInTransit.Items
 {
-    public class Thallium : LITItemBase
+    public class Thallium : ItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("Thallium");
 
@@ -13,15 +13,11 @@ namespace LostInTransit.Items
         public static float procChance;
         public static float dmgCoefficient;
         public static float newDmgStack;
-        public static float newSlowMultiplier;
+        public static float newSlowMultiplier; //Fields that are in item/equipment bases but are used in buffs should be now in their respective buff's class. for consistency's sake.
         public static int duration;
         public static int durationStack;
-        public override void Initialize()
-        {
-            Config();
-            DescriptionToken();
-        }
 
+        /*
         public override void Config()
         {
             section = "Item: " + ItemDef.name;
@@ -31,14 +27,16 @@ namespace LostInTransit.Items
             newSlowMultiplier = LITMain.config.Bind<float>(section, "Slow Multiplier", 0.75f, "Multiplier applied to the inflicted body's movement speed.").Value;
             duration = LITMain.config.Bind<int>(section, "DoT Duration", 4, "Duration of the Thallium Poisoning debuff.").Value;
             durationStack = LITMain.config.Bind<int>(section, "DoT Stacking", 2, "Added duration to Thallium Poisoning per stack").Value;
-        }
+        }*/
 
+        /*
         public override void DescriptionToken()
         {
             LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
                 $"<style=cIsDamage>{procChance}%</style> chance to inflict thallium poisoning for <style=cIsDamage>{dmgCoefficient * duration * 100}%</style> <style=cStack>(+{dmgCoefficient * durationStack * 100}% per stack)</style> of the victim's base damage and slow for <style=cIsUtility>{newSlowMultiplier * 100}% movement speed</style>.",
                 LangEnum.en);
-        }
+        }*/
+
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
             body.AddItemBehavior<ThalliumBehavior>(stack);

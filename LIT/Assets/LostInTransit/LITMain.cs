@@ -12,6 +12,7 @@ using UnityEngine;
 using LostInTransit.Utils;
 using LostInTransit.Buffs;
 using System.Linq;
+using Moonstorm;
 
 #pragma warning disable CS0618
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -47,6 +48,9 @@ namespace LostInTransit
 
         public void Awake()
         {
+            ConfigurableFieldManager.AddMod(GetType().Assembly, Config);
+            DynamicDescriptionManager.AddMod(GetType().Assembly);
+
             instance = this;
             pluginInfo = Info;
             config = Config;

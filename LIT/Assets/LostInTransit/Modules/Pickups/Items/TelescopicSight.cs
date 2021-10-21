@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LostInTransit.Items
 {
-    public class TelescopicSight : LITItemBase
+    public class TelescopicSight : ItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("TelescopicSight");
 
@@ -16,12 +16,8 @@ namespace LostInTransit.Items
         public static float ExceptionHealthPercentage;
         public static bool InstakillElites;
         public static bool InstakillBosses;
-        public override void Initialize()
-        {
-            Config();
-            DescriptionToken();
-        }
 
+        /*
         public override void Config()
         {
             section = "Item: " + ItemDef.name;
@@ -32,14 +28,14 @@ namespace LostInTransit.Items
             ExceptionHealthPercentage = LITMain.config.Bind<float>(section, "Exceptions Health Percentage", 20f, "Percentage of max health that's dealt to set exceptions.").Value;
             InstakillBosses = LITMain.config.Bind<bool>(section, "Instakill Bosses", false, "Whether Telescopic Sight should instakill boss monsters.").Value;
             InstakillElites = LITMain.config.Bind<bool>(section, "Instakill Elites", true, "Whether Telescopic Sight should instakill elite monsters.").Value;
-        }
-        //Good luck i guess, lol.
+        }*/
+        /*
         public override void DescriptionToken()
         {
             LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
                 $"<style=cIsDamage>{newBaseChance}%</style> <style=cStack>(+{newStackChance}% per stack)</style> chance to <style=cIsDamage>instakill monsters</style>. Boss monsters instead take <style=cIsDamage>{ExceptionHealthPercentage}% of their maximum health</style> in damage. Recharges every <style=cIsUtility>{TeleCooldown}</style> <style=cStack>(-{TeleCooldownStack} per stack)</style> seconds.",
                 LangEnum.en);
-        }
+        }*/
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {

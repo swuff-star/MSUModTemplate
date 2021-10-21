@@ -7,17 +7,13 @@ using UnityEngine;
 
 namespace LostInTransit.Items
 {
-    public class GoldenGun : LITItemBase
+    public class GoldenGun : ItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("GoldenGun");
         public static uint goldCap;
         public static uint goldNeeded;
 
-        public override void Initialize()
-        {
-            Config();
-            DescriptionToken();
-        }
+        /*
         public override void Config()
         {
             var section = $"Item: {ItemDef.name}";
@@ -25,14 +21,15 @@ namespace LostInTransit.Items
             goldNeeded = LITMain.config.Bind<uint>(section, "Maximum Damage Bonus", 40, "The maximum amount of added damage Golden Gun will give.").Value;
             //★ 'goldNeeded' is a really bad variable name for this. More accurate would be 'maxDamage' or something - since you SHOULD need 15 gold per buff, not 40.
             //★ Not changing it, but am bitching about it.
-        }
+        }*/
 
+        /*
         public override void DescriptionToken()
         {
             LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
                 $"Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to an extra <style=cIsDamage>+{goldNeeded}% damage</style> <style=cStack>(+{goldNeeded/2}% per stack)</style> at <style=cIsUtility>{goldCap} gold</style> <style=cStack>(+{goldCap/2} per stack, scaling with time)</style>.",
                 LangEnum.en);
-        }
+        }*/
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
             body.AddItemBehavior<GoldenGunBehavior>(stack);

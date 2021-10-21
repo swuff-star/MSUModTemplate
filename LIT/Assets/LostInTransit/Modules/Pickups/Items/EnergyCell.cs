@@ -5,30 +5,27 @@ using UnityEngine;
 
 namespace LostInTransit.Items
 {
-    //[DisabledContent]
-    public class EnergyCell : LITItemBase
+    public class EnergyCell : ItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("EnergyCell");
 
         public static float bonusAttackSpeed;
-        public override void Initialize()
-        {
-            Config();
-            DescriptionToken();
-        }
 
+        /*
         public override void Config()
         {
             var section = $"Item: {ItemDef.name}";
             bonusAttackSpeed = LITMain.config.Bind<float>(section, "Maximum Attack Speed per Energy Cell", 0.4f, "Maximum amount of attack speed per item held.").Value;
-        }
+        }*/
 
+        /*
         public override void DescriptionToken()
         {
             LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
                 $"Gain <style=cIsDamage>attack speed</style> proportionate to <style=cIsHealth>percentage of missing health</style>, up to a maximum of <style=cIsDamage>+{bonusAttackSpeed * 100}%</style> <style=cStack>(+{bonusAttackSpeed * 100}% per stack)</style> <style=cIsDamage>attack speed</style> with <style=cIsHealth>10% or less health remaining</style>.",
                 LangEnum.en);
-        }
+        }*/
+
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
             body.AddItemBehavior<EnergyCellBehavior>(stack);
@@ -39,6 +36,9 @@ namespace LostInTransit.Items
             //★. ..will look up and shout "stop doing everything in the FixedUpdate method!"... and I'll look down and whisper "no".
             //★ Jokes aside, this makes sense to do inside FixedUpdate, right? I figure doing it in RecalculateStats wouldn't update properly, since... well, it's only when RecalculateStats is called.
             //★ P.S. What do you call "FixedUpdate()"? Like, the name for it? It's a 'method', right? I am adding things inside of the method?
+
+            //1.- Yeah, i think this should be called on fixed update. the other option is to look at what watch metronome does for keeping the speed boost constant.
+            //2.- FixedUpdate is a method that gets called automatically by unity, remember that CharacterBody.ItemBehavior inherits from MonoBehavior, and all classes that inherit from MonoBehavior have access to FixedUpdate(), Update() among other methods.
             public float missingHealthPercent;
             public float healthFraction;
 

@@ -8,7 +8,7 @@ using UnityEngine;
 namespace LostInTransit.Items
 {
     [DisabledContent]
-    public class RepulsionArmor : LITItemBase
+    public class RepulsionArmor : ItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("RepulsionChestplate");
 
@@ -18,11 +18,8 @@ namespace LostInTransit.Items
         public static float buffBaseLength;
         public static float buffStackLength;
         public static float durCap;
-        public override void Initialize()
-        {
-            Config();
-            DescriptionToken();
-        }
+
+        /*
         public override void Config()
         {
             var section = $"Item: {ItemDef.name}";
@@ -32,14 +29,15 @@ namespace LostInTransit.Items
             buffStackLength = LITMain.config.Bind<float>(section, "Stacking Duration of Buff", 1.5f, "Amount of time added to the Repulsion Armor buff per extra stack.").Value;
             durCap = LITMain.config.Bind<float>(section, "Maximum Duration", 0f, "Maximum length of the Repulsion Armor buff. Set to 0 to disable.").Value;
             damageResist = LITMain.config.Bind<float>(section, "Damage Reduction", 83f, "Amount of damage reduced while the Repulsion Armor buff is active, as a percent.").Value;
-        }
+        }*/
 
+        /*
         public override void DescriptionToken()
         {
             LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
                 $"After <style=cIsUtility>taking damage</style> {hitsNeededConfig} times, gain a temporary <style=cIsUtility>{damageResist}% damage reduction</style> buff for <style=cIsUtility>{buffBaseLength}</style> <style=cStack>(+{buffStackLength} per stack)</style> seconds.",
                 LangEnum.en);
-        }
+        }*/
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {

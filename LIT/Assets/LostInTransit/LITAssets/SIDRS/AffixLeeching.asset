@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 751239416, guid: 4c1e36ca6695d254bb4c4099b90bd4ee, type: 3}
+  m_Script: {fileID: 751239416, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
   m_Name: AffixLeeching
   m_EditorClassIdentifier: 
   KeyAssetName: AffixLeeching

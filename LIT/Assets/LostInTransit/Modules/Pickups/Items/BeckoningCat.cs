@@ -5,7 +5,7 @@ using Moonstorm;
 
 namespace LostInTransit.Items
 {
-    public class BeckoningCat : LITItemBase
+    public class BeckoningCat : ItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("BeckoningCat");
 
@@ -18,11 +18,7 @@ namespace LostInTransit.Items
         public static float redItemStack;
         public static bool usesLuck;
 
-        public override void Initialize()
-        {
-            Config();
-            DescriptionToken();
-        }
+        /*
         public override void Config()
         {
             section = "Item: " + ItemDef.name;
@@ -33,13 +29,13 @@ namespace LostInTransit.Items
             redItemChance = LITMain.config.Bind<float>(section, "Rare Item Chance", 0.5f, "Chance for Beckoning Cat to drop a Rare item.").Value;
             redItemStack = LITMain.config.Bind<float>(section, "Rare Item Stacking Chance", 0.25f, "Chance per stack of Beckoning Cat to drop a Rare item.").Value;
             usesLuck = LITMain.config.Bind<bool>(section, "Use Luck", true, "Whether the luck stat should be considered for Beckoning Cat drops.").Value;
-        }
-        public override void DescriptionToken()
+        }*/
+        /*public override void DescriptionToken()
         {
             LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
                 $"Elite monsters have a <style=cIsUtility>{baseChance}%</style> <style=cStack>(+{stackChance}% per stack)</style> chance to drop items on death. Dropped items have a <style=cIsUtility>{greenItemChance}%</style> <style=cStack>(+{greenItemStack}% per stack)</style> chance to be <color=#81d047>Uncommon</color>, and a <style=cIsUtility>{redItemChance}%</style> <style=cStack>(+{redItemStack}% per stack)</style> chance to be <color=#f26060>Rare</color>.",
                 LangEnum.en);
-        }
+        }*/
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
             body.AddItemBehavior<BeckoningCatBehavior>(stack);
