@@ -21,7 +21,7 @@ namespace LostInTransit.Items
         public static float newDmgStack = 0f;
 
         [ConfigurableField(ConfigName = "Slow Multiplier", ConfigDesc = "How much inflicted bodies are slowed by.")]
-        public static float newSlowMultiplie = 0.75f; //Fields that are in item/equipment bases but are used in buffs should be now in their respective buff's class. for consistency's sake.
+        public static float newSlowMultiplier = 0.75f; //Fields that are in item/equipment bases but are used in buffs should be now in their respective buff's class. for consistency's sake.
         //I'm leaving them with the items so they're grouped together, rather than separate config for item & associated debuff - makes it easier for user to find everything relating to said item.
 
         [ConfigurableField(ConfigName = "Poisoning Duration", ConfigDesc = "Duration of the Thallium Poisoning debuff.")]

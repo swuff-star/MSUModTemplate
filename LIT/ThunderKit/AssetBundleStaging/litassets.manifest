@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4113590363
+CRC: 1666627440
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d0d1ec80dba3a9e9ea8195398cdf6668
+    Hash: 0ac009795faffebdf57c60897217f27f
   TypeTreeHash:
     serializedVersion: 2
     Hash: d5865f4b196174e0eff5779f7a7b3524
@@ -147,6 +147,7 @@ Assets:
 - Assets/Materials/matVolatileChargeExplosion.mat
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupThallium.prefab
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixBlighted.asset
+- Assets/LostInTransit/LITAssets/ItemDefs/GuardiansHeart.asset
 - Assets/Materials/matAffixVolatile.mat
 - Assets/Materials/matGiganticAmethyst.mat
 - Assets/Textures/Stolen/texCloudDifferenceBW2.asset
@@ -254,6 +255,7 @@ Assets:
 - Assets/Icons/texIconBuffShackled.png
 - Assets/Mesh/meshGoldenGun.mesh
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixFrenzied.asset
+- Assets/LostInTransit/LITAssets/BuffDefs/GuardiansHeartBuff.asset
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectLeechingAbility.prefab
 - Assets/LostInTransit/LITAssets/Prefabs/NetworkedObjects/BlightedDirector.prefab
 - Assets/LostInTransit/LITAssets/ItemDefs/BitterRoot.asset

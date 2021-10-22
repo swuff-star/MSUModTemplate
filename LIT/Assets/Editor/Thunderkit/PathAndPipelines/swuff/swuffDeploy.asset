@@ -28,8 +28,7 @@ MonoBehaviour:
   m_Name: Copy
   m_EditorClassIdentifier: 
   Errored: 1
-  ErrorMessage: Could not find a part of the path "ThunderKit/Staging/Lost in Transit/plugins/Lost
-    in Transit"
+  ErrorMessage: Could not find a part of the path "ThunderKit/Staging/LostInTransit/plugins/LostInTransit"
   Active: 1
   PerManifest: 1
   ExcludedManifests:
