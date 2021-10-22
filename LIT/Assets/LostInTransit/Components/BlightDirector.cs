@@ -22,10 +22,15 @@ namespace LostInTransit.Components
 
         public const float maxSpawnRate = 1f;
 
+        public const float minTimeBeforeKillsCount = 1200f; //This roughly causes kills to only count past 20 minutes in drizzle.
+
         public float MaxSpawnRateWithDiffCoef { get => (maxSpawnRate * RunDifficulty.scalingValue) + GetTotalBeadCount(); }
+
+        public float MinTimeBeforeKillsCountWithDiffCoef { get => (minTimeBeforeKillsCount / RunDifficulty.scalingValue); }
 
         [SyncVar]
         public float SpawnRate = 0;
+
 
         public const float spawnRatePerMonsterKilled = 0.001f;
 
@@ -71,19 +76,22 @@ namespace LostInTransit.Components
         [Server]
         private void OnEnemyKilled(DamageReport obj)
         {
-            var victimBody = obj.victimBody;
-            var attackerBody = obj.attackerBody;
-            if(victimBody && attackerBody)
+            if(Run.instance.GetRunStopwatch() > MinTimeBeforeKillsCountWithDiffCoef)
             {
-                var victimTeamComponent = victimBody.teamComponent;
-                if(victimTeamComponent)
+                var victimBody = obj.victimBody;
+                var attackerBody = obj.attackerBody;
+                if(victimBody && attackerBody)
                 {
-                    if(victimTeamComponent.teamIndex == TeamIndex.Monster || victimTeamComponent.teamIndex == TeamIndex.Lunar)
+                    var victimTeamComponent = victimBody.teamComponent;
+                    if(victimTeamComponent)
                     {
-                        if (attackerBody.isPlayerControlled && SpawnRate < MaxSpawnRateWithDiffCoef)
+                        if(victimTeamComponent.teamIndex == TeamIndex.Monster || victimTeamComponent.teamIndex == TeamIndex.Lunar)
                         {
-                            monstersKilled += 1 * ((ulong)Run.instance?.loopClearCount + 1);
-                            RecalculateSpawnChance();
+                            if (attackerBody.isPlayerControlled && SpawnRate < MaxSpawnRateWithDiffCoef)
+                            {
+                                monstersKilled += 1 * ((ulong)Run.instance?.loopClearCount + 1);
+                                RecalculateSpawnChance();
+                            }
                         }
                     }
                 }
@@ -100,6 +108,7 @@ namespace LostInTransit.Components
 
             if (isBlacklisted)
                 return;
+
             if(IsHonorArtifactEnabled)
             {
                 if (stageNotCommencement && isEnemy && hasComponent)

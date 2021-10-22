@@ -137,36 +137,39 @@ namespace LostInTransit.Buffs
 
             public void OnHitAll(DamageInfo dmgInfo)
             {
-                var atkBody = dmgInfo.attacker.GetComponent<CharacterBody>();
-                if (dmgInfo.procCoefficient != 0f && !DamageAPI.HasModdedDamageType(dmgInfo, DamageTypes.Volatile.volatileDamageType))
+                if(!dmgInfo.attacker)
                 {
-                    float radius = 1.5f + (2.5f * dmgInfo.procCoefficient);
-                    float dmgCoef = 0.3f;
-                    float baseDamage = Util.OnHitProcDamage(dmgInfo.damage, atkBody.damage, dmgCoef);
-                    EffectManager.SpawnEffect(Resources.Load<GameObject>("Prefabs/Effects/OmniEffect/OmniExplosionVFXQuick"), new EffectData
+                    var atkBody = dmgInfo.attacker.GetComponent<CharacterBody>();
+                    if (dmgInfo.procCoefficient != 0f && !DamageAPI.HasModdedDamageType(dmgInfo, DamageTypes.Volatile.volatileDamageType))
                     {
-                        origin = dmgInfo.position,
-                        scale = radius,
-                        rotation = Util.QuaternionSafeLookRotation(dmgInfo.force)
-                    }, transmit: true);
+                        float radius = 1.5f + (2.5f * dmgInfo.procCoefficient);
+                        float dmgCoef = 0.3f;
+                        float baseDamage = Util.OnHitProcDamage(dmgInfo.damage, atkBody.damage, dmgCoef);
+                        EffectManager.SpawnEffect(Resources.Load<GameObject>("Prefabs/Effects/OmniEffect/OmniExplosionVFXQuick"), new EffectData
+                        {
+                            origin = dmgInfo.position,
+                            scale = radius,
+                            rotation = Util.QuaternionSafeLookRotation(dmgInfo.force)
+                        }, transmit: true);
 
-                    BlastAttack atk = new BlastAttack
-                    {
-                        position = dmgInfo.position,
-                        baseDamage = baseDamage,
-                        baseForce = 0f,
-                        radius = radius,
-                        attacker = dmgInfo.attacker,
-                        inflictor = null
-                    };
-                    atk.teamIndex = TeamComponent.GetObjectTeam(dmgInfo.attacker);
-                    atk.crit = dmgInfo.crit;
-                    atk.procChainMask = dmgInfo.procChainMask;
-                    atk.damageColorIndex = DamageColorIndex.WeakPoint;
-                    atk.falloffModel = BlastAttack.FalloffModel.None;
-                    atk.damageType = dmgInfo.damageType;
-                    DamageAPI.AddModdedDamageType(atk, DamageTypes.Volatile.volatileDamageType);
-                    atk.Fire();
+                        BlastAttack atk = new BlastAttack
+                        {
+                            position = dmgInfo.position,
+                            baseDamage = baseDamage,
+                            baseForce = 0f,
+                            radius = radius,
+                            attacker = dmgInfo.attacker,
+                            inflictor = null
+                        };
+                        atk.teamIndex = TeamComponent.GetObjectTeam(dmgInfo.attacker);
+                        atk.crit = dmgInfo.crit;
+                        atk.procChainMask = dmgInfo.procChainMask;
+                        atk.damageColorIndex = DamageColorIndex.WeakPoint;
+                        atk.falloffModel = BlastAttack.FalloffModel.None;
+                        atk.damageType = dmgInfo.damageType;
+                        DamageAPI.AddModdedDamageType(atk, DamageTypes.Volatile.volatileDamageType);
+                        atk.Fire();
+                    }
                 }
             }
 

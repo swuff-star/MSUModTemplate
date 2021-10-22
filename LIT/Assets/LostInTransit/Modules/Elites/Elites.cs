@@ -23,19 +23,17 @@ namespace LostInTransit.Modules
         public override SerializableContentPack ContentPack { get; set; } = LITContent.serializableContentPack;
         public override AssetBundle AssetBundle { get; set; } = Assets.LITAssets;
 
-        private static bool spawnedDirector = false;
-
         public override void Init()
         {
             Instance = this;
             base.Init();
             LITLogger.LogI($"Initializing Elites...");
-            InitializeEliteEquipments();
+            GetNonInitializedEliteEquipments();
         }
 
-        public override IEnumerable<EliteEquipmentBase> InitializeEliteEquipments()
+        public override IEnumerable<EliteEquipmentBase> GetNonInitializedEliteEquipments()
         {
-            base.InitializeEliteEquipments()
+            base.GetNonInitializedEliteEquipments()
                 .Where(elite => LITMain.config.Bind<bool>("Lost in Transit Elites", elite.EliteDef.name, true, "Enable/disable this Elite Type.").Value)
                 .ToList()
                 .ForEach(elite => AddElite(elite, ContentPack));
