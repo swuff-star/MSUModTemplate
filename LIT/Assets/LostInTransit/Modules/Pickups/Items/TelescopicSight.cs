@@ -9,13 +9,27 @@ namespace LostInTransit.Items
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("TelescopicSight");
 
         public static string section;
-        public static float newBaseChance;
-        public static float newStackChance;
-        public static float TeleCooldown;
-        public static float TeleCooldownStack;
-        public static float ExceptionHealthPercentage;
-        public static bool InstakillElites;
-        public static bool InstakillBosses;
+
+        [ConfigurableField(ConfigName = "Base Proc Chance", ConfigDesc = "Base proc chance for Telescopic Sight.")]
+        public static float newBaseChance = 1f;
+
+        [ConfigurableField(ConfigName = "Proc Chance per Stack", ConfigDesc = "Extra proc chance per stack of sights.")]
+        public static float newStackChance = 0.5f;
+
+        [ConfigurableField(ConfigName = "Cooldown", ConfigDesc = "Cooldown between Telescopic Sight activations.")]
+        public static float TeleCooldown = 20f;
+
+        [ConfigurableField(ConfigName = "Cooldown Reduction per Stack", ConfigDesc = "Seconds removed from cooldown per stack.")]
+        public static float TeleCooldownStack = 2f;
+
+        [ConfigurableField(ConfigName = "Health Percentage Dealt to Exceptions", ConfigDesc = "Percentage of max health that's dealt to set exceptions when activated on them.")]
+        public static float ExceptionHealthPercentage = 20f;
+
+        [ConfigurableField(ConfigName = "Instakill Bosses", ConfigDesc = "Whether Telescopic Sight should instakill boss monsters.")]
+        public static bool InstakillElites = false;
+
+        [ConfigurableField(ConfigName = "Instakill Elites", ConfigDesc = "Whether Telescopic Sight should instakill elites.")]
+        public static bool InstakillBosses = true;
 
         /*
         public override void Config()

@@ -9,6 +9,7 @@ using LostInTransit.Modules;
 using System.Linq;
 using UnityEngine.SceneManagement;
 using LostInTransit.Utils;
+using LostInTransit.Equipments;
 
 namespace LostInTransit.Components
 {
@@ -152,6 +153,12 @@ namespace LostInTransit.Components
                     rewards.expReward *= 5;
                     rewards.goldReward *= 5;
                 }
+
+                if (AffixBlighted.biggerBlighted = true)
+                { 
+                    body.isChampion = true;
+                }
+
                 Util.PlaySound("BlightSpawn", body.gameObject);
             }
         }

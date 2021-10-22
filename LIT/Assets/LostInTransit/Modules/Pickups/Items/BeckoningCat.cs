@@ -10,13 +10,27 @@ namespace LostInTransit.Items
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("BeckoningCat");
 
         public static string section;
-        public static float baseChance;
-        public static float stackChance;
-        public static float greenItemChance;
-        public static float greenItemStack;
-        public static float redItemChance;
-        public static float redItemStack;
-        public static bool usesLuck;
+
+        [ConfigurableField(ConfigName = "Base Drop Chance", ConfigDesc = "Base chance for Elites to drop an item.")]
+        public static float baseChance = 4.5f;
+
+        [ConfigurableField(ConfigName = "Stacking Drop Chance", ConfigDesc = "Added chance for Elites to drop an item per stack.")]
+        public static float stackChance = 1.5f;
+
+        [ConfigurableField(ConfigName = "Uncommon Item Chance", ConfigDesc = "Chance for Elites to drop an Uncommon (Green) item.")]
+        public static float greenItemChance = 6f;
+
+        [ConfigurableField(ConfigName = "Uncommon Item Stacking Chance", ConfigDesc = "Extra chance for Elites to drop an Uncommon (Green) item per stack.")]
+        public static float greenItemStack = 1f;
+
+        [ConfigurableField(ConfigName = "Rare Item Chance", ConfigDesc = "Chance for Elites to drop a Rare (Red) item.")]
+        public static float redItemChance = 0.5f;
+
+        [ConfigurableField(ConfigName = "Rare Item Stacking Chance", ConfigDesc = "Extra chance for Elites to drop a Rare (Red) item per stack.")]
+        public static float redItemStack = 0.25f;
+
+        [ConfigurableField(ConfigName = "Use Luck", ConfigDesc = "Whether Luck should be accounted for in all Beckoning Cat-related rolls.")]
+        public static bool usesLuck = true;
 
         /*
         public override void Config()

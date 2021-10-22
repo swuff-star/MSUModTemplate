@@ -10,8 +10,12 @@ namespace LostInTransit.Items
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("LifeSavings");
         public static ItemDef itemDef;
-        public static float newMoneyKeptBase;
-        public static float newMoneyKeptStack;
+
+        [ConfigurableField(ConfigName = "Money Kept Between Stages", ConfigDesc = "Percentage of money kept between stages")]
+        public static float newMoneyKeptBase = 5f;
+
+        [ConfigurableField(ConfigName = "Extra Money Kept Per Stack", ConfigDesc = "Extra percentage of money kept between stages for each stack.")]
+        public static float newMoneyKeptStack = 2.5f;
 
         /*
         public override void Config()

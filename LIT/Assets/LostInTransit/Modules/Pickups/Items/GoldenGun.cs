@@ -10,8 +10,12 @@ namespace LostInTransit.Items
     public class GoldenGun : ItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("GoldenGun");
-        public static uint goldCap;
-        public static uint goldNeeded;
+
+        [ConfigurableField(ConfigName = "Maximum Gold Threshold", ConfigDesc = "The maximum amount of gold that Golden Gun will account for.")]
+        public static uint goldCap = 600;
+
+        [ConfigurableField(ConfigName = "Maximum Damage Bonus", ConfigDesc = "The maximum amount of bonus damage Golden Gun grants.")]
+        public static uint goldNeeded = 40;
 
         /*
         public override void Config()

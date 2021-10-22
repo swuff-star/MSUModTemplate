@@ -9,7 +9,8 @@ namespace LostInTransit.Items
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("EnergyCell");
 
-        public static float bonusAttackSpeed;
+        [ConfigurableField(ConfigName = "Maximum Attack Speed per Cell", ConfigDesc = "Maximum amount of attack speed per item held.")]
+        public static float bonusAttackSpeed = 0.4f;
 
         /*
         public override void Config()

@@ -10,9 +10,14 @@ namespace LostInTransit.Items
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("PrisonShackles");
 
         public static string section;
-        public static float slowMultiplier;
-        public static int duration;
-        public static int durationStack;
+        [ConfigurableField(ConfigName = "Slow Multiplier", ConfigDesc = "Multiplier added to the shackled body's movement speed.")]
+        public static float slowMultiplier = 0.6f;
+
+        [ConfigurableField(ConfigName = "Duration", ConfigDesc = "Base duration of the Shackled debuff.")]
+        public static int duration = 2;
+
+        [ConfigurableField(ConfigName = "Stacking Duration", ConfigDesc = "Extra duration of the Shackled debuff per stack of shackles.")]
+        public static int durationStack = 2;
 
         /*
         public override void Config()

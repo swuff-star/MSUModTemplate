@@ -7,9 +7,13 @@ namespace LostInTransit.Items
     public class SmartShopper : ItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("SmartShopper");
-        public static string section;
-        public static float goldAmount;
-        public static bool usesExpScaling;
+        //public static string section;
+
+        [ConfigurableField(ConfigName = "Money Bonus", ConfigDesc = "Amount of extra money gained, per stack.")]
+        public static float goldAmount = 0.25f;
+
+        [ConfigurableField(ConfigName = "Use Exponential Scaling", ConfigDesc = "Whether scaling should be done exponentially or linearally.")]
+        public static bool usesExpScaling = true;
 
         /*
         public override void Config()

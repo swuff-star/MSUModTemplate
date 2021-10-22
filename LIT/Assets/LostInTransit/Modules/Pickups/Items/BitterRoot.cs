@@ -9,8 +9,11 @@ namespace LostInTransit.Items
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("BitterRoot");
 
-        public static float rootIncrease;
-        public static float rootCap;
+        [ConfigurableField(ConfigName = "Extra Maximum Health per Root", ConfigDesc = "Extra percentage of maximum health added per root")]
+        public static float rootIncrease = 4f;
+
+        [ConfigurableField(ConfigName = "Maximum Health Gain", ConfigDesc = "Maximum health increase that can be obtained from roots, as a % (e.g. 300 = 300%). Set to 0 to disable.")]
+        public static float rootCap = 0f;
 
         /*public override void Config()
         {

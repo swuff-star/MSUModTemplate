@@ -14,8 +14,14 @@ namespace LostInTransit.Equipments
     public class Thqwib : EquipmentBase
     {
         public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("Thqwib");
+
+		[ConfigurableField(ConfigName = "Damage per Thqwib", ConfigDesc = "Amount of damage each Thqwib deals on explosion, as a %.")]
 		public static float damage;
+
+		[ConfigurableField(ConfigName = "Number of Thqwibs", ConfigDesc = "Number of Thqwibs tossed in a single bloom.")]
 		public static int thqwibAmount;
+
+		[ConfigurableField(ConfigName = "Chance to Proc On-Kill Effects", ConfigDesc = "Chance, per Thqwib, to activate On-Kill effects when exploding.\nDefault Average: 30x * 10% = 3 average On-Kill activations per bloom.")]
 		public static float chance;
 
         /*public override void Config()
