@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1666627440
+CRC: 1493480329
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0ac009795faffebdf57c60897217f27f
+    Hash: 231ac64ce327176f67f28e744922f99b
   TypeTreeHash:
     serializedVersion: 2
     Hash: d5865f4b196174e0eff5779f7a7b3524
@@ -293,6 +293,7 @@ Assets:
 - Assets/Materials/matVolatileWick.mat
 - Assets/Textures/texLifeSavingsDifuse.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixLeeching.prefab
+- Assets/LostInTransit/LITAssets/ItemDefs/RustyJetpack.asset
 - Assets/LostInTransit/LITAssets/Meshes/meshPlane.mesh
 - Assets/LostInTransit/LITAssets/EliteDefs/Volatile.asset
 - Assets/Mesh/meshTelescopicSight.mesh
