@@ -15,6 +15,7 @@ namespace LostInTransit.Equipments
                 return false;
             }
             sloc.ApplyAmmoPack();
+            Util.PlaySound("AmethystProc", slot.characterBody.gameObject); //Why the fuck is this called "AmethystProc", theres nothing to proc, wtf swuff
             return true;
         }
     }

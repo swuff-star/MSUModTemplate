@@ -42,7 +42,7 @@ namespace LostInTransit.Buffs
                 body.onSkillActivatedServer += RemoveBuff;
             }
 
-            private void RemoveBuff(GenericSkill obj)
+            private void RemoveBuff(GenericSkill obj = null)
             {
                 if (body.hasCloakBuff)
                     body.RemoveBuff(RoR2Content.Buffs.Cloak);
@@ -75,13 +75,12 @@ namespace LostInTransit.Buffs
                 stopwatch += Time.fixedDeltaTime;
                 if (stopwatch > checkTimer && !body.HasBuff(RoR2Content.Buffs.Cloak))
                 {
-                    stopwatch = 0;
-                    body.AddBuff(RoR2Content.Buffs.Cloak);
+                    RemoveBuff();
                 }
                 else if (Util.CheckRoll(1))
                 {
                     stopwatch = 0; //Doing this to ensure they're visible for a moment
-                    body.RemoveBuff(RoR2Content.Buffs.Cloak);
+                    RemoveBuff();
                     SpawnEffect();
                 }
             }
@@ -94,6 +93,7 @@ namespace LostInTransit.Buffs
                     origin = body.transform.position
                 };
                 EffectManager.SpawnEffect(SmokeEffect, data, true);
+                //Util.PlaySound("BlightAppear", body.gameObject); too obnoxious
             }
 
             public void RecalculateStatsStart() { }

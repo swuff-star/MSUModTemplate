@@ -29,7 +29,8 @@ MonoBehaviour:
   survivorDefs: []
   artifactDefs: []
   surfaceDefs: []
-  networkSoundEventDefs: []
+  networkSoundEventDefs:
+  - {fileID: 11400000, guid: 21c6abfe1418ef74d9d08f545ab33fb7, type: 2}
   musicTrackDefs: []
   gameEndingDefs: []
   entityStateConfigurations:

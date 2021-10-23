@@ -57,6 +57,7 @@ namespace LostInTransit.Buffs
                         AbilityEffectInstance.transform.localScale *= body.bestFitRadius;
                     }
                 }
+                Util.PlaySound("LeechingHeal", body.gameObject);
             }
             private void Start()
             {

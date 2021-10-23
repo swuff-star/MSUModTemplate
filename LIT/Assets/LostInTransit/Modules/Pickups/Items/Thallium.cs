@@ -65,6 +65,7 @@ namespace LostInTransit.Items
                         damageMultiplier = dmgCoefficient + newDmgStack * (stack - 1)
                     };
                     DotController.InflictDot(ref dotInfo);
+                    Util.PlaySound("ThalliumProc", body.gameObject);
                 }
             }
         }

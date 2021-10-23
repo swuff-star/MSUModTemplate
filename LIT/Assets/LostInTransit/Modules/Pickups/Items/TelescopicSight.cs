@@ -30,11 +30,11 @@ namespace LostInTransit.Items
         [TokenModifier(token, StatTypes.Default, 2)]
         public static float exceptionHealthPercentage = 20f;
 
-        [ConfigurableField(ConfigName = "Instakill Bosses", ConfigDesc = "Whether Telescopic Sight should instakill boss monsters.")]
+        [ConfigurableField(ConfigName = "Instakill Elites", ConfigDesc = "Whether Telescopic Sight should instakill elites.")]
         public static bool instakillElites = false;
 
-        [ConfigurableField(ConfigName = "Instakill Elites", ConfigDesc = "Whether Telescopic Sight should instakill elites.")]
-        public static bool instakillBosses = true;
+        [ConfigurableField(ConfigName = "Instakill Bosses", ConfigDesc = "Whether Telescopic Sight should instakill boss monsters.")]
+        public static bool instakillBosses = false;
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
@@ -59,6 +59,7 @@ namespace LostInTransit.Items
                         {
                             damageInfo.damage = victimHealthComponent.body.maxHealth * (exceptionHealthPercentage / 100);
                         }
+                        Util.PlaySound("TeleSightProc", body.gameObject);
                     }
                 }
             }
@@ -78,22 +79,30 @@ namespace LostInTransit.Items
              * By default, only normal enemies & elites should be instakillable, Bosses are treated as exceptions.
              */
             //Hey, English lesson: "whether". There's no need for the 'h', but it's there for... some reason.
+            //I fucking hate english.
             private bool ChooseWetherToInstakill(CharacterBody body)
             {
-
                 if (body.isChampion)
                 {
                     if (instakillBosses)
+                    {
                         return true;
+                    }
                     else
+                    {
                         return false;
+                    }
                 }
                 if (body.isElite)
                 {
                     if (instakillElites)
+                    {
                         return true;
+                    }
                     else
+                    {
                         return false;
+                    }
                 }
                 return true;
             }

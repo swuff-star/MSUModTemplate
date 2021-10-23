@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 1937965295, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
   m_Name: AbilityLeeching
   m_EditorClassIdentifier: 
-  equipmentDef: {fileID: 11400000, guid: 40ff794bbbf17fa458952cda08f732d1, type: 2}
+  equipmentDef: {fileID: 11400000, guid: 57c08d6765a5f1d43a1aff39ef04da42, type: 2}
   aiMaxUseDistance: 50
   aiHealthFractionToUseChance:
     serializedVersion: 2

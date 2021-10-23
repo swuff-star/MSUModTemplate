@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace LostInTransit.Items
 {
+    [DisabledContent]
     public class RustyJetpack : ItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("RustyJetpack");

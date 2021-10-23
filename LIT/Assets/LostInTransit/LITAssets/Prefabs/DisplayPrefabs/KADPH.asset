@@ -31,3 +31,6 @@ MonoBehaviour:
   - keyAsset: {fileID: 11400000, guid: 42ff5eeb0a6dc5442bcb4248b56742e4, type: 2}
     displayPrefabs:
     - {fileID: 5443091400251045219, guid: 6c7811265fd57e747b605b790a8e675d, type: 3}
+  - keyAsset: {fileID: 11400000, guid: 0721b5569d82a8d4e9aa030155affbd1, type: 2}
+    displayPrefabs:
+    - {fileID: 4984898351240871556, guid: 4c53fba62aa469545b475ba6acf9f152, type: 3}

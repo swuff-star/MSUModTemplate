@@ -146,13 +146,6 @@ namespace LostInTransit.Components
                     rewards.expReward *= 5;
                     rewards.goldReward *= 5;
                 }
-
-                if (AffixBlighted.biggerBlighted = true)
-                {
-                    body.isChampion = true;
-                }
-
-                Util.PlaySound("BlightSpawn", body.gameObject);
             }
         }
 

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1493480329
+CRC: 2622584280
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 21437c98a2e0a0c5f356198eea6899f7
+    Hash: eadac5196ccc90c27a9e4acea017ef97
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d5865f4b196174e0eff5779f7a7b3524
+    Hash: a4e75b31e55073087e5f1100ced1a9c9
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -63,6 +63,8 @@ ClassTypes:
   Script: {fileID: -1479993534, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 296141222, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -1387411909, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1985007777, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -222,6 +224,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayBeckoningCat.prefab
 - Assets/Icons/texIconRepulsionCharging.png
 - Assets/Materials/matThallium.mat
+- Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/New Loop Sound Def.asset
 - Assets/Materials/matPrisonShackles.mat
 - Assets/LostInTransit/LITAssets/EquipmentDefs/Thqwib.asset
 - Assets/Mesh/meshBeckoningCat.mesh

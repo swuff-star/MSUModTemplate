@@ -99,6 +99,7 @@ namespace LostInTransit.Items
                 void SpawnItem(List<PickupIndex> items, int nextItem)
                 {
                     PickupDropletController.CreatePickupDroplet(items[nextItem], victimBody.transform.position, constant);
+                    Util.PlaySound("CatProc", body.gameObject);
                 }
             }
             private void RefreshNextItems()

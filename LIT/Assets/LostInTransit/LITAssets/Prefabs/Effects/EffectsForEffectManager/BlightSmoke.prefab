@@ -60,8 +60,8 @@ MonoBehaviour:
   effectIndex: -1
   positionAtReferencedTransform: 0
   parentToReferencedTransform: 0
-  applyScale: 0
-  soundName: 
+  applyScale: 1
+  soundName: BlightAppear
   disregardZScale: 0
 --- !u!1 &7267650779213779072
 GameObject:

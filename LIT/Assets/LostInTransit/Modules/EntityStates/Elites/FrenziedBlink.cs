@@ -38,7 +38,7 @@ namespace EntityStates.Elites
             destealthMaterial = LoomingPresence.destealthMaterial;
             duration = LoomingPresence.duration;
             blinkDistance = LoomingPresence.blinkDistance;
-            beginSoundString = LoomingPresence.beginSoundString;
+            beginSoundString = "FrenzyDash";
             endSoundString = LoomingPresence.endSoundString;
             destealthDuration = LoomingPresence.destealthDuration;
             base.OnEnter();
