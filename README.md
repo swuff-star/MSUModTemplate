@@ -9,7 +9,6 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 | Icon | Item | Description | Rarity |
 |:-|-|------|-|
-|![](https://i.imgur.com/yd6Pzxi.png) | **Bitter Root** | Gain 4% (+4% per stack) maximum health. | Common |
 |![](https://i.imgur.com/Vqj1kyK.png) | **Life Savings** | Keep 5% (+2.5% per stack) of gold between stages. | Common |
 |![](https://i.imgur.com/0JpFYMD.png) | **Mysterious Vial** | Regenerate an extra 0.8 (+0.8 per stack) hp per second. | Common |
 |![](https://i.imgur.com/zTCttJR.png) | **Beckoning Cat** | Elite monsters have a 4.5% (+1.5% per stack) chance to drop items on death. | Uncommon |
@@ -31,20 +30,27 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 ## Credits
 * Code - Nebby, swuff★
-* Art/Modelling/Animation - bruh, GEMO, LucidInceptor, SOM
+* Art/Modelling/Animation - bruh, GEMO, LucidInceptor, Nebby, SOM
+* Sound - UnknownGlaze, neik, SOM
 * Writing - BlimBlam, Lyrical Endymion, QandQuestion, swuff★, T_Dimensional
 * Additional support/special thanks - Draymarc, KevinFromHPCustomerService, KomradeSpectre, Moffein, rob, Shared, TheTimesweeper, xpcybic, /vm/
 
 ## Changelog
 
 ### 0.3.4
+*Developer Note: PLEASE wipe your config.*
 * Items
+	* Beckoning Cat: Added On-Proc sound effect
 	* Bitter Root: Temporariliy disabled. Go join Mortar Tube!
-	* Energy Cell: Added (*Developer note: Eventually a lot of these items are going to retroactively be getting unlocks. Also, happy birthday, Rux.*)
+	* Gigantic Amethyst: Added On-Use sound effect
 	* Golden Gun: Hopefully tackled some issues with how the number of buffs was calculated
+	* Telescopic Sight: Added On-Proc sound effect
+	* Thallium: Added On-Proc sound effect
 * Elites
 	* Blighted: Lowered extra damage (300% -> 200%)
 	* Blighted: Changed how visibility / invisiblity is handled to make them visible for longer periods of time
+	* Leeching: Added a sound effect to their AoE heal
+	* Frenzied: Added sound effect when Dash is ready
 
 ### 0.3.3
 * Items
