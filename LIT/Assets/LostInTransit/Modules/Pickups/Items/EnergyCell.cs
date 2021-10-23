@@ -4,6 +4,7 @@ using System;
 
 namespace LostInTransit.Items
 {
+    [DisabledContent]
     public class EnergyCell : ItemBase
     {
         private const string token = "LIT_ITEM_ENERGYCELL_DESC";
