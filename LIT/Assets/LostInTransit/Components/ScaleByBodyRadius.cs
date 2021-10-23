@@ -1,8 +1,4 @@
-﻿using LostInTransit.Utils;
-using RoR2;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using RoR2;
 using UnityEngine;
 
 namespace LostInTransit.Components
@@ -26,7 +22,7 @@ namespace LostInTransit.Components
                 else
                 {
                     component = GetComponentInChildren<CharacterBody>();
-                    if(component)
+                    if (component)
                     {
                         body = component;
                         Scale();

@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Moonstorm;
+﻿using Moonstorm;
 using R2API;
 using RoR2.Projectile;
+using UnityEngine;
 
 namespace LostInTransit.Projectiles
 {

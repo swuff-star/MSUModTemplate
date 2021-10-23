@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-using LostInTransit.Utils;
-using Moonstorm;
-using System.Reflection;
+﻿using Moonstorm;
 using RoR2.ContentManagement;
+using UnityEngine;
 
 namespace LostInTransit.Modules
 {

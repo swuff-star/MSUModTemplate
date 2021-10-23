@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using R2API;
 using UnityEngine;
-using R2API;
-using RoR2.Artifacts;
-using RoR2;
 
 namespace LostInTransit.Elites
 {
@@ -113,7 +106,7 @@ namespace LostInTransit.Elites
         {
             LITLogger.LogI($"Volatile elites are enabled, setting up Volatile Bomb...");
             _volatileSpiteBomb = PrefabAPI.InstantiateClone(Resources.Load<GameObject>("Prefabs/NetworkedObjects/SpiteBomb"), "VolatileSpitebomb", false);
-            if(_volatileSpiteBomb)
+            if (_volatileSpiteBomb)
             {
                 HG.ArrayUtils.ArrayAppend(ref LITContent.serializableContentPack.networkedObjectPrefabs, _volatileSpiteBomb);
             }

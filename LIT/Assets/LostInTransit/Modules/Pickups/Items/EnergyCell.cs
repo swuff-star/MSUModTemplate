@@ -1,7 +1,6 @@
-﻿using RoR2;
-using Moonstorm;
+﻿using Moonstorm;
+using RoR2;
 using System;
-using UnityEngine;
 
 namespace LostInTransit.Items
 {
@@ -50,7 +49,7 @@ namespace LostInTransit.Items
 
             public void RecalculateStatsEnd()
             {
-                body.attackSpeed += body.attackSpeed * (1 - healthFraction) * (float)(Math.Pow(bonusAttackSpeed, 1/stack));
+                body.attackSpeed += body.attackSpeed * (1 - healthFraction) * (float)(Math.Pow(bonusAttackSpeed, 1 / stack));
             }
 
             public void RecalculateStatsStart()

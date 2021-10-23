@@ -1,10 +1,8 @@
-﻿using LostInTransit.Utils;
+﻿using Moonstorm;
 using RoR2;
+using RoR2.ContentManagement;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using Moonstorm;
-using RoR2.ContentManagement;
 
 namespace LostInTransit.Buffs
 {

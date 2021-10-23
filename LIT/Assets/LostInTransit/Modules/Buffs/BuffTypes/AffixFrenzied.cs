@@ -1,9 +1,7 @@
-﻿using RoR2;
-using System.Collections.Generic;
-using Moonstorm;
-using UnityEngine;
+﻿using Moonstorm;
+using RoR2;
 using System.Linq;
-using EntityStates;
+using UnityEngine;
 
 namespace LostInTransit.Buffs
 {
@@ -53,10 +51,10 @@ namespace LostInTransit.Buffs
             private void Update()
             {
                 blinkStopwatch += Time.deltaTime;
-                if(blinkStopwatch > blinkCooldown / cdrMult)
+                if (blinkStopwatch > blinkCooldown / cdrMult)
                 {
                     blinkReady = true;
-                    if(!BlinkReadyInstance)
+                    if (!BlinkReadyInstance)
                     {
                         BlinkReadyInstance = Instantiate(BlinkReadyEffect, body.aimOriginTransform);
                         if (BlinkReadyInstance)
@@ -78,7 +76,7 @@ namespace LostInTransit.Buffs
                 }
                 if (blinkReady && body.isPlayerControlled && Input.GetKeyDown(LITConfig.FrenziedBlink.Value))
                     Blink();
-                else if(blinkReady && !body.isPlayerControlled)
+                else if (blinkReady && !body.isPlayerControlled)
                     Blink();
             }
 

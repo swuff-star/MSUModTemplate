@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Moonstorm;
+using RoR2.ContentManagement;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moonstorm;
-using RoR2.ContentManagement;
 using UnityEngine;
 
 namespace LostInTransit.Modules

@@ -1,18 +1,12 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
 using LostInTransit.Modules;
-using R2API.Utils;
+using Moonstorm;
 using R2API;
-using RoR2;
-using System.Collections;
-using System.Collections.Generic;
+using R2API.Utils;
+using System.Linq;
 using System.Security;
 using System.Security.Permissions;
-using UnityEngine;
-using LostInTransit.Utils;
-using LostInTransit.Buffs;
-using System.Linq;
-using Moonstorm;
 
 #pragma warning disable CS0618
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -48,8 +42,8 @@ namespace LostInTransit
 
         public void Awake()
         {
-            ConfigurableFieldManager.AddMod(GetType().Assembly, Config);
-            DynamicDescriptionManager.AddMod(GetType().Assembly);
+            ConfigurableFieldManager.AddMod(Config);
+            TokenModifierManager.AddMod();
 
             instance = this;
             pluginInfo = Info;

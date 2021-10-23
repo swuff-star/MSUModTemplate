@@ -1,6 +1,5 @@
-﻿using RoR2;
-using Moonstorm;
-using Moonstorm.Utilities;
+﻿using Moonstorm;
+using RoR2;
 
 namespace LostInTransit.Equipments
 {
@@ -12,7 +11,7 @@ namespace LostInTransit.Equipments
 
         public override bool FireAction(EquipmentSlot slot)
         {
-            if(MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
+            if (MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
             {
                 var component = slot.characterBody.GetComponent<Buffs.AffixLeeching.AffixLeechingBehavior>();
                 if (component)

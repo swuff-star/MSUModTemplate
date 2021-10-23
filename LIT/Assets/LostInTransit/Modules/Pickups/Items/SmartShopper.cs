@@ -1,5 +1,5 @@
-﻿using RoR2;
-using Moonstorm;
+﻿using Moonstorm;
+using RoR2;
 using System;
 
 namespace LostInTransit.Items
@@ -45,10 +45,10 @@ namespace LostInTransit.Items
                 if (deathRewards)
                 {
                     //Debug.WriteLine("Gold before Smart Shopper: " + deathRewards.goldReward);
-                    smartShopperGold = usesExpScaling ? (uint)(deathRewards.goldReward * Math.Pow(goldAmount, 1/stack)) : (uint)(deathRewards.goldReward * goldAmount * stack);
+                    smartShopperGold = usesExpScaling ? (uint)(deathRewards.goldReward * Math.Pow(goldAmount, 1 / stack)) : (uint)(deathRewards.goldReward * goldAmount * stack);
                     //Debug.WriteLine("And that, times " + 0.25f * stack + "...");
                     //Debug.WriteLine("Comes out to " + smartShopperGold + " extra gold!");
-                    
+
                     body.master.GiveMoney((uint)smartShopperGold);
                 }
             }

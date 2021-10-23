@@ -1,8 +1,6 @@
-﻿using RoR2;
-using System;
-using LostInTransit.Buffs;
-using UnityEngine.Networking;
+﻿using LostInTransit.Buffs;
 using Moonstorm;
+using RoR2;
 using UnityEngine;
 
 namespace LostInTransit.Items
@@ -76,7 +74,7 @@ namespace LostInTransit.Items
                         body.SetBuffCount(GoldenGunBuff.buff.buffIndex, buffsToGive);
                     }
                 }
-                    
+
 
 
                 /*//This all works, but the math is the tiniest bit inconsistent. This is due to the fact that 40 does not divide evenly into 700. Fuck Hopoo.

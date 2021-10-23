@@ -1,23 +1,27 @@
-﻿using System;
+﻿using RoR2;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LostInTransit.Utils;
-using R2API;
+using Zio;
+using Zio.FileSystems;
 
 namespace LostInTransit.Modules
 {
     public static class LITLanguage
     {
-        public static string languageFileName = "LITLanguage.language";
+        public static FileSystem FileSystem { get; private set; }
 
         public static void Initialize()
         {
-            LITLogger.LogI("Initializing Language...");
-            var path = Path.Combine(Assets.AssemblyDir, languageFileName);
-            LanguageAPI.AddPath(path);
+            PhysicalFileSystem physicalFileSystem = new PhysicalFileSystem();
+            FileSystem = new SubFileSystem(physicalFileSystem, physicalFileSystem.ConvertPathFromInternal(Assets.AssemblyDir), true);
+
+            if(FileSystem.DirectoryExists("/Languages/"))
+            {
+                Language.collectLanguageRootFolders += delegate (List<DirectoryEntry> list)
+                {
+                    LITLogger.LogI($"Initializing Language");
+                    list.Add(FileSystem.GetDirectoryEntry("/Languages/"));
+                };
+            }
         }
     }
 }

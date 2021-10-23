@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Moonstorm;
+﻿using Moonstorm;
 using RoR2;
-using Moonstorm.Utilities;
+using UnityEngine;
 using UnityEngine.Networking;
 
 namespace LostInTransit.Equipments
@@ -18,7 +15,7 @@ namespace LostInTransit.Equipments
         {
             if (MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
             {
-                if(NetworkServer.active)
+                if (NetworkServer.active)
                 {
                     body.AddItemBehavior<AffixVolatileEquipBehavior>(stack);
                 }
@@ -61,7 +58,7 @@ namespace LostInTransit.Equipments
 
             private void OnDestroy()
             {
-                if((bool)attachment)
+                if ((bool)attachment)
                 {
                     Object.Destroy(attachment.gameObject);
                     attachment = null;

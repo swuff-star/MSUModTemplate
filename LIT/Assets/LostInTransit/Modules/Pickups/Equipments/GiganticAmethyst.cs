@@ -1,5 +1,5 @@
-﻿using RoR2;
-using Moonstorm;
+﻿using Moonstorm;
+using RoR2;
 
 namespace LostInTransit.Equipments
 {
@@ -17,7 +17,7 @@ namespace LostInTransit.Equipments
         public override bool FireAction(EquipmentSlot slot)
         {
             var sloc = slot.characterBody?.skillLocator;
-            if((bool)!sloc)
+            if ((bool)!sloc)
             {
                 return false;
             }

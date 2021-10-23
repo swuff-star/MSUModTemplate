@@ -1,9 +1,7 @@
-﻿using RoR2;
-using System;
-using LostInTransit.Buffs;
-using UnityEngine.Networking;
+﻿using LostInTransit.Buffs;
 using Moonstorm;
-using UnityEngine;
+using RoR2;
+using System;
 
 namespace LostInTransit.Items
 {
@@ -23,7 +21,7 @@ namespace LostInTransit.Items
 
         [ConfigurableField(ConfigName = "Shield Gating", ConfigDesc = "Whether the Heart should block damage past the remaining shield when broken.")]
         public static bool shieldGating = true;
-        
+
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
@@ -51,7 +49,7 @@ namespace LostInTransit.Items
                     {
                         damageInfo.damage = body.healthComponent.shield;
                     }
-                    
+
                     if (heartArmor > 0f)
                     {
                         body.AddTimedBuff(GuardiansHeartBuff.buff, heartArmorDur);

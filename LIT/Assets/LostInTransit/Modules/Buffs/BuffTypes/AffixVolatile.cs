@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LostInTransit.Elites;
 using Moonstorm;
-using RoR2;
-using UnityEngine;
 using R2API;
+using RoR2;
 using RoR2.Artifacts;
-using LostInTransit.Elites;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Networking;
 
 namespace LostInTransit.Buffs
@@ -25,13 +22,13 @@ namespace LostInTransit.Buffs
         private void VolatileExplosion(On.RoR2.GlobalEventManager.orig_OnHitAll orig, GlobalEventManager self, DamageInfo damageInfo, GameObject hitObject)
         {
             orig(self, damageInfo, hitObject);
-            if(damageInfo != null)
+            if (damageInfo != null)
             {
                 var atkr = damageInfo.attacker;
-                if(atkr)
+                if (atkr)
                 {
                     var component = atkr.GetComponent<AffixVolatileBehavior>();
-                    if(component)
+                    if (component)
                     {
                         component.OnHitAll(damageInfo);
                     }
@@ -71,7 +68,7 @@ namespace LostInTransit.Buffs
 
             private void Update()
             {
-                if(tankedDamage > damageThreshold)
+                if (tankedDamage > damageThreshold)
                 {
                     tankedDamage = 0f;
                     PrepBombs();
@@ -83,11 +80,11 @@ namespace LostInTransit.Buffs
                 if (!NetworkServer.active)
                     return;
 
-                if(bomb)
+                if (bomb)
                 {
                     int bombAmount = Mathf.Min(BombArtifactManager.maxBombCount, Mathf.CeilToInt(body.bestFitRadius * BombArtifactManager.extraBombPerRadius));
                     List<(BombArtifactManager.BombRequest, float)> bombs = new List<(BombArtifactManager.BombRequest, float)>();
-                    for(int i = 0; i < bombAmount; i++)
+                    for (int i = 0; i < bombAmount; i++)
                     {
                         Vector3 b = UnityEngine.Random.insideUnitSphere * (BombArtifactManager.bombSpawnBaseRadius + body.bestFitRadius * BombArtifactManager.bombSpawnRadiusCoefficient);
                         BombArtifactManager.BombRequest bomb = new BombArtifactManager.BombRequest
@@ -102,7 +99,7 @@ namespace LostInTransit.Buffs
                         Ray ray = new Ray(bomb.raycastOrigin + new Vector3(0f, BombArtifactManager.maxBombStepUpDistance, 0f), Vector3.down);
                         float maxDistance = BombArtifactManager.maxBombStepUpDistance + BombArtifactManager.maxBombFallDistance;
                         RaycastHit rayCastHit;
-                        if(Physics.Raycast(ray, out rayCastHit, maxDistance, LayerIndex.world.mask, QueryTriggerInteraction.Ignore))
+                        if (Physics.Raycast(ray, out rayCastHit, maxDistance, LayerIndex.world.mask, QueryTriggerInteraction.Ignore))
                         {
                             bombs.Add((bomb, rayCastHit.point.y));
                         }
@@ -113,7 +110,7 @@ namespace LostInTransit.Buffs
 
             private void SpawnBombs(List<(BombArtifactManager.BombRequest, float)> bombs)
             {
-                foreach((BombArtifactManager.BombRequest bomb, float groundY) in bombs)
+                foreach ((BombArtifactManager.BombRequest bomb, float groundY) in bombs)
                 {
                     Vector3 spawnPosition = bomb.spawnPosition;
                     if (spawnPosition.y < groundY + 4f)

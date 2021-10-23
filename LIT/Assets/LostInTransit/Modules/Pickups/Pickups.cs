@@ -1,10 +1,8 @@
-﻿using RoR2;
+﻿using Moonstorm;
+using RoR2;
+using RoR2.ContentManagement;
 using System.Collections.Generic;
 using System.Linq;
-using Moonstorm;
-using LostInTransit.Utils;
-using RoR2.ContentManagement;
-using System.Reflection;
 
 namespace LostInTransit.Modules
 {
@@ -20,12 +18,12 @@ namespace LostInTransit.Modules
             Instance = this;
             base.Init();
             LITLogger.LogI($"Initializing Pickups...");
-            if(LITConfig.EnableItems.Value)
+            if (LITConfig.EnableItems.Value)
             {
                 LITLogger.LogD($"Initializing Items...");
                 InitializeItems();
             }
-            if(LITConfig.EnableEquipments.Value)
+            if (LITConfig.EnableEquipments.Value)
             {
                 LITLogger.LogD($"Initializing Equipments...");
                 InitializeEquipments();

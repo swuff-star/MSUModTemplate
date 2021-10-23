@@ -1,12 +1,6 @@
-﻿using LostInTransit.Modules;
-using R2API;
-using RoR2;
-using UnityEngine;
-using UnityEngine.Networking;
-using LostInTransit.Items;
+﻿using LostInTransit.Items;
 using Moonstorm;
-using System.Linq;
-using System;
+using RoR2;
 
 namespace LostInTransit.Buffs
 {

@@ -1,7 +1,6 @@
-﻿using RoR2;
+﻿using Moonstorm;
+using RoR2;
 using UnityEngine;
-using Moonstorm;
-using Moonstorm.Utilities;
 
 namespace LostInTransit.Equipments
 {
@@ -22,10 +21,10 @@ namespace LostInTransit.Equipments
 
         public override bool FireAction(EquipmentSlot slot)
         {
-            if(MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
+            if (MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
             {
                 var component = slot.characterBody.GetComponent<Buffs.AffixBlighted.AffixBlightedBehavior>();
-                if(component)
+                if (component)
                 {
                     component.MasterBehavior.Ability();
                     return true;
@@ -45,7 +44,7 @@ namespace LostInTransit.Equipments
 
                 body.healthComponent.health = body.healthComponent.fullHealth;
                 if (biggerBlighted = true)
-                    //I invoke an ancient evil to do this... through code!
+                //I invoke an ancient evil to do this... through code!
                 {
                     CharacterBody body = this.GetComponent<CharacterBody>();
                     if (body)

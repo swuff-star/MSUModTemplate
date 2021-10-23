@@ -1,12 +1,12 @@
-﻿using RoR2;
-using Moonstorm;
+﻿using Moonstorm;
+using RoR2;
 
 namespace LostInTransit.Items
 {
     public class MysteriousVial : ItemBase
     {
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("MysteriousVial");
-        
+
         ///To properly use a ConfigurableField attribute, you need to put it on top of a field that has these 2 properties:
         ///> Is Static.
         ///> Is Public.

@@ -1,5 +1,5 @@
-﻿using RoR2;
-using Moonstorm;
+﻿using Moonstorm;
+using RoR2;
 using UnityEngine;
 
 namespace LostInTransit.Buffs

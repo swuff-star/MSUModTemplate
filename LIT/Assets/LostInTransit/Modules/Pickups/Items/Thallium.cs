@@ -1,7 +1,6 @@
-﻿using LostInTransit.Modules;
-using RoR2;
-using LostInTransit.Buffs;
+﻿using LostInTransit.Buffs;
 using Moonstorm;
+using RoR2;
 
 namespace LostInTransit.Items
 {
@@ -73,7 +72,7 @@ namespace LostInTransit.Items
                         victimObject = victim.gameObject,
                         dotIndex = ThalliumPoison.index,
                         duration = duration + (durationStack * (stack - 1)),
-                        damageMultiplier = dmgCoefficient + newDmgStack * (stack -1)
+                        damageMultiplier = dmgCoefficient + newDmgStack * (stack - 1)
                     };
                     DotController.InflictDot(ref dotInfo);
                 }

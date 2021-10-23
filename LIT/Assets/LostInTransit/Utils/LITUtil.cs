@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using R2API;
 using RoR2;
-using R2API;
 
 namespace LostInTransit
 {
@@ -12,7 +7,7 @@ namespace LostInTransit
     {
         public static void AddCooldownBuff(this CharacterBody body, BuffDef buffDef, float seconds)
         {
-            for(int i = 0; i <= seconds; i++)
+            for (int i = 0; i <= seconds; i++)
             {
                 body.AddTimedBuff(buffDef, i);
             }
@@ -20,7 +15,7 @@ namespace LostInTransit
 
         public static void AddTokenToLanguage(string key, string value, LangEnum language)
         {
-            switch(language)
+            switch (language)
             {
                 case LangEnum.de:
                     LanguageAPI.Add(key, value, "de");

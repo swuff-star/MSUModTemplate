@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace LostInTransit.Components
 {
@@ -12,7 +10,7 @@ namespace LostInTransit.Components
 
         private void Start()
         {
-            if(parentTransform == null)
+            if (parentTransform == null)
             {
                 parentTransform = gameObject.transform.parent;
             }

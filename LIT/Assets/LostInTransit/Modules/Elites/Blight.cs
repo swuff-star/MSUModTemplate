@@ -1,16 +1,11 @@
 ﻿using LostInTransit.Components;
-using LostInTransit.Utils;
 using Moonstorm;
 using RoR2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
-using Mono.Cecil.Cil;
-using MonoMod.Cil;
-using Elites = LostInTransit.Modules.Elites;
-using static MonoMod.Cil.RuntimeILReferenceBag.FastDelegateInvokers;
-using System;
 
 namespace LostInTransit.Elites
 {
@@ -37,9 +32,9 @@ namespace LostInTransit.Elites
             {
                 charBody = bodyObject.GetComponent<CharacterBody>();
             }
-            if(charBody)
+            if (charBody)
             {
-                if(charBody.HasBuff(blightBuff))
+                if (charBody.HasBuff(blightBuff))
                 {
                     var AllEliteBuffsExceptBlight = BuffCatalog.eliteBuffIndices.Where(x => x != blightBuff.buffIndex);
                     foreach (BuffIndex buffIndex in AllEliteBuffsExceptBlight)
@@ -96,7 +91,7 @@ namespace LostInTransit.Elites
         private static void SetupBlacklist()
         {
             string[] blacklistedBodiesNames = LITConfig.BlightBlacklist.Value.Replace(" ", string.Empty).Split(',');
-            foreach(string body in blacklistedBodiesNames)
+            foreach (string body in blacklistedBodiesNames)
             {
                 try
                 {

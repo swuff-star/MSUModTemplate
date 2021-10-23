@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Moonstorm;
+using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using LostInTransit.Utils;
-using Moonstorm;
-using static R2API.DamageAPI;
 
 namespace LostInTransit.DamageTypes
 {

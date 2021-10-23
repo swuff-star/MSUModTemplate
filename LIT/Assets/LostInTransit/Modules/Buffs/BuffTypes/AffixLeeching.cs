@@ -1,8 +1,8 @@
-﻿using RoR2;
+﻿using Moonstorm;
+using RoR2;
 using System.Collections.Generic;
-using Moonstorm;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 namespace LostInTransit.Buffs
 {
@@ -26,9 +26,9 @@ namespace LostInTransit.Buffs
             public static float timeBetweenHeals = 10;
 
             public static float abilityDuration = 20;
-            
+
             public static GameObject HealingEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingBurst");
-            
+
             public static GameObject TracerEffect = Assets.LITAssets.LoadAsset<GameObject>("TracerLeeching");
 
             public static GameObject AbilityEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingAbility");
@@ -49,10 +49,10 @@ namespace LostInTransit.Buffs
             {
                 doingAbility = true;
                 abilityStopwatch = 0;
-                if(!AbilityEffectInstance)
+                if (!AbilityEffectInstance)
                 {
                     AbilityEffectInstance = Instantiate(AbilityEffect, body.transform);
-                    if(AbilityEffectInstance)
+                    if (AbilityEffectInstance)
                     {
                         AbilityEffectInstance.transform.localScale *= body.bestFitRadius;
                     }
@@ -72,10 +72,10 @@ namespace LostInTransit.Buffs
                     healingStopwatch = 0;
                     HealNearby();
                 }
-                if(doingAbility)
+                if (doingAbility)
                 {
                     abilityStopwatch += Time.deltaTime;
-                    if(abilityStopwatch > abilityDuration)
+                    if (abilityStopwatch > abilityDuration)
                     {
                         doingAbility = false;
                         body.RecalculateStats();
@@ -170,7 +170,7 @@ namespace LostInTransit.Buffs
                 EffectManager.SpawnEffect(TracerEffect, effectData, true);
             }
             #endregion
-            
+
         }
     }
 }

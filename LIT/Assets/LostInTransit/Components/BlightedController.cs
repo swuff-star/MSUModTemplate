@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moonstorm;
+﻿using LostInTransit.Buffs;
 using RoR2;
+using System.Linq;
 using UnityEngine.Networking;
-using LostInTransit.Buffs;
-using LostInTransit.Modules;
 
 namespace LostInTransit.Components
 {
@@ -33,14 +27,14 @@ namespace LostInTransit.Components
         private void RandomizeElites()
         {
             var elites = availableElites;
-            if(NetworkServer.active)
+            if (NetworkServer.active)
             {
                 FirstEliteIndex = (int)elites[RNG.RangeInt(0, elites.Length)].eliteIndex;
                 //Removes the first elite index from available elites, avoids duplicates.
                 elites = availableElites.Where(elite => elite.eliteIndex != (EliteIndex)FirstEliteIndex).ToArray();
                 SecondEliteIndex = (int)elites[RNG.RangeInt(0, elites.Length)].eliteIndex;
             }
-//            Invoke("RpcOnEliteIndexAssigned", 0.1f);
+            //            Invoke("RpcOnEliteIndexAssigned", 0.1f);
             RpcOnEliteIndexAssigned();
         }
 

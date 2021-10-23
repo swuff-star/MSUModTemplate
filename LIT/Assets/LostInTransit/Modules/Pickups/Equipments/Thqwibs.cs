@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moonstorm;
+﻿using Moonstorm;
 using RoR2;
 using RoR2.Projectile;
 using UnityEngine;
 
 namespace LostInTransit.Equipments
 {
-	[DisabledContent]
+    [DisabledContent]
     public class Thqwib : EquipmentBase
     {
         public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("Thqwib");
 
-		[ConfigurableField(ConfigName = "Damage per Thqwib", ConfigDesc = "Amount of damage each Thqwib deals on explosion, as a %.")]
-		public static float damage;
+        [ConfigurableField(ConfigName = "Damage per Thqwib", ConfigDesc = "Amount of damage each Thqwib deals on explosion, as a %.")]
+        public static float damage;
 
-		[ConfigurableField(ConfigName = "Number of Thqwibs", ConfigDesc = "Number of Thqwibs tossed in a single bloom.")]
-		public static int thqwibAmount;
+        [ConfigurableField(ConfigName = "Number of Thqwibs", ConfigDesc = "Number of Thqwibs tossed in a single bloom.")]
+        public static int thqwibAmount;
 
-		[ConfigurableField(ConfigName = "Chance to Proc On-Kill Effects", ConfigDesc = "Chance, per Thqwib, to activate On-Kill effects when exploding.\nDefault Average: 30x * 10% = 3 average On-Kill activations per bloom.")]
-		public static float chance;
+        [ConfigurableField(ConfigName = "Chance to Proc On-Kill Effects", ConfigDesc = "Chance, per Thqwib, to activate On-Kill effects when exploding.\nDefault Average: 30x * 10% = 3 average On-Kill activations per bloom.")]
+        public static float chance;
 
         /*public override void Config()
         {
@@ -44,48 +39,48 @@ namespace LostInTransit.Equipments
 				LangEnum.en);
 		}*/
 
-		public override bool FireAction(EquipmentSlot slot)
+        public override bool FireAction(EquipmentSlot slot)
         {
-			Projectiles.ThqwibProjectile.ThqwibProj.GetComponent<ProjectileChanceForOnKillOnDestroy>().chance = chance;
+            Projectiles.ThqwibProjectile.ThqwibProj.GetComponent<ProjectileChanceForOnKillOnDestroy>().chance = chance;
 
-			InputBankTest inputBank = slot.inputBank;
-			CharacterBody charBody = slot.characterBody;
-            if(inputBank && charBody)
+            InputBankTest inputBank = slot.inputBank;
+            CharacterBody charBody = slot.characterBody;
+            if (inputBank && charBody)
             {
-				Ray aimRay = new Ray(inputBank.aimOrigin, inputBank.aimDirection);
-				Ray ray = aimRay;
-				Ray ray2 = aimRay;
-				Vector3 point = aimRay.GetPoint(10);
-				bool flag = false;
-				if (Util.CharacterRaycast(slot.gameObject, ray, out var hitInfo, 500f, (int)LayerIndex.world.mask | (int)LayerIndex.entityPrecise.mask, QueryTriggerInteraction.Ignore))
-				{
-					point = hitInfo.point;
-					flag = true;
-				}
-				float magnitude = 40;
-				if (flag)
-				{
-					Vector3 vector = point - ray2.origin;
-					Vector2 vector2 = new Vector2(vector.x, vector.z);
-					float magnitude2 = vector2.magnitude;
-					Vector2 vector3 = vector2 / magnitude2;
-					if (magnitude2 < 10)
-					{
-						magnitude2 = 10;
-					}
-					float y = Trajectory.CalculateInitialYSpeed(1, vector.y);
-					float num = magnitude2 / 1;
-					Vector3 direction = new Vector3(vector3.x * num, y, vector3.y * num);
-					magnitude = direction.magnitude;
-					ray2.direction = direction;
-				}
-				for (int i = 0; i < thqwibAmount; i++)
-				{
-					Quaternion rotation = Util.QuaternionSafeLookRotation(Util.ApplySpread(ray2.direction, 0, 25, 1f, 1f));
-					ProjectileManager.instance.FireProjectile(Projectiles.ThqwibProjectile.ThqwibProj, ray2.origin, rotation, slot.gameObject, charBody.damage * (damage / 100), 0f, Util.CheckRoll(charBody.crit, charBody?.master), DamageColorIndex.Default, null, magnitude);
-				}
-				return true;
-			}
+                Ray aimRay = new Ray(inputBank.aimOrigin, inputBank.aimDirection);
+                Ray ray = aimRay;
+                Ray ray2 = aimRay;
+                Vector3 point = aimRay.GetPoint(10);
+                bool flag = false;
+                if (Util.CharacterRaycast(slot.gameObject, ray, out var hitInfo, 500f, (int)LayerIndex.world.mask | (int)LayerIndex.entityPrecise.mask, QueryTriggerInteraction.Ignore))
+                {
+                    point = hitInfo.point;
+                    flag = true;
+                }
+                float magnitude = 40;
+                if (flag)
+                {
+                    Vector3 vector = point - ray2.origin;
+                    Vector2 vector2 = new Vector2(vector.x, vector.z);
+                    float magnitude2 = vector2.magnitude;
+                    Vector2 vector3 = vector2 / magnitude2;
+                    if (magnitude2 < 10)
+                    {
+                        magnitude2 = 10;
+                    }
+                    float y = Trajectory.CalculateInitialYSpeed(1, vector.y);
+                    float num = magnitude2 / 1;
+                    Vector3 direction = new Vector3(vector3.x * num, y, vector3.y * num);
+                    magnitude = direction.magnitude;
+                    ray2.direction = direction;
+                }
+                for (int i = 0; i < thqwibAmount; i++)
+                {
+                    Quaternion rotation = Util.QuaternionSafeLookRotation(Util.ApplySpread(ray2.direction, 0, 25, 1f, 1f));
+                    ProjectileManager.instance.FireProjectile(Projectiles.ThqwibProjectile.ThqwibProj, ray2.origin, rotation, slot.gameObject, charBody.damage * (damage / 100), 0f, Util.CheckRoll(charBody.crit, charBody?.master), DamageColorIndex.Default, null, magnitude);
+                }
+                return true;
+            }
             return false;
         }
     }

@@ -1,11 +1,7 @@
-﻿using Moonstorm;
-using RoR2;
-using System.Collections.Generic;
-using R2API.Utils;
-using UnityEngine.Networking;
-using LostInTransit.Components;
-using UnityEngine;
+﻿using LostInTransit.Components;
 using Moonstorm;
+using RoR2;
+using UnityEngine;
 
 namespace LostInTransit.Buffs
 {
@@ -120,9 +116,9 @@ namespace LostInTransit.Buffs
 
             public void OnDestroy()
             {
-                if(MasterBehavior)
+                if (MasterBehavior)
                     MasterBehavior.enabled = false;
-                if(body)
+                if (body)
                 {
                     body?.RemoveBuff(firstBuff);
                     body?.RemoveBuff(secondBuff);

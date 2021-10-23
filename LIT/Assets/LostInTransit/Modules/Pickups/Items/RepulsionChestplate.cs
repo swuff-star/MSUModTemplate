@@ -1,9 +1,8 @@
-﻿using RoR2;
+﻿using LostInTransit.Buffs;
 using Moonstorm;
-using System.Diagnostics;
-using LostInTransit.Buffs;
-using UnityEngine.Networking;
+using RoR2;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace LostInTransit.Items
 {
@@ -86,7 +85,7 @@ namespace LostInTransit.Items
                         if (currentCDBuffs > hitsNeededToActivate && currentCDBuffs > 0) //There simply MUST be a better way to do this.
                         { body.RemoveBuff(RepulsionArmorCD.buff); }
                         if (currentCDBuffs == 0)
-                        { 
+                        {
                             body.AddTimedBuff(RepulsionArmorActive.buff, repulCount);
                             //hitsNeededToActivate = hitsNeededConfig; //I'm honestly not the happiest about this, but it gets the job done.
                             stopwatch -= repulCount + 0.05f;

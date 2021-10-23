@@ -1,15 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using LostInTransit.Equipments;
+using RoR2;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
-using RoR2;
-using Moonstorm;
-using System;
-using LostInTransit.Modules;
-using System.Linq;
-using UnityEngine.SceneManagement;
-using LostInTransit.Utils;
-using LostInTransit.Equipments;
 
 namespace LostInTransit.Components
 {
@@ -43,7 +36,7 @@ namespace LostInTransit.Components
             get
             {
                 var blightArtifact = Assets.LITAssets.LoadAsset<ArtifactDef>("Prestige");
-                if(blightArtifact)
+                if (blightArtifact)
                 {
                     return RunArtifactManager.instance.IsArtifactEnabled(blightArtifact);
                 }
@@ -64,7 +57,7 @@ namespace LostInTransit.Components
         private SceneDef CommencementScene { get => SceneCatalog.GetSceneDefFromSceneName("moon2"); }
 
         private EquipmentIndex BlightedEquipIndex { get => Assets.LITAssets.LoadAsset<EquipmentDef>("AffixBlighted").equipmentIndex; }
-        
+
         void Start()
         {
             Instance = this;
@@ -77,16 +70,16 @@ namespace LostInTransit.Components
         [Server]
         private void OnEnemyKilled(DamageReport obj)
         {
-            if(Run.instance.GetRunStopwatch() > MinTimeBeforeKillsCountWithDiffCoef)
+            if (Run.instance.GetRunStopwatch() > MinTimeBeforeKillsCountWithDiffCoef)
             {
                 var victimBody = obj.victimBody;
                 var attackerBody = obj.attackerBody;
-                if(victimBody && attackerBody)
+                if (victimBody && attackerBody)
                 {
                     var victimTeamComponent = victimBody.teamComponent;
-                    if(victimTeamComponent)
+                    if (victimTeamComponent)
                     {
-                        if(victimTeamComponent.teamIndex == TeamIndex.Monster || victimTeamComponent.teamIndex == TeamIndex.Lunar)
+                        if (victimTeamComponent.teamIndex == TeamIndex.Monster || victimTeamComponent.teamIndex == TeamIndex.Lunar)
                         {
                             if (attackerBody.isPlayerControlled && SpawnRate < MaxSpawnRateWithDiffCoef)
                             {
@@ -110,7 +103,7 @@ namespace LostInTransit.Components
             if (isBlacklisted)
                 return;
 
-            if(IsHonorArtifactEnabled)
+            if (IsHonorArtifactEnabled)
             {
                 if (stageNotCommencement && isEnemy && hasComponent)
                 {
@@ -120,13 +113,13 @@ namespace LostInTransit.Components
                     }
                 }
             }
-            else if(stageNotCommencement && isEnemy && hasComponent && isntChampion)
+            else if (stageNotCommencement && isEnemy && hasComponent && isntChampion)
             {
                 if (Util.CheckRoll(SpawnRate))
                 {
                     MakeBlighted(body);
                 }
-            }     
+            }
         }
 
         private bool CheckBlacklist(CharacterBody body)
@@ -155,7 +148,7 @@ namespace LostInTransit.Components
                 }
 
                 if (AffixBlighted.biggerBlighted = true)
-                { 
+                {
                     body.isChampion = true;
                 }
 
@@ -166,7 +159,7 @@ namespace LostInTransit.Components
         [Server]
         private void RecalculateSpawnChance()
         {
-            if(IsPrestigeArtifactEnabled)
+            if (IsPrestigeArtifactEnabled)
             {
                 SpawnRate = 10f;
                 return;

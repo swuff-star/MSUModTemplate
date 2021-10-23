@@ -1,49 +1,45 @@
-﻿using RoR2;
+﻿using Moonstorm;
+using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
-using Moonstorm;
 
 namespace LostInTransit.Items
 {
     public class BeckoningCat : ItemBase
     {
+        public const string token = "LIT_ITEM_BECKONINGCAT_DESC";
+
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("BeckoningCat");
 
         public static string section;
 
         [ConfigurableField(ConfigName = "Base Drop Chance", ConfigDesc = "Base chance for Elites to drop an item.")]
+        [TokenModifier(token, StatTypes.Default, 0)]
         public static float baseChance = 4.5f;
 
         [ConfigurableField(ConfigName = "Stacking Drop Chance", ConfigDesc = "Added chance for Elites to drop an item per stack.")]
+        [TokenModifier(token, StatTypes.Default, 1)]
         public static float stackChance = 1.5f;
 
         [ConfigurableField(ConfigName = "Uncommon Item Chance", ConfigDesc = "Chance for Elites to drop an Uncommon (Green) item.")]
+        [TokenModifier(token, StatTypes.Default, 2)]
         public static float greenItemChance = 6f;
 
         [ConfigurableField(ConfigName = "Uncommon Item Stacking Chance", ConfigDesc = "Extra chance for Elites to drop an Uncommon (Green) item per stack.")]
+        [TokenModifier(token, StatTypes.Default, 3)]
         public static float greenItemStack = 1f;
 
         [ConfigurableField(ConfigName = "Rare Item Chance", ConfigDesc = "Chance for Elites to drop a Rare (Red) item.")]
+        [TokenModifier(token, StatTypes.Default, 4)]
         public static float redItemChance = 0.5f;
 
         [ConfigurableField(ConfigName = "Rare Item Stacking Chance", ConfigDesc = "Extra chance for Elites to drop a Rare (Red) item per stack.")]
+        [TokenModifier(token, StatTypes.Default, 5)]
         public static float redItemStack = 0.25f;
 
         [ConfigurableField(ConfigName = "Use Luck", ConfigDesc = "Whether Luck should be accounted for in all Beckoning Cat-related rolls.")]
         public static bool usesLuck = true;
 
-        /*
-        public override void Config()
-        {
-            section = "Item: " + ItemDef.name;
-            baseChance = LITMain.config.Bind<float>(section, "Base Drop Chance", 4.5f, "Base chance for Elites to drop an item.").Value;
-            stackChance = LITMain.config.Bind<float>(section, "Stacking Drop Chance", 1.5f, "Added chance for Elites to drop an item per stack.").Value;
-            greenItemChance = LITMain.config.Bind<float>(section, "Uncommon Item Chance", 6f, "Chance for Beckoning Cat to drop an Uncommon item.").Value;
-            greenItemStack = LITMain.config.Bind<float>(section, "Uncommon Item Stacking Chance", 1f, "Chance per stack for Beckoning Cat to drop an Uncommon item.").Value;
-            redItemChance = LITMain.config.Bind<float>(section, "Rare Item Chance", 0.5f, "Chance for Beckoning Cat to drop a Rare item.").Value;
-            redItemStack = LITMain.config.Bind<float>(section, "Rare Item Stacking Chance", 0.25f, "Chance per stack of Beckoning Cat to drop a Rare item.").Value;
-            usesLuck = LITMain.config.Bind<bool>(section, "Use Luck", true, "Whether the luck stat should be considered for Beckoning Cat drops.").Value;
-        }*/
         /*public override void DescriptionToken()
         {
             LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
@@ -78,7 +74,7 @@ namespace LostInTransit.Items
                 RefreshNextItems();
                 var victimBody = damageReport.victimBody;
                 var dropLocation = damageReport.attackerBody.transform.position;
-                for(int i = 0; i < victimBody.eliteBuffCount; i++)
+                for (int i = 0; i < victimBody.eliteBuffCount; i++)
                 {
                     if (victimBody.isElite && Roll(baseChance + (stackChance * (stack - 1)), 0))
                     {

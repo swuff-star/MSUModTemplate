@@ -1,7 +1,5 @@
-﻿using RoR2;
-using UnityEngine.Networking;
-using Moonstorm;
-using System;
+﻿using Moonstorm;
+using RoR2;
 using UnityEngine;
 
 namespace LostInTransit.Items
@@ -69,13 +67,13 @@ namespace LostInTransit.Items
             public void Start()
             {
                 //Only add master behaviors to players.
-                if(body.isPlayerControlled)
+                if (body.isPlayerControlled)
                     MasterBehavior.UpdateStacks();
             }
 
             private void OnDestroy()
             {
-                if(body.isPlayerControlled)
+                if (body.isPlayerControlled)
                     MasterBehavior.CheckIfShouldDestroy();
             }
         }
@@ -103,7 +101,7 @@ namespace LostInTransit.Items
 
             private void ExtractMoney(SceneExitController obj)
             {
-                if((bool)!Run.instance?.isRunStopwatchPaused)
+                if ((bool)!Run.instance?.isRunStopwatchPaused)
                 {
                     moneyPending = true;
                     storedGold = CalculatePercentage();

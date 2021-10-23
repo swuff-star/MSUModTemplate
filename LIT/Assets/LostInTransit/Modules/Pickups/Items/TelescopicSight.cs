@@ -1,6 +1,5 @@
 ﻿using Moonstorm;
 using RoR2;
-using UnityEngine;
 
 namespace LostInTransit.Items
 {
@@ -60,13 +59,13 @@ namespace LostInTransit.Items
         {
             public void OnIncomingDamageOther(HealthComponent victimHealthComponent, DamageInfo damageInfo)
             {
-                if(damageInfo.dotIndex == DotController.DotIndex.None)
+                if (damageInfo.dotIndex == DotController.DotIndex.None)
                 {
-                    if(Util.CheckRoll(CalcChance() * damageInfo.procCoefficient) && !body.HasBuff(Buffs.TeleSightCD.buff))
+                    if (Util.CheckRoll(CalcChance() * damageInfo.procCoefficient) && !body.HasBuff(Buffs.TeleSightCD.buff))
                     {
                         body.AddCooldownBuff(Buffs.TeleSightCD.buff, CalcCooldown());
                         var flag = ChooseWetherToInstakill(victimHealthComponent.body);
-                        if(flag)
+                        if (flag)
                         {
                             damageInfo.damage = victimHealthComponent.body.maxHealth * 4;
                         }
@@ -96,16 +95,16 @@ namespace LostInTransit.Items
             private bool ChooseWetherToInstakill(CharacterBody body)
             {
 
-                if(body.isChampion)
+                if (body.isChampion)
                 {
                     if (InstakillBosses)
                         return true;
                     else
                         return false;
                 }
-                if(body.isElite)
+                if (body.isElite)
                 {
-                    if(InstakillElites)
+                    if (InstakillElites)
                         return true;
                     else
                         return false;

@@ -1,5 +1,5 @@
-﻿using RoR2;
-using Moonstorm;
+﻿using Moonstorm;
+using RoR2;
 using System;
 using UnityEngine;
 
@@ -35,7 +35,7 @@ namespace LostInTransit.Items
                 float gravReduction = (float)Math.Pow(reducedGravity, 4 / stack + 3);
                 body.characterMotor.velocity.y -= Time.fixedDeltaTime * Physics.gravity.y * gravReduction;
             }
-            
+
         }
     }
 }

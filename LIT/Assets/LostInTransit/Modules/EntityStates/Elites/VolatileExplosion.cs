@@ -33,18 +33,18 @@ namespace EntityStates.Elites
             duration = (baseDuration / attachedBody.attackSpeed) * attachedBody.radius;
             radius = baseExplosionRadius * attachedBody.radius;
             soundID = Util.PlaySound(chargingSoundString, gameObject);
-            if((bool)chargingEffectPrefab)
+            if ((bool)chargingEffectPrefab)
             {
                 chargeEffectInstance = Object.Instantiate(chargingEffectPrefab, modelTransform.position, modelTransform.rotation);
-                if(chargeEffectInstance)
+                if (chargeEffectInstance)
                 {
                     chargeEffectInstance.transform.parent = attachedBody.transform;
                     chargeEffectInstance.transform.localScale *= radius * 2.5f;
                     var component1 = chargeEffectInstance.GetComponent<ScaleParticleSystemDuration>();
                     var component2 = chargeEffectInstance.GetComponentInChildren<LightIntensityCurve>();
-                    if(component1)
+                    if (component1)
                         component1.newDuration = duration;
-                    if(component2)
+                    if (component2)
                     {
                         component2.timeMax = duration;
                         component2.maxIntensity *= radius;
@@ -57,7 +57,7 @@ namespace EntityStates.Elites
         {
             base.FixedUpdate();
             stopwatch += Time.fixedDeltaTime;
-            if(stopwatch >= duration && base.isAuthority && !hasExploded)
+            if (stopwatch >= duration && base.isAuthority && !hasExploded)
             {
                 Detonate();
                 outer.SetNextStateToMain();
@@ -69,11 +69,11 @@ namespace EntityStates.Elites
 
             hasExploded = true;
             Util.PlaySound(explosionSoundString, gameObject);
-            if((bool)chargeEffectInstance)
+            if ((bool)chargeEffectInstance)
             {
                 Destroy(chargeEffectInstance);
             }
-            if((bool)explosionEffectPrefab)
+            if ((bool)explosionEffectPrefab)
             {
                 EffectManager.SpawnEffect(explosionEffectPrefab, new EffectData
                 {
@@ -111,7 +111,7 @@ namespace EntityStates.Elites
         {
             base.OnExit();
             //AKSoundEngine.StopPlayingID(soundID);
-            if((bool)chargeEffectInstance)
+            if ((bool)chargeEffectInstance)
             {
                 EntityState.Destroy(chargeEffectInstance);
             }

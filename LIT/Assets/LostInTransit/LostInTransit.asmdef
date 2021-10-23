@@ -19,7 +19,8 @@
         "StubbedAssembly-CSharp (1).dll",
         "MoonstormSharedUtils.dll",
         "HGUnityUtils.dll",
-        "Wwise.dll"
+        "Wwise.dll",
+        "Zio.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []

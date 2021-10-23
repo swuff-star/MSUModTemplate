@@ -1,17 +1,10 @@
-﻿using LostInTransit.Utils;
-using Mono.Cecil.Cil;
-using MonoMod.Cil;
-using RoR2;
-using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using LostInTransit.Elites;
 using Moonstorm;
+using RoR2;
 using RoR2.ContentManagement;
-using System.Reflection;
+using System.Collections.Generic;
 using System.Linq;
-using LostInTransit.Components;
-using UnityEngine.Networking;
-using LostInTransit.Elites;
+using UnityEngine;
 
 namespace LostInTransit.Modules
 {
@@ -43,11 +36,11 @@ namespace LostInTransit.Modules
 
         private void LateEliteSetup()
         {
-            if(MoonstormElites.Contains(Assets.LITAssets.LoadAsset<MSEliteDef>("Volatile")))
+            if (MoonstormElites.Contains(Assets.LITAssets.LoadAsset<MSEliteDef>("Volatile")))
             {
                 VolatileSpitebomb.BeginSetup();
             }
-            if(MoonstormElites.Contains(Assets.LITAssets.LoadAsset<MSEliteDef>("Blighted")))
+            if (MoonstormElites.Contains(Assets.LITAssets.LoadAsset<MSEliteDef>("Blighted")))
             {
                 Blight.BeginSetup();
             }

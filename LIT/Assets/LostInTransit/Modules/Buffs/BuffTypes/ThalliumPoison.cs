@@ -1,8 +1,6 @@
-﻿using LostInTransit.Modules;
+﻿using Moonstorm;
 using R2API;
 using RoR2;
-using Moonstorm;
-using System;
 
 namespace LostInTransit.Buffs
 {
