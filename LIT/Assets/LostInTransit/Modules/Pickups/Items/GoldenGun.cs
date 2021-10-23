@@ -7,31 +7,19 @@ namespace LostInTransit.Items
 {
     public class GoldenGun : ItemBase
     {
+        private const string token = "LIT_ITEM_GOLDENGUN_DESC";
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("GoldenGun");
 
         [ConfigurableField(ConfigName = "Maximum Gold Threshold", ConfigDesc = "The maximum amount of gold that Golden Gun will account for.")]
+        [TokenModifier(token, StatTypes.Default, 2)]
+        [TokenModifier(token, StatTypes.DivideBy2, 3)]
         public static uint goldCap = 600;
 
         [ConfigurableField(ConfigName = "Maximum Damage Bonus", ConfigDesc = "The maximum amount of bonus damage Golden Gun grants.")]
+        [TokenModifier(token, StatTypes.Default, 0)]
+        [TokenModifier(token, StatTypes.DivideBy2, 1)]
         public static uint goldNeeded = 40;
 
-        /*
-        public override void Config()
-        {
-            var section = $"Item: {ItemDef.name}";
-            goldCap = LITMain.config.Bind<uint>(section, "Maximum Gold Threshold", 600, "The maximum amount of gold that Golden Gun will account for.").Value;
-            goldNeeded = LITMain.config.Bind<uint>(section, "Maximum Damage Bonus", 40, "The maximum amount of added damage Golden Gun will give.").Value;
-            //★ 'goldNeeded' is a really bad variable name for this. More accurate would be 'maxDamage' or something - since you SHOULD need 15 gold per buff, not 40.
-            //★ Not changing it, but am bitching about it.
-        }*/
-
-        /*
-        public override void DescriptionToken()
-        {
-            LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
-                $"Deal <style=cIsDamage>extra damage</style> based on held <style=cIsUtility>gold</style>, up to an extra <style=cIsDamage>+{goldNeeded}% damage</style> <style=cStack>(+{goldNeeded/2}% per stack)</style> at <style=cIsUtility>{goldCap} gold</style> <style=cStack>(+{goldCap/2} per stack, scaling with time)</style>.",
-                LangEnum.en);
-        }*/
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
             body.AddItemBehavior<GoldenGunBehavior>(stack);

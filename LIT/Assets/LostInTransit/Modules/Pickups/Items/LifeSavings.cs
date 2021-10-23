@@ -6,30 +6,14 @@ namespace LostInTransit.Items
 {
     public class LifeSavings : ItemBase
     {
+        private const string token = "LIT_ITEM_LIFESAVINGS_DESC";
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("LifeSavings");
         public static ItemDef itemDef;
 
         [ConfigurableField(ConfigName = "Money Kept Between Stages", ConfigDesc = "Percentage of money kept between stages")]
+        [TokenModifier(token, StatTypes.Default, 0)]
+        [TokenModifier(token, StatTypes.DivideBy2, 1)]
         public static float newMoneyKeptBase = 5f;
-
-        [ConfigurableField(ConfigName = "Extra Money Kept Per Stack", ConfigDesc = "Extra percentage of money kept between stages for each stack.")]
-        public static float newMoneyKeptStack = 2.5f;
-
-        /*
-        public override void Config()
-        {
-            var section = $"Item: {ItemDef.name}";
-            newMoneyKeptBase = LITMain.config.Bind<float>(section, "Money Kept", 5f, "Percentage of money kept between stages.").Value;
-            newMoneyKeptStack = LITMain.config.Bind<float>(section, "Money Kept per Stack", 2.5f, "Amount of kept money added for each stack of Life Savings").Value;
-        }*/
-
-        /*
-        public override void DescriptionToken()
-        {
-            LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
-                $"Keep <style=cIsUtility>{newMoneyKeptBase}%</style> <style=cStack>(+{newMoneyKeptStack}% per stack)</style> of <style=cIsUtility>earned gold</style> between stages. Gold is not kept when travelling between <style=cWorldEvent>Hidden Realms</style>.",
-                LangEnum.en);
-        }*/
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
@@ -110,7 +94,7 @@ namespace LostInTransit.Items
 
             private uint CalculatePercentage()
             {
-                var percentage = newMoneyKeptBase + (newMoneyKeptStack * (stack - 1));
+                var percentage = newMoneyKeptBase + (newMoneyKeptBase/2 * (stack - 1));
 
                 uint toReturn;
                 toReturn = (uint)(CharMaster.money / 100 * Mathf.Min(percentage, 100));

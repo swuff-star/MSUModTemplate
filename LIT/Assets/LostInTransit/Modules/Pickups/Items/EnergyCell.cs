@@ -6,25 +6,12 @@ namespace LostInTransit.Items
 {
     public class EnergyCell : ItemBase
     {
+        private const string token = "LIT_ITEM_ENERGYCELL_DESC";
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("EnergyCell");
 
         [ConfigurableField(ConfigName = "Maximum Attack Speed per Cell", ConfigDesc = "Maximum amount of attack speed per item held.")]
+        [TokenModifier(token, StatTypes.Percentage)]
         public static float bonusAttackSpeed = 0.4f;
-
-        /*
-        public override void Config()
-        {
-            var section = $"Item: {ItemDef.name}";
-            bonusAttackSpeed = LITMain.config.Bind<float>(section, "Maximum Attack Speed per Energy Cell", 0.4f, "Maximum amount of attack speed per item held.").Value;
-        }*/
-
-        /*
-        public override void DescriptionToken()
-        {
-            LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
-                $"Gain <style=cIsDamage>attack speed</style> proportionate to <style=cIsHealth>percentage of missing health</style>, up to a maximum of <style=cIsDamage>+{bonusAttackSpeed * 100}%</style> <style=cStack>(+{bonusAttackSpeed * 100}% per stack)</style> <style=cIsDamage>attack speed</style> with <style=cIsHealth>10% or less health remaining</style>.",
-                LangEnum.en);
-        }*/
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {

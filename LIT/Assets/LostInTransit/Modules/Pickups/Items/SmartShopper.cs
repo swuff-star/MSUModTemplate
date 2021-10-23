@@ -6,30 +6,15 @@ namespace LostInTransit.Items
 {
     public class SmartShopper : ItemBase
     {
+        private const string token = "LIT_ITEM_SMARTSHOPPER_DESC";
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("SmartShopper");
-        //public static string section;
 
         [ConfigurableField(ConfigName = "Money Bonus", ConfigDesc = "Amount of extra money gained, per stack.")]
+        [TokenModifier(token, StatTypes.Percentage, 0)]
         public static float goldAmount = 0.25f;
 
         [ConfigurableField(ConfigName = "Use Exponential Scaling", ConfigDesc = "Whether scaling should be done exponentially or linearally.")]
         public static bool usesExpScaling = true;
-
-        /*
-        public override void Config()
-        {
-            section = "Item: " + ItemDef.name;
-            goldAmount = LITMain.config.Bind<float>(section, "Money Bonus", 0.25f, "Amount of extra money gained per stack.").Value;
-            usesExpScaling = LITMain.config.Bind<bool>(section, "Use Exponential Scaling", true, "Whether scaling should be done exponentially (money bonus ^ (1 / stack)) or linearally (money bonus * stack).").Value;
-        }*/
-
-        /*
-        public override void DescriptionToken()
-        {
-            LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
-                $"Monsters drop <style=cIsUtility>{goldAmount * 100}%</style> <style=cStack>(+{goldAmount * 100}% per stack)</style> more gold.",
-                LangEnum.en);
-        }*/
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {

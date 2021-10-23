@@ -7,7 +7,7 @@ namespace LostInTransit.Items
 {
     public class BeckoningCat : ItemBase
     {
-        public const string token = "LIT_ITEM_BECKONINGCAT_DESC";
+        private const string token = "LIT_ITEM_BECKONINGCAT_DESC";
 
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("BeckoningCat");
 
@@ -40,12 +40,6 @@ namespace LostInTransit.Items
         [ConfigurableField(ConfigName = "Use Luck", ConfigDesc = "Whether Luck should be accounted for in all Beckoning Cat-related rolls.")]
         public static bool usesLuck = true;
 
-        /*public override void DescriptionToken()
-        {
-            LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
-                $"Elite monsters have a <style=cIsUtility>{baseChance}%</style> <style=cStack>(+{stackChance}% per stack)</style> chance to drop items on death. Dropped items have a <style=cIsUtility>{greenItemChance}%</style> <style=cStack>(+{greenItemStack}% per stack)</style> chance to be <color=#81d047>Uncommon</color>, and a <style=cIsUtility>{redItemChance}%</style> <style=cStack>(+{redItemStack}% per stack)</style> chance to be <color=#f26060>Rare</color>.",
-                LangEnum.en);
-        }*/
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
             body.AddItemBehavior<BeckoningCatBehavior>(stack);

@@ -5,50 +5,36 @@ namespace LostInTransit.Items
 {
     public class TelescopicSight : ItemBase
     {
+        private const string token = "LIT_ITEM_TELESCOPICSIGHT_DESC";
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("TelescopicSight");
 
         public static string section;
 
         [ConfigurableField(ConfigName = "Base Proc Chance", ConfigDesc = "Base proc chance for Telescopic Sight.")]
+        [TokenModifier(token, StatTypes.Default, 0)]
         public static float newBaseChance = 1f;
 
         [ConfigurableField(ConfigName = "Proc Chance per Stack", ConfigDesc = "Extra proc chance per stack of sights.")]
+        [TokenModifier(token, StatTypes.Default, 1)]
         public static float newStackChance = 0.5f;
 
         [ConfigurableField(ConfigName = "Cooldown", ConfigDesc = "Cooldown between Telescopic Sight activations.")]
-        public static float TeleCooldown = 20f;
+        [TokenModifier(token, StatTypes.Default, 3)]
+        public static float teleCooldown = 20f;
 
         [ConfigurableField(ConfigName = "Cooldown Reduction per Stack", ConfigDesc = "Seconds removed from cooldown per stack.")]
-        public static float TeleCooldownStack = 2f;
+        [TokenModifier(token, StatTypes.Default, 4)]
+        public static float teleCooldownStack = 2f;
 
         [ConfigurableField(ConfigName = "Health Percentage Dealt to Exceptions", ConfigDesc = "Percentage of max health that's dealt to set exceptions when activated on them.")]
-        public static float ExceptionHealthPercentage = 20f;
+        [TokenModifier(token, StatTypes.Default, 2)]
+        public static float exceptionHealthPercentage = 20f;
 
         [ConfigurableField(ConfigName = "Instakill Bosses", ConfigDesc = "Whether Telescopic Sight should instakill boss monsters.")]
-        public static bool InstakillElites = false;
+        public static bool instakillElites = false;
 
         [ConfigurableField(ConfigName = "Instakill Elites", ConfigDesc = "Whether Telescopic Sight should instakill elites.")]
-        public static bool InstakillBosses = true;
-
-        /*
-        public override void Config()
-        {
-            section = "Item: " + ItemDef.name;
-            newBaseChance = LITMain.config.Bind<float>(section, "Base Proc Chance", 1f, "Base Proc Chance for Telescopic Sight.").Value;
-            newStackChance = LITMain.config.Bind<float>(section, "Stack Proc Chance", 0.5f, "Stack proc chance for each telescopic sight.").Value;
-            TeleCooldown = LITMain.config.Bind<float>(section, "Cooldown", 20f, "Cooldown until Telescopic Sight can proc again.").Value;
-            TeleCooldownStack = LITMain.config.Bind<float>(section, "Cooldown Reduction Per Stack", 2f, "Seconds removed from the cooldown per stack.").Value;
-            ExceptionHealthPercentage = LITMain.config.Bind<float>(section, "Exceptions Health Percentage", 20f, "Percentage of max health that's dealt to set exceptions.").Value;
-            InstakillBosses = LITMain.config.Bind<bool>(section, "Instakill Bosses", false, "Whether Telescopic Sight should instakill boss monsters.").Value;
-            InstakillElites = LITMain.config.Bind<bool>(section, "Instakill Elites", true, "Whether Telescopic Sight should instakill elite monsters.").Value;
-        }*/
-        /*
-        public override void DescriptionToken()
-        {
-            LITUtil.AddTokenToLanguage(ItemDef.descriptionToken,
-                $"<style=cIsDamage>{newBaseChance}%</style> <style=cStack>(+{newStackChance}% per stack)</style> chance to <style=cIsDamage>instakill monsters</style>. Boss monsters instead take <style=cIsDamage>{ExceptionHealthPercentage}% of their maximum health</style> in damage. Recharges every <style=cIsUtility>{TeleCooldown}</style> <style=cStack>(-{TeleCooldownStack} per stack)</style> seconds.",
-                LangEnum.en);
-        }*/
+        public static bool instakillBosses = true;
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
@@ -71,7 +57,7 @@ namespace LostInTransit.Items
                         }
                         else
                         {
-                            damageInfo.damage = victimHealthComponent.body.maxHealth * (ExceptionHealthPercentage / 100);
+                            damageInfo.damage = victimHealthComponent.body.maxHealth * (exceptionHealthPercentage / 100);
                         }
                     }
                 }
@@ -84,7 +70,7 @@ namespace LostInTransit.Items
             private float CalcCooldown()
             {
                 //Yknow, we should NEVER reach a cooldown of 0, so this caps the cooldown at around 10 seconds.
-                return TeleCooldown - ((1 - 1 / (1 + 0.25f * (stack - 1))) * 10);
+                return teleCooldown - ((1 - 1 / (1 + 0.25f * (stack - 1))) * 10);
                 //Agreeable.
             }
             /*
@@ -97,14 +83,14 @@ namespace LostInTransit.Items
 
                 if (body.isChampion)
                 {
-                    if (InstakillBosses)
+                    if (instakillBosses)
                         return true;
                     else
                         return false;
                 }
                 if (body.isElite)
                 {
-                    if (InstakillElites)
+                    if (instakillElites)
                         return true;
                     else
                         return false;
