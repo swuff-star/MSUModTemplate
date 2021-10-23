@@ -25,9 +25,18 @@ namespace LostInTransit.Buffs
         private void VolatileExplosion(On.RoR2.GlobalEventManager.orig_OnHitAll orig, GlobalEventManager self, DamageInfo damageInfo, GameObject hitObject)
         {
             orig(self, damageInfo, hitObject);
-            var component = damageInfo.attacker?.GetComponent<AffixVolatileBehavior>();
-            if(component)
-                component.OnHitAll(damageInfo);
+            if(damageInfo != null)
+            {
+                var atkr = damageInfo.attacker;
+                if(atkr)
+                {
+                    var component = atkr.GetComponent<AffixVolatileBehavior>();
+                    if(component)
+                    {
+                        component.OnHitAll(damageInfo);
+                    }
+                }
+            }
         }
 
         public override void AddBehavior(ref CharacterBody body, int stack)
@@ -137,39 +146,36 @@ namespace LostInTransit.Buffs
 
             public void OnHitAll(DamageInfo dmgInfo)
             {
-                if(!dmgInfo.attacker)
+                var atkBody = dmgInfo.attacker.GetComponent<CharacterBody>();
+                if (dmgInfo.procCoefficient != 0f && !DamageAPI.HasModdedDamageType(dmgInfo, DamageTypes.Volatile.volatileDamageType))
                 {
-                    var atkBody = dmgInfo.attacker.GetComponent<CharacterBody>();
-                    if (dmgInfo.procCoefficient != 0f && !DamageAPI.HasModdedDamageType(dmgInfo, DamageTypes.Volatile.volatileDamageType))
+                    float radius = 1.5f + (2.5f * dmgInfo.procCoefficient);
+                    float dmgCoef = 0.3f;
+                    float baseDamage = Util.OnHitProcDamage(dmgInfo.damage, atkBody.damage, dmgCoef);
+                    EffectManager.SpawnEffect(Resources.Load<GameObject>("Prefabs/Effects/OmniEffect/OmniExplosionVFXQuick"), new EffectData
                     {
-                        float radius = 1.5f + (2.5f * dmgInfo.procCoefficient);
-                        float dmgCoef = 0.3f;
-                        float baseDamage = Util.OnHitProcDamage(dmgInfo.damage, atkBody.damage, dmgCoef);
-                        EffectManager.SpawnEffect(Resources.Load<GameObject>("Prefabs/Effects/OmniEffect/OmniExplosionVFXQuick"), new EffectData
-                        {
-                            origin = dmgInfo.position,
-                            scale = radius,
-                            rotation = Util.QuaternionSafeLookRotation(dmgInfo.force)
-                        }, transmit: true);
+                        origin = dmgInfo.position,
+                        scale = radius,
+                        rotation = Util.QuaternionSafeLookRotation(dmgInfo.force)
+                    }, transmit: true);
 
-                        BlastAttack atk = new BlastAttack
-                        {
-                            position = dmgInfo.position,
-                            baseDamage = baseDamage,
-                            baseForce = 0f,
-                            radius = radius,
-                            attacker = dmgInfo.attacker,
-                            inflictor = null
-                        };
-                        atk.teamIndex = TeamComponent.GetObjectTeam(dmgInfo.attacker);
-                        atk.crit = dmgInfo.crit;
-                        atk.procChainMask = dmgInfo.procChainMask;
-                        atk.damageColorIndex = DamageColorIndex.WeakPoint;
-                        atk.falloffModel = BlastAttack.FalloffModel.None;
-                        atk.damageType = dmgInfo.damageType;
-                        DamageAPI.AddModdedDamageType(atk, DamageTypes.Volatile.volatileDamageType);
-                        atk.Fire();
-                    }
+                    BlastAttack atk = new BlastAttack
+                    {
+                        position = dmgInfo.position,
+                        baseDamage = baseDamage,
+                        baseForce = 0f,
+                        radius = radius,
+                        attacker = dmgInfo.attacker,
+                        inflictor = null
+                    };
+                    atk.teamIndex = TeamComponent.GetObjectTeam(dmgInfo.attacker);
+                    atk.crit = dmgInfo.crit;
+                    atk.procChainMask = dmgInfo.procChainMask;
+                    atk.damageColorIndex = DamageColorIndex.WeakPoint;
+                    atk.falloffModel = BlastAttack.FalloffModel.None;
+                    atk.damageType = dmgInfo.damageType;
+                    DamageAPI.AddModdedDamageType(atk, DamageTypes.Volatile.volatileDamageType);
+                    atk.Fire();
                 }
             }
 
