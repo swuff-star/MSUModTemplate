@@ -1,6 +1,6 @@
 {
     "name": "LostInTransit",
-    "version_number": "0.3.3",
+    "version_number": "0.3.4",
     "website_url": "https://discord.gg/ecsXKQFUMW",
     "description": "Lost in Transit is a mod focused on restoring features lost from Risk of Rain 1, currently including items and elites.",
     "dependencies": [

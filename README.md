@@ -59,8 +59,10 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 	* Volatile elites should no longer cause a myriad of issues, included but not limited to:
 		* Volatile Bombs exploding constantly rarely. [link](https://github.com/swuff-star/LostInTransit/issues/5)
 		* Glacial Elites's freezing explosion constantly triggering. [link](https://github.com/swuff-star/LostInTransit/issues/4)
+		* Volatile Elites should no longer cause infinite explosions when interacting with Enforcer's shield. [link](https://github.com/swuff-star/LostInTransit/issues/8)
 		* Causing the camera to get stuck while having aetherium installed.
 	* Disabling blighted elites should no longer cause extreme stat scaling bugs. [link](https://github.com/swuff-star/LostInTransit/issues/2)
+	* Prison Shackles should no longer trigger on attacks with proc coefficient of 0. [link](https://github.com/swuff-star/LostInTransit/issues/7)
 
 ### 0.3.3
 * Items
@@ -109,4 +111,4 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 * Other
 	* Updated "ELITE_MODIFIER_GOLD" from "Gold" to "Auric". I like how it sounds since it comes from the same root Aurelionite does. No other mod fixes this and it's too small a change to warrant its own mod. Golden Coast Plus, maybe?
 
-(Old changelogs can be found [Here]())
+(Old changelogs can be found [Here](https://github.com/swuff-star/LostInTransit/blob/master/OldChangelogs.md))

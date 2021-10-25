@@ -31,7 +31,8 @@ namespace LostInTransit.Items
         {
             public void OnDamageDealtServer(DamageReport damageReport)
             {
-                damageReport.victimBody.AddTimedBuff(Shackled.buff, duration + durationStack * (stack - 1));
+                if(damageReport.damageInfo.procCoefficient > 0)
+                    damageReport.victimBody.AddTimedBuff(Shackled.buff, duration + durationStack * (stack - 1));
             }
         }
     }
