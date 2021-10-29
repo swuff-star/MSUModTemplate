@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
+
 namespace LostInTransit.Components
 {
     public class BlightDirector : NetworkBehaviour
@@ -18,7 +19,7 @@ namespace LostInTransit.Components
 
         public const float minTimeBeforeKillsCount = 1200f; //This roughly causes kills to only count past 20 minutes in drizzle.
 
-        public float MaxSpawnRateWithDiffCoef { get => (maxSpawnRate * RunDifficulty.scalingValue) + GetTotalBeadCount(); }
+        public float MaxSpawnRateWithDiffCoef { get => (1f * RunDifficulty.scalingValue) + GetTotalBeadCount(); }
 
         public float MinTimeBeforeKillsCountWithDiffCoef { get => (minTimeBeforeKillsCount / RunDifficulty.scalingValue); }
 
@@ -103,7 +104,7 @@ namespace LostInTransit.Components
             if (isBlacklisted)
                 return;
 
-            if (IsHonorArtifactEnabled)
+            if (IsHonorArtifactEnabled || AffixBlighted.bossBlighted)
             {
                 if (stageNotCommencement && isEnemy && hasComponent)
                 {
@@ -113,6 +114,7 @@ namespace LostInTransit.Components
                     }
                 }
             }
+
             else if (stageNotCommencement && isEnemy && hasComponent && isntChampion)
             {
                 if (Util.CheckRoll(SpawnRate))
