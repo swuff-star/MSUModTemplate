@@ -37,6 +37,11 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 ## Changelog
 
+### 0.3.5
+* Elites
+	* Blighted: Added config to allow bosses to spawn as Blighted enemies
+	* Blighted: Fixed invisibility
+
 ### 0.3.4
 *Developer Note: PLEASE wipe your config.*
 * Items
