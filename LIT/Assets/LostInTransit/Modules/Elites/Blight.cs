@@ -13,14 +13,31 @@ namespace LostInTransit.Elites
     {
         public static List<EliteDef> EliteDefsForBlightedElites = new List<EliteDef>();
         private static bool spawnedDirector = false;
-        internal static List<CharacterBody> blacklistedBodies = new List<CharacterBody>();
+        internal static Dictionary<BodyIndex, int> blightCostdictionary = new Dictionary<BodyIndex, int>();
         internal static void BeginSetup()
         {
             LITLogger.LogI($"Blighted elites are enabled, setting up systems...");
             var blightedDirector = Assets.LITAssets.LoadAsset<GameObject>("BlightedDirector");
             HG.ArrayUtils.ArrayAppend(ref LITContent.serializableContentPack.networkedObjectPrefabs, blightedDirector);
+
             RoR2Application.onLoad += BlightSetup;
             On.RoR2.Util.GetBestBodyName += GetBlightedName;
+            Stage.onServerStageBegin += CreateCosts;
+        }
+
+        private static void CreateCosts(Stage obj)
+        {
+            var currentStageMonsterCards = ClassicStageInfo.instance.monsterCards.Select(card => card.spawnCard)
+                                                                                 .Where(card => card.prefab.GetComponent<BlightedController>());
+
+            foreach(SpawnCard card in currentStageMonsterCards)
+            {
+                var characterBody = card.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponent<CharacterBody>();
+                if(!blightCostdictionary.ContainsKey(characterBody.bodyIndex))
+                {
+                    CreateCostFromSpawnCard(card);
+                }
+            }
         }
 
         private static string GetBlightedName(On.RoR2.Util.orig_GetBestBodyName orig, GameObject bodyObject)
@@ -59,7 +76,6 @@ namespace LostInTransit.Elites
         {
             ModifyPrefabs();
             AddElites();
-            SetupBlacklist();
 
             Run.onRunStartGlobal += SpawnDirector;
             LITLogger.LogI($"Finished Blighted Elite Setup.");
@@ -70,9 +86,9 @@ namespace LostInTransit.Elites
             MasterCatalog.masterPrefabs
                 .Where(masterPrefab => masterPrefab.GetComponent<CharacterMaster>().bodyPrefab)
                 .ToList()
-                .ForEach(charMaster =>
+                .ForEach(masterPrefab =>
                 {
-                    var component = charMaster.gameObject.AddComponent<BlightedController>();
+                    var component = masterPrefab.AddComponent<BlightedController>();
                     component.enabled = false;
                 });
         }
@@ -88,20 +104,17 @@ namespace LostInTransit.Elites
             EliteDefsForBlightedElites.AddRange(availableElites);
         }
 
-        private static void SetupBlacklist()
+        private static void CreateCostFromSpawnCard(SpawnCard card)
         {
-            string[] blacklistedBodiesNames = LITConfig.BlightBlacklist.Value.Replace(" ", string.Empty).Split(',');
-            foreach (string body in blacklistedBodiesNames)
+            GameObject masterPrefab = card.prefab;
+            CharacterMaster charMaster = masterPrefab.GetComponent<CharacterMaster>();
+            if(charMaster)
             {
-                try
+                GameObject bodyPrefab = charMaster.bodyPrefab;
+                CharacterBody charBody = bodyPrefab?.GetComponent<CharacterBody>();
+                if(charBody)
                 {
-                    var bodyComponent = BodyCatalog.GetBodyPrefabBodyComponent(BodyCatalog.FindBodyIndexCaseInsensitive(body));
-                    if (bodyComponent)
-                        blacklistedBodies.Add(bodyComponent);
-                }
-                catch (Exception e)
-                {
-                    LITLogger.LogE(e);
+                    blightCostdictionary.Add(charBody.bodyIndex, LITConfig.BindBlightCost(bodyPrefab, card));
                 }
             }
         }

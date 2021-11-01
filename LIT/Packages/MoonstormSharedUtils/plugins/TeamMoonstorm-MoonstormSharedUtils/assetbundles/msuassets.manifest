@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4086171299
+CRC: 2494733328
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 39afb5ae8efb33b4f808c21c419b4fd5
+    Hash: 59f5411228337befb9a02ccd50222e1a
   TypeTreeHash:
     serializedVersion: 2
     Hash: d625bd5e18f4317f22807dac6ddfaec9
@@ -29,4 +29,6 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/Prefabs/MaterialTester.prefab
+- Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/MeshesForMaterialTester/meshPlane.mesh
+- Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/MeshesForMaterialTester/meshQuad.asset
 Dependencies: []
