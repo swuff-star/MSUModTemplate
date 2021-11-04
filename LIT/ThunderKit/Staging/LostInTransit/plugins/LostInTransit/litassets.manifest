@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3352179898
+CRC: 1482686127
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 58a52270138e9d64f350ffaf965d7da5
+    Hash: 5af6da5137a28faead252bcb196700c4
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 86d976ba3ea94907fc87609e213ac77e
+    Hash: 9ab8e434ca0a89244b1f1e18fa43454b
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -88,8 +88,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1937965295, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
 - Class: 114
-  Script: {fileID: 819600919, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
-- Class: 114
   Script: {fileID: 751239416, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 341298a8435f2164985e014e28235b74, type: 3}
@@ -99,6 +97,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 1a89379c7c140cf4c8fcd89de65fe247, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: a8c3d85e3fde20f4b8df08c0fe388190, type: 3}
+- Class: 114
+  Script: {fileID: 819600919, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 136
@@ -223,6 +223,7 @@ Assets:
 - Assets/Icons/texIconPickupAffixBlight.png
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayBeckoningCat.prefab
 - Assets/Icons/texIconRepulsionCharging.png
+- Assets/LostInTransit/LITAssets/BuffDefs/NuggetRegen.asset
 - Assets/Materials/matThallium.mat
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/New Loop Sound Def.asset
 - Assets/Materials/matPrisonShackles.mat
@@ -298,6 +299,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixLeeching.prefab
 - Assets/LostInTransit/LITAssets/ItemDefs/RustyJetpack.asset
 - Assets/LostInTransit/LITAssets/Meshes/meshPlane.mesh
+- Assets/LostInTransit/LITAssets/ItemDefs/MeatNugget.asset
 - Assets/LostInTransit/LITAssets/EliteDefs/Volatile.asset
 - Assets/Mesh/meshTelescopicSight.mesh
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupBeckoningCat.prefab
