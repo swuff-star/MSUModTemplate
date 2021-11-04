@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: MeatNugget
   m_EditorClassIdentifier: 
   tier: 0
-  nameToken: LIT_ITEMS_MEATNUGGET_NAME
-  pickupToken: LIT_ITEMS_MEATNUGGET_PICKUP
-  descriptionToken: LIT_ITEMS_MEATNUGGET_DESC
-  loreToken: LIT_ITEMS_MEATNUGGET_LORE
+  nameToken: LIT_ITEM_MEATNUGGET_NAME
+  pickupToken: LIT_ITEM_MEATNUGGET_PICKUP
+  descriptionToken: LIT_ITEM_MEATNUGGET_DESC
+  loreToken: LIT_ITEM_MEATNUGGET_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 8209252503542907621, guid: b084b0145ab88d14493cc40249434c9b,
     type: 3}

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1482686127
+CRC: 2807359428
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5af6da5137a28faead252bcb196700c4
+    Hash: 530df9296d8af3c71348ccc2f43db155
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 9ab8e434ca0a89244b1f1e18fa43454b
+    Hash: 8809819ed5bea26f6b3691272c9e8747
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -25,6 +25,10 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
 - Class: 74
   Script: {instanceID: 0}
 - Class: 90
@@ -37,6 +41,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+- Class: 114
+  Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
 - Class: 114
   Script: {fileID: 2005159759, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -57,6 +63,8 @@ ClassTypes:
   Script: {fileID: 1512808244, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 733712478, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1343443687, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -80,13 +88,19 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1218053310, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: -1895344032, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 1904172584, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 580321256, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
 - Class: 114
   Script: {fileID: -1350347239, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
 - Class: 114
   Script: {fileID: 1937965295, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
+- Class: 114
+  Script: {fileID: 819600919, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
 - Class: 114
   Script: {fileID: 751239416, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
 - Class: 114
@@ -98,8 +112,14 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: a8c3d85e3fde20f4b8df08c0fe388190, type: 3}
 - Class: 114
-  Script: {fileID: 819600919, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
+  Script: {fileID: -1752031980, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
+- Class: 114
+  Script: {fileID: -130519023, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a1b2bb3baa9a64041aae1d04277603b1, type: 3}
 - Class: 115
+  Script: {instanceID: 0}
+- Class: 135
   Script: {instanceID: 0}
 - Class: 136
   Script: {instanceID: 0}
@@ -268,6 +288,7 @@ Assets:
 - Assets/Textures/Ramps/texRampEliteLeeching.png
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectFrenziedTPReady.prefab
 - Assets/LostInTransit/LITAssets/EliteDefs/Frenzied.asset
+- Assets/LostInTransit/LITAssets/Prefabs/NetworkedObjects/MeatNuggetPickup.prefab
 - Assets/LostInTransit/LITAssets/BuffDefs/RepulsionArmorActive.asset
 - Assets/LostInTransit/LITAssets/EliteDefs/Blighted.asset
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectsForEffectManager/BlightSmoke.prefab

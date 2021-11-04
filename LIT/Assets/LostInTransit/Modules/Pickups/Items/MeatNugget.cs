@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using Moonstorm;
 using RoR2;
+using LostInTransit.Components;
 
 namespace LostInTransit.Items
 {
@@ -11,7 +12,8 @@ namespace LostInTransit.Items
         private const string token = "LIT_ITEM_MEATNUGGET_DESC";
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("MeatNugget");
 
-        public static string section;
+        public static GameObject MeatNuggetPickup = Assets.LITAssets.LoadAsset<GameObject>("MeatNuggetPickup");
+
         [ConfigurableField(ConfigName = "Proc Chance", ConfigDesc = "Base proc chance for Meat Nugget.")]
         [TokenModifier(token, StatTypes.Default, 0)]
         public static float newBaseChance = 8f;
@@ -35,22 +37,9 @@ namespace LostInTransit.Items
         [TokenModifier(token, StatTypes.Default, 2)]
         public static float newStackDuration = 0;
 
-        public static GameObject MeatNuggetPickup;
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
             body.AddItemBehavior<MeatNuggetBehavior>(stack);
-        }
-        public override void Initialize()
-        //Replace all this with a custom nugget prefab in thunderkit, cloning bad
-        {
-            MeatNugget.MeatNuggetPickup = Resources.Load<GameObject>("Prefabs/NetworkedObjects/BonusMoneyPack");
-            PrefabAPI.InstantiateClone(MeatNuggetPickup, "NuggetPickup", true);
-            MeatNugget.MeatNuggetPickup.transform.localScale = Vector3.one * 0.6f;
-            GameObject meatPickup = MeatNugget.MeatNuggetPickup.transform.Find("PackTrigger").gameObject;
-            UnityEngine.Object.Destroy(meatPickup.GetComponent<MoneyPickup>());
-            NuggetPickup nuggetPickup = meatPickup.AddComponent<NuggetPickup>();
-            nuggetPickup.baseObject = MeatNugget.MeatNuggetPickup;
-            UnityEngine.Object.Destroy(MeatNugget.MeatNuggetPickup.transform.Find("Mesh").Find("Particle System").gameObject);
         }
         public class MeatNuggetBehavior : CharacterBody.ItemBehavior, IOnDamageDealtServerReceiver
         {
@@ -59,12 +48,15 @@ namespace LostInTransit.Items
                 GameObject victim = damageReport.victim.gameObject;
                 if (Util.CheckRoll(CalcChance() * damageReport.damageInfo.procCoefficient, damageReport.attackerMaster))
                 {
-                    GameObject nugget = UnityEngine.Object.Instantiate<GameObject>(MeatNugget.MeatNuggetPickup, victim.transform.position, UnityEngine.Random.rotation);
+                    GameObject nugget = UnityEngine.Object.Instantiate<GameObject>(MeatNuggetPickup, victim.transform.position, UnityEngine.Random.rotation);
                     nugget.GetComponent<TeamFilter>().teamIndex = damageReport.attackerTeamIndex;
                     NuggetPickup nugbuff = nugget.GetComponentInChildren<NuggetPickup>();
                     nugbuff.BuffTimer = CalcDuration();
                     nugbuff.RegenMult = regenMultiplier;
-                    if (doesStack) { nugbuff.RegenStacks = stack; }
+                    
+                    if (doesStack) 
+                        nugbuff.RegenStacks = stack;
+
                     NetworkServer.Spawn(nugget);
                 }
             }

@@ -5,7 +5,7 @@ namespace LostInTransit.Buffs
 {
     public class NuggetRegen : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("LeechingRegen");
+        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("NuggetRegen");
 
         public static BuffDef buff;
 
