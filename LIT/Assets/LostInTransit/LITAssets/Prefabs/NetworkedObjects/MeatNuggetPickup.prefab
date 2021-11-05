@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: -1895344032, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teamIndexInternal: 0
   defaultTeam: -1
 --- !u!54 &54454160502507782
 Rigidbody:
@@ -266,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 1343443687, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravitateTarget: {fileID: 0}
   rigidbody: {fileID: 54454160502507782}
   teamFilter: {fileID: 114183922805946263}
   acceleration: 20
@@ -363,7 +365,7 @@ MonoBehaviour:
   team: {fileID: 114183922805946263}
   BuffTimer: 1
   RegenMult: 0.5
-  RegenStacks: 1
+  RegenStacks: 0
   buff: {fileID: 11400000, guid: 930cad48387884c4db90740c9a7255e2, type: 2}
 --- !u!1 &1825770804006374
 GameObject:
@@ -422,7 +424,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dc754ebc6fec0fa4faf232fb3cf9d59d, type: 2}
+  - {fileID: 2100000, guid: 7aacb7d7d2182ec4fa14c3460a249da6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

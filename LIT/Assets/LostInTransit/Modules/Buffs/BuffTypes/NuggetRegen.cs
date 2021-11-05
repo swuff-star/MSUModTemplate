@@ -25,7 +25,7 @@ namespace LostInTransit.Buffs
             }
             public void RecalculateStatsEnd()
             {
-                body.regen *= 1f + (stack * 0.5f);
+                body.regen *= 1f + (stack * Items.MeatNugget.regenMultiplier);
             }
         }
     }

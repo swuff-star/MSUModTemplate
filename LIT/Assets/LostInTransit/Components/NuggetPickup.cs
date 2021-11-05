@@ -1,5 +1,4 @@
 ﻿using System;
-using LostInTransit.Buffs;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -13,7 +12,9 @@ namespace LostInTransit.Components
         public TeamFilter team;
 
         [HideInInspector]
-        public float RegenStacks, BuffTimer, RegenMult;
+        public float BuffTimer, RegenMult;
+        [HideInInspector]
+        public int RegenStacks;
 
         [SerializeField]
         private BuffDef buff;
@@ -33,12 +34,13 @@ namespace LostInTransit.Components
                     alive = false;
                     if(body.GetBuffCount(buff) < RegenStacks)
                     {
-                        body.AddTimedBuff(buff, BuffTimer * 2);
+                        body.AddTimedBuff(buff, BuffTimer);
                     }
                     else
                     {
-                        body.timedBuffs.Find(tb => tb.buffIndex == buff.buffIndex).timer = BuffTimer * 2;
+                        body.timedBuffs.Find(tb => tb.buffIndex == buff.buffIndex).timer = BuffTimer;
                     }
+                    //Meat eat sound here (rex fruit?)
                     Destroy(baseObject);
                 }
             }
