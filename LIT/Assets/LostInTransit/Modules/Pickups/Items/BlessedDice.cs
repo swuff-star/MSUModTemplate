@@ -24,51 +24,66 @@ namespace LostInTransit.Items
         {
             private int ChooseRandomBuff()
             {
-                int rng = Run.instance.runRNG.RangeInt(1, 13);
+                int rng = Run.instance.runRNG.RangeInt(1, 7);
                 switch (rng)
                 {
                     //cases look stupid
                     //Luck is 1/12 chance
                     //heal is 3/12 chance
                     //all other buffs are 2/12 chance
-                    case < 2:
+                    case 1:
                         Debug.Log("luck");
                         break;
-                    case < 4:
+                    case 2:
                         Debug.Log("crit");
                         break;
-                    case < 6:
+                    case 3:
                         Debug.Log("atkspd");
                         break;
-                    case < 8:
+                    case 4:
                         Debug.Log("move");
                         break;
-                    case < 10:
+                    case 5:
                         Debug.Log("armor");
                         break;
-                    case < 13:
+                    case 6:
                         Debug.Log("heal");
                         break;
                 }
                 return rng;
             }
-           public void Start()
-           {
-                //I need to encapsulate this properly so I can onDestroy it
-                GlobalEventManager.OnInteractionsGlobal += delegate (Interactor interactor, IInteractable interactable, GameObject interactableObject)
+            
+            private void AddBuffOnShrine(Interactor interactor, IInteractable interactable, GameObject interactableObject)
+            {
+                //All these NRE checks adapted from Mystic's Items GenericGameEvents code
+                MonoBehaviour monoBehaviour = (MonoBehaviour)interactable;
+
+                bool isItem = monoBehaviour.GetComponent<GenericPickupController>();
+                bool isVehicle = monoBehaviour.GetComponent<VehicleSeat>();
+                bool isNetworkThingy = monoBehaviour.GetComponent<NetworkUIPromptController>();
+                bool isShrine = interactableObject.GetComponent<PurchaseInteraction>().isShrine;
+                bool allowProc = interactableObject.GetComponent<InteractionProcFilter>().shouldAllowOnInteractionBeginProc;
+
+                if (!isItem && !isVehicle && !isNetworkThingy && isShrine && allowProc)
                 {
-                    //Need more NRE checks - currently throws an NRE on non-chest interactables and on items
-                    if (interactableObject.GetComponent<PurchaseInteraction>().isShrine)
-                    {
-                        ChooseRandomBuff();
-                        Debug.Log(stack);
-                    }
-                    else
-                    {
-                        Debug.Log("please no NRE");
-                    }
-                };
-           }
+                    ChooseRandomBuff();
+                    Debug.Log(stack);
+                }
+                else
+                {
+                    Debug.Log("Not a Shrine");
+                }
+            }
+
+            public void Start()
+            {
+                GlobalEventManager.OnInteractionsGlobal += AddBuffOnShrine;
+            }
+            
+            public void onDestroy()
+            {
+                GlobalEventManager.OnInteractionsGlobal -= AddBuffOnShrine;
+            }
         }
     }
 }
