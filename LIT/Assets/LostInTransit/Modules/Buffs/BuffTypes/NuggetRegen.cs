@@ -1,5 +1,6 @@
 ﻿using Moonstorm;
 using RoR2;
+using UnityEngine;
 
 namespace LostInTransit.Buffs
 {
@@ -12,6 +13,9 @@ namespace LostInTransit.Buffs
         public override void Initialize()
         {
             buff = BuffDef;
+            var schmeat = Resources.Load<BuffDef>("buffdefs/MeatRegenBoost");
+            BuffDef.iconSprite = schmeat.iconSprite;
+            BuffDef.startSfx = schmeat.startSfx;
         }
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
