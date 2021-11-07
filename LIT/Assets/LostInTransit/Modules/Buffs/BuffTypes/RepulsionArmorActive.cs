@@ -4,6 +4,7 @@ using RoR2;
 
 namespace LostInTransit.Buffs
 {
+    [DisabledContent]
     public class RepulsionArmorActive : BuffBase
     {
         public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("RepulsionArmorActive");

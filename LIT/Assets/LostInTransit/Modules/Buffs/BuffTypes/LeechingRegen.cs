@@ -26,7 +26,8 @@ namespace LostInTransit.Buffs
         public class LeechingRegenBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {
             public float duration = 5;
-            public float regen = 0;
+            public float totalRegen = 0;
+            public float regenStrength = 10;
 
             public GameObject VFX = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingRegen");
             public void Start()
@@ -39,19 +40,15 @@ namespace LostInTransit.Buffs
                     rootObject = body.gameObject
                 };
                 EffectManager.SpawnEffect(VFX, effectData, true);
-                CalculateRegen();
+                totalRegen = body.maxHealth * (regenStrength / 100) / duration;
             }
-            private void CalculateRegen()
-            {
-                regen = (body.maxHealth / 10) / duration;
-            }
+
             public void RecalculateStatsStart()
             {
-
             }
             public void RecalculateStatsEnd()
             {
-                body.regen += regen;
+                body.regen += totalRegen;
             }
         }
     }

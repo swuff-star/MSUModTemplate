@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6398776800184702491}
   - component: {fileID: 2836906961073926839}
   m_Layer: 0
-  m_Name: VFXLeeching
+  m_Name: EffectLeechingBurst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   positionAtReferencedTransform: 1
   parentToReferencedTransform: 1
   applyScale: 1
-  soundName: 
+  soundName: LeechingHeal
   disregardZScale: 0
 --- !u!1 &8145607513915771348
 GameObject:
@@ -103,7 +103,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8145607513915771348}
   serializedVersion: 6
-  lengthInSec: 5
+  lengthInSec: 2.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -663,7 +663,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 25
+    maxNumParticles: 12
     size3D: 0
     rotation3D: 0
     gravityModifier:
