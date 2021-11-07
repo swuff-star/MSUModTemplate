@@ -33,19 +33,26 @@ namespace LostInTransit.Components
             }
         }
         [SyncVar]
-        private float SpawnRate = 0;
+        private float spawnRate = 0;
         [SyncVar]
         private ulong monstersKilled;
 
         void Start()
         {
             Instance = this;
-            SpawnRate = 0;
             monstersKilled = 0;
             RecalculateSpawnChance();
 
+            Run.onServerGameOver += ResetMonstersKilled;
             GlobalEventManager.onCharacterDeathGlobal += OnEnemyKilled;
             CharacterBody.onBodyStartGlobal += TrySpawn;
+        }
+
+        private void ResetMonstersKilled(Run run, GameEndingDef ged)
+        {
+            LITLogger.LogI($"Game over, reseting blighted elite credits.");
+            monstersKilled = 0;
+            spawnRate = 0;
         }
 
         [Server]
@@ -62,7 +69,7 @@ namespace LostInTransit.Components
                     {
                         if (victimTeamComponent.teamIndex == TeamIndex.Monster || victimTeamComponent.teamIndex == TeamIndex.Lunar)
                         {
-                            if (attackerBody.isPlayerControlled && SpawnRate < MaxSpawnRateWithDiffCoef)
+                            if (attackerBody.isPlayerControlled && spawnRate < MaxSpawnRateWithDiffCoef)
                             {
                                 monstersKilled += 1 * ((ulong)Run.instance?.loopClearCount + 1);
                                 RecalculateSpawnChance();
@@ -85,7 +92,7 @@ namespace LostInTransit.Components
 
             if (stageNotCommencement && isEnemy && hasComponent)
             {
-                if (CheckIfCostIsSufficient(cost) && Util.CheckRoll(SpawnRate))
+                if (CheckIfCostIsSufficient(cost) && Util.CheckRoll(spawnRate))
                 {
                     monstersKilled -= (ulong)cost;
                     MakeBlighted(body);
@@ -137,7 +144,7 @@ namespace LostInTransit.Components
         {
             if (IsPrestigeArtifactEnabled)
             {
-                SpawnRate = 10f;
+                spawnRate = 10f;
                 return;
             }
 
@@ -152,7 +159,7 @@ namespace LostInTransit.Components
             monstersKilledModifier = (monstersKilled * spawnRatePerMonsterKilled * RunDifficulty.scalingValue) / divisor;
 
             float finalSpawnChance = baseSpawnChance + monstersKilledModifier;
-            SpawnRate = Mathf.Min(finalSpawnChance, MaxSpawnRateWithDiffCoef);
+            spawnRate = Mathf.Min(finalSpawnChance, MaxSpawnRateWithDiffCoef);
         }
 
         private float GetTotalBeadCount()

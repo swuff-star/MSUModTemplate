@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace LostInTransit.Buffs
 {
+    [DisabledContent]
     public class NuggetRegen : BuffBase
     {
         public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("NuggetRegen");

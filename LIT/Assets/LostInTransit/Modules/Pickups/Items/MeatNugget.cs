@@ -7,6 +7,7 @@ using LostInTransit.Components;
 
 namespace LostInTransit.Items
 {
+    [DisabledContent]
     public class MeatNugget : ItemBase
     {
         private const string token = "LIT_ITEM_MEATNUGGET_DESC";

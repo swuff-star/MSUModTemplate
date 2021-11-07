@@ -29,7 +29,7 @@ namespace LostInTransit.Buffs
 
             public BuffDef secondBuff;
 
-            private GameObject SmokeEffect = Assets.LITAssets.LoadAsset<GameObject>("BlightSmoke");
+            public GameObject SmokeEffect = Assets.LITAssets.LoadAsset<GameObject>("BlightSmoke");
 
             private float stopwatch;
             private static float checkTimer = 0.75f;
@@ -81,7 +81,8 @@ namespace LostInTransit.Buffs
                 {
                     stopwatch = 0; //Doing this to ensure they're visible for a moment
                     RemoveBuff();
-                    SpawnEffect();
+                    if (!body.isPlayerControlled)
+                        SpawnEffect();
                 }
             }
 
@@ -93,7 +94,6 @@ namespace LostInTransit.Buffs
                     origin = body.transform.position
                 };
                 EffectManager.SpawnEffect(SmokeEffect, data, true);
-                //Util.PlaySound("BlightAppear", body.gameObject); too obnoxious
             }
 
             public void RecalculateStatsStart() { }
@@ -102,13 +102,13 @@ namespace LostInTransit.Buffs
             {
                 //Reduces cooldowns by 50%
                 if (body.skillLocator.primary)
-                    body.skillLocator.primary.cooldownScale *= 0.5f;
+                    body.skillLocator.primary.cooldownScale *= 0.25f;
                 if (body.skillLocator.secondary)
-                    body.skillLocator.secondary.cooldownScale *= 0.5f;
+                    body.skillLocator.secondary.cooldownScale *= 0.25f;
                 if (body.skillLocator.utility)
-                    body.skillLocator.utility.cooldownScale *= 0.5f;
+                    body.skillLocator.utility.cooldownScale *= 0.25f;
                 if (body.skillLocator.special)
-                    body.skillLocator.special.cooldownScale *= 0.5f;
+                    body.skillLocator.special.cooldownScale *= 0.25f;
                 //Is there a reason you subtract CDR instead of multiply? If two things gave 0.5 CDR like this, then it'd have 0 CDR... Right?
                 //Also, if these need nerfed, I say this is the first thing to go.
                 //Neb: i supose i can change it to multiply by 0.5 if they need nerfed. we'll see in the future.

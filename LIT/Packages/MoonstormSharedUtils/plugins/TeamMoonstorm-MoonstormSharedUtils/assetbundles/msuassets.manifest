@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2494733328
+CRC: 3305572111
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 59f5411228337befb9a02ccd50222e1a
+    Hash: 78fd96181a58594085fdf80cf5b6b6e4
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d625bd5e18f4317f22807dac6ddfaec9
+    Hash: 7a05d3b297ff1cbb9e0124aeab81b3ce
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -24,11 +24,34 @@ ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+- Class: 114
+  Script: {fileID: -830614127, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1297580292, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 733712478, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1918207524, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: ac7b3e366420599418ecc7cf3d32fed0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0361a1980df246f4b9c782ef4f442b98, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e98f718981210a343a10825d2d88abfb, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b3ad08bf3e7b6da4591a89d01c422e04, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 52a44ac676c8ff547be985bc3a8ae891, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 Assets:
+- Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/curveLinear.asset
+- Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/ContentPack.asset
 - Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/Prefabs/MaterialTester.prefab
 - Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/MeshesForMaterialTester/meshPlane.mesh
 - Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/MeshesForMaterialTester/meshQuad.asset
+- Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/Prefabs/MSUEventDirector.prefab
 Dependencies: []

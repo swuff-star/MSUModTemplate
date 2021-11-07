@@ -28,7 +28,7 @@ namespace LostInTransit
         {
             return ConfigFileBlightCost.Bind<int>("Blight Costs",
                                                  $"{bodyPrefab.name} Blight Cost",
-                                                 Mathf.RoundToInt(card.directorCreditCost / 10),
+                                                 Mathf.RoundToInt(card.directorCreditCost / 5),
                                                  $"The cost of turning {bodyPrefab.name} into a blighted elite.\nSet this value to -1 to blacklist the body.").Value;
         }
     }

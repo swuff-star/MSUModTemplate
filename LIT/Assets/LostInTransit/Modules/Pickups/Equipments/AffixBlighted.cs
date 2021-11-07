@@ -34,9 +34,11 @@ namespace LostInTransit.Equipments
         {
             public void Start()
             {
-                body.baseMaxHealth *= 7.0f;
+                body.baseMaxHealth *= 8f;
                 body.baseDamage *= 2;
                 body.baseMoveSpeed *= 1.1f;
+                body.baseAttackSpeed *= 1.1f;
+                body.baseArmor += 33.34f;
                 body.PerformAutoCalculateLevelStats();
 
                 body.healthComponent.health = body.healthComponent.fullHealth;
@@ -49,6 +51,8 @@ namespace LostInTransit.Equipments
                     body.baseMaxHealth /= 7.0f;
                     body.baseDamage /= 2f;
                     body.baseMoveSpeed /= 1.1f;
+                    body.baseAttackSpeed /= 1.1f;
+                    body.baseArmor -= 33.34f;
                     body.PerformAutoCalculateLevelStats();
                 }
             }
