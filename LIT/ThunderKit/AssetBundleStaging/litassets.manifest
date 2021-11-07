@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4131094789
+CRC: 2582543145
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 60b9605d7c5a03e6eb4275e32f7d95bf
+    Hash: b6bb717c63e380883c83ce7df56f0028
   TypeTreeHash:
     serializedVersion: 2
     Hash: 50a850ee36f3acaf91c6ba7c8092b3f7
@@ -140,9 +140,12 @@ Assets:
 - Assets/Mesh/meshMysteriousVialCap.mesh
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayLeechingCrown.prefab
 - Assets/Textures/texBeckoningCatDiffuse.png
+- Assets/LostInTransit/LITAssets/BuffDefs/DiceAtk.asset
 - Assets/Materials/matTelescopicSight.mat
 - Assets/Textures/texThalliumC.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupLifeSavings.prefab
+- Assets/LostInTransit/LITAssets/BuffDefs/DiceLuck.asset
+- Assets/LostInTransit/LITAssets/BuffDefs/DiceArmor.asset
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupMeatNugget.prefab
 - Assets/LostInTransit/LITAssets/EquipmentDefs/GiganticAmethyst.asset
 - Assets/Textures/Stolen/texCloudOrganic2.asset
@@ -224,6 +227,7 @@ Assets:
 - Assets/Icons/texIconPickupPrisonShackles.png
 - Assets/Textures/texGiganticAmethyst.png
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixVolatile.asset
+- Assets/LostInTransit/LITAssets/BuffDefs/DiceCrit.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/RepulsionArmorCD.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/AffixBlighted.asset
 - Assets/Textures/texMeatNuggetNormal.png
@@ -242,6 +246,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixLeeching.asset
 - Assets/Textures/texPrisonShackles.png
 - Assets/Materials/matOverlayBlighted.mat
+- Assets/LostInTransit/LITAssets/BuffDefs/DiceRegen.asset
 - Assets/Icons/texIconPickupSmartShopper.png
 - Assets/Materials/matMeatNugget.mat
 - Assets/Icons/texIconPickupBeckoningCat.png
@@ -307,6 +312,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/SIDRS/AffixLeeching.asset
 - Assets/Icons/texIconTeleSightCD.png
 - Assets/Materials/matAffixBlighted 1.mat
+- Assets/LostInTransit/LITAssets/BuffDefs/DiceMove.asset
 - Assets/Materials/matBlessedDice.mat
 - Assets/LostInTransit/LITAssets/BuffDefs/TeleSightCD.asset
 - Assets/LostInTransit/LITAssets/SIDRS/BeckoningCat.asset
