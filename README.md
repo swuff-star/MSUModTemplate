@@ -37,6 +37,25 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 ## Changelog
 
+### 0.3.6
+* Items
+	* Prison Shackles: Reduced attack speed reduction (60% -> 30%)
+* Elites
+	* Leeching: Increased time between healing bursts from 10 to 15 seconds
+	* Leeching: Now have a visible window before healing, accompanied by an AoE radius
+	* Leeching: Damaging a Leeching elite during the aforementioned window now reduces total healing done, up to 50%
+	* Leeching: Reduced particle count on VFX
+	* Volatile: Added cooldown between bombs appearing
+	* Volatile: Maximum bomb count halved
+	* Volatile: Bomb damage halved
+	* Blighted: Fixed bug where spawn rate didn't reset in-between runs
+	* Blighted: Replaced configurable blacklist with a configurable weight system
+	* Blighted: Teleporter bosses can now be Blighted, for double the cost (also configurable)
+	* Blighted: Removed SFX from smoke visual
+	* Blighted: Lowered CDR (50% -> 25%)
+	* Blighted: Slightly lowered damage boost (-25%), but raised attack speed (+110%)
+	* Blighted: Smoke effect no longer spawns when the aspect is held by a player
+
 ### 0.3.5
 * Elites
 	* Blighted: Added config to allow bosses to spawn as Blighted enemies
