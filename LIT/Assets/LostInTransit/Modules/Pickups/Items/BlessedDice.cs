@@ -1,19 +1,46 @@
-﻿using Moonstorm;
+﻿using LostInTransit.Buffs;
+using Moonstorm;
 using RoR2;
 using UnityEngine;
 
 namespace LostInTransit.Items
 {
-    [DisabledContent]
+    //[DisabledContent]
     public class BlessedDice : ItemBase
     {
         private const string token = "LIT_ITEM_BLESSEDDICE_DESC";
         public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("BlessedDice");
 
-        [ConfigurableField(ConfigName = "Duration of buff from Blessed Dice", ConfigDesc = "Amount of time buffs last after using a shrine")]
+        [ConfigurableField(ConfigName = "Base duration of buff from Blessed Dice", ConfigDesc = "Base duration of buff after using a shrine.")]
         [TokenModifier(token, StatTypes.Default, 0)]
-        [TokenModifier(token, StatTypes.DivideBy2, 1)]
-        public static float newBuffTimer = 10f;
+        public static float newBaseTimer = 10f;
+
+        [ConfigurableField(ConfigName = "Duration of buff from Blessed Dice", ConfigDesc = "Added duration of buff per stack of Dice.")]
+        [TokenModifier(token, StatTypes.Default, 1)]
+        public static float newStackTimer = 5f;
+
+        [ConfigurableField(ConfigName = "Healing from buff", ConfigDesc = "Healing per second while you have the heal buff, as a percentage of max health")]
+        public static float healAmount = 2f;
+
+        [ConfigurableField(ConfigName = "Armor from buff", ConfigDesc = "Armor added while you have the armor buff.")]
+        public static float armorAmount = 50f;
+
+        [ConfigurableField(ConfigName = "Move speed from buff", ConfigDesc = "Move speed added while you have the move speed buff, in percent.")]
+        public static float moveAmount = 50f;
+
+        [ConfigurableField(ConfigName = "Attack speed from buff", ConfigDesc = "Attack speed added while you have the attack speed buff, in percent.")]
+        public static float atkAmount = 50f;
+
+        [ConfigurableField(ConfigName = "Crit chance from buff", ConfigDesc = "Critical strike chance added while you have the critical strike buff, in percent.")]
+        public static float critAmount = 20f;
+
+        [ConfigurableField(ConfigName = "Luck from buff", ConfigDesc = "Luck added while you have the luck buff. (Whole numbers only)")]
+        public static int luckAmount = 1;
+
+        [ConfigurableField(ConfigName = "Weighted Rolls", ConfigDesc = "Make all buffs equally likely, instead of weighted for balance")]
+        public static bool fairRolls = false;
+
+
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
@@ -22,56 +49,68 @@ namespace LostInTransit.Items
 
         public class BlessedDiceBehavior : CharacterBody.ItemBehavior
         {
-            private int ChooseRandomBuff()
+            private float CalcBuffTimer()
             {
-                int rng = Run.instance.runRNG.RangeInt(1, 7);
+                float stackTimer = newStackTimer * (stack - 1);
+                return newBaseTimer + stackTimer;
+            }
+            
+            private BuffDef ChooseRandomBuff()
+            {
+                int weight = 7;
+                if (!fairRolls)
+                { 
+                    weight += 5;
+                }
+                BuffDef buff = null;
+                int rng = Run.instance.runRNG.RangeInt(1, weight);
+                Debug.Log(rng);
                 switch (rng)
                 {
-                    //cases look stupid
-                    //Luck is 1/12 chance
-                    //heal is 3/12 chance
-                    //all other buffs are 2/12 chance
                     case 1:
                         Debug.Log("luck");
+                        buff = DiceLuck.buff;
                         break;
                     case 2:
+                    case 7:
                         Debug.Log("crit");
+                        buff = DiceCrit.buff;
                         break;
                     case 3:
+                    case 8:
                         Debug.Log("atkspd");
+                        buff = DiceAtk.buff;
                         break;
                     case 4:
+                    case 9:
                         Debug.Log("move");
+                        buff = DiceMove.buff;
                         break;
                     case 5:
+                    case 10:
                         Debug.Log("armor");
+                        buff = DiceArmor.buff;
                         break;
                     case 6:
-                        Debug.Log("heal");
+                    case 11:
+                        Debug.Log("regen");
+                        buff = DiceRegen.buff;
                         break;
                 }
-                return rng;
+                return buff;
             }
             
             private void AddBuffOnShrine(Interactor interactor, IInteractable interactable, GameObject interactableObject)
             {
-                //All these NRE checks adapted from Mystic's Items GenericGameEvents code
                 MonoBehaviour monoBehaviour = (MonoBehaviour)interactable;
-
-                bool isItem = monoBehaviour.GetComponent<GenericPickupController>();
-                bool isVehicle = monoBehaviour.GetComponent<VehicleSeat>();
-                bool isNetworkThingy = monoBehaviour.GetComponent<NetworkUIPromptController>();
-                bool isShrine = interactableObject.GetComponent<PurchaseInteraction>().isShrine;
-                bool allowProc = interactableObject.GetComponent<InteractionProcFilter>().shouldAllowOnInteractionBeginProc;
-
-                if (!isItem && !isVehicle && !isNetworkThingy && isShrine && allowProc)
+                bool isPurchase = monoBehaviour.GetComponent<PurchaseInteraction>();
+                //These have to be nested to prevent NREs when checking for isShrine on non-purchase events
+                if (isPurchase)
                 {
-                    ChooseRandomBuff();
-                    Debug.Log(stack);
-                }
-                else
-                {
-                    Debug.Log("Not a Shrine");
+                    if (interactableObject.GetComponent<PurchaseInteraction>().isShrine)
+                    {
+                        body.AddTimedBuff(ChooseRandomBuff(), CalcBuffTimer());
+                    }
                 }
             }
 
@@ -80,7 +119,7 @@ namespace LostInTransit.Items
                 GlobalEventManager.OnInteractionsGlobal += AddBuffOnShrine;
             }
             
-            public void onDestroy()
+            public void OnDestroy()
             {
                 GlobalEventManager.OnInteractionsGlobal -= AddBuffOnShrine;
             }
