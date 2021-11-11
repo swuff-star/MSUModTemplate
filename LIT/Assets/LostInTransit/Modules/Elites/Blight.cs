@@ -27,15 +27,18 @@ namespace LostInTransit.Elites
 
         private static void CreateCosts(Stage obj)
         {
-            var currentStageMonsterCards = ClassicStageInfo.instance.monsterCards.Select(card => card.spawnCard)
-                                                                                 .Where(card => card.prefab.GetComponent<BlightedController>());
-
-            foreach(SpawnCard card in currentStageMonsterCards)
+            if(ClassicStageInfo.instance)
             {
-                var characterBody = card.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponent<CharacterBody>();
-                if(!blightCostdictionary.ContainsKey(characterBody.bodyIndex))
+                var currentStageMonsterCards = ClassicStageInfo.instance.monsterCards.Select(card => card.spawnCard)
+                                                                                     .Where(card => card.prefab.GetComponent<BlightedController>());
+
+                foreach(SpawnCard card in currentStageMonsterCards)
                 {
-                    CreateCostFromSpawnCard(card);
+                    var characterBody = card.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponent<CharacterBody>();
+                    if(!blightCostdictionary.ContainsKey(characterBody.bodyIndex))
+                    {
+                        CreateCostFromSpawnCard(card);
+                    }
                 }
             }
         }

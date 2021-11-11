@@ -3,6 +3,7 @@ using RoR2;
 
 namespace LostInTransit.Buffs
 {
+    [DisabledContent]
     public class DiceRegen : BuffBase
     {
         public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("DiceRegen");
@@ -20,19 +21,14 @@ namespace LostInTransit.Buffs
 
         public class DiceRegenBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {
-            private bool statsDirty = false;
             public void RecalculateStatsStart() { }
             public void RecalculateStatsEnd()
             {
-                statsDirty = true;
                 body.regen += (body.maxHealth * (Items.BlessedDice.healAmount / 100));
             }
             public void OnDestroy()
             {
-                if (statsDirty)
-                {
-                    body.regen -= (body.maxHealth * (Items.BlessedDice.healAmount / 100));
-                }
+                body.RecalculateStats();
             }
         }
     }

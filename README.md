@@ -37,6 +37,13 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 ## Changelog
 
+### 0.3.7
+
+* Items
+	* Removed Blessed Dice for the time being, as theyre unfinished.
+* Elites:
+	* Blighted: Fixed a bug where the game would crash upon entering to the bazaar.
+
 ### 0.3.6
 * Items
 	* Prison Shackles: Reduced attack speed reduction (60% -> 30%)
@@ -104,11 +111,5 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 	* Volatile: Fixed crown not having proper materials.
 * Items
 	* Life Savings: I swear it should work now
-
-### 0.3.1
-* General
-	* No, this is not a readme update disguised as fix
-* Items
-	* Prison Shackles: Fixed icon
-
+	
 (Old changelogs can be found [Here](https://github.com/swuff-star/LostInTransit/blob/master/OldChangelogs.md))

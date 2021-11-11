@@ -1,3 +1,10 @@
+### 0.3.1
+* General
+	* No, this is not a readme update disguised as fix
+* Items
+	* Prison Shackles: Fixed icon
+
+
 ### 0.3.0
 *I strongly recommend deleting old config and starting fresh. I think things should update either way, but am not sure. If values seem off in game - try this before reporting it to me.*
 * Items

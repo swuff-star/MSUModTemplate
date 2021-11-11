@@ -4,6 +4,7 @@ using RoR2;
 
 namespace LostInTransit.Buffs
 {
+    [DisabledContent]
     public class DiceArmor : BuffBase
     {
         public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("DiceArmor");
@@ -21,19 +22,14 @@ namespace LostInTransit.Buffs
 
         public class DiceArmorBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {
-            private bool statsDirty = false;
             public void RecalculateStatsStart() { }
             public void RecalculateStatsEnd()
             {
-                statsDirty = true;
                 body.armor += (Items.BlessedDice.armorAmount);
             }
             public void OnDestroy()
             {
-                if (statsDirty)
-                {
-                    body.armor -= (Items.BlessedDice.armorAmount);
-                }
+                body.RecalculateStats();
             }
         }
     }

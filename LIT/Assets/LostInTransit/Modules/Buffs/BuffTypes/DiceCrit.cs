@@ -3,6 +3,7 @@ using RoR2;
 
 namespace LostInTransit.Buffs
 {
+    [DisabledContent]
     public class DiceCrit : BuffBase
     {
         public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("DiceCrit");
@@ -20,19 +21,14 @@ namespace LostInTransit.Buffs
 
         public class DiceCritBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {
-            private bool statsDirty = false;
             public void RecalculateStatsStart() { }
             public void RecalculateStatsEnd()
             {
-                statsDirty = true;
                 body.crit += (Items.BlessedDice.critAmount);
             }
             public void OnDestroy()
             {
-                if (statsDirty)
-                {
-                    body.crit -= (Items.BlessedDice.critAmount);
-                }
+                body.RecalculateStats();
             }
         }
     }

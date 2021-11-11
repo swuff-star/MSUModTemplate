@@ -23,26 +23,6 @@ namespace LostInTransit.Equipments
         [TokenModifier(token, StatTypes.Default, 2)]
         public static float chance = 10f;
 
-        /*public override void Config()
-        {
-			var section = "Equipment: " + EquipmentDef.name;
-			damage = LITMain.config.Bind<float>(section, "Damage per Projectile", 200, "Amount of %damage done by each projectile").Value;
-			thqwibAmount = LITMain.config.Bind<int>(section, "Amount of Thqwibs", 30, "Amount of thqwibs to throw.").Value;
-			var component = Projectiles.ThqwibProjectile.ThqwibProj.GetComponent<ProjectileChanceForOnKillOnDestroy>();
-			if (component)
-			{
-				chance = LITMain.config.Bind<float>(section, "Chance for On Kill", 10f, "Chance for each Thqwib to trigger an on kill effect.").Value; ;
-				component.chance = chance;
-			}
-		}*/
-
-        /*public override void DescriptionToken()
-		{
-			LITUtil.AddTokenToLanguage(EquipmentDef.descriptionToken,
-				$,
-				LangEnum.en);
-		}*/
-
         public override bool FireAction(EquipmentSlot slot)
         {
             Projectiles.ThqwibProjectile.ThqwibProj.GetComponent<ProjectileChanceForOnKillOnDestroy>().chance = chance;

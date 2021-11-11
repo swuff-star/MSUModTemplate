@@ -20,19 +20,14 @@ namespace LostInTransit.Buffs
 
         public class DiceMoveBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {
-            private bool statsDirty = false;
             public void RecalculateStatsStart() { }
             public void RecalculateStatsEnd()
             {
-                statsDirty = true;
                 body.moveSpeed += (body.baseMoveSpeed + (body.levelMoveSpeed * (body.level - 1))) * (Items.BlessedDice.moveAmount / 100);
             }
             public void OnDestroy()
             {
-                if (statsDirty)
-                {
-                    body.moveSpeed -= (body.baseMoveSpeed + (body.levelMoveSpeed * (body.level - 1))) * (Items.BlessedDice.moveAmount / 100);
-                }
+                body.RecalculateStats();
             }
         }
     }

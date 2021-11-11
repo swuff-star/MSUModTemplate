@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace LostInTransit.Items
 {
-    //[DisabledContent]
+    [DisabledContent]
     public class BlessedDice : ItemBase
     {
         private const string token = "LIT_ITEM_BLESSEDDICE_DESC";

@@ -3,6 +3,7 @@ using RoR2;
 
 namespace LostInTransit.Buffs
 {
+    [DisabledContent]
     public class DiceLuck : BuffBase
     {
         public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("DiceLuck");
@@ -18,23 +19,22 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<DiceLuckBehavior>(stack);
         }
 
-        public class DiceLuckBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
+        public class DiceLuckBehavior : CharacterBody.ItemBehavior
         {
-            private bool statsDirty = false;
-            public void RecalculateStatsStart() { }
-            public void RecalculateStatsEnd()
+            private CharacterMaster master;
+            public void Start()
             {
-                if (!statsDirty)
+                master = body.master;
+                if(master)
                 {
-                    statsDirty = true;
-                    body.master.luck += (Items.BlessedDice.luckAmount);
+                    master.luck += Items.BlessedDice.luckAmount;
                 }
             }
             public void OnDestroy()
             {
-                if (statsDirty)
+                if(master)
                 {
-                    body.master.luck -= (Items.BlessedDice.luckAmount);
+                    master.luck -= Items.BlessedDice.luckAmount;
                 }
             }
         }
