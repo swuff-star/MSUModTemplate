@@ -75,7 +75,7 @@ namespace LostInTransit.Buffs
                 stopwatch += Time.fixedDeltaTime;
                 if (stopwatch > checkTimer && !body.HasBuff(RoR2Content.Buffs.Cloak))
                 {
-                    RemoveBuff();
+                    body.AddBuff(RoR2Content.Buffs.Cloak);
                 }
                 else if (Util.CheckRoll(1))
                 {

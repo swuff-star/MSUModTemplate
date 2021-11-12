@@ -51,11 +51,7 @@ namespace Moonstorm.EditorUtils.EditorWindows
             }
 
 
-
-            var tuple = DrawCustomSidebar(mainProp, scrollPos);
-            scrollPos = tuple.Item1;
-
-            if (tuple.Item2)
+            if(DrawCustomSidebar())
             {
                 selectedRulesPath = null;
                 selectedRulesProperty = null;
@@ -119,18 +115,18 @@ namespace Moonstorm.EditorUtils.EditorWindows
             EditorGUILayout.EndHorizontal();
         }
 
-        private (Vector2, bool) DrawCustomSidebar(SerializedProperty property, Vector2 scrollPosition)
+        private bool DrawCustomSidebar()
         {
             bool pressed = false;
-            property.arraySize = EditorGUILayout.DelayedIntField($"Array Size", property.arraySize);
+            mainProp.arraySize = EditorGUILayout.DelayedIntField($"Array Size", mainProp.arraySize);
 
-            scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition, false, true, GUILayout.Width(300));
+            scrollPos = EditorGUILayout.BeginScrollView(scrollPos, false, true, GUILayout.Width(300));
 
-            if(property.arraySize != 0)
+            if(mainProp.arraySize != 0)
             {
                 List<SerializedProperty> propsInProperty = new List<SerializedProperty>();
 
-                foreach(SerializedProperty prop in property)
+                foreach(SerializedProperty prop in mainProp)
                 {
                     propsInProperty.Add(prop);
                 }
@@ -168,11 +164,11 @@ namespace Moonstorm.EditorUtils.EditorWindows
             }
             else
             {
-                EditorGUILayout.LabelField($"Increase {property.name}'s Size");
+                EditorGUILayout.LabelField($"Increase {mainProp.name}'s Size");
             }
             EditorGUILayout.EndScrollView();
 
-            return (scrollPos, pressed);
+            return pressed;
         }
 
         private void ShowUtilities()

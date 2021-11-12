@@ -14,8 +14,6 @@ namespace LostInTransit.Modules
         {
             Instance = this;
             base.Init();
-            LITLogger.LogI($"Initializing Item Displays");
-            PopulateVanillaIDRSFromAssetBundle();
             PopulateKeyAssetsAndDisplaysFromAssetbundle();
             PopulateMSIDRSFromAssetBundle();
             PopulateSingleItemDisplayRuleFromAssetBundle();

@@ -1,0 +1,267 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 751239416, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
+  m_Name: SIDRAffixLeeching
+  m_EditorClassIdentifier: 
+  keyAssetName: AffixLeeching
+  displayPrefabName: AffixLeechingDisplayPrefab_0
+  singleItemDisplayRules:
+  - vanillaIDRSKey: idrsBandit2
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsCommando
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsCaptain
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsCroco
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsEngi
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsHuntress
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsLoader
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsMage
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsMerc
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsToolbotBody
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsTreebot
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsBell
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsBeetle
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsBeetleGuard
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsBeetleQueen
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsBison
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsClayboss
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsClayBruiser
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsGolem
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsGrandparent
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsGravekeeperBody
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsGreaterWisp
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsHermitCrab
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsImp
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsImpBoss
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsJellyfish
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsLemurian
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsLemurianBruiser
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsMiniMushroom
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsNullifier
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsParent
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsRoboballBoss
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsRoboballMini
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsTitan
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsVagrant
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsVulture
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsWisp
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsScav
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsMoffeinAncientWisp
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsMoffeinClayMan
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsNebbyArchWisp
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsChef
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsHand
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsMiner
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsNemesisEnforcer
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsSniperClassic
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsExecutioner
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsNemmando
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsSecurityDrone
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
+  - vanillaIDRSKey: idrsPaladin
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: 
+      limbMask: 0
