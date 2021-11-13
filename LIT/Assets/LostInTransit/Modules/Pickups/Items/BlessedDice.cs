@@ -64,36 +64,29 @@ namespace LostInTransit.Items
                 }
                 BuffDef buff = null;
                 int rng = Run.instance.runRNG.RangeInt(1, weight);
-                Debug.Log(rng);
                 switch (rng)
                 {
                     case 1:
-                        Debug.Log("luck");
                         buff = DiceLuck.buff;
                         break;
                     case 2:
                     case 7:
-                        Debug.Log("crit");
                         buff = DiceCrit.buff;
                         break;
                     case 3:
                     case 8:
-                        Debug.Log("atkspd");
                         buff = DiceAtk.buff;
                         break;
                     case 4:
                     case 9:
-                        Debug.Log("move");
                         buff = DiceMove.buff;
                         break;
                     case 5:
                     case 10:
-                        Debug.Log("armor");
                         buff = DiceArmor.buff;
                         break;
                     case 6:
                     case 11:
-                        Debug.Log("regen");
                         buff = DiceRegen.buff;
                         break;
                 }
