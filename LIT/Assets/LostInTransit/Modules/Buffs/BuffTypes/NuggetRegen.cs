@@ -1,5 +1,6 @@
 ﻿using Moonstorm;
 using RoR2;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace LostInTransit.Buffs

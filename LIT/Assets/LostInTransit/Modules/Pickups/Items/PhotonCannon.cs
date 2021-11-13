@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 namespace LostInTransit.Items
 {
     //It's called Photon Cannon because the Laser Turbine powers a Photon Power Plant (and also because Iron Man in MvC is cool as fuck)
-    //[DisabledContent]
+    [DisabledContent]
     public class PhotonCannon : ItemBase
     {
         private const string token = "LIT_ITEM_PHOTONCANNON_DESC";

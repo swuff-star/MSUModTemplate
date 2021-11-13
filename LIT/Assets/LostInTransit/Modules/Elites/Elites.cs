@@ -44,6 +44,39 @@ namespace LostInTransit.Modules
             {
                 Blight.BeginSetup();
             }
+            if (MoonstormElites.Contains(Assets.LITAssets.LoadAsset<MSEliteDef>("Leeching")))
+            {
+                RoR2Application.onLoad += () =>
+                {
+                    var grandpa = Resources.Load<GameObject>("prefabs/characterbodies/grandparentbody");
+                    Debug.Log(grandpa);
+                    if(grandpa)
+                    {
+                        var charLoc = grandpa.GetComponentInChildren<ChildLocator>();
+                        Debug.Log(charLoc);
+                        if(charLoc)
+                        {
+                            var headChild = charLoc.FindChild("Head");
+                            Debug.Log(headChild);
+                            HG.ArrayUtils.ArrayAppend(ref charLoc.transformPairs, new ChildLocator.NameTransformPair
+                            {
+                                name = "RingBottom",
+                                transform = headChild.Find("head.2")
+                            });
+                            HG.ArrayUtils.ArrayAppend(ref charLoc.transformPairs, new ChildLocator.NameTransformPair
+                            {
+                                name = "RingMiddle",
+                                transform = headChild.Find("head.2/head.3")
+                            });
+                            HG.ArrayUtils.ArrayAppend(ref charLoc.transformPairs, new ChildLocator.NameTransformPair
+                            {
+                                name = "RingTop",
+                                transform = headChild.Find("head.2/head.3/head.4")
+                            });
+                        }
+                    }
+                };
+            }
         }
     }
 }

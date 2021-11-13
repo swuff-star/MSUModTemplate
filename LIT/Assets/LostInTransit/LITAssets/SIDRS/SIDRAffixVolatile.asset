@@ -113,7 +113,7 @@ MonoBehaviour:
   - vanillaIDRSKey: idrsGrandparent
     itemDisplayRules:
     - ruleType: 0
-      IDPHValues: Head,0,-0.52173,-3.13544,7.27805,0,0,2.47125,2.47125,2.47125
+      IDPHValues: Head,-0.00103,-1.14961,-0.81659,35.39537,0.04486,359.9838,2,2,2
       limbMask: 0
   - vanillaIDRSKey: idrsGravekeeperBody
     itemDisplayRules:
