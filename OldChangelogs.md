@@ -1,3 +1,16 @@
+### 0.3.2
+* General
+	* Fixed the readme file not having the proper description for the new Telescopic Sight
+* Elites
+	* Blighted: Fixed smoke particles lingering indefinetly.
+	* Blighted: Fixed spawn sound effect not playing.
+	* Frenzying: New ramp is now properly applied.
+	* Leeching: New ramp is now properly applied.
+	* Volatile: New ramp is now properly applied.
+	* Volatile: Fixed crown not having proper materials.
+* Items
+	* Life Savings: I swear it should work now
+
 ### 0.3.1
 * General
 	* No, this is not a readme update disguised as fix

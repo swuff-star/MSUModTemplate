@@ -37,6 +37,20 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 ## Changelog
 
+### 0.3.8
+* Re-did IDRS for Volatile, Leeching and Frenzied Elites
+* Added support for the following mod's idrs:
+  * Starstorm2's Nemmando, Executioner & Security Drone
+  * Enforcer's Nemesis Enforcer
+  * Chef
+  * Sniper
+  * Miner
+  * HAN-D
+  * Archaic Wisps
+  * Clayman
+  * Ancient Wisp
+* Changed the Volatile, Leeching and Frenzied Ramps to be more distinct from each other.
+
 ### 0.3.7
 
 * Items
@@ -98,18 +112,6 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 ### 0.3.3
 * Items
 	* Golden Gun: Fixed the Item Display causing a ton of null reference exceptions, alongside causing invisible enemies.
-	
-### 0.3.2
-* General
-	* Fixed the readme file not having the proper description for the new Telescopic Sight
-* Elites
-	* Blighted: Fixed smoke particles lingering indefinetly.
-	* Blighted: Fixed spawn sound effect not playing.
-	* Frenzying: New ramp is now properly applied.
-	* Leeching: New ramp is now properly applied.
-	* Volatile: New ramp is now properly applied.
-	* Volatile: Fixed crown not having proper materials.
-* Items
-	* Life Savings: I swear it should work now
+
 	
 (Old changelogs can be found [Here](https://github.com/swuff-star/LostInTransit/blob/master/OldChangelogs.md))
