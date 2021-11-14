@@ -80,6 +80,11 @@
 		"LIT_ITEM_REPULCHEST_DESC": "After <style=cIsUtility>taking damage</style> {0} times, gain a temporary <style=cIsUtility>{1}% damage reduction</style> buff for <style=cIsUtility>{2}</style> <style=cStack>(+{3} per stack)</style> seconds.",
 		"LIT_ITEM_REPULCHEST_LORE": "YOU ARE OUT OF UNIFORM, SOLDIER! WHERE IS YOUR <color=#F45A45>REPULSION ARMOR</color>? DON'T HAVE ANY? YOU EXPECT ME TO BELIEVE THAT, BEETLE? THE TRUTH IS YOU LOST AN EXPENSIVE PIECE OF UES-ISSUE EQUIPMENT. THAT ARMOR IS GOING TO COME OUT OF YOUR PAY AND YOU WILL REMAIN IN THIS CAPTAIN'S CREW UNTIL YOU ARE FIVE HUNDRED AND TEN YEARS OLD, WHICH IS THE NUMBER OF YEARS IT WILL TAKE YOU TO PAY FOR THE <color=#F45A45>REPULSION ARMOR</color> YOU HAVE LOST! REPORT TO THE ARMORY AND HAVE A NEW SET OF <color=#F45A45>REPULSION ARMOR</color> ISSUED TO YOU, THEN REPORT BACK TO ME, PRIVATE! DISMISSED!",
 
+		"LIT_ITEM_PHOTONCANNON_NAME": "Laser Turbine",
+		"LIT_ITEM_PHOTONCANNON_PICKUP": "Using your skills charges a powerful laser.",
+		"LIT_ITEM_PHOTONCANNON_DESC": "Gains <style=cIsDamage>{0}%</style> <style=cStack>(+{1}% per stack)</style> charge every second <style=cIsUtility>for each skill on cooldown</style>. At <style=cIsDamage>full charge</style>, fire a massive laser for <style=cIsDamage>{2}</style>% damage.",
+		"LIT_ITEM_PHOTONCANNON_LORE": "Replacement laser turbine for the photon power plant. The thing is deceptively small, but it holds immense power. Keep it away from all electromagnetic sources; it will charge from the field, and if the capacitor becomes overloaded, it WILL discharge.",
+
 		"LIT_ITEM_TELESCOPICSIGHT_NAME": "Telescopic Sight",
 		"LIT_ITEM_TELESCOPICSIGHT_PICKUP": "Critical strikes have a chance to instantly kill enemies.",
 		"LIT_ITEM_TELESCOPICSIGHT_DESC": "<style=cIsDamage>{0}%</style> <style=cStack>(+{1}% per stack)</style> chance to <style=cIsDamage>instakill monsters</style>. Boss monsters instead take <style=cIsDamage>{2}% of their maximum health</style> in damage. Recharges every <style=cIsUtility>{3}</style> <style=cStack>(-{4} per stack)</style> seconds.",

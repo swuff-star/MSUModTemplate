@@ -37,7 +37,7 @@ namespace LostInTransit.Buffs
             public void Start()
             {
                 MasterBehavior.enabled = true;
-                MasterBehavior.buffBehavior = this;
+                MasterBehavior.BuffBehavior = this;
 
                 body.onSkillActivatedServer += RemoveBuff;
             }

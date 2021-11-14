@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3017465856
+CRC: 224367811
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fee155c538ae7e38c7c1953ec0ac6809
+    Hash: 1d542435ee59c02534dc09a5c3863770
   TypeTreeHash:
     serializedVersion: 2
     Hash: ce5029f7eae9ebbb66415bbe91c7b873
@@ -188,6 +188,7 @@ Assets:
 - Assets/Mesh/meshPrisonShackles.mesh
 - Assets/Textures/texLifeSavingsNormal.png
 - Assets/Textures/Stolen/texGlowPaintMask.asset
+- Assets/LostInTransit/LITAssets/ItemDefs/PhotonCannon.asset
 - Assets/Materials/matOverlayLeeching.mat
 - Assets/Icons/texIconPickupThallium.png
 - Assets/LostInTransit/LITAssets/EliteAbilities/AbilityLeeching.asset
