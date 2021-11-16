@@ -18,6 +18,7 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<ShackledDebuffBehavior>(stack);
         }
 
+        //G - this still uses IStatItemBehaviour because the slow needs to be applied after all other modifiers have been added, which isn't supported by RecalcStatsAPI yet
         public class ShackledDebuffBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {
             public void RecalculateStatsEnd()

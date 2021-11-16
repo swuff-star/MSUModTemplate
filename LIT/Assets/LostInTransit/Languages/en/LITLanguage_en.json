@@ -35,6 +35,11 @@
 		"LIT_ITEM_MYSTERIOUSVIAL_DESC": "Regenerate an extra <style=cIsHealing>+{0}</style> <style=cStack>(+{0} per stack)</style> <style=cIsHealing>hp</style> per second.",
 		"LIT_ITEM_MYSTERIOUSVIAL_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.</style>\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/CautiousSlug</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read <style=cIsHealing>more information</style> about this type of error.",
 
+		"LIT_ITEM_RUSTYJETPACK_NAME": "Rusty Jetpack",
+		"LIT_ITEM_RUSTYJETPACK_PICKUP": "Increased jump height, reduced fall speed.",
+		"LIT_ITEM_RUSTYJETPCK_DESC": "Jump {0}% higher (+{0} higher per stack) and fall {1}% slower (+{1}% slower per stack)",
+		"LIT_ITEM_RUSTYJETPACK_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.</style>\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/H3AD-5T_v2</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read <style=cIsHealing>more information</style> about this type of error.",
+
 		"LIT_ITEM_ARMSRACE_NAME": "Arms Race",
 		"LIT_ITEM_ARMSRACE_PICKUP": "Upgrade purchased drones with missiles, mortars, and shields.",
 		"LIT_ITEM_ARMSRACE_DESC": "Purchased <style=cIsUtility>drones</style> are given <style=cIsHealing>8%</style> <style=cStack>(+8% per stack)</style> of their health as <style=cIsHealing>shield</style>, as well as a <style=cIsDamage>9%</style> <style=cStack>(+9% per stack)</style> chance to fire <style=cIsDamage>mortars</style> and <style=cIsDamage>missiles</style>.",
@@ -92,7 +97,7 @@
 
 		"LIT_ITEM_THALLIUM_NAME": "Thallium",
 		"LIT_ITEM_THALLIUM_PICKUP": "Chance to inflict thallium poisoning on hit.",
-		"LIT_ITEM_THALLIUM_DESC": "<style=cIsDamage>{0}%</style> chance to inflict thallium poisoning for <style=cIsDamage>{1}%</style> <style=cStack>(+{2}% per stack)</style> of the victim's base damage and slow for <style=cIsUtility>{3}% movement speed</style>.",
+		"LIT_ITEM_THALLIUM_DESC": "<style=cIsDamage>{0}%</style> chance to inflict thallium poisoning for <style=cIsDamage>{1}%</style> <style=cStack>(+{2}% per stack)</style> of the victim's base damage, slowing them for <style=cIsUtility>{3}% movement speed</style>.",
 		"LIT_ITEM_THALLIUM_LORE": "You found it embedded atop a small hill, surrounded by dead grass.\n\nDead insects.\n\nDead lizards.\n\nThe tree it sat beneath had passed long ago.\n\nBrown bark became white dust, drifting away with the wind.\n\nThe dust smelled of decay.\n\nThis scene, to anyone else, would be overwhelming.\n\nAn unholy site, cursed by something unknown.\n\nBut you dug deeper.\n\nYou found something... worse.\n\nA note. An omen. A promise.\n\nBut you were happy it never arrived.\n\nFor her sake.",
 
 		"LIT_ITEM_WICKEDRING_NAME": "Wicked Ring",

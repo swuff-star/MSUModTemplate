@@ -1,5 +1,6 @@
 ﻿using Moonstorm;
 using RoR2;
+using R2API;
 
 namespace LostInTransit.Buffs
 {
@@ -19,16 +20,11 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<DiceCritBehavior>(stack);
         }
 
-        public class DiceCritBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
+        public class DiceCritBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
-            public void RecalculateStatsStart() { }
-            public void RecalculateStatsEnd()
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                body.crit += (Items.BlessedDice.critAmount);
-            }
-            public void OnDestroy()
-            {
-                body.RecalculateStats();
+                args.critAdd += Items.BlessedDice.critAmount;
             }
         }
     }

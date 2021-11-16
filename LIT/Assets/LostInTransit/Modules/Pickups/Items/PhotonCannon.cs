@@ -17,7 +17,7 @@ namespace LostInTransit.Items
         [TokenModifier(token, StatTypes.Default, 0)]
         public static float baseCharge = 1f;
 
-        [ConfigurableField(ConfigName = "Charge gained per second", ConfigDesc = "Amount of charge gained every second for each skill on cooldown")]
+        [ConfigurableField(ConfigName = "Bonus charge from stacks", ConfigDesc = "Additional charge per turbine")]
         [TokenModifier(token, StatTypes.Default, 1)]
         public static float stackCharge = 0.5f;
 
@@ -66,7 +66,7 @@ namespace LostInTransit.Items
                     }
                 }
             }
-            private void UpdateStacks() //this exists solely to move it out of the FixedUpdate, might be unnecessary
+            private void UpdateStacks() //G - this exists solely to move it out of the FixedUpdate, might be unnecessary
             {
                 chargeMultiplier = baseCharge + (stackCharge * (stack - 1));
             }

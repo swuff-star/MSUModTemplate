@@ -1,7 +1,7 @@
 ﻿using Moonstorm;
 using RoR2;
-using System.Collections.Generic;
 using UnityEngine;
+using R2API;
 
 namespace LostInTransit.Buffs
 {
@@ -24,14 +24,11 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<NuggetRegenBehavior>(stack);
         }
 
-        public class NuggetRegenBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
+        public class NuggetRegenBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
-            public void RecalculateStatsStart()
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-            }
-            public void RecalculateStatsEnd()
-            {
-                body.regen *= 1f + (stack * Items.MeatNugget.regenMultiplier);
+                args.regenMultAdd += Items.MeatNugget.regenMultiplier * stack;
             }
         }
     }

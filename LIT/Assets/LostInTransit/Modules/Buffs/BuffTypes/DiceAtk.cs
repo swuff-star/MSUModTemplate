@@ -1,5 +1,6 @@
 ﻿using Moonstorm;
 using RoR2;
+using R2API;
 
 namespace LostInTransit.Buffs
 {
@@ -18,17 +19,11 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<DiceAtkBehavior>(stack);
         }
 
-        public class DiceAtkBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
+        public class DiceAtkBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
-            public void RecalculateStatsStart() { }
-            public void RecalculateStatsEnd()
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                body.attackSpeed += (body.baseAttackSpeed + (body.levelAttackSpeed * (body.level - 1))) * (Items.BlessedDice.atkAmount / 100);
-                
-            }
-            public void OnDestroy()
-            {
-                body.RecalculateStats();
+                args.attackSpeedMultAdd += (Items.BlessedDice.atkAmount / 100);
             }
         }
     }

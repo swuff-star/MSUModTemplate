@@ -19,8 +19,11 @@ namespace LostInTransit.Items
         [TokenModifier(token, StatTypes.Default, 1)]
         public static float newStackTimer = 5f;
 
-        [ConfigurableField(ConfigName = "Healing from buff", ConfigDesc = "Healing per second while you have the heal buff, as a percentage of max health")]
-        public static float healAmount = 2f;
+        [ConfigurableField(ConfigName = "Barrier from buff", ConfigDesc = "Barrier/Temp HP gained while you have the shield buff, as a percentage of max health")]
+        public static float barrierAmount = 50f;
+
+        [ConfigurableField(ConfigName = "Barrier decay rate during buff", ConfigDesc = "Rate at which barrier decays while you have the Shield buff, as a percentage of normal decay rate.")]
+        public static float decayMult = 0f;
 
         [ConfigurableField(ConfigName = "Armor from buff", ConfigDesc = "Armor added while you have the armor buff.")]
         public static float armorAmount = 50f;
@@ -87,7 +90,7 @@ namespace LostInTransit.Items
                         break;
                     case 6:
                     case 11:
-                        buff = DiceRegen.buff;
+                        buff = DiceBarrier.buff;
                         break;
                 }
                 return buff;
@@ -106,6 +109,8 @@ namespace LostInTransit.Items
                     }
                 }
             }
+
+            
 
             public void Start()
             {

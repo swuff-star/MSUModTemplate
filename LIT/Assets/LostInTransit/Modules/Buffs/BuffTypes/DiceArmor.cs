@@ -1,5 +1,6 @@
 ﻿using Moonstorm;
 using RoR2;
+using R2API;
 
 
 namespace LostInTransit.Buffs
@@ -20,16 +21,11 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<DiceArmorBehavior>(stack);
         }
 
-        public class DiceArmorBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
+        public class DiceArmorBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
-            public void RecalculateStatsStart() { }
-            public void RecalculateStatsEnd()
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                body.armor += (Items.BlessedDice.armorAmount);
-            }
-            public void OnDestroy()
-            {
-                body.RecalculateStats();
+                args.armorAdd += Items.BlessedDice.armorAmount;
             }
         }
     }

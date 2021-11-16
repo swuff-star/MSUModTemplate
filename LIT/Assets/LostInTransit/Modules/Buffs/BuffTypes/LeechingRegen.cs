@@ -1,6 +1,7 @@
 ﻿using Moonstorm;
 using RoR2;
 using UnityEngine;
+using R2API;
 
 namespace LostInTransit.Buffs
 {
@@ -23,7 +24,7 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<LeechingRegenBehavior>(stack);
         }
 
-        public class LeechingRegenBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
+        public class LeechingRegenBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
             public float duration = 5;
             public float totalRegen = 0;
@@ -42,13 +43,9 @@ namespace LostInTransit.Buffs
                 EffectManager.SpawnEffect(VFX, effectData, true);
                 totalRegen = body.maxHealth * (regenStrength / 100) / duration;
             }
-
-            public void RecalculateStatsStart()
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-            }
-            public void RecalculateStatsEnd()
-            {
-                body.regen += totalRegen;
+                args.baseRegenAdd += totalRegen;
             }
         }
     }

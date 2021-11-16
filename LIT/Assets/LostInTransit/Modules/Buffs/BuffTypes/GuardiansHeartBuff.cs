@@ -1,6 +1,7 @@
 ﻿using LostInTransit.Items;
 using Moonstorm;
 using RoR2;
+using R2API;
 
 namespace LostInTransit.Buffs
 {
@@ -20,15 +21,11 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<ShackledDebuffBehavior>(stack);
         }
 
-        public class ShackledDebuffBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
+        public class ShackledDebuffBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
-            public void RecalculateStatsEnd()
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                body.armor += GuardiansHeart.heartArmor;
-            }
-
-            public void RecalculateStatsStart()
-            {
+                args.armorAdd += GuardiansHeart.heartArmor;
             }
         }
     }

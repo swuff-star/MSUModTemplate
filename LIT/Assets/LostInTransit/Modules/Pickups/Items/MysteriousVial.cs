@@ -1,5 +1,6 @@
 ﻿using Moonstorm;
 using RoR2;
+using R2API;
 
 namespace LostInTransit.Items
 {
@@ -17,12 +18,11 @@ namespace LostInTransit.Items
             body.AddItemBehavior<MysteriousVialBehavior>(stack);
         }
 
-        public class MysteriousVialBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
+        public class MysteriousVialBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
-            public void RecalculateStatsStart() { }
-            public void RecalculateStatsEnd()
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                body.regen += vialRegen * stack + ((body.level - 1) * vialRegen * 0.2f);
+                args.baseRegenAdd += vialRegen * stack;
             }
         }
     }
