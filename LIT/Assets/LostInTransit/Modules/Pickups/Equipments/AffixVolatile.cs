@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 namespace LostInTransit.Equipments
 {
-    public class AffixVolatile : EliteEquipmentBase
+    public class AffixVolatile : LITEliteEquip
     {
         public override MSEliteDef EliteDef { get; set; } = Assets.LITAssets.LoadAsset<MSEliteDef>("Volatile");
         public override MSAspectAbilityDataHolder AspectAbilityData { get; set; } = Assets.LITAssets.LoadAsset<MSAspectAbilityDataHolder>("AbilityVolatile");

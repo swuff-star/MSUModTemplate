@@ -3,7 +3,7 @@ using RoR2;
 
 namespace LostInTransit.Equipments
 {
-    public class AffixFrenzied : EliteEquipmentBase
+    public class AffixFrenzied : LITEliteEquip
     {
         public override MSEliteDef EliteDef { get; set; } = Assets.LITAssets.LoadAsset<MSEliteDef>("Frenzied");
         public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("AffixFrenzied");

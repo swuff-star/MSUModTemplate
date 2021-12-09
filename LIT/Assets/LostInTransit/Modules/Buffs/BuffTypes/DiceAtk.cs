@@ -4,6 +4,7 @@ using R2API;
 
 namespace LostInTransit.Buffs
 {
+    [DisabledContent]
     public class DiceAtk : BuffBase
     {
         public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("DiceAtk");

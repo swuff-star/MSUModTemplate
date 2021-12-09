@@ -49,15 +49,12 @@ namespace LostInTransit.Modules
                 RoR2Application.onLoad += () =>
                 {
                     var grandpa = Resources.Load<GameObject>("prefabs/characterbodies/grandparentbody");
-                    Debug.Log(grandpa);
                     if(grandpa)
                     {
                         var charLoc = grandpa.GetComponentInChildren<ChildLocator>();
-                        Debug.Log(charLoc);
                         if(charLoc)
                         {
                             var headChild = charLoc.FindChild("Head");
-                            Debug.Log(headChild);
                             HG.ArrayUtils.ArrayAppend(ref charLoc.transformPairs, new ChildLocator.NameTransformPair
                             {
                                 name = "RingBottom",
