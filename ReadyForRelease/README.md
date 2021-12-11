@@ -37,6 +37,13 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 ## Changelog
 
+### 0.3.9
+
+* Updated to use MSU 0.6.0
+* Re-Enabled Bitter Root
+* Thallium no longer causes on kill effects to not trigger
+* Fixed an issue where Leeching elites may rarely set the regen boost strength to negative values.
+
 ### 0.3.8
 * Re-did IDRS for Volatile, Leeching and Frenzied Elites
 * Added support for the following mod's idrs:
@@ -108,10 +115,6 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 		* Causing the camera to get stuck while having aetherium installed.
 	* Disabling blighted elites should no longer cause extreme stat scaling bugs. [link](https://github.com/swuff-star/LostInTransit/issues/2)
 	* Prison Shackles should no longer trigger on attacks with proc coefficient of 0. [link](https://github.com/swuff-star/LostInTransit/issues/7)
-
-### 0.3.3
-* Items
-	* Golden Gun: Fixed the Item Display causing a ton of null reference exceptions, alongside causing invisible enemies.
 
 	
 (Old changelogs can be found [Here](https://github.com/swuff-star/LostInTransit/blob/master/OldChangelogs.md))

@@ -1,3 +1,7 @@
+### 0.3.3
+* Items
+	* Golden Gun: Fixed the Item Display causing a ton of null reference exceptions, alongside causing invisible enemies.
+
 ### 0.3.2
 * General
 	* Fixed the readme file not having the proper description for the new Telescopic Sight
