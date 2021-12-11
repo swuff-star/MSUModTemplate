@@ -24,7 +24,7 @@ namespace LostInTransit.Buffs
 
         public class AffixLeechingBehavior : CharacterBody.ItemBehavior, IOnDamageDealtServerReceiver, IOnTakeDamageServerReceiver
         {
-            public float timeBetweenBursts = 15;
+            public float timeBetweenBursts = 10;
 
             public float chargingTime = 5;
 
@@ -92,8 +92,7 @@ namespace LostInTransit.Buffs
             {
                 if(preppingRegenBurst)
                 {
-                    float amountToDeduct = 10 / (0.1f + (0.1f * damageReport.damageDealt * damageReport.damageInfo.procCoefficient));
-                    regenPercentage -= amountToDeduct;
+                    regenPercentage -= 0.5f;
                 }
             }
 
@@ -149,7 +148,7 @@ namespace LostInTransit.Buffs
                         var component = hc.body.GetComponent<LeechingRegen.LeechingRegenBehavior>();
                         if(component)
                         {
-                            component.regenStrength = Math.Min(5, regenPercentage);
+                            component.regenStrength = Math.Max(5, regenPercentage);
                         }
 
                         EffectManager.SpawnEffect(TracerEffect, new EffectData

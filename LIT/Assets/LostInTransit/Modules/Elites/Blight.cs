@@ -1,5 +1,6 @@
 ﻿using LostInTransit.Components;
 using Moonstorm;
+using R2API;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -22,25 +23,22 @@ namespace LostInTransit.Elites
 
             RoR2Application.onLoad += BlightSetup;
             On.RoR2.Util.GetBestBodyName += GetBlightedName;
-            Stage.onServerStageBegin += CreateCosts;
+            DirectorAPI.MonsterActions += CreateCosts;
         }
 
-        private static void CreateCosts(Stage obj)
+        private static void CreateCosts(List<DirectorAPI.DirectorCardHolder> arg1, DirectorAPI.StageInfo arg2)
         {
-            if(ClassicStageInfo.instance)
-            {
-                var currentStageMonsterCards = ClassicStageInfo.instance.monsterCards.Select(card => card.spawnCard)
-                                                                                     .Where(card => card.prefab.GetComponent<BlightedController>());
-
-                foreach(SpawnCard card in currentStageMonsterCards)
+            arg1.Select(dch => dch.Card)
+                .Select(dc => dc.spawnCard)
+                .ToList()
+                .ForEach(spawnCard =>
                 {
-                    var characterBody = card.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponent<CharacterBody>();
-                    if(!blightCostdictionary.ContainsKey(characterBody.bodyIndex))
+                    var characterBody = spawnCard.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponent<CharacterBody>();
+                    if (!blightCostdictionary.ContainsKey(characterBody.bodyIndex))
                     {
-                        CreateCostFromSpawnCard(card);
+                        CreateCostFromSpawnCard(spawnCard);
                     }
-                }
-            }
+                });
         }
 
         private static string GetBlightedName(On.RoR2.Util.orig_GetBestBodyName orig, GameObject bodyObject)

@@ -37,6 +37,13 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 
 ## Changelog
 
+### 0.3.9
+
+* Updated to use MSU 0.6.0
+* Re-Enabled Bitter Root
+* Thallium no longer causes on kill effects to not trigger
+* Fixed an issue where Leeching elites may rarely set the regen boost strength to negative values.
+
 ### 0.3.8
 * Re-did IDRS for Volatile, Leeching and Frenzied Elites
 * Added support for the following mod's idrs:

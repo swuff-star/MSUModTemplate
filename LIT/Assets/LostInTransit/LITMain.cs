@@ -30,7 +30,7 @@ namespace LostInTransit
     {
         internal const string GUID = "com.swuff.LostInTransit";
         internal const string MODNAME = "Lost in Transit";
-        internal const string VERSION = "0.3.8";
+        internal const string VERSION = "0.3.9";
 
         public static LITMain instance;
 

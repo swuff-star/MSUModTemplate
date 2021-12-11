@@ -177,6 +177,7 @@ namespace LostInTransit.Components
         {
             GlobalEventManager.onCharacterDeathGlobal -= OnEnemyKilled;
             CharacterBody.onBodyStartGlobal -= TrySpawn;
+            Run.onServerGameOver -= ResetMonstersKilled;
         }
     }
 }

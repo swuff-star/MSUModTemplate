@@ -77,6 +77,10 @@ Moonstorm shared editor utils (Abreviated as MSEU) is a package of classes speci
 
 # Changelog
 
+'1.1.2'
+
+* Fixed mod shipping with a duplicate assembly definition
+
 '1.1.1'
 
 * Updated to use RoR2EditorKit 0.1.4

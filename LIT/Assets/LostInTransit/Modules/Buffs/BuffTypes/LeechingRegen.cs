@@ -42,6 +42,8 @@ namespace LostInTransit.Buffs
                 };
                 EffectManager.SpawnEffect(VFX, effectData, true);
                 totalRegen = body.maxHealth * (regenStrength / 100) / duration;
+                LITLogger.LogI($"Increasing regen of {body} for {totalRegen}");
+                body.RecalculateStats();
             }
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
