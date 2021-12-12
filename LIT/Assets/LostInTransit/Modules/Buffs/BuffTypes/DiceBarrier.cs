@@ -6,7 +6,7 @@ namespace LostInTransit.Buffs
     [DisabledContent]
     public class DiceBarrier : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("DiceBarrier");
+        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("DiceBarrier");
         public static BuffDef buff;
 
         public override void Initialize()

@@ -19,12 +19,12 @@ namespace LostInTransit.Components
         public float MinTimeBeforeKillsCountWithDiffCoef { get => (minTimeBeforeKillsCount / RunDifficulty.scalingValue); }
         public int TelebossCostMultiplier { get => LITConfig.TPBlightCost.Value; }
         private SceneDef CommencementScene { get => SceneCatalog.GetSceneDefFromSceneName("moon2"); }
-        private EquipmentIndex BlightedEquipIndex { get => Assets.LITAssets.LoadAsset<EquipmentDef>("AffixBlighted").equipmentIndex; }
+        private EquipmentIndex BlightedEquipIndex { get => LITAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("AffixBlighted").equipmentIndex; }
         private bool IsPrestigeArtifactEnabled
         {
             get
             {
-                var blightArtifact = Assets.LITAssets.LoadAsset<ArtifactDef>("Prestige");
+                var blightArtifact = LITAssets.Instance.MainAssetBundle.LoadAsset<ArtifactDef>("Prestige");
                 if (blightArtifact)
                 {
                     return RunArtifactManager.instance.IsArtifactEnabled(blightArtifact);

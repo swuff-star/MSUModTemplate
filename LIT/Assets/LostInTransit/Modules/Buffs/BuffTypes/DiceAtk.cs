@@ -7,7 +7,7 @@ namespace LostInTransit.Buffs
     [DisabledContent]
     public class DiceAtk : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("DiceAtk");
+        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("DiceAtk");
         public static BuffDef buff;
 
         public override void Initialize()

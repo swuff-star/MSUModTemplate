@@ -7,7 +7,7 @@ namespace LostInTransit.Buffs
 {
     public class AffixFrenzied : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("AffixFrenzied");
+        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixFrenzied");
         public static BuffDef buff;
 
         public override void Initialize()
@@ -24,9 +24,9 @@ namespace LostInTransit.Buffs
         {
             public float blinkCooldown = 10;
 
-            public GameObject BlinkReadyEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectFrenziedTPReady");
+            public GameObject BlinkReadyEffect = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EffectFrenziedTPReady");
 
-            public GameObject AbilityEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectFrenziedAbility");
+            public GameObject AbilityEffect = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EffectFrenziedAbility");
 
             private GameObject BlinkReadyInstance;
 

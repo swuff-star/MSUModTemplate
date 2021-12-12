@@ -9,7 +9,7 @@ namespace LostInTransit.Items
     {
         private const string token = "LIT_ITEM_BECKONINGCAT_DESC";
 
-        public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("BeckoningCat");
+        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("BeckoningCat");
 
         public static string section;
 

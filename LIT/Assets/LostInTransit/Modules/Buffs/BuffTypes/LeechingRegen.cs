@@ -7,7 +7,7 @@ namespace LostInTransit.Buffs
 {
     public class LeechingRegen : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("LeechingRegen");
+        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("LeechingRegen");
 
         public static BuffDef buff;
 
@@ -30,7 +30,7 @@ namespace LostInTransit.Buffs
             public float totalRegen = 0;
             public float regenStrength = 10;
 
-            public GameObject VFX = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingRegen");
+            public GameObject VFX = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EffectLeechingRegen");
             public void Start()
             {
                 VFX.GetComponent<DestroyOnTimer>().duration = duration;

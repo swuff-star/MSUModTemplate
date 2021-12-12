@@ -9,7 +9,7 @@ namespace LostInTransit.Items
     public class GuardiansHeart : ItemBase
     {
         private const string token = "LIT_ITEM_GUARDIANSHEART_DESC";
-        public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("GuardiansHeart");
+        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("GuardiansHeart");
 
         [ConfigurableField(ConfigName = "Shield per Heart", ConfigDesc = "Amount of shield added per heart.")]
         public static float extraShield = 60;

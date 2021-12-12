@@ -7,8 +7,8 @@ namespace LostInTransit.Modules
     public class ItemDisplays : ItemDisplayModuleBase
     {
         public static ItemDisplays Instance { get; set; }
-        public override AssetBundle AssetBundle { get; set; } = Assets.LITAssets;
-        public override SerializableContentPack ContentPack { get; set; } = LITContent.serializableContentPack;
+        public override AssetBundle AssetBundle { get; set; } = LITAssets.Instance.MainAssetBundle;
+        public override SerializableContentPack ContentPack { get; set; } = LITContent.Instance.SerializableContentPack;
 
         public override void Init()
         {

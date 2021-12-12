@@ -5,9 +5,9 @@ namespace LostInTransit.Equipments
 {
     public class AffixFrenzied : LITEliteEquip
     {
-        public override MSEliteDef EliteDef { get; set; } = Assets.LITAssets.LoadAsset<MSEliteDef>("Frenzied");
-        public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("AffixFrenzied");
-        public override MSAspectAbilityDataHolder AspectAbilityData { get; set; } = Assets.LITAssets.LoadAsset<MSAspectAbilityDataHolder>("AbilityFrenzied");
+        public override MSEliteDef EliteDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Frenzied");
+        public override EquipmentDef EquipmentDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("AffixFrenzied");
+        public override MSAspectAbilityDataHolder AspectAbilityData { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSAspectAbilityDataHolder>("AbilityFrenzied");
         public override bool FireAction(EquipmentSlot slot)
         {
             if (MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))

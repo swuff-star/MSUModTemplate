@@ -7,9 +7,9 @@ namespace LostInTransit.Equipments
 {
     public class AffixVolatile : LITEliteEquip
     {
-        public override MSEliteDef EliteDef { get; set; } = Assets.LITAssets.LoadAsset<MSEliteDef>("Volatile");
-        public override MSAspectAbilityDataHolder AspectAbilityData { get; set; } = Assets.LITAssets.LoadAsset<MSAspectAbilityDataHolder>("AbilityVolatile");
-        public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("AffixVolatile");
+        public override MSEliteDef EliteDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Volatile");
+        public override MSAspectAbilityDataHolder AspectAbilityData { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSAspectAbilityDataHolder>("AbilityVolatile");
+        public override EquipmentDef EquipmentDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("AffixVolatile");
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
@@ -37,7 +37,7 @@ namespace LostInTransit.Equipments
 
         public class AffixVolatileEquipBehavior : CharacterBody.ItemBehavior
         {
-            public static GameObject volatileAttachment = Assets.LITAssets.LoadAsset<GameObject>("VolatileEquipBodyAttachment");
+            public static GameObject volatileAttachment = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("VolatileEquipBodyAttachment");
             private NetworkedBodyAttachment attachment;
             private EntityStateMachine entityStateMachine;
 

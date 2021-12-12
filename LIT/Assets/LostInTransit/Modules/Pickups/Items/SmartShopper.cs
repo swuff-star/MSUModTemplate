@@ -7,7 +7,7 @@ namespace LostInTransit.Items
     public class SmartShopper : ItemBase
     {
         private const string token = "LIT_ITEM_SMARTSHOPPER_DESC";
-        public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("SmartShopper");
+        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("SmartShopper");
 
         [ConfigurableField(ConfigName = "Money Bonus", ConfigDesc = "Amount of extra money gained, per stack.")]
         [TokenModifier(token, StatTypes.Percentage, 0)]

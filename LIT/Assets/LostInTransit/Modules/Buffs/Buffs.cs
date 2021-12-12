@@ -9,8 +9,8 @@ namespace LostInTransit.Buffs
     public class Buffs : BuffModuleBase
     {
         public static Buffs Instance { get; set; }
-        public static BuffDef[] LoadedLITBuffs { get => LITContent.serializableContentPack.buffDefs; }
-        public override SerializableContentPack ContentPack { get; set; } = LITContent.serializableContentPack;
+        public static BuffDef[] LoadedLITBuffs { get => LITContent.Instance.SerializableContentPack.buffDefs; }
+        public override SerializableContentPack ContentPack { get; set; } = LITContent.Instance.SerializableContentPack;
 
 
         public override void Init()

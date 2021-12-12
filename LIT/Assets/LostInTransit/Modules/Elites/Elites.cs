@@ -11,10 +11,10 @@ namespace LostInTransit.Modules
     public class Elites : EliteModuleBase
     {
         public static Elites Instance { get; set; }
-        public static EliteDef[] LoadedLITElites { get => LITContent.serializableContentPack.eliteDefs; }
-        public static MSEliteDef[] LoadedLITElitesAsMSElites { get => LITContent.serializableContentPack.eliteDefs as MSEliteDef[]; }
-        public override SerializableContentPack ContentPack { get; set; } = LITContent.serializableContentPack;
-        public override AssetBundle AssetBundle { get; set; } = Assets.LITAssets;
+        public static EliteDef[] LoadedLITElites { get => LITContent.Instance.SerializableContentPack.eliteDefs; }
+        public static MSEliteDef[] LoadedLITElitesAsMSElites { get => LITContent.Instance.SerializableContentPack.eliteDefs as MSEliteDef[]; }
+        public override SerializableContentPack ContentPack { get; set; } = LITContent.Instance.SerializableContentPack;
+        public override AssetBundle AssetBundle { get; set; } = LITAssets.Instance.MainAssetBundle;
 
         public override void Init()
         {
@@ -36,15 +36,15 @@ namespace LostInTransit.Modules
 
         private void LateEliteSetup()
         {
-            if (MoonstormElites.Contains(Assets.LITAssets.LoadAsset<MSEliteDef>("Volatile")))
+            if (MoonstormElites.Contains(LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Volatile")))
             {
                 VolatileSpitebomb.BeginSetup();
             }
-            if (MoonstormElites.Contains(Assets.LITAssets.LoadAsset<MSEliteDef>("Blighted")))
+            if (MoonstormElites.Contains(LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Blighted")))
             {
                 Blight.BeginSetup();
             }
-            if (MoonstormElites.Contains(Assets.LITAssets.LoadAsset<MSEliteDef>("Leeching")))
+            if (MoonstormElites.Contains(LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Leeching")))
             {
                 RoR2Application.onLoad += () =>
                 {

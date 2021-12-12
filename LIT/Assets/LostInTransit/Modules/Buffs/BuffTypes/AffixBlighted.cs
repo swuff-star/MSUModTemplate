@@ -7,7 +7,7 @@ namespace LostInTransit.Buffs
 {
     public class AffixBlighted : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("AffixBlighted");
+        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixBlighted");
 
         public static BuffDef buffDef;
 
@@ -29,7 +29,7 @@ namespace LostInTransit.Buffs
 
             public BuffDef secondBuff;
 
-            public GameObject SmokeEffect = Assets.LITAssets.LoadAsset<GameObject>("BlightSmoke");
+            public GameObject SmokeEffect = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("BlightSmoke");
 
             private float stopwatch;
             private static float checkTimer = 0.75f;

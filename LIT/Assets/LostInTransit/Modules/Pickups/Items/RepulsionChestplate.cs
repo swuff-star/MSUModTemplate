@@ -10,7 +10,7 @@ namespace LostInTransit.Items
     public class RepulsionArmor : ItemBase
     {
         private const string token = "LIT_ITEM_REPULCHEST_DESC";
-        public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("RepulsionChestplate");
+        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("RepulsionChestplate");
 
         [ConfigurableField(ConfigName = "Hits Needed to Activate", ConfigDesc = "Amount of times required to take damage before activating Repulsion Armor.")]
         [TokenModifier(token, StatTypes.Default, 0)]

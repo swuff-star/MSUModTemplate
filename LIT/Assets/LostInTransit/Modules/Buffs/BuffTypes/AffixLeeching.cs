@@ -9,7 +9,7 @@ namespace LostInTransit.Buffs
 {
     public class AffixLeeching : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("AffixLeeching");
+        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixLeeching");
         public static BuffDef buff;
 
         public override void Initialize()
@@ -32,13 +32,13 @@ namespace LostInTransit.Buffs
 
             public float regenPercentage;
 
-            public GameObject PrepBurstEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingPrepBurst");
+            public GameObject PrepBurstEffect = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EffectLeechingPrepBurst");
 
-            public GameObject HealingEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingBurst");
+            public GameObject HealingEffect = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EffectLeechingBurst");
 
-            public GameObject TracerEffect = Assets.LITAssets.LoadAsset<GameObject>("TracerLeeching");
+            public GameObject TracerEffect = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("TracerLeeching");
 
-            public GameObject AbilityEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingAbility");
+            public GameObject AbilityEffect = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EffectLeechingAbility");
 
             private GameObject AbilityEffectInstance;
 

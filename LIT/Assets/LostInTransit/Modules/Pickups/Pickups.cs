@@ -9,9 +9,9 @@ namespace LostInTransit.Modules
     public class Pickups : PickupModuleBase
     {
         public static Pickups Instance { get; set; }
-        public static ItemDef[] LoadedLITItems { get => LITContent.serializableContentPack.itemDefs; }
-        public static EquipmentDef[] LoadedLITEquipments { get => LITContent.serializableContentPack.equipmentDefs; }
-        public override SerializableContentPack ContentPack { get; set; } = LITContent.serializableContentPack;
+        public static ItemDef[] LoadedLITItems { get => LITContent.Instance.SerializableContentPack.itemDefs; }
+        public static EquipmentDef[] LoadedLITEquipments { get => LITContent.Instance.SerializableContentPack.equipmentDefs; }
+        public override SerializableContentPack ContentPack { get; set; } = LITContent.Instance.SerializableContentPack;
 
         public override void Init()
         {

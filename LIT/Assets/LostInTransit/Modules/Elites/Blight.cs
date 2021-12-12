@@ -18,8 +18,8 @@ namespace LostInTransit.Elites
         internal static void BeginSetup()
         {
             LITLogger.LogI($"Blighted elites are enabled, setting up systems...");
-            var blightedDirector = Assets.LITAssets.LoadAsset<GameObject>("BlightedDirector");
-            HG.ArrayUtils.ArrayAppend(ref LITContent.serializableContentPack.networkedObjectPrefabs, blightedDirector);
+            var blightedDirector = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("BlightedDirector");
+            HG.ArrayUtils.ArrayAppend(ref LITContent.Instance.SerializableContentPack.networkedObjectPrefabs, blightedDirector);
 
             RoR2Application.onLoad += BlightSetup;
             On.RoR2.Util.GetBestBodyName += GetBlightedName;
@@ -45,7 +45,7 @@ namespace LostInTransit.Elites
         {
             var text2 = orig(bodyObject);
             CharacterBody charBody = null;
-            BuffDef blightBuff = Assets.LITAssets.LoadAsset<BuffDef>("AffixBlighted");
+            BuffDef blightBuff = LITContent.Buffs.AffixBlighted;
             if ((bool)bodyObject)
             {
                 charBody = bodyObject.GetComponent<CharacterBody>();
@@ -124,7 +124,7 @@ namespace LostInTransit.Elites
         {
             if (Run.instance && NetworkServer.active)
             {
-                NetworkServer.Spawn(UnityEngine.Object.Instantiate(Assets.LITAssets.LoadAsset<GameObject>("BlightedDirector")));
+                NetworkServer.Spawn(UnityEngine.Object.Instantiate(LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("BlightedDirector")));
             }
         }
     }

@@ -7,7 +7,7 @@ namespace LostInTransit.Items
     public class PrisonShackles : ItemBase
     {
         private const string token = "LIT_ITEM_PRISONSHACKLES_DESC";
-        public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("PrisonShackles");
+        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("PrisonShackles");
 
         public static string section;
         [ConfigurableField(ConfigName = "Slow Multiplier", ConfigDesc = "Multiplier added to the shackled body's movement speed.")]

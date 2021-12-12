@@ -50,33 +50,10 @@ namespace LostInTransit
             config = Config;
             LITLogger.logger = Logger;
 
-            /*if (DEBUG)
-            {
-                LITDebug component = base.gameObject.AddComponent<LITDebug>();
-            }*/
-
-            Initialize();
-            new LITContent().Initialize();
-        }
-
-        private void Initialize()
-        {
-            Assets.Initialize();
-            LITLanguage.Initialize();
-            LITConfig.Initialize(config);
-
-            new Buffs.Buffs().Init();
-            new DamageTypes.DamageTypes().Init();
-            new Modules.Projectiles().Init();
-            new Pickups().Init();
-            new Modules.Elites().Init();
-
-            new ItemDisplays().Init();
-
-            GetType().Assembly.GetTypes()
-                .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
-                .ToList()
-                .ForEach(state => HG.ArrayUtils.ArrayAppend(ref LITContent.serializableContentPack.entityStateTypes, new EntityStates.SerializableEntityStateType(state)));
+            new LITAssets().Init();
+            new LITLanguage().Init();
+            LITConfig.Initialize(Config);
+            new LITContent().Init();
         }
     }
 }

@@ -7,7 +7,7 @@ namespace LostInTransit.Items
     public class MysteriousVial : ItemBase
     {
         private const string token = "LIT_ITEM_MYSTERIOUSVIAL_DESC";
-        public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("MysteriousVial");
+        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("MysteriousVial");
 
         [ConfigurableField(ConfigName = "Extra Regen Per Vial", ConfigDesc = "Extra Regeneration added per vial.")]
         [TokenModifier(token, StatTypes.Default, 0)]

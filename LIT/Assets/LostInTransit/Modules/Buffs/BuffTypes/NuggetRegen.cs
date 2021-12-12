@@ -8,7 +8,7 @@ namespace LostInTransit.Buffs
     [DisabledContent]
     public class NuggetRegen : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("NuggetRegen");
+        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("NuggetRegen");
 
         public static BuffDef buff;
 

@@ -8,7 +8,7 @@ namespace LostInTransit.Buffs
     [DisabledContent]
     public class GuardiansHeartBuff : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("GuardiansHeartBuff");
+        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("GuardiansHeartBuff");
         public static BuffDef buff;
 
         public override void Initialize()
