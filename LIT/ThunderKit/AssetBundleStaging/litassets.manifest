@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 224367811
+CRC: 3172154405
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1d542435ee59c02534dc09a5c3863770
+    Hash: db60640c67ad2340f0b2227f812bb36a
   TypeTreeHash:
     serializedVersion: 2
-    Hash: ce5029f7eae9ebbb66415bbe91c7b873
+    Hash: 30f975ab2419948281346c6f597302a0
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -102,6 +102,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 751239416, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
 - Class: 114
+  Script: {fileID: -568846244, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 341298a8435f2164985e014e28235b74, type: 3}
 - Class: 114
   Script: {fileID: -1752031980, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
@@ -154,6 +156,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupBlessedDice.prefab
 - Assets/LostInTransit/LITAssets/SIDRS/SIDRAffixLeeching.asset
 - Assets/Textures/texBitterRoot.png
+- Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.thallium.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/LeechingRegen.asset
 - Assets/Materials/matAffixFrenzied.mat
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectFrenziedAbility.prefab
@@ -163,6 +166,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/BuffDefs/AffixLeeching.asset
 - Assets/Textures/Stolen/texParticleDust1Mask.asset
 - Assets/Materials/matAffixLeeching.mat
+- Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.prisonshackles.asset
 - Assets/LostInTransit/LITAssets/ItemDefs/SmartShopper.asset
 - Assets/Textures/Ramps/texRampTwotone.png
 - Assets/Icons/texIconPickupAffixFrenzied.png
@@ -171,6 +175,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupThallium.prefab
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixBlighted.asset
 - Assets/LostInTransit/LITAssets/ItemDefs/GuardiansHeart.asset
+- Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.smartshopper.asset
 - Assets/Materials/matAffixVolatile.mat
 - Assets/Materials/matGiganticAmethyst.mat
 - Assets/Textures/Stolen/texCloudDifferenceBW2.asset
@@ -213,6 +218,7 @@ Assets:
 - Assets/Textures/texGoldenGun_n.png
 - Assets/LostInTransit/LITAssets/BuffDefs/AffixVolatile.asset
 - Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/fx/hgcloudremap.shader
+- Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.mysteriousvial.asset
 - Assets/Textures/texVolatileWickNormal.png
 - Assets/Materials/matBeckoningCat.mat
 - Assets/Icons/texIconBuffAffixVolatile.png
@@ -276,6 +282,7 @@ Assets:
 - Assets/Icons/texIconBuffAffixFrenzied.png
 - Assets/Materials/matMysteriousVialLiquid.mat
 - Assets/LostInTransit/LITAssets/BuffDefs/ThalliumPoison.asset
+- Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.beckoningcat.asset
 - Assets/LostInTransit/LITAssets/EliteAbilities/AbilityBlighted.asset
 - Assets/Icons/texIconThqwibPLACEHOLDER.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixFrenzied.prefab
@@ -283,6 +290,7 @@ Assets:
 - Assets/Textures/texSmartShopperRoughness.png
 - Assets/LostInTransit/LITAssets/ItemDefs/LifeSavings.asset
 - Assets/Icons/texIconBuffShackled.png
+- Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.lifesavings.asset
 - Assets/Mesh/meshGoldenGun.mesh
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixFrenzied.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/GuardiansHeartBuff.asset
@@ -336,6 +344,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/BuffDefs/Shackled.asset
 - Assets/Textures/texMysteriousVialDiffuse.png
 - Assets/LostInTransit/LITAssets/Misc/NetworkSoundDef/BlightSpawn.asset
+- Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.goldengun.asset
 - Assets/LostInTransit/LITAssets/ItemDefs/MysteriousVial.asset
 - Assets/LostInTransit/LITAssets/Prefabs/SizeReference.prefab
 - Assets/Mesh/Stolen/meshQuad.asset
