@@ -79,6 +79,7 @@ namespace LostInTransit.Buffs
                     Blink();
             }
 
+            //Todo: turn this ESM stuff into probably a networked body attachment?
             private void Blink()
             {
                 if (BlinkReadyInstance)

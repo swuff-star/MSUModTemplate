@@ -50,6 +50,9 @@ namespace LostInTransit.Items
             body.AddItemBehavior<BlessedDiceBehavior>(stack);
         }
 
+        /// <summary>
+        /// Todo: this needs to be probably on its own network behavior, mainly due to the usage of RNG, lol
+        /// </summary>
         public class BlessedDiceBehavior : CharacterBody.ItemBehavior
         {
             private float CalcBuffTimer()

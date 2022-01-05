@@ -1,5 +1,6 @@
 ﻿using Moonstorm;
 using RoR2;
+using UnityEngine.Networking;
 
 namespace LostInTransit.Buffs
 {
@@ -19,6 +20,7 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<DiceBarrierBehavior>(stack);
         }
 
+        //Todo: have this use IStatItemBehavior, body.barrierDecayRate is recalculated in recalcstats
         public class DiceBarrierBehavior : CharacterBody.ItemBehavior
         {
             private float origBarrierDecay;
@@ -26,7 +28,9 @@ namespace LostInTransit.Buffs
             {
                 origBarrierDecay = body.barrierDecayRate;
                 body.barrierDecayRate *= HGMath.Clamp((Items.BlessedDice.decayMult / 100), 0, 1);
-                body.healthComponent.AddBarrier(body.maxBarrier * (Items.BlessedDice.barrierAmount / 100));
+
+                if(NetworkServer.active)
+                    body.healthComponent.AddBarrier(body.maxBarrier * (Items.BlessedDice.barrierAmount / 100));
             }
             public void OnDestroy()
             {

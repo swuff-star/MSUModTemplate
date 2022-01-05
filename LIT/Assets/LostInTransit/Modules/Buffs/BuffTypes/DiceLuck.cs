@@ -19,6 +19,7 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<DiceLuckBehavior>(stack);
         }
 
+        //Todo: Have this as a hook on CharacterMaster.OnInventoryChanged (otherwise the "luck" stat gets rewritten every time the inventory changes)
         public class DiceLuckBehavior : CharacterBody.ItemBehavior
         {
             private CharacterMaster master;

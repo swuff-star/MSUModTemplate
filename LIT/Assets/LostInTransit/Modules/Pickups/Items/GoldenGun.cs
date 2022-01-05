@@ -2,6 +2,7 @@
 using Moonstorm;
 using RoR2;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace LostInTransit.Items
 {
@@ -50,16 +51,19 @@ namespace LostInTransit.Items
 
             private void FixedUpdate()
             {
-                if (body.master.money > 0)
+                if(NetworkServer.active)
                 {
-                    buffsToGive = (int)(Mathf.Min(body.master.money, gunCap) / goldForBuff);
-                    /*if (buffsToGive > goldNeeded + (goldNeeded / 2) * (stack - 1))
+                    if (body.master.money > 0)
                     {
-                        buffsToGive = (int)(goldNeeded + (goldNeeded / 2) * (stack - 1));
-                    }*/ //★ I'm very tired and struggling to read through how this works. I'm just fucking hardcoding a second cap check.
-                    if (buffsToGive != body.GetBuffCount(GoldenGunBuff.buff))
-                    {
-                        body.SetBuffCount(GoldenGunBuff.buff.buffIndex, buffsToGive);
+                        buffsToGive = (int)(Mathf.Min(body.master.money, gunCap) / goldForBuff);
+                        /*if (buffsToGive > goldNeeded + (goldNeeded / 2) * (stack - 1))
+                        {
+                            buffsToGive = (int)(goldNeeded + (goldNeeded / 2) * (stack - 1));
+                        }*/ //★ I'm very tired and struggling to read through how this works. I'm just fucking hardcoding a second cap check.
+                        if (buffsToGive != body.GetBuffCount(GoldenGunBuff.buff))
+                        {
+                            body.SetBuffCount(GoldenGunBuff.buff.buffIndex, buffsToGive);
+                        }
                     }
                 }
 

@@ -84,25 +84,11 @@ namespace LostInTransit.Items
             {
                 if (body.isChampion)
                 {
-                    if (instakillBosses)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return instakillBosses;
                 }
                 if (body.isElite)
                 {
-                    if (instakillElites)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return instakillElites;
                 }
                 return true;
             }

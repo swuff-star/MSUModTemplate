@@ -2,6 +2,7 @@
 using Moonstorm;
 using RoR2;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace LostInTransit.Equipments
 {
@@ -41,7 +42,8 @@ namespace LostInTransit.Equipments
                 body.baseArmor += 33.34f;
                 body.PerformAutoCalculateLevelStats();
 
-                body.healthComponent.health = body.healthComponent.fullHealth;
+                if(NetworkServer.active)
+                    body.healthComponent.health = body.healthComponent.fullHealth;
             }
 
             public void OnDestroy()

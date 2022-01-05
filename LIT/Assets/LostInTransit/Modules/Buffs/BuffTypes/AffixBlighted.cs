@@ -2,6 +2,7 @@
 using Moonstorm;
 using RoR2;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace LostInTransit.Buffs
 {
@@ -72,28 +73,34 @@ namespace LostInTransit.Buffs
 
             public void FixedUpdate()
             {
-                stopwatch += Time.fixedDeltaTime;
-                if (stopwatch > checkTimer && !body.HasBuff(RoR2Content.Buffs.Cloak))
+                if(NetworkServer.active)
                 {
-                    body.AddBuff(RoR2Content.Buffs.Cloak);
-                }
-                else if (Util.CheckRoll(1))
-                {
-                    stopwatch = 0; //Doing this to ensure they're visible for a moment
-                    RemoveBuff();
-                    if (!body.isPlayerControlled)
-                        SpawnEffect();
+                    stopwatch += Time.fixedDeltaTime;
+                    if (stopwatch > checkTimer && !body.HasBuff(RoR2Content.Buffs.Cloak))
+                    {
+                        body.AddBuff(RoR2Content.Buffs.Cloak);
+                    }
+                    else if (Util.CheckRoll(1))
+                    {
+                        stopwatch = 0; //Doing this to ensure they're visible for a moment
+                        RemoveBuff();
+                        if (!body.isPlayerControlled)
+                            SpawnEffect();
+                    }
                 }
             }
 
             private void SpawnEffect()
             {
-                EffectData data = new EffectData
+                if(NetworkServer.active)
                 {
-                    scale = body.radius,
-                    origin = body.transform.position
-                };
-                EffectManager.SpawnEffect(SmokeEffect, data, true);
+                    EffectData data = new EffectData
+                    {
+                        scale = body.radius,
+                        origin = body.transform.position
+                    };
+                    EffectManager.SpawnEffect(SmokeEffect, data, true);
+                }
             }
 
             public void RecalculateStatsStart() { }
@@ -120,12 +127,15 @@ namespace LostInTransit.Buffs
                     MasterBehavior.enabled = false;
                 if (body)
                 {
-                    body?.RemoveBuff(firstBuff);
-                    body?.RemoveBuff(secondBuff);
 
                     body.onSkillActivatedServer -= RemoveBuff;
 
-                    body?.RemoveBuff(RoR2Content.Buffs.Cloak);
+                    if(NetworkServer.active)
+                    {
+                        body?.RemoveBuff(firstBuff);
+                        body?.RemoveBuff(secondBuff);
+                        body?.RemoveBuff(RoR2Content.Buffs.Cloak);
+                    }
                 }
             }
         }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace LostInTransit.Buffs
 {
@@ -114,26 +115,29 @@ namespace LostInTransit.Buffs
                     if (AbilityEffectInstance)
                         Destroy(AbilityEffectInstance);
                 }
-                if(prepBurstStopwatch > chargingTime && (bool)body.healthComponent?.alive)
+                if(prepBurstStopwatch > chargingTime && (bool)body.healthComponent?.alive && NetworkServer.active)
                 {
-                    prepBurstStopwatch = 0;
                     Burst();
                 }
             }
 
             private void PrepareBurst()
             {
-                EffectManager.SpawnEffect(PrepBurstEffect, new EffectData
+                if(NetworkServer.active)
                 {
-                    origin = body.corePosition,
-                    rootObject = body.gameObject
-                }, true);
+                    EffectManager.SpawnEffect(PrepBurstEffect, new EffectData
+                    {
+                        origin = body.corePosition,
+                        rootObject = body.gameObject
+                    }, true);
+                }
                 preppingRegenBurst = true;
                 regenPercentage = 10;
             }
 
             private void Burst()
             {
+                prepBurstStopwatch = 0;
                 preppingRegenBurst = false;
                 SearchForAllies();
                 bool hasBursted = false;

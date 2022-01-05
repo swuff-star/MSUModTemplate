@@ -5,6 +5,8 @@ using UnityEngine.Networking;
 
 namespace LostInTransit.Components
 {
+
+    //Todo: turn this into probably a networked body attachment?
     public class BlightedController : NetworkBehaviour
     {
         [SyncVar]

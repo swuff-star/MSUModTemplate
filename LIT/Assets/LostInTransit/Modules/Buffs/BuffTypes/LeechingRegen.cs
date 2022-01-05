@@ -2,6 +2,7 @@
 using RoR2;
 using UnityEngine;
 using R2API;
+using UnityEngine.Networking;
 
 namespace LostInTransit.Buffs
 {
@@ -34,13 +35,16 @@ namespace LostInTransit.Buffs
             public void Start()
             {
                 VFX.GetComponent<DestroyOnTimer>().duration = duration;
-                EffectData effectData = new EffectData
+                if(NetworkServer.active)
                 {
-                    scale = body.bestFitRadius / 10,
-                    origin = body.aimOrigin,
-                    rootObject = body.gameObject
-                };
-                EffectManager.SpawnEffect(VFX, effectData, true);
+                    EffectData effectData = new EffectData
+                    {
+                        scale = body.bestFitRadius / 10,
+                        origin = body.aimOrigin,
+                        rootObject = body.gameObject
+                    };
+                    EffectManager.SpawnEffect(VFX, effectData, true);
+                }
                 totalRegen = body.maxHealth * (regenStrength / 100) / duration;
                 body.RecalculateStats();
             }
