@@ -9,9 +9,9 @@ namespace LostInTransit.Modules
     public class Projectiles : ProjectileModuleBase
     {
         public static Projectiles Instance { get; set; }
-        public override SerializableContentPack ContentPack { get; set; } = LITContent.serializableContentPack;
+        public override SerializableContentPack ContentPack { get; set; } = LITContent.Instance.SerializableContentPack;
 
-        public override AssetBundle AssetBundle { get; set; } = Assets.LITAssets;
+        public override AssetBundle AssetBundle { get; set; } = LITAssets.Instance.MainAssetBundle;
 
         public override void Init()
         {

@@ -1,27 +1,17 @@
 ﻿using RoR2;
-using System.Collections.Generic;
-using Zio;
-using Zio.FileSystems;
+using Moonstorm.Loaders;
 
 namespace LostInTransit.Modules
 {
-    public static class LITLanguage
+    public class LITLanguage : LanguageLoader<LITLanguage>
     {
-        public static FileSystem FileSystem { get; private set; }
+        public override string AssemblyDir => LITAssets.Instance.AssemblyDir;
 
-        public static void Initialize()
+        public override string LanguagesFolderName => "Languages";
+
+        internal void Init()
         {
-            PhysicalFileSystem physicalFileSystem = new PhysicalFileSystem();
-            FileSystem = new SubFileSystem(physicalFileSystem, physicalFileSystem.ConvertPathFromInternal(Assets.AssemblyDir), true);
-
-            if(FileSystem.DirectoryExists("/Languages/"))
-            {
-                Language.collectLanguageRootFolders += delegate (List<DirectoryEntry> list)
-                {
-                    LITLogger.LogI($"Initializing Language");
-                    list.Add(FileSystem.GetDirectoryEntry("/Languages/"));
-                };
-            }
+            LoadLanguages();
         }
     }
 }

@@ -1,13 +1,14 @@
 ﻿using LostInTransit.Buffs;
 using Moonstorm;
 using RoR2;
+using UnityEngine;
 
 namespace LostInTransit.Items
 {
     public class Thallium : ItemBase
     {
         public const string token = "LIT_ITEM_THALLIUM_DESC";
-        public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("Thallium");
+        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("Thallium");
 
         public static string section;
 
@@ -15,29 +16,20 @@ namespace LostInTransit.Items
         [TokenModifier(token, StatTypes.Default, 0)]
         public static float procChance = 10f;
 
-        [ConfigurableField(ConfigName = "Base Damage", ConfigDesc = "Damage coefficient of Thallium, multiplied by duration for total damage.")]
-        public static float dmgCoefficient = 1.25f;
+        [ConfigurableField(ConfigName = "Total Damage", ConfigDesc = "Total damage of Thallium, as a percentage of the victim's damage. Halved after the first stack")]
+        [TokenModifier(token, StatTypes.Default, 1)]
+        [TokenModifier(token, StatTypes.DivideBy2, 2)]
+        public static float dmgCoefficient = 500f;
 
-        [ConfigurableField(ConfigName = "Stacking Damage", ConfigDesc = "Extra damage dealt by extra stacks of Thallium.")]
-        public static float newDmgStack = 0f;
+        [ConfigurableField(ConfigName = "Slow Multiplier", ConfigDesc = "How much the victim is slowed by.")]
+        [TokenModifier(token, StatTypes.Default, 3)]
+        public static float slowMultiplier = 75f;
 
-        [ConfigurableField(ConfigName = "Slow Multiplier", ConfigDesc = "How much inflicted bodies are slowed by.")]
-        [TokenModifier(token, StatTypes.Percentage, 3)]
-        public static float newSlowMultiplier = 0.75f;
-
-        [ConfigurableField(ConfigName = "Poisoning Duration", ConfigDesc = "Duration of the Thallium Poisoning debuff.")]
+        [ConfigurableField(ConfigName = "Poisoning Duration", ConfigDesc = "Amount of time needed to deal the full damage. By default, increases with stacks. Minimum 1.")]
         public static int duration = 4;
 
-        [ConfigurableField(ConfigName = "Poisoning Duration per Stack", ConfigDesc = "Duration added to the Thallium Poisoning debuff per stack.")]
-        public static int durationStack = 2;
-
-        //this is dumb but it is what it is. caused by the final damage being a math equation of dmgCoef multiplied by duration, fuck u swoof
-        #region dumb
-        [TokenModifier(token, StatTypes.Percentage, 1)]
-        public static float damageWithDuration = dmgCoefficient * duration;
-        [TokenModifier(token, StatTypes.Percentage, 2)]
-        public static float damageWithDurationStack = dmgCoefficient * durationStack;
-        #endregion
+        [ConfigurableField(ConfigName = "Poison is Fixed Duration", ConfigDesc = "If enabled, stacks increase the damage per tick instead of the total duration")]
+        public static bool noTimeToDie = false;
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
@@ -48,6 +40,7 @@ namespace LostInTransit.Items
         {
             public void OnDamageDealtServer(DamageReport damageReport)
             {
+                var attacker = damageReport.attacker;
                 var victim = damageReport.victim;
                 var dotController = DotController.FindDotController(victim.gameObject);
                 bool flag = false;
@@ -56,13 +49,18 @@ namespace LostInTransit.Items
 
                 if (Util.CheckRoll(procChance * damageReport.damageInfo.procCoefficient) && !flag)
                 {
+                    float newDuration = Mathf.Max(duration, 1f);
+                    float newDamage = (dmgCoefficient / 100) * (1 + ((stack - 1) / 2));
+                    if (!noTimeToDie)
+                        newDuration += (stack - 1) * 2;
                     var dotInfo = new InflictDotInfo()
                     {
-                        attackerObject = victim.gameObject,
+                        attackerObject = attacker.gameObject,
                         victimObject = victim.gameObject,
                         dotIndex = ThalliumPoison.index,
-                        duration = duration + (durationStack * (stack - 1)),
-                        damageMultiplier = dmgCoefficient + newDmgStack * (stack - 1)
+                        duration = newDuration,
+                        //G - dividing by attacker damage = 1, then multiply by victim damage for corrected damage
+                        damageMultiplier = (damageReport.victimBody.damage / damageReport.attackerBody.damage) * (newDamage / newDuration)
                     };
                     DotController.InflictDot(ref dotInfo);
                     Util.PlaySound("ThalliumProc", body.gameObject);

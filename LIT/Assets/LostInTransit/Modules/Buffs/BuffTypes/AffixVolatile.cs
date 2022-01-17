@@ -12,7 +12,7 @@ namespace LostInTransit.Buffs
 {
     public class AffixVolatile : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("AffixVolatile");
+        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixVolatile");
 
         public override void Initialize()
         {
@@ -48,6 +48,7 @@ namespace LostInTransit.Buffs
 
             public float damageThreshold;
             public float tankedDamage;
+            public float timeSinceBombsDeployed;
 
             private void Start()
             {
@@ -68,10 +69,18 @@ namespace LostInTransit.Buffs
 
             private void Update()
             {
+                timeSinceBombsDeployed += Time.deltaTime;
                 if (tankedDamage > damageThreshold)
                 {
-                    tankedDamage = 0f;
-                    PrepBombs();
+                    if (timeSinceBombsDeployed > 3)
+                    {
+                        tankedDamage = 0f;
+                        PrepBombs();
+                    }
+                    else
+                    {
+                        tankedDamage /= 2;
+                    }
                 }
             }
 
@@ -82,7 +91,7 @@ namespace LostInTransit.Buffs
 
                 if (bomb)
                 {
-                    int bombAmount = Mathf.Min(BombArtifactManager.maxBombCount, Mathf.CeilToInt(body.bestFitRadius * BombArtifactManager.extraBombPerRadius));
+                    int bombAmount = Mathf.Min(BombArtifactManager.maxBombCount/2, Mathf.CeilToInt(body.bestFitRadius * BombArtifactManager.extraBombPerRadius));
                     List<(BombArtifactManager.BombRequest, float)> bombs = new List<(BombArtifactManager.BombRequest, float)>();
                     for (int i = 0; i < bombAmount; i++)
                     {
@@ -91,7 +100,7 @@ namespace LostInTransit.Buffs
                         {
                             spawnPosition = body.corePosition,
                             raycastOrigin = body.corePosition + b,
-                            bombBaseDamage = body.damage * BombArtifactManager.bombDamageCoefficient,
+                            bombBaseDamage = body.damage,
                             attacker = body.gameObject,
                             teamIndex = body.teamComponent.teamIndex,
                             velocityY = UnityEngine.Random.Range(5f, 25f)

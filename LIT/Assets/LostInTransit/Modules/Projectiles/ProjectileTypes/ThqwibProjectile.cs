@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace LostInTransit.Projectiles
 {
+    [DisabledContent]
     public class ThqwibProjectile : ProjectileBase
     {
         public override GameObject ProjectilePrefab { get; set; } = PrefabAPI.InstantiateClone(Resources.Load<GameObject>("prefabs/characterbodies/scavsackprojectile"), "ThqwibProjectile", false);
@@ -13,7 +14,6 @@ namespace LostInTransit.Projectiles
 
         public override void Initialize()
         {
-            var go = Resources.Load<GameObject>("prefabs/characterbodies/scavsackprojectile");
             if (ProjectilePrefab)
             {
                 var onKillComponent = ProjectilePrefab.GetComponent<ProjectileGrantOnKillOnDestroy>();

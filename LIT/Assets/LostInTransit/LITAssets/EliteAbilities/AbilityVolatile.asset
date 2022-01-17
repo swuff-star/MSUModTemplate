@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: AbilityVolatile
   m_EditorClassIdentifier: 
   equipmentDef: {fileID: 11400000, guid: 0721b5569d82a8d4e9aa030155affbd1, type: 2}
-  aiMaxUseDistance: 50
+  aiMaxUseDistance: 4
   aiHealthFractionToUseChance:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: -0.007080078
-      inSlope: 0.6989448
-      outSlope: 0.6989448
+      inSlope: 1.8631688
+      outSlope: 1.8631688
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.73721045
-      value: 0.5081893
+      time: 0.4965034
+      value: 0.9179896
       inSlope: 0.7696341
       outSlope: 0.7696341
       tangentMode: 0

@@ -11,10 +11,10 @@ namespace LostInTransit.Modules
     public class Elites : EliteModuleBase
     {
         public static Elites Instance { get; set; }
-        public static EliteDef[] LoadedLITElites { get => LITContent.serializableContentPack.eliteDefs; }
-        public static MSEliteDef[] LoadedLITElitesAsMSElites { get => LITContent.serializableContentPack.eliteDefs as MSEliteDef[]; }
-        public override SerializableContentPack ContentPack { get; set; } = LITContent.serializableContentPack;
-        public override AssetBundle AssetBundle { get; set; } = Assets.LITAssets;
+        public static EliteDef[] LoadedLITElites { get => LITContent.Instance.SerializableContentPack.eliteDefs; }
+        public static MSEliteDef[] LoadedLITElitesAsMSElites { get => LITContent.Instance.SerializableContentPack.eliteDefs as MSEliteDef[]; }
+        public override SerializableContentPack ContentPack { get; set; } = LITContent.Instance.SerializableContentPack;
+        public override AssetBundle AssetBundle { get; set; } = LITAssets.Instance.MainAssetBundle;
 
         public override void Init()
         {
@@ -36,13 +36,43 @@ namespace LostInTransit.Modules
 
         private void LateEliteSetup()
         {
-            if (MoonstormElites.Contains(Assets.LITAssets.LoadAsset<MSEliteDef>("Volatile")))
+            if (MoonstormElites.Contains(LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Volatile")))
             {
                 VolatileSpitebomb.BeginSetup();
             }
-            if (MoonstormElites.Contains(Assets.LITAssets.LoadAsset<MSEliteDef>("Blighted")))
+            if (MoonstormElites.Contains(LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Blighted")))
             {
                 Blight.BeginSetup();
+            }
+            if (MoonstormElites.Contains(LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Leeching")))
+            {
+                RoR2Application.onLoad += () =>
+                {
+                    var grandpa = Resources.Load<GameObject>("prefabs/characterbodies/grandparentbody");
+                    if(grandpa)
+                    {
+                        var charLoc = grandpa.GetComponentInChildren<ChildLocator>();
+                        if(charLoc)
+                        {
+                            var headChild = charLoc.FindChild("Head");
+                            HG.ArrayUtils.ArrayAppend(ref charLoc.transformPairs, new ChildLocator.NameTransformPair
+                            {
+                                name = "RingBottom",
+                                transform = headChild.Find("head.2")
+                            });
+                            HG.ArrayUtils.ArrayAppend(ref charLoc.transformPairs, new ChildLocator.NameTransformPair
+                            {
+                                name = "RingMiddle",
+                                transform = headChild.Find("head.2/head.3")
+                            });
+                            HG.ArrayUtils.ArrayAppend(ref charLoc.transformPairs, new ChildLocator.NameTransformPair
+                            {
+                                name = "RingTop",
+                                transform = headChild.Find("head.2/head.3/head.4")
+                            });
+                        }
+                    }
+                };
             }
         }
     }

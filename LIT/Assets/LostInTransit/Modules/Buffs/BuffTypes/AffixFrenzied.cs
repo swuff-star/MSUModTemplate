@@ -7,7 +7,7 @@ namespace LostInTransit.Buffs
 {
     public class AffixFrenzied : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("AffixFrenzied");
+        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixFrenzied");
         public static BuffDef buff;
 
         public override void Initialize()
@@ -22,11 +22,11 @@ namespace LostInTransit.Buffs
 
         public class AffixFrenziedBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {
-            public static float blinkCooldown;
+            public float blinkCooldown = 10;
 
-            public GameObject BlinkReadyEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectFrenziedTPReady");
+            public GameObject BlinkReadyEffect = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EffectFrenziedTPReady");
 
-            public GameObject AbilityEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectFrenziedAbility");
+            public GameObject AbilityEffect = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EffectFrenziedAbility");
 
             private GameObject BlinkReadyInstance;
 
@@ -44,13 +44,14 @@ namespace LostInTransit.Buffs
 
             private void Start()
             {
-                blinkCooldown = 10;
                 body.RecalculateStats();
             }
 
             private void Update()
             {
                 blinkStopwatch += Time.deltaTime;
+                abilityStopwatch += doingAbility ? Time.deltaTime : 0;
+
                 if (blinkStopwatch > blinkCooldown / cdrMult)
                 {
                     blinkReady = true;
@@ -61,30 +62,29 @@ namespace LostInTransit.Buffs
                             BlinkReadyInstance.transform.localScale *= body.radius;
                     }
                 }
-                if (doingAbility)
+                if (abilityStopwatch >= 10)
                 {
-                    abilityStopwatch += Time.deltaTime;
-                    if (abilityStopwatch >= 10)
-                    {
-                        doingAbility = false;
-                        cdrMult = 1;
-                        abilityStopwatch = 0;
-                        body.RecalculateStats();
-                        if (AbilityInstance)
-                            Destroy(AbilityInstance);
-                    }
+                    abilityStopwatch = 0;
+                    doingAbility = false;
+                    cdrMult = 1;
+                    body.RecalculateStats();
+
+                    if (AbilityInstance)
+                        Destroy(AbilityInstance);
                 }
+
                 if (blinkReady && body.isPlayerControlled && Input.GetKeyDown(LITConfig.FrenziedBlink.Value))
                     Blink();
                 else if (blinkReady && !body.isPlayerControlled)
                     Blink();
             }
 
+            //Todo: turn this ESM stuff into probably a networked body attachment?
             private void Blink()
             {
                 if (BlinkReadyInstance)
                     Destroy(BlinkReadyInstance);
-                var bodyStateMachine = body.GetComponents<EntityStateMachine>().Where(x => x.customName == "Body").FirstOrDefault();
+                var bodyStateMachine = EntityStateMachine.FindByCustomName(body.gameObject, "Body");
                 if (body.healthComponent.alive && bodyStateMachine)
                 {
                     //Todd Howard Voice: It just works.

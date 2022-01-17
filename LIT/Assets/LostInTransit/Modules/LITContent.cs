@@ -1,8 +1,147 @@
 ﻿using RoR2.ContentManagement;
+using Moonstorm.Loaders;
+using System;
+using LostInTransit.Modules;
+using System.Linq;
+using RoR2;
 
 namespace LostInTransit
 {
-    internal class LITContent : IContentPackProvider
+    public class LITContent : ContentLoader<LITContent>
+    {
+        public static class Buffs
+        {
+            public static BuffDef AffixBlighted;
+            public static BuffDef AffixFrenzied;
+            public static BuffDef AffixLeeching;
+            public static BuffDef AffixVolatile;
+            public static BuffDef DiceArmor;
+            public static BuffDef DiceAtk;
+            public static BuffDef DiceCrit;
+            public static BuffDef DiceLuck;
+            public static BuffDef DiceMove;
+            public static BuffDef DiceRegen;
+            public static BuffDef GoldenGun;
+            public static BuffDef GuardiansHeartBuff;
+            public static BuffDef LeechingRegen;
+            public static BuffDef NuggetRegen;
+            public static BuffDef RepulsionArmorActive;
+            public static BuffDef RepulsionArmorCD;
+            public static BuffDef Shackled;
+            public static BuffDef TeleSightCD;
+            public static BuffDef ThalliumPoison;
+        }
+
+        public static class Elites
+        {
+            public static EliteDef Blighted;
+            public static EliteDef Frenzied;
+            public static EliteDef Leeching;
+            public static EliteDef Volatile;
+        }
+
+        public static class Equipments
+        {
+            public static EquipmentDef AffixBlighted;
+            public static EquipmentDef AffixFrenzied;
+            public static EquipmentDef AffixLeeching;
+            public static EquipmentDef AffixVolatile;
+            public static EquipmentDef GiganticAmethyst;
+            public static EquipmentDef Thqwib;
+        }
+
+        public static class Items
+        {
+            public static ItemDef BeckoningCat;
+            public static ItemDef BitterRoot;
+            public static ItemDef BlessedDice;
+            public static ItemDef EnergyCell;
+            public static ItemDef GoldenGun;
+            public static ItemDef GuardiansHeart;
+            public static ItemDef LifeSavings;
+            public static ItemDef MeatNugget;
+            public static ItemDef PhotonCannon;
+            public static ItemDef PrisonShackles;
+            public static ItemDef RepulsionChestplate;
+            public static ItemDef RustyJetpack;
+            public static ItemDef SmartShopper;
+            public static ItemDef TelescopicSight;
+            public static ItemDef Thallium;
+        }
+        public override string identifier => LITMain.GUID;
+
+        public override SerializableContentPack SerializableContentPack { get; protected set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<SerializableContentPack>("ContentPack");
+        public override Action[] LoadDispatchers { get; protected set; }
+        public override Action[] PopulateFieldsDispatchers { get; protected set; }
+
+        public override void Init()
+        {
+            base.Init();
+            LoadDispatchers = new Action[]
+            {
+                delegate
+                {
+                    new LostInTransit.Buffs.Buffs().Init();
+                },
+                delegate
+                {
+                    new DamageTypes.DamageTypes().Init();
+                },
+                delegate
+                {
+                    new Modules.Projectiles().Init();
+                },
+                delegate
+                {
+                    new Pickups().Init();
+                },
+                delegate
+                {
+                    new Modules.Elites().Init();
+                },
+                delegate
+                {
+                    new ItemDisplays().Init();
+                },
+                delegate
+                {
+                    typeof(LITContent).Assembly.GetTypes()
+                        .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
+                        .ToList()
+                        .ForEach(state => HG.ArrayUtils.ArrayAppend(ref SerializableContentPack.entityStateTypes, new EntityStates.SerializableEntityStateType(state)));
+                },
+                delegate
+                {
+                    LITAssets.Instance.LoadEffectDefs();
+                },
+                delegate
+                {
+                    LITAssets.Instance.SwapMaterialShaders();
+                }
+            };
+
+            PopulateFieldsDispatchers = new Action[]
+            {
+                delegate
+                {
+                    PopulateTypeFields(typeof(Buffs), ContentPack.buffDefs);
+                },
+                delegate
+                {
+                    PopulateTypeFields(typeof(Elites), ContentPack.eliteDefs);
+                },
+                delegate
+                {
+                    PopulateTypeFields(typeof(Equipments), ContentPack.equipmentDefs);
+                },
+                delegate
+                {
+                    PopulateTypeFields(typeof(Items), ContentPack.itemDefs);
+                }
+            };
+        }
+    }
+    /*internal class LITContent : IContentPackProvider
     {
         public static SerializableContentPack serializableContentPack;
         internal ContentPack contentPack;
@@ -38,5 +177,5 @@ namespace LostInTransit
             args.ReportProgress(1f);
             yield break;
         }
-    }
+    }*/
 }

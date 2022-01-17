@@ -1,12 +1,13 @@
 ﻿using Moonstorm;
 using R2API;
 using RoR2;
+using R2API;
 
 namespace LostInTransit.Buffs
 {
     public class ThalliumPoison : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("ThalliumPoison");
+        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("ThalliumPoison");
         public static BuffDef buff;
         public static DotController.DotIndex index;
 
@@ -21,15 +22,11 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<ThalDebuffBehavior>(stack);
         }
 
-        public class ThalDebuffBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
+        public class ThalDebuffBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
-            public void RecalculateStatsEnd()
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                body.moveSpeed *= LostInTransit.Items.Thallium.newSlowMultiplier;
-            }
-
-            public void RecalculateStatsStart()
-            {
+                args.moveSpeedReductionMultAdd += Items.Thallium.slowMultiplier;
             }
         }
     }

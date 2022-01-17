@@ -2,13 +2,14 @@
 using Moonstorm;
 using RoR2;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace LostInTransit.Items
 {
     public class GoldenGun : ItemBase
     {
         private const string token = "LIT_ITEM_GOLDENGUN_DESC";
-        public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("GoldenGun");
+        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("GoldenGun");
 
         [ConfigurableField(ConfigName = "Maximum Gold Threshold", ConfigDesc = "The maximum amount of gold that Golden Gun will account for.")]
         [TokenModifier(token, StatTypes.Default, 2)]
@@ -50,16 +51,19 @@ namespace LostInTransit.Items
 
             private void FixedUpdate()
             {
-                if (body.master.money > 0)
+                if(NetworkServer.active)
                 {
-                    buffsToGive = (int)(Mathf.Min(body.master.money, gunCap) / goldForBuff);
-                    /*if (buffsToGive > goldNeeded + (goldNeeded / 2) * (stack - 1))
+                    if (body.master.money > 0)
                     {
-                        buffsToGive = (int)(goldNeeded + (goldNeeded / 2) * (stack - 1));
-                    }*/ //★ I'm very tired and struggling to read through how this works. I'm just fucking hardcoding a second cap check.
-                    if (buffsToGive != body.GetBuffCount(GoldenGunBuff.buff))
-                    {
-                        body.SetBuffCount(GoldenGunBuff.buff.buffIndex, buffsToGive);
+                        buffsToGive = (int)(Mathf.Min(body.master.money, gunCap) / goldForBuff);
+                        /*if (buffsToGive > goldNeeded + (goldNeeded / 2) * (stack - 1))
+                        {
+                            buffsToGive = (int)(goldNeeded + (goldNeeded / 2) * (stack - 1));
+                        }*/ //★ I'm very tired and struggling to read through how this works. I'm just fucking hardcoding a second cap check.
+                        if (buffsToGive != body.GetBuffCount(GoldenGunBuff.buff))
+                        {
+                            body.SetBuffCount(GoldenGunBuff.buff.buffIndex, buffsToGive);
+                        }
                     }
                 }
 

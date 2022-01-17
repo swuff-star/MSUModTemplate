@@ -13,7 +13,7 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 |![](https://i.imgur.com/0JpFYMD.png) | **Mysterious Vial** | Regenerate an extra 0.8 (+0.8 per stack) hp per second. | Common |
 |![](https://i.imgur.com/zTCttJR.png) | **Beckoning Cat** | Elite monsters have a 4.5% (+1.5% per stack) chance to drop items on death. | Uncommon |
 |![](https://i.imgur.com/L4TZX13.png) | **Golden Gun** | Deal extra damage based on held gold, up to +40% damage (+20% per stack) at 600 gold (+300 per stack, scaling with time). | Uncommon |
-|![](https://i.imgur.com/oI6SJMs.png) | **Prison Shackles** | Slow monsters for -60% attack speed for 2 (+2 per stack) seconds. | Uncommon |
+|![](https://i.imgur.com/oI6SJMs.png) | **Prison Shackles** | Slow monsters for -30% attack speed for 2 (+2 per stack) seconds. | Uncommon |
 |![](https://i.imgur.com/4qpaGr0.png) | **Smart Shopper** | Monsters drop 25% (+25% per stack) more gold. | Uncommon |
 |![](https://i.imgur.com/16yqiHX.png) | **Thallium** | 10% chance to inflict thallium poisoning for 500% (+250% per stack) of enemy's base damage and slow by 75%. | Rare |
 |![](https://i.imgur.com/xmQADqk.png) | **Telescopic Sight** | 1% (+0.5% per stack) chance to instakill monsters. Boss monsters instead take 20% of their maximum health in damage. Recharges every 20 (-2 per stack) seconds. | Rare |
@@ -36,6 +36,58 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 * Additional support/special thanks - Draymarc, KevinFromHPCustomerService, KomradeSpectre, Moffein, rob, Shared, TheTimesweeper, xpcybic, /vm/
 
 ## Changelog
+
+### 0.3.9
+
+* Updated to use MSU 0.6.0
+* Re-Enabled Bitter Root
+* Thallium no longer causes on kill effects to not trigger
+* Fixed an issue where Leeching elites may rarely set the regen boost strength to negative values.
+
+### 0.3.8
+* Re-did IDRS for Volatile, Leeching and Frenzied Elites
+* Added support for the following mod's idrs:
+  * Starstorm2's Nemmando, Executioner & Security Drone
+  * Enforcer's Nemesis Enforcer
+  * Chef
+  * Sniper
+  * Miner
+  * HAN-D
+  * Archaic Wisps
+  * Clayman
+  * Ancient Wisp
+* Changed the Volatile, Leeching and Frenzied Ramps to be more distinct from each other.
+
+### 0.3.7
+
+* Items
+	* Removed Blessed Dice for the time being, as theyre unfinished.
+* Elites:
+	* Blighted: Fixed a bug where the game would crash upon entering to the bazaar.
+
+### 0.3.6
+* Items
+	* Prison Shackles: Reduced attack speed reduction (60% -> 30%)
+* Elites
+	* Leeching: Increased time between healing bursts from 10 to 15 seconds
+	* Leeching: Now have a visible window before healing, accompanied by an AoE radius
+	* Leeching: Damaging a Leeching elite during the aforementioned window now reduces total healing done, up to 50%
+	* Leeching: Reduced particle count on VFX
+	* Volatile: Added cooldown between bombs appearing
+	* Volatile: Maximum bomb count halved
+	* Volatile: Bomb damage halved
+	* Blighted: Fixed bug where spawn rate didn't reset in-between runs
+	* Blighted: Replaced configurable blacklist with a configurable weight system
+	* Blighted: Teleporter bosses can now be Blighted, for double the cost (also configurable)
+	* Blighted: Removed SFX from smoke visual
+	* Blighted: Lowered CDR (50% -> 25%)
+	* Blighted: Slightly lowered damage boost (-25%), but raised attack speed (+110%)
+	* Blighted: Smoke effect no longer spawns when the aspect is held by a player
+
+### 0.3.5
+* Elites
+	* Blighted: Added config to allow bosses to spawn as Blighted enemies
+	* Blighted: Fixed invisibility
 
 ### 0.3.4
 *Developer Note: PLEASE wipe your config.*
@@ -64,51 +116,5 @@ If you have any issues with the mod, any feedback you'd like to give, any ideas 
 	* Disabling blighted elites should no longer cause extreme stat scaling bugs. [link](https://github.com/swuff-star/LostInTransit/issues/2)
 	* Prison Shackles should no longer trigger on attacks with proc coefficient of 0. [link](https://github.com/swuff-star/LostInTransit/issues/7)
 
-### 0.3.3
-* Items
-	* Golden Gun: Fixed the Item Display causing a ton of null reference exceptions, alongside causing invisible enemies.
 	
-### 0.3.2
-* General
-	* Fixed the readme file not having the proper description for the new Telescopic Sight
-* Elites
-	* Blighted: Fixed smoke particles lingering indefinetly.
-	* Blighted: Fixed spawn sound effect not playing.
-	* Frenzying: New ramp is now properly applied.
-	* Leeching: New ramp is now properly applied.
-	* Volatile: New ramp is now properly applied.
-	* Volatile: Fixed crown not having proper materials.
-* Items
-	* Life Savings: I swear it should work now
-
-### 0.3.1
-* General
-	* No, this is not a readme update disguised as fix
-* Items
-	* Prison Shackles: Fixed icon
-
-### 0.3.0
-*I strongly recommend deleting old config and starting fresh. I think things should update either way, but am not sure. If values seem off in game - try this before reporting it to me.*
-* Items
-	* Added proper item tags for items (*Developer note: Apparently none of these items have been tagged properly, allowing Life Savings to show up in Healing chests and other similar occurances. They're all sorted nicely, now.*)
-	* AI Blacklisted certain items that the AI should never get for balance reasons (e.g. Telescopic Sight) or technical reasons (e.g. Golden Gun)
-	* Added item displays for Mysterious Vial, Beckoning Cat, Telescopic Sight, and Golden Gun for Vanilla characters. Expect the rest next update
-	* Items now properly reflect config-based changes in their descriptions. This is mostly complete and doesn't support some more complicated config options e.g. Beckoning Cat Luck, Telescopic Sight config
-	* Bitter Root: Added (*Developer note: I'm not happy with this, honestly. I kind of want to make it a consumeable like the DLC's "Elixir", but I don't feel like it'll be well received. Thoughts?*)
-	* Life Savings: Rewritten entirely and should now be networked, we hope
-	* Life Savings: Stat change: 5% of money kept from previous stage, +2.5% per stack
-	* Prison Shackles: Added (*Developer note: Shoutout to my lovely friend who had the idea for this. I think it's a simple change that makes it just as valuable as another beloved Uncommon item ;) Enjoy!*)
-	* Telescopic Sight: Reworked -> Attacks have a 1% (+0.5% per stack) chance to instakill enemies. Bosses recieve 20% of their maximum health as damage rather than instantaneous death. Has a 20 second (-2 seconds per stack) cooldown. (*Developer Note: I think I'm happy with this rework? Lemme know how it feels. I don't want it to be a crit-based item anymore, and I've heard some interesting ideas that drop the old idea entirely that'd make it a unique utility - if people aren't happy with this, I could try that next?*)
-	* Thallium: Slightly reworked how scaling works; very technical change to numbers, but stacking is now done by increasing duration rather than damage. Insanely minor numbers nerf that's negligible - can change back to old behavior via config if desired.*)
-* Elites
-	* Frenzying: Updated buff icon
-	* Frenzying: Updated elite ramp
-	* Frenzying: Added a visual indicator when dash is ready
-	* Leeching: Updated buff icon
-	* Leeching: Updated elite ramp
-	* Volatile: Added
-	* Blighted: Added (*Developer note: These guys use a unique spawning method. Do they feel too common? Too strong? Too visible?)
-* Other
-	* Updated "ELITE_MODIFIER_GOLD" from "Gold" to "Auric". I like how it sounds since it comes from the same root Aurelionite does. No other mod fixes this and it's too small a change to warrant its own mod. Golden Coast Plus, maybe?
-
 (Old changelogs can be found [Here](https://github.com/swuff-star/LostInTransit/blob/master/OldChangelogs.md))

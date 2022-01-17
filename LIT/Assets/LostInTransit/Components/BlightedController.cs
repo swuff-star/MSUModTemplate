@@ -5,6 +5,8 @@ using UnityEngine.Networking;
 
 namespace LostInTransit.Components
 {
+
+    //Todo: turn this into probably a networked body attachment?
     public class BlightedController : NetworkBehaviour
     {
         [SyncVar]
@@ -15,7 +17,31 @@ namespace LostInTransit.Components
 
         public EliteDef[] availableElites { get => Elites.Blight.EliteDefsForBlightedElites.ToArray(); }
 
-        public AffixBlighted.AffixBlightedBehavior buffBehavior;
+        public AffixBlighted.AffixBlightedBehavior BuffBehavior
+        {
+            get
+            {
+                if(_buffBehavior)
+                {
+                    return _buffBehavior;
+                }
+                else
+                {
+                    var body = GetComponent<CharacterMaster>()?.GetBodyObject();
+                    if(body)
+                    {
+                        _buffBehavior = body.GetComponent<AffixBlighted.AffixBlightedBehavior>();
+                    }
+                    return _buffBehavior;
+                }
+            }
+            set
+            {
+                _buffBehavior = value;
+            }
+        }
+
+        private AffixBlighted.AffixBlightedBehavior _buffBehavior;
 
         private Xoroshiro128Plus RNG => Run.instance.runRNG;
 
@@ -46,7 +72,7 @@ namespace LostInTransit.Components
         [ClientRpc]
         private void RpcOnEliteIndexAssigned(/*int index1, int index2*/)
         {
-            buffBehavior.SetElites(FirstEliteIndex, SecondEliteIndex);
+            BuffBehavior?.SetElites(FirstEliteIndex, SecondEliteIndex);
         }
         /*[Server]
         private void HostOnEliteIndexAssigned(int index1, int index2)

@@ -535,15 +535,15 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
-    1: thunderkit;teammoonstorm-moonstormsharededitorutils;teammoonstorm-moonstormsharedutils
-    7: thunderkit;teammoonstorm-moonstormsharededitorutils;teammoonstorm-moonstormsharedutils
-    13: thunderkit;teammoonstorm-moonstormsharededitorutils;teammoonstorm-moonstormsharedutils
-    19: thunderkit;teammoonstorm-moonstormsharededitorutils;teammoonstorm-moonstormsharedutils
-    21: thunderkit;teammoonstorm-moonstormsharededitorutils;teammoonstorm-moonstormsharedutils
-    25: thunderkit;teammoonstorm-moonstormsharededitorutils;teammoonstorm-moonstormsharedutils
-    26: thunderkit;teammoonstorm-moonstormsharededitorutils;teammoonstorm-moonstormsharedutils
-    27: thunderkit;teammoonstorm-moonstormsharededitorutils;teammoonstorm-moonstormsharedutils
-    28: thunderkit;teammoonstorm-moonstormsharededitorutils;teammoonstorm-moonstormsharedutils
+    1: thunderkit;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils
+    7: thunderkit;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils
+    13: thunderkit;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils
+    19: thunderkit;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils
+    21: thunderkit;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils
+    25: thunderkit;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils
+    26: thunderkit;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils
+    27: thunderkit;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils
+    28: thunderkit;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

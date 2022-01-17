@@ -1,40 +1,29 @@
 ﻿using Moonstorm;
 using RoR2;
 using UnityEngine;
+using R2API;
+using System;
 
 namespace LostInTransit.Items
 {
-    [DisabledContent]
     public class BitterRoot : ItemBase
     {
         private const string token = "LIT_ITEM_BITTERROOT_DESC";
-        public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("BitterRoot");
+        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("BitterRoot");
 
         [ConfigurableField(ConfigName = "Extra Maximum Health per Root", ConfigDesc = "Extra percentage of maximum health added per root")]
         [TokenModifier(token, StatTypes.Default)]
         public static float rootIncrease = 4f;
 
-        [ConfigurableField(ConfigName = "Maximum Health Gain", ConfigDesc = "Maximum health increase that can be obtained from roots, as a % (e.g. 300 = 300%). Set to 0 to disable.")]
-        public static float rootCap = 0f;
-
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            body.AddItemBehavior<MysteriousVialBehavior>(stack);
+            body.AddItemBehavior<BitterRootBehavior>(stack);
         }
-
-        public class MysteriousVialBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
+        public class BitterRootBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
-            public void RecalculateStatsStart() { }
-            public void RecalculateStatsEnd()
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                float rootTotal = 0;
-                if (rootCap > 0)
-                    rootTotal = Mathf.Min(rootIncrease * stack, rootCap);
-                else
-                    rootTotal = rootIncrease * stack;
-
-                float rootGain = (rootTotal / 100) * (body.baseMaxHealth + (body.levelMaxHealth * (body.level - 1)));
-                body.maxHealth += rootGain;
+                args.healthMultAdd += (rootIncrease/100) * stack;
             }
         }
     }

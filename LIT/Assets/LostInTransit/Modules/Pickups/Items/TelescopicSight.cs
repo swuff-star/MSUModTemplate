@@ -6,7 +6,7 @@ namespace LostInTransit.Items
     public class TelescopicSight : ItemBase
     {
         private const string token = "LIT_ITEM_TELESCOPICSIGHT_DESC";
-        public override ItemDef ItemDef { get; set; } = Assets.LITAssets.LoadAsset<ItemDef>("TelescopicSight");
+        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("TelescopicSight");
 
         public static string section;
 
@@ -84,25 +84,11 @@ namespace LostInTransit.Items
             {
                 if (body.isChampion)
                 {
-                    if (instakillBosses)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return instakillBosses;
                 }
                 if (body.isElite)
                 {
-                    if (instakillElites)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return instakillElites;
                 }
                 return true;
             }

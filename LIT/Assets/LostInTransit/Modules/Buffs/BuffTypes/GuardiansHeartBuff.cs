@@ -1,12 +1,14 @@
 ﻿using LostInTransit.Items;
 using Moonstorm;
 using RoR2;
+using R2API;
 
 namespace LostInTransit.Buffs
 {
+    [DisabledContent]
     public class GuardiansHeartBuff : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("GuardiansHeartBuff");
+        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("GuardiansHeartBuff");
         public static BuffDef buff;
 
         public override void Initialize()
@@ -19,15 +21,11 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<ShackledDebuffBehavior>(stack);
         }
 
-        public class ShackledDebuffBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
+        public class ShackledDebuffBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
-            public void RecalculateStatsEnd()
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                body.armor += GuardiansHeart.heartArmor;
-            }
-
-            public void RecalculateStatsStart()
-            {
+                args.armorAdd += GuardiansHeart.heartArmor;
             }
         }
     }

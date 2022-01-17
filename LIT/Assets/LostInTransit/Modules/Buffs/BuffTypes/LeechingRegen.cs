@@ -1,12 +1,14 @@
 ﻿using Moonstorm;
 using RoR2;
 using UnityEngine;
+using R2API;
+using UnityEngine.Networking;
 
 namespace LostInTransit.Buffs
 {
     public class LeechingRegen : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("LeechingRegen");
+        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("LeechingRegen");
 
         public static BuffDef buff;
 
@@ -23,35 +25,32 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<LeechingRegenBehavior>(stack);
         }
 
-        public class LeechingRegenBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
+        public class LeechingRegenBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
             public float duration = 5;
-            public float regen = 0;
+            public float totalRegen = 0;
+            public float regenStrength = 10;
 
-            public GameObject VFX = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingRegen");
+            public GameObject VFX = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EffectLeechingRegen");
             public void Start()
             {
                 VFX.GetComponent<DestroyOnTimer>().duration = duration;
-                EffectData effectData = new EffectData
+                if(NetworkServer.active)
                 {
-                    scale = body.bestFitRadius / 10,
-                    origin = body.aimOrigin,
-                    rootObject = body.gameObject
-                };
-                EffectManager.SpawnEffect(VFX, effectData, true);
-                CalculateRegen();
+                    EffectData effectData = new EffectData
+                    {
+                        scale = body.bestFitRadius / 10,
+                        origin = body.aimOrigin,
+                        rootObject = body.gameObject
+                    };
+                    EffectManager.SpawnEffect(VFX, effectData, true);
+                }
+                totalRegen = body.maxHealth * (regenStrength / 100) / duration;
+                body.RecalculateStats();
             }
-            private void CalculateRegen()
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                regen = (body.maxHealth / 10) / duration;
-            }
-            public void RecalculateStatsStart()
-            {
-
-            }
-            public void RecalculateStatsEnd()
-            {
-                body.regen += regen;
+                args.baseRegenAdd += totalRegen;
             }
         }
     }

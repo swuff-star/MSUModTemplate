@@ -29,11 +29,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
+  ErrorStacktrace: 
   Active: 1
   PerManifest: 1
   ExcludedManifests:
-  - {fileID: 11400000, guid: 6893422731aa6d67012f5f4d8209c304, type: 2}
+  - {fileID: 0}
   Recursive: 1
   SourceRequired: 1
+  EstablishDestination: 1
   Source: <ManifestPluginStaging>
   Destination: <NebbysTestingPath>

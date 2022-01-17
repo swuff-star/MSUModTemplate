@@ -1,3 +1,51 @@
+### 0.3.3
+* Items
+	* Golden Gun: Fixed the Item Display causing a ton of null reference exceptions, alongside causing invisible enemies.
+
+### 0.3.2
+* General
+	* Fixed the readme file not having the proper description for the new Telescopic Sight
+* Elites
+	* Blighted: Fixed smoke particles lingering indefinetly.
+	* Blighted: Fixed spawn sound effect not playing.
+	* Frenzying: New ramp is now properly applied.
+	* Leeching: New ramp is now properly applied.
+	* Volatile: New ramp is now properly applied.
+	* Volatile: Fixed crown not having proper materials.
+* Items
+	* Life Savings: I swear it should work now
+
+### 0.3.1
+* General
+	* No, this is not a readme update disguised as fix
+* Items
+	* Prison Shackles: Fixed icon
+
+
+### 0.3.0
+*I strongly recommend deleting old config and starting fresh. I think things should update either way, but am not sure. If values seem off in game - try this before reporting it to me.*
+* Items
+	* Added proper item tags for items (*Developer note: Apparently none of these items have been tagged properly, allowing Life Savings to show up in Healing chests and other similar occurances. They're all sorted nicely, now.*)
+	* AI Blacklisted certain items that the AI should never get for balance reasons (e.g. Telescopic Sight) or technical reasons (e.g. Golden Gun)
+	* Added item displays for Mysterious Vial, Beckoning Cat, Telescopic Sight, and Golden Gun for Vanilla characters. Expect the rest next update
+	* Items now properly reflect config-based changes in their descriptions. This is mostly complete and doesn't support some more complicated config options e.g. Beckoning Cat Luck, Telescopic Sight config
+	* Bitter Root: Added (*Developer note: I'm not happy with this, honestly. I kind of want to make it a consumeable like the DLC's "Elixir", but I don't feel like it'll be well received. Thoughts?*)
+	* Life Savings: Rewritten entirely and should now be networked, we hope
+	* Life Savings: Stat change: 5% of money kept from previous stage, +2.5% per stack
+	* Prison Shackles: Added (*Developer note: Shoutout to my lovely friend who had the idea for this. I think it's a simple change that makes it just as valuable as another beloved Uncommon item ;) Enjoy!*)
+	* Telescopic Sight: Reworked -> Attacks have a 1% (+0.5% per stack) chance to instakill enemies. Bosses recieve 20% of their maximum health as damage rather than instantaneous death. Has a 20 second (-2 seconds per stack) cooldown. (*Developer Note: I think I'm happy with this rework? Lemme know how it feels. I don't want it to be a crit-based item anymore, and I've heard some interesting ideas that drop the old idea entirely that'd make it a unique utility - if people aren't happy with this, I could try that next?*)
+	* Thallium: Slightly reworked how scaling works; very technical change to numbers, but stacking is now done by increasing duration rather than damage. Insanely minor numbers nerf that's negligible - can change back to old behavior via config if desired.*)
+* Elites
+	* Frenzying: Updated buff icon
+	* Frenzying: Updated elite ramp
+	* Frenzying: Added a visual indicator when dash is ready
+	* Leeching: Updated buff icon
+	* Leeching: Updated elite ramp
+	* Volatile: Added
+	* Blighted: Added (*Developer note: These guys use a unique spawning method. Do they feel too common? Too strong? Too visible?)
+* Other
+	* Updated "ELITE_MODIFIER_GOLD" from "Gold" to "Auric". I like how it sounds since it comes from the same root Aurelionite does. No other mod fixes this and it's too small a change to warrant its own mod. Golden Coast Plus, maybe?
+
 ### 0.2.0
 * General
 	* Added MoonstormSharedUtils as a dependency

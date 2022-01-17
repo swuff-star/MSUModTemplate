@@ -1,9 +1,8 @@
-﻿using System;
+﻿using RoR2EditorKit;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -43,7 +42,7 @@ namespace Moonstorm.EditorUtils
                 }
             }
 
-            if(count != 0)
+            if (count != 0)
             {
                 Debug.Log($"Found {count} Shader .Assets that where not ReadOnly, turning ReadOnly.");
             }

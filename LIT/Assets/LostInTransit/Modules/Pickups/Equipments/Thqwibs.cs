@@ -9,7 +9,7 @@ namespace LostInTransit.Equipments
     public class Thqwib : EquipmentBase
     {
         private const string token = "LIT_EQUIP_THQWIB_DESC";
-        public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("Thqwib");
+        public override EquipmentDef EquipmentDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("Thqwib");
 
         [ConfigurableField(ConfigName = "Damage per Thqwib", ConfigDesc = "Amount of damage each Thqwib deals on explosion, as a %.")]
         [TokenModifier(token, StatTypes.Default, 1)]
@@ -22,26 +22,6 @@ namespace LostInTransit.Equipments
         [ConfigurableField(ConfigName = "Chance to Proc On-Kill Effects", ConfigDesc = "Chance, per Thqwib, to activate On-Kill effects when exploding.\nDefault Average: 30x * 10% = 3 average On-Kill activations per bloom.")]
         [TokenModifier(token, StatTypes.Default, 2)]
         public static float chance = 10f;
-
-        /*public override void Config()
-        {
-			var section = "Equipment: " + EquipmentDef.name;
-			damage = LITMain.config.Bind<float>(section, "Damage per Projectile", 200, "Amount of %damage done by each projectile").Value;
-			thqwibAmount = LITMain.config.Bind<int>(section, "Amount of Thqwibs", 30, "Amount of thqwibs to throw.").Value;
-			var component = Projectiles.ThqwibProjectile.ThqwibProj.GetComponent<ProjectileChanceForOnKillOnDestroy>();
-			if (component)
-			{
-				chance = LITMain.config.Bind<float>(section, "Chance for On Kill", 10f, "Chance for each Thqwib to trigger an on kill effect.").Value; ;
-				component.chance = chance;
-			}
-		}*/
-
-        /*public override void DescriptionToken()
-		{
-			LITUtil.AddTokenToLanguage(EquipmentDef.descriptionToken,
-				$,
-				LangEnum.en);
-		}*/
 
         public override bool FireAction(EquipmentSlot slot)
         {

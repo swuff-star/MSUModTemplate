@@ -5,7 +5,7 @@ namespace LostInTransit.Equipments
 {
     public class GiganticAmethyst : EquipmentBase
     {
-        public override EquipmentDef EquipmentDef { get; set; } = Assets.LITAssets.LoadAsset<EquipmentDef>("GiganticAmethyst");
+        public override EquipmentDef EquipmentDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("GiganticAmethyst");
 
         public override bool FireAction(EquipmentSlot slot)
         {

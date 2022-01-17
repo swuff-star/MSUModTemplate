@@ -1,11 +1,12 @@
 ﻿using Moonstorm;
 using RoR2;
+using R2API;
 
 namespace LostInTransit.Buffs
 {
     public class GoldenGunBuff : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("GoldenGun");
+        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("GoldenGun");
         public static BuffDef buff;
 
         public override void Initialize()
@@ -18,15 +19,11 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<GoldenGunBuffBehavior>(stack);
         }
 
-        public class GoldenGunBuffBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
+        public class GoldenGunBuffBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
-            public void RecalculateStatsEnd()
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                body.damage += (stack * 0.01f) * (body.baseDamage + (body.levelDamage * (body.level - 1)));
-            }
-
-            public void RecalculateStatsStart()
-            {
+                args.damageMultAdd += 0.01f * stack;
             }
         }
     }

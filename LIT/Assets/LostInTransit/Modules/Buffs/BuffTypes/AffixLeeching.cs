@@ -1,14 +1,16 @@
 ﻿using Moonstorm;
 using RoR2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace LostInTransit.Buffs
 {
     public class AffixLeeching : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = Assets.LITAssets.LoadAsset<BuffDef>("AffixLeeching");
+        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixLeeching");
         public static BuffDef buff;
 
         public override void Initialize()
@@ -21,74 +23,122 @@ namespace LostInTransit.Buffs
             body.AddItemBehavior<AffixLeechingBehavior>(stack);
         }
 
-        public class AffixLeechingBehavior : CharacterBody.ItemBehavior, IOnDamageDealtServerReceiver
+        public class AffixLeechingBehavior : CharacterBody.ItemBehavior, IOnDamageDealtServerReceiver, IOnTakeDamageServerReceiver
         {
-            public static float timeBetweenHeals = 10;
+            public float timeBetweenBursts = 10;
 
-            public static float abilityDuration = 20;
+            public float chargingTime = 5;
 
-            public static GameObject HealingEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingBurst");
+            public float abilityDuration = 20;
 
-            public static GameObject TracerEffect = Assets.LITAssets.LoadAsset<GameObject>("TracerLeeching");
+            public float regenPercentage;
 
-            public static GameObject AbilityEffect = Assets.LITAssets.LoadAsset<GameObject>("EffectLeechingAbility");
+            public GameObject PrepBurstEffect = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EffectLeechingPrepBurst");
+
+            public GameObject HealingEffect = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EffectLeechingBurst");
+
+            public GameObject TracerEffect = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("TracerLeeching");
+
+            public GameObject AbilityEffect = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EffectLeechingAbility");
 
             private GameObject AbilityEffectInstance;
 
-            private List<HealthComponent> healthComponents;
+            private List<HealthComponent> healthComponents = new List<HealthComponent>();
 
-            private SphereSearch healSearch;
+            private SphereSearch healSearch = new SphereSearch();
 
-            private float healingStopwatch;
+            private float burstStopwatch;
 
             private float abilityStopwatch;
 
+            private float prepBurstStopwatch;
+
             private bool doingAbility;
 
-            internal void Ability()
-            {
-                doingAbility = true;
-                abilityStopwatch = 0;
-                if (!AbilityEffectInstance)
-                {
-                    AbilityEffectInstance = Instantiate(AbilityEffect, body.transform);
-                    if (AbilityEffectInstance)
-                    {
-                        AbilityEffectInstance.transform.localScale *= body.bestFitRadius;
-                    }
-                }
-                Util.PlaySound("LeechingHeal", body.gameObject);
-            }
+            private bool preppingRegenBurst;
+
             private void Start()
             {
-                healSearch = new SphereSearch();
-                healthComponents = new List<HealthComponent>();
+                if (body.healthComponent)
+                {
+                    HG.ArrayUtils.ArrayAppend(ref body.healthComponent.onTakeDamageReceivers, this);
+                }
+            }
+
+            public void OnDamageDealtServer(DamageReport damageReport)
+            {
+                int divisor = body.isPlayerControlled ? 2 : 1;
+                if (!doingAbility)
+                {
+                    damageReport.attackerBody?.healthComponent?.Heal((damageReport.damageDealt * damageReport.damageInfo.procCoefficient) / divisor, default);
+                }
+                else
+                {
+                    SearchForAllies();
+                    float healing = (damageReport.damageDealt * 1.5f / divisor) / healthComponents.Count;
+                    foreach (HealthComponent component in healthComponents)
+                    {
+                        EffectManager.SpawnEffect(TracerEffect, new EffectData
+                        {
+                            origin = component.body.corePosition,
+                            start = body.corePosition
+                        }, true);
+
+                        component.Heal(healing, default);
+                    }
+                }
+            }
+
+            public void OnTakeDamageServer(DamageReport damageReport)
+            {
+                if(preppingRegenBurst)
+                {
+                    regenPercentage -= 0.5f;
+                }
             }
 
             private void Update()
             {
-                healingStopwatch += Time.deltaTime;
-                if (healingStopwatch > timeBetweenHeals)
+                prepBurstStopwatch += preppingRegenBurst ? Time.deltaTime : 0;
+                abilityStopwatch += doingAbility ? Time.deltaTime : 0;
+                burstStopwatch += preppingRegenBurst ? 0 : Time.deltaTime;
+
+                if(burstStopwatch > timeBetweenBursts)
                 {
-                    healingStopwatch = 0;
-                    HealNearby();
+                    burstStopwatch = 0;
+                    PrepareBurst();
                 }
-                if (doingAbility)
+                if (abilityStopwatch > abilityDuration)
                 {
-                    abilityStopwatch += Time.deltaTime;
-                    if (abilityStopwatch > abilityDuration)
-                    {
-                        doingAbility = false;
-                        body.RecalculateStats();
-                        abilityStopwatch = 0;
-                        if (AbilityEffectInstance)
-                            Destroy(AbilityEffectInstance);
-                    }
+                    doingAbility = false;
+                    abilityStopwatch = 0;
+                    if (AbilityEffectInstance)
+                        Destroy(AbilityEffectInstance);
+                }
+                if(prepBurstStopwatch > chargingTime && (bool)body.healthComponent?.alive && NetworkServer.active)
+                {
+                    Burst();
                 }
             }
 
-            private void HealNearby()
+            private void PrepareBurst()
             {
+                if(NetworkServer.active)
+                {
+                    EffectManager.SpawnEffect(PrepBurstEffect, new EffectData
+                    {
+                        origin = body.corePosition,
+                        rootObject = body.gameObject
+                    }, true);
+                }
+                preppingRegenBurst = true;
+                regenPercentage = 10;
+            }
+
+            private void Burst()
+            {
+                prepBurstStopwatch = 0;
+                preppingRegenBurst = false;
                 SearchForAllies();
                 bool hasBursted = false;
                 healthComponents.Where(hc => hc.body != body)
@@ -98,10 +148,27 @@ namespace LostInTransit.Buffs
                     .ForEach(hc =>
                     {
                         hc.body.AddTimedBuff(LeechingRegen.buff, 5);
-                        SpawnFX(TracerEffect, hc.body.corePosition, body.corePosition);
+
+                        var component = hc.body.GetComponent<LeechingRegen.LeechingRegenBehavior>();
+                        if(component)
+                        {
+                            component.regenStrength = Math.Max(5, regenPercentage);
+                        }
+
+                        EffectManager.SpawnEffect(TracerEffect, new EffectData
+                        {
+                            origin = hc.body.corePosition,
+                            start = body.corePosition
+                        }, true);
+
                         if (!hasBursted)
                         {
-                            SpawnFX(HealingEffect, body.radius, body.aimOrigin);
+                            hasBursted = true;
+                            EffectManager.SpawnEffect(HealingEffect, new EffectData
+                            {
+                                scale = body.radius,
+                                origin = body.aimOrigin
+                            }, true);
                         }
                     });
             }
@@ -114,7 +181,7 @@ namespace LostInTransit.Buffs
                 TeamMask mask = default(TeamMask);
                 mask.AddTeam(body.teamComponent.teamIndex);
                 healSearch.mask = LayerIndex.entityPrecise.mask;
-                healSearch.radius = 30;
+                healSearch.radius = 25;
                 healSearch.origin = body.corePosition;
                 healSearch.RefreshCandidates();
                 healSearch.FilterCandidatesByHurtBoxTeam(mask);
@@ -126,20 +193,16 @@ namespace LostInTransit.Buffs
                         healthComponents.Add(hb.healthComponent);
                 });
             }
-
-
-            public void OnDamageDealtServer(DamageReport damageReport)
+            public void Ability()
             {
-                if (!doingAbility)
-                    damageReport.attackerBody?.healthComponent?.Heal(damageReport.damageDealt * damageReport.damageInfo.procCoefficient, default);
-                else
+                doingAbility = true;
+                abilityStopwatch = 0;
+                if (!AbilityEffectInstance)
                 {
-                    SearchForAllies();
-                    float healing = (damageReport.damageDealt * 1.5f) / healthComponents.Count;
-                    foreach (HealthComponent component in healthComponents)
+                    AbilityEffectInstance = Instantiate(AbilityEffect, body.transform);
+                    if (AbilityEffectInstance)
                     {
-                        SpawnFX(TracerEffect, component.body.corePosition, body.corePosition);
-                        component.Heal(healing, default);
+                        AbilityEffectInstance.transform.localScale *= body.bestFitRadius;
                     }
                 }
             }
@@ -148,30 +211,16 @@ namespace LostInTransit.Buffs
             {
                 if (AbilityEffectInstance)
                     Destroy(AbilityEffectInstance);
-            }
 
-            #region Effects
-            private void SpawnFX(GameObject Effect, float scale, Vector3 originPosition)
-            {
-                EffectData effectData = new EffectData
+                if (body.healthComponent)
                 {
-                    scale = scale,
-                    origin = originPosition
-                };
-                EffectManager.SpawnEffect(Effect, effectData, true);
+                    int i = Array.IndexOf(body.healthComponent.onIncomingDamageReceivers, this);
+                    if (i > -1)
+                    {
+                        HG.ArrayUtils.ArrayRemoveAtAndResize(ref body.healthComponent.onIncomingDamageReceivers, body.healthComponent.onIncomingDamageReceivers.Length, i);
+                    }
+                }
             }
-
-            private void SpawnFX(GameObject Effect, Vector3 origin, Vector3 start)
-            {
-                EffectData effectData = new EffectData
-                {
-                    origin = origin,
-                    start = start
-                };
-                EffectManager.SpawnEffect(TracerEffect, effectData, true);
-            }
-            #endregion
-
         }
     }
 }
