@@ -20,6 +20,9 @@ namespace LostInTransit.Items
         [ConfigurableField(ConfigName = "Stacking Drop Chance", ConfigDesc = "Added chance for Elites to drop an item per stack.")]
         [TokenModifier(token, StatTypes.Default, 1)]
         public static float stackChance = 1.5f;
+        
+        [ConfigurableField(ConfigName = "Maximum Drop Chance Cap", ConfigDesc = "Maximum possible chance for Elites to drop an item, regardless of stacks.")]
+        public static float capChance = 100f;
 
         [ConfigurableField(ConfigName = "Uncommon Item Chance", ConfigDesc = "Chance for Elites to drop an Uncommon (Green) item.")]
         [TokenModifier(token, StatTypes.Default, 2)]
@@ -70,7 +73,7 @@ namespace LostInTransit.Items
                 var dropLocation = damageReport.attackerBody.transform.position;
                 for (int i = 0; i < victimBody.eliteBuffCount; i++)
                 {
-                    if (victimBody.isElite && Roll(baseChance + (stackChance * (stack - 1)), 0))
+                    if (victimBody.isElite && Roll(Mathf.Min(baseChance + (stackChance * (stack - 1)), capChance), 0))
                     {
                         //Debug.Log("Rolling for item...");
                         var redItem = usesLuck ? Roll(redItemChance + (redItemStack * (stack - 1)), body.master.luck) : Roll(redItemChance + (redItemStack * (stack - 1)), 0);
