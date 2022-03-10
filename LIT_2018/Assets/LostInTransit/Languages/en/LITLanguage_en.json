@@ -32,7 +32,7 @@
 
 		"LIT_ITEM_MYSTERIOUSVIAL_NAME": "Mysterious Vial",
 		"LIT_ITEM_MYSTERIOUSVIAL_PICKUP": "Increased health regeneration.",
-		"LIT_ITEM_MYSTERIOUSVIAL_DESC": "Regenerate an extra <style=cIsHealing>+{0}</style> <style=cStack>(+{0} per stack)</style> <style=cIsHealing>hp</style> per second.",
+		"LIT_ITEM_MYSTERIOUSVIAL_DESC": "Increase <style=cIsHealing>health regeneration</style> by <style=cIsHealing>+{0}</style> <style=cStack>(+{0} per stack)</style>.",
 		"LIT_ITEM_MYSTERIOUSVIAL_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.</style>\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/CautiousSlug</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read <style=cIsHealing>more information</style> about this type of error.",
 
 		"LIT_ITEM_RUSTYJETPACK_NAME": "Rusty Jetpack",
