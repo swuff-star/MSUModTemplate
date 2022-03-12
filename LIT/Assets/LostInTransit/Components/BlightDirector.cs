@@ -36,7 +36,7 @@ namespace LostInTransit.Components
         {
             get
             {
-                var blightArtifact = Assets.LITAssets.LoadAsset<ArtifactDef>("Prestige");
+                var blightArtifact = LITAssets.Instance.MainAssetBundle.LoadAsset<ArtifactDef>("Prestige");
                 if (blightArtifact)
                 {
                     return RunArtifactManager.instance.IsArtifactEnabled(blightArtifact);
@@ -53,11 +53,9 @@ namespace LostInTransit.Components
             }
         }
 
-        private CharacterBody[] BlacklistedBodies { get => Elites.Blight.blacklistedBodies.ToArray(); }
-
         private SceneDef CommencementScene { get => SceneCatalog.GetSceneDefFromSceneName("moon2"); }
 
-        private EquipmentIndex BlightedEquipIndex { get => Assets.LITAssets.LoadAsset<EquipmentDef>("AffixBlighted").equipmentIndex; }
+        private EquipmentIndex BlightedEquipIndex { get => LITAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("AffixBlighted").equipmentIndex; }
 
         void Start()
         {
@@ -99,10 +97,6 @@ namespace LostInTransit.Components
             var isEnemy = (body.teamComponent?.teamIndex != TeamIndex.Player);
             var hasComponent = ((bool)body.master?.GetComponent<BlightedController>());
             var isntChampion = !body.isChampion;
-            var isBlacklisted = CheckBlacklist(body);
-
-            if (isBlacklisted)
-                return;
 
             if (IsHonorArtifactEnabled || AffixBlighted.bossBlighted)
             {
@@ -122,11 +116,6 @@ namespace LostInTransit.Components
                     MakeBlighted(body);
                 }
             }
-        }
-
-        private bool CheckBlacklist(CharacterBody body)
-        {
-            return BlacklistedBodies.Contains(body);
         }
 
         private void MakeBlighted(CharacterBody body)

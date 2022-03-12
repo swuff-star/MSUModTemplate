@@ -3,26 +3,18 @@ using RoR2.Skills;
 using UnityEditor;
 using UnityEngine;
 
-namespace RoR2EditorKit.RoR2
+namespace RoR2EditorKit.RoR2Related
 {
     /// <summary>
     /// Creation of ScriptableObjects that are normally uncreatable in RoR2
     /// </summary>
     public static class ScriptableCreators
     {
-        [MenuItem("Assets/Create/RoR2/UnlockableDef")]
-        public static void CreateUnlockableDef()
-        {
-            var unlockableDef = ScriptableObject.CreateInstance<UnlockableDef>();
-            unlockableDef.cachedName = "New UnlockableDef";
-            Util.CreateAssetAtSelectionPath(unlockableDef);
-        }
-
         #region skilldefs
         [MenuItem("Assets/Create/RoR2/SkillDef/Captain/Orbital")]
         public static void CreateOrbital()
         {
-            CreateSkill<CaptainOrbitalSkillDef>();
+            Util.CreateNewScriptableObject<CaptainOrbitalSkillDef>();
         }
 
         [MenuItem("Assets/Create/RoR2/SkillDef/Captain/SupplyDrop")]
