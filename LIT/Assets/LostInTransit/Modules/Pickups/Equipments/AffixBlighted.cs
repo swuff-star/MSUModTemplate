@@ -33,6 +33,8 @@ namespace LostInTransit.Equipments
             return false;
         }
 
+        //N- Due to the nature of us usiong "ItemBehavior" for equipments, Equipment behaviors still inherit from CharacterBody.ItemBehavior
+        //Chances of this changing are extremely minimal.
         public class BlightStatIncrease : CharacterBody.ItemBehavior
         {
             public void Start()

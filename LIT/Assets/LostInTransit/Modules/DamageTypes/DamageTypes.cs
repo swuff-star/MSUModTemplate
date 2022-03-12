@@ -4,21 +4,21 @@ using System.Linq;
 
 namespace LostInTransit.DamageTypes
 {
-    public class DamageTypes : DamageTypeModuleBase
+    public sealed class DamageTypes : DamageTypeModuleBase
     {
-        public static DamageTypes Instance { get; set; }
+        public static DamageTypes Instance { get; private set; }
 
-        public override void Init()
+        public override void Initialize()
         {
             Instance = this;
-            base.Init();
+            base.Initialize();
             LITLogger.LogI($"Initializing Damage Types.");
-            InitializeDamageTypes();
+            GetDamageTypeBases();
         }
 
-        public override IEnumerable<DamageTypeBase> InitializeDamageTypes()
+        protected override IEnumerable<DamageTypeBase> GetDamageTypeBases()
         {
-            base.InitializeDamageTypes()
+            base.GetDamageTypeBases()
                 .ToList()
                 .ForEach(dType => AddDamageType(dType));
             return null;

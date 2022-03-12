@@ -1,27 +1,26 @@
 ﻿using LostInTransit.Components;
 using Moonstorm;
+using Moonstorm.Components;
 using RoR2;
 using UnityEngine;
 
 namespace LostInTransit.Buffs
 {
-    public class AffixBlighted : BuffBase
+    //N- Buffs no longer have an "AddBehavior(ref CharacterBody body, int stacks)" method
+    public sealed class AffixBlighted : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixBlighted");
+        public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixBlighted");
 
-        public static BuffDef buffDef;
+        //N- Buff behaviors now use moonstorm's base buff body behavior
+        //The class itself is abstract and its in Moonstorm.Components
+        public class AffixBlightedBehavior : BaseBuffBodyBehavior, IStatItemBehavior
+        {
+            //N- This attribute is needed for the system to automatically take care of adding the behavior or not depending on the buff stacks.
+            //It NEEDS to be static, return a buffDef, and have this attribute.
+            //If youre not sure wether the behavior needs to be on client, on server, or both, just set "useOnClient" and "useOnServer" to true.
+            [BuffDefAssociation(useOnClient = true, useOnServer = true)]
+            public static BuffDef GetBuffDef() => LITContent.Buffs.AffixBlighted;
 
-        public override void Initialize()
-        {
-            buffDef = BuffDef;
-        }
-
-        public override void AddBehavior(ref CharacterBody body, int stack)
-        {
-            body.AddItemBehavior<AffixBlightedBehavior>(stack);
-        }
-        public class AffixBlightedBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
-        {
 
             public BlightedController MasterBehavior { get => body.masterObject?.GetComponent<BlightedController>(); }
 

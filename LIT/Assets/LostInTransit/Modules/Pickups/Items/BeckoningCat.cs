@@ -1,17 +1,17 @@
 ﻿using Moonstorm;
 using RoR2;
+using RoR2.Items;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace LostInTransit.Items
 {
+    //N- Items no longer have an "AddBehavior(ref CharacterBody body, int stacks)" method
     public class BeckoningCat : ItemBase
     {
         private const string token = "LIT_ITEM_BECKONINGCAT_DESC";
 
-        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("BeckoningCat");
-
-        public static string section;
+        public override ItemDef ItemDef => LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("BeckoningCat");
 
         [ConfigurableField(ConfigName = "Base Drop Chance", ConfigDesc = "Base chance for Elites to drop an item.")]
         [TokenModifier(token, StatTypes.Default, 0)]
@@ -43,13 +43,17 @@ namespace LostInTransit.Items
         [ConfigurableField(ConfigName = "Use Luck", ConfigDesc = "Whether Luck should be accounted for in all Beckoning Cat-related rolls.")]
         public static bool usesLuck = true;
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
+        //N- Item Behaviors now use RoR2's "BaseItemBodyBehavior" class
+        //The class itself is abstract and its in RoR2.Items
+        public class BeckoningCatBehavior : BaseItemBodyBehavior, IOnKilledOtherServerReceiver
         {
-            body.AddItemBehavior<BeckoningCatBehavior>(stack);
-        }
+            //N- This attribute is needed for the system to automatically take care of adding the behavior or not depending on the item's stacks.
+            //it NEEDS to be static, return an itemDef, and have this attribute.
+            //If you're not sure whether the behavior needs to be on client, on server, or both, just set "useOnClient" and "useOnServer" to true.
 
-        public class BeckoningCatBehavior : CharacterBody.ItemBehavior, IOnKilledOtherServerReceiver
-        {
+            //SIDENOTE: Use on client is false, which means that client's game objects wont have this behavior, but this is ok, as IOnKilledOtherServerReceiver runs only on server.
+            [ItemDefAssociation(useOnClient = false, useOnServer = true)]
+            public static ItemDef GetItemDef() => LITContent.Items.BeckoningCat;
             public List<PickupIndex> redItems = Run.instance.availableTier3DropList;
             public List<PickupIndex> greenItems = Run.instance.availableTier2DropList;
             public List<PickupIndex> whiteItems = Run.instance.availableTier1DropList;

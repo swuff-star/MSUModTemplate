@@ -35,11 +35,6 @@ namespace LostInTransit
             LoadSoundBank();
         }
 
-        internal void LoadEffectDefs()
-        {
-            LITContent.Instance.SerializableContentPack.effectDefs = LoadEffectDefsFromHolders(MainAssetBundle);
-        }
-
         internal void SwapMaterialShaders()
         {
             SwapShadersFromMaterialsInBundle(MainAssetBundle);

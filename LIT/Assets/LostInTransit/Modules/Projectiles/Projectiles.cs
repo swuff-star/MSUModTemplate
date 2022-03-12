@@ -1,4 +1,5 @@
 ﻿using Moonstorm;
+using R2API.ScriptableObjects;
 using RoR2.ContentManagement;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,26 +7,24 @@ using UnityEngine;
 
 namespace LostInTransit.Modules
 {
-    public class Projectiles : ProjectileModuleBase
+    public sealed class Projectiles : ProjectileModuleBase
     {
         public static Projectiles Instance { get; set; }
-        public override SerializableContentPack ContentPack { get; set; } = LITContent.Instance.SerializableContentPack;
+        public override R2APISerializableContentPack SerializableContentPack => LITContent.Instance.SerializableContentPack;
 
-        public override AssetBundle AssetBundle { get; set; } = LITAssets.Instance.MainAssetBundle;
-
-        public override void Init()
+        public override void Initialize()
         {
             Instance = this;
-            base.Init();
+            base.Initialize();
             LITLogger.LogI($"Initializing Projectiles...");
-            InitializeProjectiles();
+            GetProjectileBases();
         }
 
-        public override IEnumerable<ProjectileBase> InitializeProjectiles()
+        protected override IEnumerable<ProjectileBase> GetProjectileBases()
         {
-            base.InitializeProjectiles()
+            base.GetProjectileBases()
                 .ToList()
-                .ForEach(proj => AddProjectile(proj, ContentPack));
+                .ForEach(proj => AddProjectile(proj));
             return null;
         }
     }
