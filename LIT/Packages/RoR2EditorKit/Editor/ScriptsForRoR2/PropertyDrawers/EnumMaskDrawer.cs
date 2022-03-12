@@ -4,29 +4,30 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
+using RoR2EditorKit.Core.PropertyDrawers;
 
-namespace RoR2EditorKit.RoR2.PropertyDrawers
+namespace RoR2EditorKit.RoR2Related.PropertyDrawers
 {
     [CustomPropertyDrawer(typeof(EnumMaskAttribute))]
-    public class EnumMaskDrawer : PropertyDrawer
+    public class EnumMaskDrawer : IMGUIPropertyDrawer
     {
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        protected override void DrawCustomDrawer()
         {
             Enum targetEnum = GetBaseProperty<Enum>(property);
+            FieldInfo field = GetField(property);
 
             string propName = property.name;
             if (string.IsNullOrEmpty(propName))
                 propName = Regex.Replace(property.name, "([^^])([A-Z])", "$1 $2");
             EditorGUI.BeginChangeCheck();
-            EditorGUI.BeginProperty(position, label, property);
+            EditorGUI.BeginProperty(rect, label, property);
 
-            Enum enumNew = EditorGUI.EnumFlagsField(position, ObjectNames.NicifyVariableName(propName), targetEnum);
+            Enum enumNew = EditorGUI.EnumFlagsField(rect, ObjectNames.NicifyVariableName(propName), targetEnum);
 
             EditorGUI.EndProperty();
             if (EditorGUI.EndChangeCheck())
             {
-                var convertedType = Convert.ChangeType(enumNew, targetEnum.GetType());
-                property.intValue = Convert.ToInt32(convertedType);
+                fieldInfo.SetValue(property.serializedObject.targetObject, enumNew);
                 property.serializedObject.ApplyModifiedProperties();
                 property.serializedObject.UpdateIfRequiredOrScript();
             }
@@ -46,6 +47,19 @@ namespace RoR2EditorKit.RoR2.PropertyDrawers
                 reflectionTarget = fieldInfo.GetValue(reflectionTarget);
             }
             return (T)reflectionTarget;
+        }
+
+        static FieldInfo GetField(SerializedProperty prop)
+        {
+            string[] separatedPaths = prop.propertyPath.Split('.');
+
+            object reflectionTarget = prop.serializedObject.targetObject;
+            FieldInfo field = null;
+            foreach (var path in separatedPaths)
+            {
+                field = reflectionTarget.GetType().GetField(path);
+            }
+            return field;
         }
     }
 }

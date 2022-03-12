@@ -1,27 +1,25 @@
 {
     "name": "LostInTransit",
     "references": [],
-    "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
-        "MMHOOK_Assembly-CSharp.dll",
         "BepInEx.dll",
-        "HGCSharpUtils.dll",
         "R2API.dll",
         "MonoMod.Utils.dll",
         "Mono.Cecil.dll",
         "DebugToolkit.dll",
-        "AspectAbilities.dll",
-        "MysticsRisky2Utils.dll",
-        "StubbedAssembly-CSharp (1).dll",
-        "MoonstormSharedUtils.dll",
+        "Assembly-CSharp.dll",
+        "com.unity.multiplayer-hlapi.Runtime.dll",
+        "RoR2.dll",
+        "HGCSharpUtils.dll",
         "HGUnityUtils.dll",
-        "Wwise.dll",
-        "Zio.dll"
+        "MoonstormSharedUtils.dll"
     ],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
