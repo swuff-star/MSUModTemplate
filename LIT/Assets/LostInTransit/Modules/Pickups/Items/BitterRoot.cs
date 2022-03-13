@@ -20,6 +20,7 @@ namespace LostInTransit.Items
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static ItemDef GetItemDef() => LITContent.Items.BitterRoot;
+
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
                 args.healthMultAdd += (rootIncrease/100) * stack;

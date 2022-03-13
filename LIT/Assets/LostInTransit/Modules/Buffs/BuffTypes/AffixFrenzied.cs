@@ -9,12 +9,6 @@ namespace LostInTransit.Buffs
     public class AffixFrenzied : BuffBase
     {
         public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixFrenzied");
-        public static BuffDef buff;
-
-        public override void Initialize()
-        {
-            buff = BuffDef;
-        }
 
         public class AffixFrenziedBehavior : BaseBuffBodyBehavior, IStatItemBehavior
         {

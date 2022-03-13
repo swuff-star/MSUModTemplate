@@ -59,6 +59,7 @@ namespace LostInTransit.Items
                     stopwatch += Time.fixedDeltaTime;
                     if (stopwatch > checkTimer)
                     {
+                        //n- I hate this syntax
                         stopwatch -= checkTimer;
                         //System.Diagnostics.Debug.WriteLine("It's been " + checkTimer + "!");
                         float currentCDBuffs = body.GetBuffCount(LITContent.Buffs.RepulsionArmorCD);
