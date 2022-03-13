@@ -3,21 +3,11 @@ using static R2API.DamageAPI;
 
 namespace LostInTransit.DamageTypes
 {
-    public class Hypercrit : DamageTypeBase
+    public sealed class Hypercrit : DamageTypeBase
     {
-        public override ModdedDamageType ModdedDamageType { get; set; }
+        public override ModdedDamageType ModdedDamageType { get; protected set; }
 
-        public static ModdedDamageType hypercritDamageType;
-
-        public override void Initialize()
-        {
-            hypercritDamageType = ReserveDamageType();
-            ModdedDamageType = hypercritDamageType;
-        }
-
-        public override ModdedDamageType GetDamageType()
-        {
-            return hypercritDamageType;
-        }
+        public override void Delegates()
+        { }
     }
 }

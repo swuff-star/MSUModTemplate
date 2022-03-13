@@ -1,9 +1,12 @@
 ﻿using RoR2.ContentManagement;
+using R2API.ScriptableObjects;
+using R2API.ContentManagement;
 using Moonstorm.Loaders;
 using System;
 using LostInTransit.Modules;
 using System.Linq;
 using RoR2;
+using UnityEngine;
 
 namespace LostInTransit
 {
@@ -70,7 +73,7 @@ namespace LostInTransit
         }
         public override string identifier => LITMain.GUID;
 
-        public override SerializableContentPack SerializableContentPack { get; protected set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<SerializableContentPack>("ContentPack");
+        public override R2APISerializableContentPack SerializableContentPack { get; protected set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<R2APISerializableContentPack>("ContentPack");
         public override Action[] LoadDispatchers { get; protected set; }
         public override Action[] PopulateFieldsDispatchers { get; protected set; }
 
@@ -81,38 +84,38 @@ namespace LostInTransit
             {
                 delegate
                 {
-                    new LostInTransit.Buffs.Buffs().Init();
+                    new LostInTransit.Buffs.Buffs().Initialize();
                 },
                 delegate
                 {
-                    new DamageTypes.DamageTypes().Init();
+                    new DamageTypes.DamageTypes().Initialize();
                 },
                 delegate
                 {
-                    new Modules.Projectiles().Init();
+                    new Modules.Projectiles().Initialize();
                 },
                 delegate
                 {
-                    new Pickups().Init();
+                    new Pickups().Initialize();
                 },
                 delegate
                 {
-                    new Modules.Elites().Init();
+                    new Modules.Elites().Initialize();
                 },
                 delegate
                 {
-                    new ItemDisplays().Init();
+                    new ItemDisplays().Initialize();
                 },
                 delegate
                 {
-                    typeof(LITContent).Assembly.GetTypes()
+                    SerializableContentPack.entityStateTypes = typeof(LITContent).Assembly.GetTypes()
                         .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
-                        .ToList()
-                        .ForEach(state => HG.ArrayUtils.ArrayAppend(ref SerializableContentPack.entityStateTypes, new EntityStates.SerializableEntityStateType(state)));
+                        .Select(type => new EntityStates.SerializableEntityStateType(type))
+                        .ToArray();
                 },
                 delegate
                 {
-                    LITAssets.Instance.LoadEffectDefs();
+                    SerializableContentPack.effectPrefabs = LITAssets.LoadAllAssetsOfType<GameObject>().Where(go => go.GetComponent<EffectComponent>()).ToArray();
                 },
                 delegate
                 {

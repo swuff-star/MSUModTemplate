@@ -42,8 +42,8 @@ namespace LostInTransit
 
         public void Awake()
         {
-            ConfigurableFieldManager.AddMod(Config);
-            TokenModifierManager.AddMod();
+            ConfigurableFieldManager.AddMod();
+            TokenModifierManager.AddToManager();
 
             instance = this;
             pluginInfo = Info;

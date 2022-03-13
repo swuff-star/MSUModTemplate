@@ -6,7 +6,7 @@ namespace LostInTransit.Modules
 {
     public class ItemDisplays : ItemDisplayModuleBase
     {
-        public static ItemDisplays Instance { get; set; }
+        /*public static ItemDisplays Instance { get; set; }
         public override AssetBundle AssetBundle { get; set; } = LITAssets.Instance.MainAssetBundle;
         public override SerializableContentPack ContentPack { get; set; } = LITContent.Instance.SerializableContentPack;
 
@@ -17,6 +17,7 @@ namespace LostInTransit.Modules
             PopulateKeyAssetsAndDisplaysFromAssetbundle();
             PopulateMSIDRSFromAssetBundle();
             PopulateSingleItemDisplayRuleFromAssetBundle();
-        }
+        }*/
+        public override AssetBundle MainBundle => null;
     }
 }

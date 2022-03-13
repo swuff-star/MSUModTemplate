@@ -1,7 +1,9 @@
 ﻿using Moonstorm;
+using System;
 
 namespace LostInTransit.Equipments
 {
+    [Obsolete("Aspect abilities itself is deprecated, no clue if we should keep this stuff or not.")]
     public abstract class LITEliteEquip : EliteEquipmentBase
     {
         public abstract MSAspectAbilityDataHolder AspectAbilityData { get; set; }

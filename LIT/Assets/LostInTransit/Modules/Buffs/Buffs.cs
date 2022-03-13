@@ -1,4 +1,5 @@
 ﻿using Moonstorm;
+using R2API.ScriptableObjects;
 using RoR2;
 using RoR2.ContentManagement;
 using System.Collections.Generic;
@@ -6,26 +7,26 @@ using System.Linq;
 
 namespace LostInTransit.Buffs
 {
-    public class Buffs : BuffModuleBase
+    public sealed class Buffs : BuffModuleBase
     {
         public static Buffs Instance { get; set; }
         public static BuffDef[] LoadedLITBuffs { get => LITContent.Instance.SerializableContentPack.buffDefs; }
-        public override SerializableContentPack ContentPack { get; set; } = LITContent.Instance.SerializableContentPack;
+        public override R2APISerializableContentPack SerializableContentPack => LITContent.Instance.ContentPack;
 
 
-        public override void Init()
+        public override void Initialize()
         {
             Instance = this;
-            base.Init();
+            base.Initialize();
             LITLogger.LogI($"Initializing Buffs...");
-            InitializeBuffs();
+            GetBuffBases();
         }
 
-        public override IEnumerable<BuffBase> InitializeBuffs()
+        protected override IEnumerable<BuffBase> GetBuffBases()
         {
-            base.InitializeBuffs()
+            base.GetBuffBases()
                 .ToList()
-                .ForEach(buff => AddBuff(buff, ContentPack));
+                .ForEach(buff => AddBuff(buff));
             return null;
         }
 
