@@ -1,13 +1,14 @@
 ﻿using Moonstorm;
 using RoR2;
 using UnityEngine;
+using RoR2.Items;
 
 namespace LostInTransit.Items
 {
     public class LifeSavings : ItemBase
     {
         private const string token = "LIT_ITEM_LIFESAVINGS_DESC";
-        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("LifeSavings");
+        public override ItemDef ItemDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("LifeSavings");
         public static ItemDef itemDef;
 
         [ConfigurableField(ConfigName = "Money Kept Between Stages", ConfigDesc = "Percentage of money kept between stages")]
@@ -15,13 +16,10 @@ namespace LostInTransit.Items
         [TokenModifier(token, StatTypes.DivideBy2, 1)]
         public static float newMoneyKeptBase = 5f;
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
+        public class LifeSavingsBehavior : BaseItemBodyBehavior
         {
-            body.AddItemBehavior<LifeSavingsBehavior>(stack);
-        }
-
-        public class LifeSavingsBehavior : CharacterBody.ItemBehavior
-        {
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            public static ItemDef GetItemDef() => LITContent.Items.LifeSavings;
             public LifeSavingsMasterBehavior MasterBehavior
             {
                 get

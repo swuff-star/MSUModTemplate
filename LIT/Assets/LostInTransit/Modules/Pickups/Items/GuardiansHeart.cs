@@ -2,6 +2,7 @@
 using Moonstorm;
 using RoR2;
 using System;
+using RoR2.Items;
 
 namespace LostInTransit.Items
 {
@@ -9,7 +10,7 @@ namespace LostInTransit.Items
     public class GuardiansHeart : ItemBase
     {
         private const string token = "LIT_ITEM_GUARDIANSHEART_DESC";
-        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("GuardiansHeart");
+        public override ItemDef ItemDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("GuardiansHeart");
 
         [ConfigurableField(ConfigName = "Shield per Heart", ConfigDesc = "Amount of shield added per heart.")]
         public static float extraShield = 60;
@@ -23,16 +24,10 @@ namespace LostInTransit.Items
         [ConfigurableField(ConfigName = "Shield Gating", ConfigDesc = "Whether the Heart should block damage past the remaining shield when broken.")]
         public static bool shieldGating = true;
 
-
-        public override void AddBehavior(ref CharacterBody body, int stack)
+        public class GuardiansHeartBehavior : BaseItemBodyBehavior, IOnIncomingDamageServerReceiver
         {
-            body.AddItemBehavior<GuardiansHeartBehavior>(stack);
-        }
-
-
-
-        public class GuardiansHeartBehavior : CharacterBody.ItemBehavior, IOnIncomingDamageServerReceiver
-        {
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            public static ItemDef GetItemDef() => LITContent.Items.GuardiansHeart;
             public void Start()
             {
                 body.levelMaxShield = (float)Math.Pow(extraShield, 1 / stack);

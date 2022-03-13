@@ -9,7 +9,7 @@ namespace LostInTransit.Equipments
     {
         public override MSEliteDef EliteDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Blighted");
         public override EquipmentDef EquipmentDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("AffixBlighted");
-        public override MSAspectAbilityDataHolder AspectAbilityData { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSAspectAbilityDataHolder>("AbilityBlighted");
+       // public override MSAspectAbilityDataHolder AspectAbilityData { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSAspectAbilityDataHolder>("AbilityBlighted");
 
         [ConfigurableField(ConfigName = "Boss Blighted", ConfigDesc = "Whether Teleporter Bosses should spawn as Blighted enemies.")]
         public static bool bossBlighted = false;
@@ -19,7 +19,7 @@ namespace LostInTransit.Equipments
             body.AddItemBehavior<BlightStatIncrease>(stack);
         }
 
-        public override bool FireAction(EquipmentSlot slot)
+        /*public override bool FireAction(EquipmentSlot slot)
         {
             if (MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
             {
@@ -31,7 +31,7 @@ namespace LostInTransit.Equipments
                 }
             }
             return false;
-        }
+        }*/
 
         //N- Due to the nature of us usiong "ItemBehavior" for equipments, Equipment behaviors still inherit from CharacterBody.ItemBehavior
         //Chances of this changing are extremely minimal.

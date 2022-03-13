@@ -7,7 +7,7 @@ namespace LostInTransit.Buffs
 {
     public class ThalliumPoison : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("ThalliumPoison");
+        public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("ThalliumPoison");
         public static BuffDef buff;
         public static DotController.DotIndex index;
 

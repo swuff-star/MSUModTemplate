@@ -1,6 +1,7 @@
 ﻿using Moonstorm;
 using RoR2;
 using System;
+using RoR2.Items;
 
 namespace LostInTransit.Items
 {
@@ -8,18 +9,14 @@ namespace LostInTransit.Items
     public class EnergyCell : ItemBase
     {
         private const string token = "LIT_ITEM_ENERGYCELL_DESC";
-        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("EnergyCell");
+        public override ItemDef ItemDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("EnergyCell");
 
         [ConfigurableField(ConfigName = "Maximum Attack Speed per Cell", ConfigDesc = "Maximum amount of attack speed per item held.")]
         [TokenModifier(token, StatTypes.Percentage)]
         public static float bonusAttackSpeed = 0.4f;
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
-        {
-            body.AddItemBehavior<EnergyCellBehavior>(stack);
-        }
 
-        public class EnergyCellBehavior : CharacterBody.ItemBehavior, IStatItemBehavior, IOnIncomingDamageServerReceiver
+        public class EnergyCellBehavior : BaseItemBodyBehavior, IStatItemBehavior, IOnIncomingDamageServerReceiver
         {
             //★. ..will look up and shout "stop doing everything in the FixedUpdate method!"... and I'll look down and whisper "no".
             //★ Jokes aside, this makes sense to do inside FixedUpdate, right? I figure doing it in RecalculateStats wouldn't update properly, since... well, it's only when RecalculateStats is called.
@@ -27,6 +24,9 @@ namespace LostInTransit.Items
 
             //1.- Yeah, i think this should be called on fixed update. the other option is to look at what watch metronome does for keeping the speed boost constant.
             //2.- FixedUpdate is a method that gets called automatically by unity, remember that CharacterBody.ItemBehavior inherits from MonoBehavior, and all classes that inherit from MonoBehavior have access to FixedUpdate(), Update() among other methods.
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            public static ItemDef GetItemDef() => LITContent.Items.EnergyCell;
+
             public float missingHealthPercent;
             public float healthFraction;
 

@@ -98,7 +98,7 @@ namespace EntityStates.Elites
             blastAttack.position = modelTransform.position;
             blastAttack.radius = radius;
             blastAttack.procCoefficient = 2f;
-            blastAttack.attackerFiltering = AttackerFiltering.NeverHit;
+            blastAttack.attackerFiltering = AttackerFiltering.NeverHitSelf;
             blastAttack.Fire();
         }
 

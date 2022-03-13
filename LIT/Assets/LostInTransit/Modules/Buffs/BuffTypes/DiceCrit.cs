@@ -1,13 +1,14 @@
 ﻿using Moonstorm;
 using RoR2;
 using R2API;
+using RoR2.Items;
 
 namespace LostInTransit.Buffs
 {
     [DisabledContent]
     public class DiceCrit : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("DiceCrit");
+        public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("DiceCrit");
         public static BuffDef buff;
 
         public override void Initialize()
@@ -15,12 +16,8 @@ namespace LostInTransit.Buffs
             buff = BuffDef;
         }
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
-        {
-            body.AddItemBehavior<DiceCritBehavior>(stack);
-        }
 
-        public class DiceCritBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
+        public class DiceCritBehavior : BaseItemBodyBehavior, IBodyStatArgModifier
         {
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {

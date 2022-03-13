@@ -5,7 +5,7 @@ namespace LostInTransit.Equipments
 {
     public class GiganticAmethyst : EquipmentBase
     {
-        public override EquipmentDef EquipmentDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("GiganticAmethyst");
+        public override EquipmentDef EquipmentDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("GiganticAmethyst");
 
         public override bool FireAction(EquipmentSlot slot)
         {
@@ -16,7 +16,7 @@ namespace LostInTransit.Equipments
             }
             sloc.ApplyAmmoPack();
             Util.PlaySound("AmethystProc", slot.characterBody.gameObject); //Why the fuck is this called "AmethystProc", theres nothing to proc, wtf swuff
-            return true;
-        }
-    }
-}
+            return true;                                                        //you're proccing the amethyst what would you have called it?
+        }                                                                       //"amethystfire"? you aren't FIRING anything.
+    }                                                                           //"amethystuse" is dull.
+}                                                                  

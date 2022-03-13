@@ -8,7 +8,7 @@ namespace LostInTransit.Buffs
 {
     public class LeechingRegen : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("LeechingRegen");
+        public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("LeechingRegen");
 
         public static BuffDef buff;
 
@@ -18,11 +18,6 @@ namespace LostInTransit.Buffs
             var croco = Resources.Load<BuffDef>("buffdefs/CrocoRegen");
             BuffDef.iconSprite = croco.iconSprite;
             BuffDef.startSfx = croco.startSfx;
-        }
-
-        public override void AddBehavior(ref CharacterBody body, int stack)
-        {
-            body.AddItemBehavior<LeechingRegenBehavior>(stack);
         }
 
         public class LeechingRegenBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier

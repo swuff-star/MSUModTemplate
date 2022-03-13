@@ -3,31 +3,31 @@ using Moonstorm;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
+using RoR2.Items;
 
 namespace LostInTransit.Items
 {
     public class GoldenGun : ItemBase
     {
         private const string token = "LIT_ITEM_GOLDENGUN_DESC";
-        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("GoldenGun");
+        public override ItemDef ItemDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("GoldenGun");
 
         [ConfigurableField(ConfigName = "Maximum Gold Threshold", ConfigDesc = "The maximum amount of gold that Golden Gun will account for.")]
         [TokenModifier(token, StatTypes.Default, 2)]
         [TokenModifier(token, StatTypes.DivideBy2, 3)]
-        public static uint goldCap = 600;
+        public static uint goldCap = 400;
 
         [ConfigurableField(ConfigName = "Maximum Damage Bonus", ConfigDesc = "The maximum amount of bonus damage Golden Gun grants.")]
         [TokenModifier(token, StatTypes.Default, 0)]
         [TokenModifier(token, StatTypes.DivideBy2, 1)]
         public static uint goldNeeded = 40;
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
-        {
-            body.AddItemBehavior<GoldenGunBehavior>(stack);
-        }
 
-        public class GoldenGunBehavior : CharacterBody.ItemBehavior
+        public class GoldenGunBehavior : BaseItemBodyBehavior
         {
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            public static ItemDef GetItemDef() => LITContent.Items.GoldenGun;
+
             public float gunCap = 0;
             private float goldForBuff = 0;
             private int buffsToGive = 0;

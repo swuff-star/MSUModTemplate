@@ -8,7 +8,7 @@ namespace LostInTransit.Items
     public class Thallium : ItemBase
     {
         public const string token = "LIT_ITEM_THALLIUM_DESC";
-        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("Thallium");
+        public override ItemDef ItemDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("Thallium");
 
         public static string section;
 

@@ -7,7 +7,7 @@ namespace LostInTransit.Buffs
 {
     public class AffixFrenzied : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixFrenzied");
+        public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixFrenzied");
         public static BuffDef buff;
 
         public override void Initialize()
@@ -47,10 +47,10 @@ namespace LostInTransit.Buffs
                 body.RecalculateStats();
             }
 
-            private void Update()
+            private void FixedUpdate()
             {
-                blinkStopwatch += Time.deltaTime;
-                abilityStopwatch += doingAbility ? Time.deltaTime : 0;
+                blinkStopwatch += Time.fixedDeltaTime;
+                abilityStopwatch += doingAbility ? Time.fixedDeltaTime : 0;
 
                 if (blinkStopwatch > blinkCooldown / cdrMult)
                 {
@@ -73,10 +73,13 @@ namespace LostInTransit.Buffs
                         Destroy(AbilityInstance);
                 }
 
-                if (blinkReady && body.isPlayerControlled && Input.GetKeyDown(LITConfig.FrenziedBlink.Value))
-                    Blink();
-                else if (blinkReady && !body.isPlayerControlled)
-                    Blink();
+                if (body.hasAuthority)
+                {
+                    if (blinkReady && body.isPlayerControlled && Input.GetKeyDown(LITConfig.FrenziedBlink.Value))
+                        Blink();
+                    else if (blinkReady && !body.isPlayerControlled)
+                        Blink();
+                }
             }
 
             //Todo: turn this ESM stuff into probably a networked body attachment?

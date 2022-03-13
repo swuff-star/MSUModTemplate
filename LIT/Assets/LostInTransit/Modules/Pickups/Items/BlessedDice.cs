@@ -1,6 +1,7 @@
 ﻿using LostInTransit.Buffs;
 using Moonstorm;
 using RoR2;
+using RoR2.Items;
 using UnityEngine;
 
 namespace LostInTransit.Items
@@ -9,7 +10,7 @@ namespace LostInTransit.Items
     public class BlessedDice : ItemBase
     {
         private const string token = "LIT_ITEM_BLESSEDDICE_DESC";
-        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("BlessedDice");
+        public override ItemDef ItemDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("BlessedDice");
 
         [ConfigurableField(ConfigName = "Base duration of buff from Blessed Dice", ConfigDesc = "Base duration of buff after using a shrine.")]
         [TokenModifier(token, StatTypes.Default, 0)]
@@ -44,17 +45,13 @@ namespace LostInTransit.Items
         public static bool fairRolls = false;
 
 
-
-        public override void AddBehavior(ref CharacterBody body, int stack)
-        {
-            body.AddItemBehavior<BlessedDiceBehavior>(stack);
-        }
-
         /// <summary>
         /// Todo: this needs to be probably on its own network behavior, mainly due to the usage of RNG, lol
         /// </summary>
-        public class BlessedDiceBehavior : CharacterBody.ItemBehavior
+        public class BlessedDiceBehavior : BaseItemBodyBehavior
         {
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            public static ItemDef GetItemDef() => LITContent.Items.BlessedDice;
             private float CalcBuffTimer()
             {
                 float stackTimer = newStackTimer * (stack - 1);

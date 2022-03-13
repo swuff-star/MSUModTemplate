@@ -7,9 +7,9 @@ namespace LostInTransit.Equipments
 {
     public class AffixVolatile : LITEliteEquip
     {
-        public override MSEliteDef EliteDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Volatile");
-        public override MSAspectAbilityDataHolder AspectAbilityData { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSAspectAbilityDataHolder>("AbilityVolatile");
-        public override EquipmentDef EquipmentDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("AffixVolatile");
+        public override MSEliteDef EliteDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Volatile");
+        //public override MSAspectAbilityDataHolder AspectAbilityData { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSAspectAbilityDataHolder>("AbilityVolatile");
+        public override EquipmentDef EquipmentDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("AffixVolatile");
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
@@ -21,7 +21,7 @@ namespace LostInTransit.Equipments
                 }
             }
         }
-        public override bool FireAction(EquipmentSlot slot)
+        /*public override bool FireAction(EquipmentSlot slot)
         {
             if (MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
             {
@@ -33,7 +33,7 @@ namespace LostInTransit.Equipments
                 }
             }
             return false;
-        }
+        }*/
 
         public class AffixVolatileEquipBehavior : CharacterBody.ItemBehavior
         {

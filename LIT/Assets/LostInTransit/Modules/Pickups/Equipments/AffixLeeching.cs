@@ -7,9 +7,9 @@ namespace LostInTransit.Equipments
     {
         public override MSEliteDef EliteDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Leeching");
         public override EquipmentDef EquipmentDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("AffixLeeching");
-        public override MSAspectAbilityDataHolder AspectAbilityData { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSAspectAbilityDataHolder>("AbilityLeeching");
+        //public override MSAspectAbilityDataHolder AspectAbilityData { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSAspectAbilityDataHolder>("AbilityLeeching");
 
-        public override bool FireAction(EquipmentSlot slot)
+        /*public override bool FireAction(EquipmentSlot slot)
         {
             if (MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
             {
@@ -21,6 +21,6 @@ namespace LostInTransit.Equipments
                 }
             }
             return false;
-        }
+        }*/
     }
 }

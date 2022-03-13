@@ -5,7 +5,7 @@ namespace LostInTransit.Buffs
 {
     public class Shackled : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("Shackled");
+        public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("Shackled");
         public static BuffDef buff;
 
         public override void Initialize()

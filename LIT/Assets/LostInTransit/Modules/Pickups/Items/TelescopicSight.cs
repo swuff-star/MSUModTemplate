@@ -6,7 +6,7 @@ namespace LostInTransit.Items
     public class TelescopicSight : ItemBase
     {
         private const string token = "LIT_ITEM_TELESCOPICSIGHT_DESC";
-        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("TelescopicSight");
+        public override ItemDef ItemDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("TelescopicSight");
 
         public static string section;
 

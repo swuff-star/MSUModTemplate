@@ -11,7 +11,7 @@ namespace LostInTransit.Items
     public class MeatNugget : ItemBase
     {
         private const string token = "LIT_ITEM_MEATNUGGET_DESC";
-        public override ItemDef ItemDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("MeatNugget");
+        public override ItemDef ItemDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("MeatNugget");
 
         public static GameObject MeatNuggetPickup = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("MeatNuggetPickup");
 

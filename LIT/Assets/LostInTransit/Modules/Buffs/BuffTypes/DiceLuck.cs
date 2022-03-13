@@ -1,12 +1,13 @@
 ﻿using Moonstorm;
 using RoR2;
+using RoR2.Items;
 
 namespace LostInTransit.Buffs
 {
     [DisabledContent]
     public class DiceLuck : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("DiceLuck");
+        public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("DiceLuck");
         public static BuffDef buff;
 
         public override void Initialize()
@@ -14,13 +15,9 @@ namespace LostInTransit.Buffs
             buff = BuffDef;
         }
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
-        {
-            body.AddItemBehavior<DiceLuckBehavior>(stack);
-        }
 
         //Todo: Have this as a hook on CharacterMaster.OnInventoryChanged (otherwise the "luck" stat gets rewritten every time the inventory changes)
-        public class DiceLuckBehavior : CharacterBody.ItemBehavior
+        public class DiceLuckBehavior : BaseItemBodyBehavior
         {
             private CharacterMaster master;
             public void Start()

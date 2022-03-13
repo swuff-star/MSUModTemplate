@@ -6,7 +6,7 @@ namespace LostInTransit.Buffs
 {
     public class GoldenGunBuff : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("GoldenGun");
+        public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("GoldenGun");
         public static BuffDef buff;
 
         public override void Initialize()
