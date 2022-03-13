@@ -1,6 +1,7 @@
 ﻿using LostInTransit.Buffs;
 using Moonstorm;
 using RoR2;
+using RoR2.Items;
 
 namespace LostInTransit.Items
 {
@@ -22,13 +23,10 @@ namespace LostInTransit.Items
         [TokenModifier(token, StatTypes.Default, 2)]
         public static int durationStack = 2;
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
+        public class PrisonShacklesBehavior : BaseItemBodyBehavior, IOnDamageDealtServerReceiver
         {
-            body.AddItemBehavior<PrisonShacklesBehavior>(stack);
-        }
-
-        public class PrisonShacklesBehavior : CharacterBody.ItemBehavior, IOnDamageDealtServerReceiver
-        {
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            public static ItemDef GetItemDef() => LITContent.Items.PrisonShackles;
             public void OnDamageDealtServer(DamageReport damageReport)
             {
                 if(damageReport.damageInfo.procCoefficient > 0)

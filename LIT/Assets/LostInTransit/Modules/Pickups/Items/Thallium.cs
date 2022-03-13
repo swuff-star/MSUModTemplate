@@ -2,6 +2,7 @@
 using Moonstorm;
 using RoR2;
 using UnityEngine;
+using RoR2.Items;
 
 namespace LostInTransit.Items
 {
@@ -31,13 +32,10 @@ namespace LostInTransit.Items
         [ConfigurableField(ConfigName = "Poison is Fixed Duration", ConfigDesc = "If enabled, stacks increase the damage per tick instead of the total duration")]
         public static bool noTimeToDie = false;
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
+        public class ThalliumBehavior : BaseItemBodyBehavior, IOnDamageDealtServerReceiver
         {
-            body.AddItemBehavior<ThalliumBehavior>(stack);
-        }
-
-        public class ThalliumBehavior : CharacterBody.ItemBehavior, IOnDamageDealtServerReceiver
-        {
+            [ItemDefAssociation(useOnClient = true, useOnServer = false)]
+            public static ItemDef GetItemDef() => LITContent.Items.Thallium;
             public void OnDamageDealtServer(DamageReport damageReport)
             {
                 var attacker = damageReport.attacker;

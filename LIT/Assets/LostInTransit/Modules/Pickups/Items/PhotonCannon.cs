@@ -3,6 +3,7 @@ using RoR2;
 using System;
 using UnityEngine;
 using UnityEngine.Networking;
+using RoR2.Items;
 
 namespace LostInTransit.Items
 {
@@ -28,13 +29,10 @@ namespace LostInTransit.Items
         [ConfigurableField(ConfigName = "Use static charge timer", ConfigDesc = "if true, the turbine will gain charge at a fixed rate instead of for each skill on cooldown")]
         public static bool skillIssue = false;
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
+        public class PhotonCannonBehavior : BaseItemBodyBehavior
         {
-            body.AddItemBehavior<PhotonCannonBehavior>(stack);
-        }
-
-        public class PhotonCannonBehavior : CharacterBody.ItemBehavior
-        {
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            public static ItemDef GetItemDef() => LITContent.Items.PhotonCannon;
             public float storedCharge;
             private float stopwatch;
             private float chargeMultiplier;

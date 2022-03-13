@@ -19,10 +19,6 @@ namespace LostInTransit.Buffs
             BuffDef.iconSprite = schmeat.iconSprite;
             BuffDef.startSfx = schmeat.startSfx;
         }
-        public override void AddBehavior(ref CharacterBody body, int stack)
-        {
-            body.AddItemBehavior<NuggetRegenBehavior>(stack);
-        }
 
         public class NuggetRegenBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {

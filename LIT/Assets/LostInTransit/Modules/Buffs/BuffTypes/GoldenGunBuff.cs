@@ -14,11 +14,6 @@ namespace LostInTransit.Buffs
             buff = BuffDef;
         }
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
-        {
-            body.AddItemBehavior<GoldenGunBuffBehavior>(stack);
-        }
-
         public class GoldenGunBuffBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)

@@ -17,11 +17,6 @@ namespace LostInTransit.Buffs
             index = DotAPI.RegisterDotDef(1f, 1f, DamageColorIndex.DeathMark, BuffDef);
         }
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
-        {
-            body.AddItemBehavior<ThalDebuffBehavior>(stack);
-        }
-
         public class ThalDebuffBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)

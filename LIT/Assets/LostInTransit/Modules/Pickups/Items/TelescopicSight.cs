@@ -1,5 +1,6 @@
 ﻿using Moonstorm;
 using RoR2;
+using RoR2.Items;
 
 namespace LostInTransit.Items
 {
@@ -17,6 +18,9 @@ namespace LostInTransit.Items
         [ConfigurableField(ConfigName = "Proc Chance per Stack", ConfigDesc = "Extra proc chance per stack of sights.")]
         [TokenModifier(token, StatTypes.Default, 1)]
         public static float newStackChance = 0.5f;
+
+        [ConfigurableField(ConfigName = "Cooldown", ConfigDesc = "Whether Telescopic Sight's instant kill should have a cooldown.")]
+        public static bool cooldown = false;
 
         [ConfigurableField(ConfigName = "Cooldown", ConfigDesc = "Cooldown between Telescopic Sight activations.")]
         [TokenModifier(token, StatTypes.Default, 3)]
@@ -36,20 +40,18 @@ namespace LostInTransit.Items
         [ConfigurableField(ConfigName = "Instakill Bosses", ConfigDesc = "Whether Telescopic Sight should instakill boss monsters.")]
         public static bool instakillBosses = false;
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
-        {
-            body.AddItemBehavior<TelescopicSightBehavior>(stack);
-        }
 
-        public class TelescopicSightBehavior : CharacterBody.ItemBehavior, IOnIncomingDamageOtherServerReciever
+        public class TelescopicSightBehavior : BaseItemBodyBehavior, IOnIncomingDamageOtherServerReciever
         {
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            public static ItemDef GetItemDef() => LITContent.Items.Thallium;
             public void OnIncomingDamageOther(HealthComponent victimHealthComponent, DamageInfo damageInfo)
             {
                 if (damageInfo.dotIndex == DotController.DotIndex.None)
                 {
                     if (Util.CheckRoll(CalcChance() * damageInfo.procCoefficient) && !body.HasBuff(Buffs.TeleSightCD.buff))
                     {
-                        body.AddCooldownBuff(Buffs.TeleSightCD.buff, CalcCooldown());
+                        if (cooldown) body.AddCooldownBuff(Buffs.TeleSightCD.buff, CalcCooldown());
                         var flag = ChooseWetherToInstakill(victimHealthComponent.body);
                         if (flag)
                         {

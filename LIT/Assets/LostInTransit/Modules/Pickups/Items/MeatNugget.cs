@@ -4,6 +4,7 @@ using UnityEngine.Networking;
 using Moonstorm;
 using RoR2;
 using LostInTransit.Components;
+using RoR2.Items;
 
 namespace LostInTransit.Items
 {
@@ -34,12 +35,10 @@ namespace LostInTransit.Items
         [TokenModifier(token, StatTypes.Default, 3)]
         public static float newStackDuration = 1;
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
+        public class MeatNuggetBehavior : BaseItemBodyBehavior, IOnDamageDealtServerReceiver
         {
-            body.AddItemBehavior<MeatNuggetBehavior>(stack);
-        }
-        public class MeatNuggetBehavior : CharacterBody.ItemBehavior, IOnDamageDealtServerReceiver
-        {
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            public static ItemDef GetItemDef() => LITContent.Items.MeatNugget;
             public void OnDamageDealtServer(DamageReport damageReport)
             {
                 GameObject victim = damageReport.victim.gameObject;

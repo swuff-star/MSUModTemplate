@@ -13,11 +13,6 @@ namespace LostInTransit.Buffs
             buff = BuffDef;
         }
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
-        {
-            body.AddItemBehavior<ShackledDebuffBehavior>(stack);
-        }
-
         //G - this still uses IStatItemBehaviour because the slow needs to be applied after all other modifiers have been added, which isn't supported by RecalcStatsAPI yet
         public class ShackledDebuffBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {

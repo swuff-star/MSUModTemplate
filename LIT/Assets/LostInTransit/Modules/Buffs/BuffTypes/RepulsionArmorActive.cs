@@ -15,10 +15,6 @@ namespace LostInTransit.Buffs
             buff = BuffDef;
         }
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
-        {
-            body.AddItemBehavior<RepulsionArmorActiveBehavior>(stack);
-        }
 
         public class RepulsionArmorActiveBehavior : CharacterBody.ItemBehavior, IOnIncomingDamageServerReceiver
         {

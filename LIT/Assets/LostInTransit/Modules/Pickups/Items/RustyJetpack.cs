@@ -3,6 +3,7 @@ using RoR2;
 using System;
 using UnityEngine;
 using R2API;
+using RoR2.Items;
 
 namespace LostInTransit.Items
 {
@@ -24,13 +25,10 @@ namespace LostInTransit.Items
         [ConfigurableField(ConfigName = "Fall Speed Limit", ConfigDesc = "Maximum amount fall speed can be reduced by, in percent")]
         public static float minGrav = 90f;
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
+        public class RustyJetpackBehavior : BaseItemBodyBehavior, IBodyStatArgModifier
         {
-            body.AddItemBehavior<RustyJetpackBehavior>(stack);
-        }
-
-        public class RustyJetpackBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
-        {
+            [ItemDefAssociation(useOnServer = true, useOnClient = true)]
+            public static ItemDef GetItemDef() => LITContent.Items.RustyJetpack;
             public void RecalculateStatsEnd()
             {
                 body.jumpPower += addedJumpPower + ((addedJumpPower / 2) * (stack - 1));

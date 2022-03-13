@@ -1,6 +1,7 @@
 ﻿using Moonstorm;
 using RoR2;
 using System;
+using RoR2.Items;
 using UnityEngine;
 
 namespace LostInTransit.Items
@@ -21,13 +22,10 @@ namespace LostInTransit.Items
         [ConfigurableField(ConfigName = "Use Exponential Scaling", ConfigDesc = "Whether scaling should be done exponentially or linearally.")]
         public static bool usesExpScaling = true;*/
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
+        public class SmartShopperBehavior : BaseItemBodyBehavior
         {
-            body.AddItemBehavior<SmartShopperBehavior>(stack);
-        }
-
-        public class SmartShopperBehavior : CharacterBody.ItemBehavior
-        {
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            public static ItemDef GetItemDef() => LITContent.Items.SmartShopper;
             private float refundAmount;
             private int maxRefunds;
             private int currentRefunds;

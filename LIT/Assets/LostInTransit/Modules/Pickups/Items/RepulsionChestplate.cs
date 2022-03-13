@@ -3,6 +3,7 @@ using Moonstorm;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
+using RoR2.Items;
 
 namespace LostInTransit.Items
 {
@@ -34,13 +35,11 @@ namespace LostInTransit.Items
         [TokenModifier(token, StatTypes.Default, 1)]
         public static float damageResist = 83f;
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
+        public class RepulsionArmorBehavior : BaseItemBodyBehavior, IOnIncomingDamageServerReceiver
         {
-            body.AddItemBehavior<RepulsionArmorBehavior>(stack);
-        }
-
-        public class RepulsionArmorBehavior : CharacterBody.ItemBehavior, IOnIncomingDamageServerReceiver
-        {
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            public static ItemDef GetItemDef() => LITContent.Items.RepulsionChestplate;
+            
             public float hitsNeededToActivate; //it's a mouthful but I am very high and I will easily be able to remember what it is for like this.
             private float stopwatch;
             private static float checkTimer = 0.25f;
