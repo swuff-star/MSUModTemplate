@@ -2,6 +2,7 @@
 using RoR2;
 using UnityEngine.Networking;
 using RoR2.Items;
+using Moonstorm.Components;
 
 namespace LostInTransit.Buffs
 {
@@ -9,17 +10,13 @@ namespace LostInTransit.Buffs
     public class DiceBarrier : BuffBase
     {
         public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("DiceBarrier");
-        public static BuffDef buff;
-
-        public override void Initialize()
-        {
-            buff = BuffDef;
-        }
-
 
         //Todo: have this use IStatItemBehavior, body.barrierDecayRate is recalculated in recalcstats
-        public class DiceBarrierBehavior : BaseItemBodyBehavior
+        public class DiceBarrierBehavior : BaseBuffBodyBehavior
         {
+            [BuffDefAssociation(useOnClient = true, useOnServer = true)]
+            public static BuffDef GetBuffDef() => LITContent.Buffs.DiceBarrier;
+
             private float origBarrierDecay;
             public void Start()
             {

@@ -1,5 +1,6 @@
 ﻿using LostInTransit.Elites;
 using Moonstorm;
+using Moonstorm.Components;
 using R2API;
 using RoR2;
 using RoR2.Artifacts;
@@ -36,13 +37,11 @@ namespace LostInTransit.Buffs
             }
         }
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
+        public class AffixVolatileBehavior : BaseBuffBodyBehavior, IOnTakeDamageServerReceiver
         {
-            body.AddItemBehavior<AffixVolatileBehavior>(stack);
-        }
+            [BuffDefAssociation(useOnClient = true, useOnServer = true)]
+            public static BuffDef GetBuffDef() => LITContent.Buffs.AffixVolatile;
 
-        public class AffixVolatileBehavior : CharacterBody.ItemBehavior, IOnTakeDamageServerReceiver
-        {
             private float diffScaling { get => DifficultyCatalog.GetDifficultyDef(Run.instance.selectedDifficulty).scalingValue; }
             private GameObject bomb;
 

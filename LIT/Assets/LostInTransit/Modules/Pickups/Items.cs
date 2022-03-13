@@ -28,7 +28,7 @@ namespace LostInTransit.Modules
             base.GetItemBases()
                 .Where(item => LITMain.config.Bind<bool>(item.ItemDef.name, "Enable Item", true, "Wether or not to enable this item.").Value)
                 .ToList()
-                .ForEach(item => AddItem(item));
+                .ForEach(item => AddItem(item, null));
             return null;
         }
     }

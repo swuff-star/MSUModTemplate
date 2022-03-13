@@ -5,13 +5,13 @@ using UnityEngine.Networking;
 
 namespace LostInTransit.Equipments
 {
-    public class AffixVolatile : LITEliteEquip
+    public class AffixVolatile : EliteEquipmentBase
     {
         public override MSEliteDef EliteDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Volatile");
-        //public override MSAspectAbilityDataHolder AspectAbilityData { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSAspectAbilityDataHolder>("AbilityVolatile");
         public override EquipmentDef EquipmentDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("AffixVolatile");
+        //public override MSAspectAbilityDataHolder AspectAbilityData { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<MSAspectAbilityDataHolder>("AbilityVolatile");
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
+        /*public override void AddBehavior(ref CharacterBody body, int stack)
         {
             if (MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
             {
@@ -20,10 +20,10 @@ namespace LostInTransit.Equipments
                     body.AddItemBehavior<AffixVolatileEquipBehavior>(stack);
                 }
             }
-        }
-        /*public override bool FireAction(EquipmentSlot slot)
+        }*/
+        public override bool FireAction(EquipmentSlot slot)
         {
-            if (MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
+            /*if (MSUtil.IsModInstalled("com.TheMysticSword.AspectAbilities"))
             {
                 var component = slot.characterBody.GetComponent<AffixVolatileEquipBehavior>();
                 if (component)
@@ -31,11 +31,11 @@ namespace LostInTransit.Equipments
                     component.Explode();
                     return true;
                 }
-            }
+            }*/
             return false;
-        }*/
+        }
 
-        public class AffixVolatileEquipBehavior : CharacterBody.ItemBehavior
+        /*public class AffixVolatileEquipBehavior : CharacterBody.ItemBehavior
         {
             public static GameObject volatileAttachment = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("VolatileEquipBodyAttachment");
             private NetworkedBodyAttachment attachment;
@@ -64,6 +64,6 @@ namespace LostInTransit.Equipments
                     attachment = null;
                 }
             }
-        }
+        }*/
     }
 }

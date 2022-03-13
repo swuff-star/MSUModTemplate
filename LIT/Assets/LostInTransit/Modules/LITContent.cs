@@ -24,6 +24,7 @@ namespace LostInTransit
             public static BuffDef DiceLuck;
             public static BuffDef DiceMove;
             public static BuffDef DiceRegen;
+            public static BuffDef DiceBarrier;
             public static BuffDef GoldenGun;
             public static BuffDef GuardiansHeartBuff;
             public static BuffDef LeechingRegen;
@@ -63,6 +64,7 @@ namespace LostInTransit
             public static ItemDef GuardiansHeart;
             public static ItemDef LifeSavings;
             public static ItemDef MeatNugget;
+            public static ItemDef MysteriousVial;
             public static ItemDef PhotonCannon;
             public static ItemDef PrisonShackles;
             public static ItemDef RepulsionChestplate;
@@ -96,7 +98,11 @@ namespace LostInTransit
                 },
                 delegate
                 {
-                    new Pickups().Initialize();
+                    new Modules.Equipments().Initialize();
+                },
+                delegate
+                {
+                    new Modules.Items().Initialize();
                 },
                 delegate
                 {

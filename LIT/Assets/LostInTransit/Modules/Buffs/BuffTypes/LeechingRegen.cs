@@ -1,4 +1,5 @@
 ﻿using Moonstorm;
+using Moonstorm.Components;
 using RoR2;
 using UnityEngine;
 using R2API;
@@ -10,18 +11,18 @@ namespace LostInTransit.Buffs
     {
         public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("LeechingRegen");
 
-        public static BuffDef buff;
-
         public override void Initialize()
         {
-            buff = BuffDef;
             var croco = Resources.Load<BuffDef>("buffdefs/CrocoRegen");
             BuffDef.iconSprite = croco.iconSprite;
             BuffDef.startSfx = croco.startSfx;
         }
 
-        public class LeechingRegenBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
+        public class LeechingRegenBehavior : BaseBuffBodyBehavior, IBodyStatArgModifier
         {
+            [BuffDefAssociation(useOnClient = true, useOnServer = true)]
+            public static BuffDef GetBuffDef() => LITContent.Buffs.LeechingRegen;
+
             public float duration = 5;
             public float totalRegen = 0;
             public float regenStrength = 10;

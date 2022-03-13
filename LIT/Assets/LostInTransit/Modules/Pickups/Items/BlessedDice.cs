@@ -52,6 +52,7 @@ namespace LostInTransit.Items
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static ItemDef GetItemDef() => LITContent.Items.BlessedDice;
+
             private float CalcBuffTimer()
             {
                 float stackTimer = newStackTimer * (stack - 1);
@@ -70,27 +71,27 @@ namespace LostInTransit.Items
                 switch (rng)
                 {
                     case 1:
-                        buff = DiceLuck.buff;
+                        buff = LITContent.Buffs.DiceLuck;
                         break;
                     case 2:
                     case 7:
-                        buff = DiceCrit.buff;
+                        buff = LITContent.Buffs.DiceCrit;
                         break;
                     case 3:
                     case 8:
-                        buff = DiceAtk.buff;
+                        buff = LITContent.Buffs.DiceAtk;
                         break;
                     case 4:
                     case 9:
-                        buff = DiceMove.buff;
+                        buff = LITContent.Buffs.DiceMove;
                         break;
                     case 5:
                     case 10:
-                        buff = DiceArmor.buff;
+                        buff = LITContent.Buffs.DiceArmor;
                         break;
                     case 6:
                     case 11:
-                        buff = DiceBarrier.buff;
+                        buff = LITContent.Buffs.DiceBarrier;
                         break;
                 }
                 return buff;

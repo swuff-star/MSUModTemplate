@@ -17,6 +17,8 @@ namespace LostInTransit.Items
 
         public class MysteriousVialBehavior : BaseItemBodyBehavior, IBodyStatArgModifier
         {
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            public static ItemDef GetItemDef() => LITContent.Items.MysteriousVial;
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
                 args.baseRegenAdd += vialRegen * stack;

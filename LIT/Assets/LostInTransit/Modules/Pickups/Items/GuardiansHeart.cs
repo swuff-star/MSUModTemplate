@@ -48,7 +48,7 @@ namespace LostInTransit.Items
 
                     if (heartArmor > 0f)
                     {
-                        body.AddTimedBuff(GuardiansHeartBuff.buff, heartArmorDur);
+                        body.AddTimedBuff(LITContent.Buffs.GuardiansHeartBuff, heartArmorDur);
                     }
                 }
             }
