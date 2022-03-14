@@ -29,6 +29,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
+  ErrorStacktrace: 
 --- !u!114 &114646933205011858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,4 +44,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
+  ErrorStacktrace: 
   Value: C:\Users\hanan\Documents\LITBuild
