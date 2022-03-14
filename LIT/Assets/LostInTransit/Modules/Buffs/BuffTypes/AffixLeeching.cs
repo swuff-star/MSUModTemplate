@@ -1,4 +1,5 @@
 ﻿using Moonstorm;
+using Moonstorm.Components;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -10,21 +11,13 @@ namespace LostInTransit.Buffs
 {
     public class AffixLeeching : BuffBase
     {
-        public override BuffDef BuffDef { get; set; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixLeeching");
-        public static BuffDef buff;
+        public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixLeeching");
 
-        public override void Initialize()
+        public class AffixLeechingBehavior : BaseBuffBodyBehavior, IOnDamageDealtServerReceiver, IOnTakeDamageServerReceiver
         {
-            buff = BuffDef;
-        }
-
-        public override void AddBehavior(ref CharacterBody body, int stack)
-        {
-            body.AddItemBehavior<AffixLeechingBehavior>(stack);
-        }
-
-        public class AffixLeechingBehavior : CharacterBody.ItemBehavior, IOnDamageDealtServerReceiver, IOnTakeDamageServerReceiver
-        {
+            [BuffDefAssociation(useOnClient = true, useOnServer = true)]
+            public static BuffDef GetBuffDef() => LITContent.Buffs.AffixLeeching;
+            
             public float timeBetweenBursts = 10;
 
             public float chargingTime = 5;
@@ -142,12 +135,12 @@ namespace LostInTransit.Buffs
                 SearchForAllies();
                 bool hasBursted = false;
                 healthComponents.Where(hc => hc.body != body)
-                    .Where(hc => !hc.body.HasBuff(LeechingRegen.buff))
+                    .Where(hc => !hc.body.HasBuff(LITContent.Buffs.LeechingRegen))
                     .Where(hc => !hc.body.GetComponent<AffixLeechingBehavior>())
                     .ToList()
                     .ForEach(hc =>
                     {
-                        hc.body.AddTimedBuff(LeechingRegen.buff, 5);
+                        hc.body.AddTimedBuff(LITContent.Buffs.LeechingRegen, 5);
 
                         var component = hc.body.GetComponent<LeechingRegen.LeechingRegenBehavior>();
                         if(component)

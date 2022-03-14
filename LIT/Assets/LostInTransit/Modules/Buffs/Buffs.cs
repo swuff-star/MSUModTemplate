@@ -11,7 +11,7 @@ namespace LostInTransit.Buffs
     {
         public static Buffs Instance { get; set; }
         public static BuffDef[] LoadedLITBuffs { get => LITContent.Instance.SerializableContentPack.buffDefs; }
-        public override R2APISerializableContentPack SerializableContentPack => LITContent.Instance.ContentPack;
+        public override R2APISerializableContentPack SerializableContentPack => LITContent.Instance.SerializableContentPack;
 
 
         public override void Initialize()

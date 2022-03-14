@@ -2,6 +2,7 @@
 using RoR2;
 using R2API;
 using RoR2.Items;
+using Moonstorm.Components;
 
 namespace LostInTransit.Buffs
 {
@@ -9,15 +10,12 @@ namespace LostInTransit.Buffs
     public class DiceMove : BuffBase
     {
         public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("DiceMove");
-        public static BuffDef buff;
 
-        public override void Initialize()
+        public class DiceMoveBehavior : BaseBuffBodyBehavior, IBodyStatArgModifier
         {
-            buff = BuffDef;
-        }
+            [BuffDefAssociation(useOnClient = true, useOnServer = true)]
+            public static BuffDef GetBuffDef() => LITContent.Buffs.DiceMove;
 
-        public class DiceMoveBehavior : BaseItemBodyBehavior, IBodyStatArgModifier
-        {
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
                 args.moveSpeedMultAdd += (Items.BlessedDice.moveAmount / 100);

@@ -60,9 +60,9 @@ namespace LostInTransit.Items
                         {
                             buffsToGive = (int)(goldNeeded + (goldNeeded / 2) * (stack - 1));
                         }*/ //★ I'm very tired and struggling to read through how this works. I'm just fucking hardcoding a second cap check.
-                        if (buffsToGive != body.GetBuffCount(GoldenGunBuff.buff))
+                        if (buffsToGive != body.GetBuffCount(LITContent.Buffs.GoldenGun))
                         {
-                            body.SetBuffCount(GoldenGunBuff.buff.buffIndex, buffsToGive);
+                            body.SetBuffCount(LITContent.Buffs.GoldenGun.buffIndex, buffsToGive);
                         }
                     }
                 }

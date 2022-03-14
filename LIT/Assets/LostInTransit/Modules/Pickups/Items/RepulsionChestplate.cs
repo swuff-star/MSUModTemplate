@@ -50,7 +50,7 @@ namespace LostInTransit.Items
                 if (hitsNeededToActivate < 1)
                 { hitsNeededToActivate = 1; } //Failsafe for if someone tries to set this shit to 0.
                 if(NetworkServer.active)
-                    body.AddBuff(RepulsionArmorCD.buff);
+                    body.AddBuff(LITContent.Buffs.RepulsionArmorActive);
             }
             private void FixedUpdate()
             {
@@ -59,24 +59,25 @@ namespace LostInTransit.Items
                     stopwatch += Time.fixedDeltaTime;
                     if (stopwatch > checkTimer)
                     {
+                        //n- I hate this syntax
                         stopwatch -= checkTimer;
                         //System.Diagnostics.Debug.WriteLine("It's been " + checkTimer + "!");
-                        float currentCDBuffs = body.GetBuffCount(RepulsionArmorCD.buff);
+                        float currentCDBuffs = body.GetBuffCount(LITContent.Buffs.RepulsionArmorCD);
                         float repulCount = (buffBaseLength + (buffStackLength * (stack - 1)));
                         if (repulCount > durCap && durCap != 0f)
                         { repulCount = durCap; }
                         if (currentCDBuffs < hitsNeededToActivate)
-                        { body.AddBuff(RepulsionArmorCD.buff); } //Maybe use a bool alongside this to interact proper w/ Blast Shower? Might not be needed.
+                        { body.AddBuff(LITContent.Buffs.RepulsionArmorCD); } //Maybe use a bool alongside this to interact proper w/ Blast Shower? Might not be needed.
                         if (currentCDBuffs > hitsNeededToActivate && currentCDBuffs > 0) //There simply MUST be a better way to do this.
-                        { body.RemoveBuff(RepulsionArmorCD.buff); }
+                        { body.RemoveBuff(LITContent.Buffs.RepulsionArmorCD); }
                         if (currentCDBuffs == 0)
                         {
-                            body.AddTimedBuff(RepulsionArmorActive.buff, repulCount);
+                            body.AddTimedBuff(LITContent.Buffs.RepulsionArmorActive, repulCount);
                             //hitsNeededToActivate = hitsNeededConfig; //I'm honestly not the happiest about this, but it gets the job done.
                             stopwatch -= repulCount + 0.05f;
                             //This SHOULD be a sneaky way to add a buffer to the cooldown. Could do this better by actually checking # of buffs. To-do: That, later.
                         }
-                        if (body.HasBuff(RepulsionArmorActive.buff))
+                        if (body.HasBuff(LITContent.Buffs.RepulsionArmorActive))
                         { hitsNeededToActivate = hitsNeededConfig; } //...This isn't exactly the result I'm looking for with the above, but who am I to complain about working code? Should probably make a new timer for it.
                     }
                 } //That's a lotta if statements. Cleaner implementation probably possible but not worth pursuing at this time.

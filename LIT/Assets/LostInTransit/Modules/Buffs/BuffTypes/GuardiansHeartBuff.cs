@@ -2,6 +2,7 @@
 using Moonstorm;
 using RoR2;
 using R2API;
+using Moonstorm.Components;
 
 namespace LostInTransit.Buffs
 {
@@ -9,14 +10,12 @@ namespace LostInTransit.Buffs
     public class GuardiansHeartBuff : BuffBase
     {
         public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("GuardiansHeartBuff");
-        public static BuffDef buff;
 
-        public override void Initialize()
+        public class GuardiansHeartBehavior : BaseBuffBodyBehavior, IBodyStatArgModifier
         {
-            buff = BuffDef;
-        }
-        public class ShackledDebuffBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
-        {
+            [BuffDefAssociation(useOnClient = true, useOnServer = true)]
+            public static BuffDef GetBuffDef() => LITContent.Buffs.GuardiansHeartBuff;
+
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
                 args.armorAdd += GuardiansHeart.heartArmor;

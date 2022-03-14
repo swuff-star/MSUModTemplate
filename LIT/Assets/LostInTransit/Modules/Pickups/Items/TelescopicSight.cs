@@ -49,9 +49,9 @@ namespace LostInTransit.Items
             {
                 if (damageInfo.dotIndex == DotController.DotIndex.None)
                 {
-                    if (Util.CheckRoll(CalcChance() * damageInfo.procCoefficient) && !body.HasBuff(Buffs.TeleSightCD.buff))
+                    if (Util.CheckRoll(CalcChance() * damageInfo.procCoefficient) && !body.HasBuff(LITContent.Buffs.TeleSightCD))
                     {
-                        if (cooldown) body.AddCooldownBuff(Buffs.TeleSightCD.buff, CalcCooldown());
+                        if (cooldown) body.AddCooldownBuff(LITContent.Buffs.TeleSightCD, CalcCooldown());
                         var flag = ChooseWetherToInstakill(victimHealthComponent.body);
                         if (flag)
                         {

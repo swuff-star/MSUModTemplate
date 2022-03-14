@@ -1,7 +1,7 @@
 ﻿using Moonstorm;
 using RoR2;
 using R2API;
-using RoR2.Items;
+using Moonstorm.Components;
 
 namespace LostInTransit.Buffs
 {
@@ -9,16 +9,12 @@ namespace LostInTransit.Buffs
     public class DiceArmor : BuffBase
     {
         public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("DiceArmor");
-        public static BuffDef buff;
 
-        public override void Initialize()
+        public class DiceArmorBehavior : BaseBuffBodyBehavior, IBodyStatArgModifier
         {
-            buff = BuffDef;
-        }
+            [BuffDefAssociation(useOnClient = true, useOnServer = true)]
+            public static BuffDef GetBuffDef() => LITContent.Buffs.DiceArmor;
 
-
-        public class DiceArmorBehavior : BaseItemBodyBehavior, IBodyStatArgModifier
-        {
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
                 args.armorAdd += Items.BlessedDice.armorAmount;

@@ -1,4 +1,5 @@
 ﻿using Moonstorm;
+using Moonstorm.Components;
 using RoR2;
 using System.Linq;
 using UnityEngine;
@@ -8,20 +9,12 @@ namespace LostInTransit.Buffs
     public class AffixFrenzied : BuffBase
     {
         public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixFrenzied");
-        public static BuffDef buff;
 
-        public override void Initialize()
+        public class AffixFrenziedBehavior : BaseBuffBodyBehavior, IStatItemBehavior
         {
-            buff = BuffDef;
-        }
+            [BuffDefAssociation(useOnClient = true, useOnServer = true)]
+            public static BuffDef GetBuffDef() => LITContent.Buffs.AffixFrenzied;
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
-        {
-            body.AddItemBehavior<AffixFrenziedBehavior>(stack);
-        }
-
-        public class AffixFrenziedBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
-        {
             public float blinkCooldown = 10;
 
             public GameObject BlinkReadyEffect = LITAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EffectFrenziedTPReady");

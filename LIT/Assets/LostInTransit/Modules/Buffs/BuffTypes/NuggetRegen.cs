@@ -2,6 +2,7 @@
 using RoR2;
 using UnityEngine;
 using R2API;
+using Moonstorm.Components;
 
 namespace LostInTransit.Buffs
 {
@@ -10,21 +11,21 @@ namespace LostInTransit.Buffs
     {
         public override BuffDef BuffDef { get;} = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("NuggetRegen");
 
-        public static BuffDef buff;
-
         public override void Initialize()
         {
-            buff = BuffDef;
             var schmeat = Resources.Load<BuffDef>("buffdefs/MeatRegenBoost");
             BuffDef.iconSprite = schmeat.iconSprite;
             BuffDef.startSfx = schmeat.startSfx;
         }
 
-        public class NuggetRegenBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
+        public class NuggetRegenBehavior : BaseBuffBodyBehavior, IBodyStatArgModifier
         {
+            [BuffDefAssociation(useOnServer = true, useOnClient = true)]
+            public static BuffDef GetBuffDef() => LITContent.Buffs.NuggetRegen;
+
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                args.regenMultAdd += Items.MeatNugget.regenMultiplier * stack;
+                args.regenMultAdd += Items.MeatNugget.regenMultiplier * buffStacks;
             }
         }
     }
