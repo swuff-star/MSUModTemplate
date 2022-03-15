@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
   - {fileID: 114945994935082278}
-  manifest: {fileID: 11400000, guid: acae7dc04bed84a792d6f9f55f44fd1b, type: 2}
+  manifest: {fileID: 0}
 --- !u!114 &114945994935082278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,8 +27,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03063c7a6ec04cc4c82c75cf9bcc8db8, type: 3}
   m_Name: Copy
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
+  Errored: 1
+  ErrorMessage: Could not find a part of the path "ThunderKit/Staging/LostInTransit/plugins/LostInTransit"
   ErrorStacktrace: 
   Active: 1
   PerManifest: 1

@@ -32,7 +32,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
-  ErrorStacktrace: 
   StagingPaths:
   - <ManifestPluginStaging>
   definitions:
@@ -51,11 +50,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
-  ErrorStacktrace: 
   StagingPaths:
   - <ManifestPluginStaging>
   Author: swuff
   Name: LostInTransit
+  Icon: {fileID: 2800000, guid: f04053fdead41624d856cf4823829d97, type: 3}
   Description: Lost in Transit is a mod focused on restoring features lost from Risk
     of Rain 1, currently including items and elites.
   Version: 0.3.5
@@ -74,7 +73,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
-  ErrorStacktrace: 
   StagingPaths:
   - <ManifestPluginStaging>
   assetBundles:
@@ -95,7 +93,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
-  ErrorStacktrace: 
   StagingPaths:
   - <ManifestPluginStaging>
   files:

@@ -15,7 +15,7 @@ MonoBehaviour:
   Data:
   - {fileID: 114516812798783938}
   - {fileID: 114746877878285806}
-  manifest: {fileID: 0}
+  manifest: {fileID: 11400000, guid: edd2056814543d44ca8b3d74d38ec86c, type: 2}
 --- !u!114 &114516812798783938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30,7 +30,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
-  ErrorStacktrace: 
   Active: 1
   PerManifest: 0
   ExcludedManifests: []

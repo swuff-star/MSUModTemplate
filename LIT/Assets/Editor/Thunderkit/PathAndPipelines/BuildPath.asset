@@ -30,7 +30,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
-  ErrorStacktrace: 
   Value: Builds
 --- !u!114 &114584135550662508
 MonoBehaviour:
@@ -46,7 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
-  ErrorStacktrace: 
 --- !u!114 &114616324293689852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,4 +59,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
-  ErrorStacktrace: 
