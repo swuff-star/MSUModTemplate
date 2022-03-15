@@ -17,7 +17,7 @@ namespace LostInTransit
 {
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.TeamMoonstorm.MoonstormSharedUtils", BepInDependency.DependencyFlags.HardDependency)]
-    [BepInDependency("com.TheMysticSword.AspectAbilities", BepInDependency.DependencyFlags.SoftDependency)]
+    //[BepInDependency("com.TheMysticSword.AspectAbilities", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(GUID, MODNAME, VERSION)]
     [R2APISubmoduleDependency(new string[]
@@ -42,7 +42,9 @@ namespace LostInTransit
 
         public void Awake()
         {
-            ConfigurableFieldManager.AddMod();
+            new LITAssets().Init();
+
+            ConfigurableFieldManager.AddMod(this);
             TokenModifierManager.AddToManager();
 
             instance = this;
@@ -50,12 +52,7 @@ namespace LostInTransit
             config = Config;
             LITLogger.logger = Logger;
 
-            /*if (DEBUG)
-            {
-                LITDebug component = base.gameObject.AddComponent<LITDebug>();
-            }*/
-
-            new LITContent().Init(); ;
+            new LITContent().Init();
         }
     }
 }
