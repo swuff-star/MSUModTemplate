@@ -4,6 +4,7 @@ using R2API.ScriptableObjects;
 using RoR2;
 using RoR2.ContentManagement;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using UnityEngine;
 
@@ -22,6 +23,7 @@ namespace LostInTransit.Modules
             base.Initialize();
             LITLogger.LogI($"Initializing Elites...");
             GetInitializedEliteEquipmentBases();
+            OnListCreated += LateEliteSetup;
         }
 
         protected override IEnumerable<EliteEquipmentBase> GetInitializedEliteEquipmentBases()
@@ -30,21 +32,20 @@ namespace LostInTransit.Modules
                 .Where(elite => LITMain.config.Bind<bool>("Lost in Transit Elites", elite.EliteDef.name, true, "Enable/disable this Elite Type.").Value)
                 .ToList()
                 .ForEach(elite => AddElite(elite));
-            LateEliteSetup();
             return null;
         }
 
-        private void LateEliteSetup()
+        private void LateEliteSetup(ReadOnlyCollection<MSEliteDef> eliteCollection)
         {
-            if (MoonstormElites.Contains(LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Volatile")))
+            if (eliteCollection.Contains(LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Volatile")))
             {
                 VolatileSpitebomb.BeginSetup();
             }
-            if (MoonstormElites.Contains(LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Blighted")))
+            if (eliteCollection.Contains(LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Blighted")))
             {
                 Blight.BeginSetup();
             }
-            if (MoonstormElites.Contains(LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Leeching")))
+            if (eliteCollection.Contains(LITAssets.Instance.MainAssetBundle.LoadAsset<MSEliteDef>("Leeching")))
             {
                 RoR2Application.onLoad += () =>
                 {

@@ -14,34 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
   - {fileID: 114280866512892062}
-  - {fileID: 114275474709592680}
   manifest: {fileID: 11400000, guid: acae7dc04bed84a792d6f9f55f44fd1b, type: 2}
---- !u!114 &114275474709592680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a7a6c02ded58c64bbee1e813cb5b3cc, type: 3}
-  m_Name: DeployToFolders
-  m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
-  Active: 1
-  PerManifest: 0
-  ExcludedManifests: []
-  recursive: 1
-  SourceRequired: 1
-  EstablishDestination: 1
-  pathReferencePairs:
-  - pathSource: <BuildPath>
-    pathDestination: <NebbysTestingPath>
-  - pathSource: <BuildPath>
-    pathDestination: <NebbysSS2LITTestingPath>
 --- !u!114 &114280866512892062
 MonoBehaviour:
   m_ObjectHideFlags: 0

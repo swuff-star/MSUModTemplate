@@ -29,6 +29,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
+  ErrorStacktrace: 
 --- !u!114 &114646933205011858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,5 +44,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
-  Value: C:\Users\TomyG\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\LIT
-    Dev\BepInEx\plugins
+  ErrorStacktrace: 
+  Value: C:\Users\TomyG\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\LITTesting\BepInEx\plugins

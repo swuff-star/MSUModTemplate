@@ -42,17 +42,17 @@ namespace LostInTransit
 
         public void Awake()
         {
-            new LITAssets().Init();
-
-            ConfigurableFieldManager.AddMod(this);
-            TokenModifierManager.AddToManager();
-
             instance = this;
             pluginInfo = Info;
             config = Config;
             LITLogger.logger = Logger;
 
+            LITConfig.Initialize(Config);
+            new LITAssets().Init();
             new LITContent().Init();
+
+            ConfigurableFieldManager.AddMod(this);
+            TokenModifierManager.AddToManager();
         }
     }
 }
