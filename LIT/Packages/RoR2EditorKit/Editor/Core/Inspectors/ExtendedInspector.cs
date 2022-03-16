@@ -176,7 +176,7 @@ namespace RoR2EditorKit.Core.Inspectors
             ClearElements();
             OnRootElementsCleared?.Invoke();
 
-            GetTemplateInstance(GetType().Name, DrawInspectorElement, path => path.StartsWith($"Packages/{Constants.RoR2EditorKit}") || path.StartsWith($"Assets/{Constants.RoR2EditorKit}"));
+            GetTemplateInstance(GetType().Name, DrawInspectorElement, path => path.StartsWith($"Packages/riskofthunder-ror2editorkit") || path.StartsWith($"Assets/{Constants.RoR2EditorKit}"));
             DrawInspectorElement.Bind(serializedObject);
             OnVisualTreeCopy?.Invoke();
 

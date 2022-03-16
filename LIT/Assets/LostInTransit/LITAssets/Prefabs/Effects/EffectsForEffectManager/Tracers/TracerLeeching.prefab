@@ -69,10 +69,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4791733874549106}
-  - component: {fileID: 114558903573619250}
   - component: {fileID: 198398354441000178}
   - component: {fileID: 199025742140192239}
-  - component: {fileID: 114038723679255081}
   m_Layer: 0
   m_Name: SmokeBeam
   m_TagString: Untagged
@@ -95,18 +93,6 @@ Transform:
   m_Father: {fileID: 4089570484711795}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &114558903573619250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1735783850469259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -335047464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!198 &198398354441000178
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -751,6 +737,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   UVModule:
+    serializedVersion: 2
     enabled: 0
     mode: 0
     timeMode: 0
@@ -814,7 +801,7 @@ ParticleSystem:
     rowIndex: 0
     cycles: 1
     uvChannelMask: -1
-    randomRow: 1
+    rowMode: 1
     sprites:
     - sprite: {fileID: 0}
     flipU: 0
@@ -1337,8 +1324,61 @@ ParticleSystem:
     inWorldSpace: 0
     randomizePerFrame: 0
   ExternalForcesModule:
+    serializedVersion: 2
     enabled: 0
-    multiplier: 1
+    multiplierCurve:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
     influenceFilter: 0
     influenceMask:
       serializedVersion: 2
@@ -2494,11 +2534,11 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: bd322cc942a7fb54e94f8baeaa9b05ba, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2506,6 +2546,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -2541,18 +2582,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &114038723679255081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1735783850469259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -335047464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1893371237611058
 GameObject:
   m_ObjectHideFlags: 0
@@ -2565,7 +2594,6 @@ GameObject:
   - component: {fileID: 114904499649802374}
   - component: {fileID: 114605288273552435}
   - component: {fileID: 114761708200251505}
-  - component: {fileID: 114545208340998163}
   m_Layer: 0
   m_Name: TracerLeeching
   m_TagString: Untagged
@@ -2599,7 +2627,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1893371237611058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 511512695, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 511512695, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   effectIndex: -1
@@ -2608,6 +2636,12 @@ MonoBehaviour:
   applyScale: 0
   soundName: 
   disregardZScale: 0
+  didResolveReferencedObject: 0
+  referencedObject: {fileID: 0}
+  didResolveReferencedChildTransform: 0
+  referencedChildTransform: {fileID: 0}
+  didResolveReferencedHurtBox: 0
+  referencedHurtBoxGameObject: {fileID: 0}
 --- !u!114 &114605288273552435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2617,7 +2651,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1893371237611058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1904172584, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 1904172584, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startTransform: {fileID: 4205811842497016}
@@ -2631,7 +2665,7 @@ MonoBehaviour:
   onTailReachedDestination:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114545208340998163}
+      - m_Target: {fileID: 0}
         m_MethodName: UnparentTransform
         m_Mode: 2
         m_Arguments:
@@ -2642,7 +2676,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114545208340998163}
+      - m_Target: {fileID: 0}
         m_MethodName: DestroySelf
         m_Mode: 1
         m_Arguments:
@@ -2653,6 +2687,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  startPos: {x: 0, y: 0, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  distanceTraveled: 0
+  totalDistance: 0
+  normal: {x: 0, y: 0, z: 0}
 --- !u!114 &114761708200251505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2662,25 +2701,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1893371237611058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 2005159759, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 2005159759, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0, guid: 0000000deadbeef15deadf00d0000000, type: 3}
   pointTransforms:
   - {fileID: 4612412530831334}
   - {fileID: 4264258002928019}
---- !u!114 &114545208340998163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893371237611058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 733712478, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1937395566202196
 GameObject:
   m_ObjectHideFlags: 0

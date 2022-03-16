@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1937965295, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
+  m_Script: {fileID: 1937965295, guid: f357238d6b02db242a3342da3f78b30e, type: 3}
   m_Name: AbilityBlighted
   m_EditorClassIdentifier: 
   equipmentDef: {fileID: 11400000, guid: c572279333409f54f9ba90b9d7614c43, type: 2}

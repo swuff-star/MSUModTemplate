@@ -9,13 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -568846244, guid: 012a0f871204a4c40a656d62afe0fadf, type: 3}
+  m_Script: {fileID: -568846244, guid: f357238d6b02db242a3342da3f78b30e, type: 3}
   m_Name: lit.item.thallium
   m_EditorClassIdentifier: 
+  <index>k__BackingField: -1
+  _cachedName: lit.item.thallium
   nameToken: ???
   displayModelPath: Prefabs/NullModel
   displayModelPrefab: {fileID: 0}
   hidden: 0
+  achievementIcon: {fileID: 21300000, guid: 2560dd74bf440834599d4317ddc03120, type: 3}
+  <sortScore>k__BackingField: 0
   achievementCondition:
     assemblyQualifiedName: 
   serverTracked: 0
