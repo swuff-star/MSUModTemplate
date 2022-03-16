@@ -13,7 +13,7 @@ namespace LostInTransit.Elites
     public static class Blight
     {
         public static List<EliteDef> EliteDefsForBlightedElites = new List<EliteDef>();
-        //private static bool spawnedDirector = false;
+        private static bool spawnedDirector = false;
         internal static Dictionary<BodyIndex, int> blightCostdictionary = new Dictionary<BodyIndex, int>();
         internal static void BeginSetup()
         {

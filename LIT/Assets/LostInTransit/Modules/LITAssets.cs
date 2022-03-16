@@ -19,18 +19,16 @@ namespace LostInTransit
         public override string AssemblyDir => Path.GetDirectoryName(LITMain.pluginInfo.Location);
         private string SoundBankPath { get => Path.Combine(AssemblyDir, "LostInTransitSBNK.bnk"); }
 
-        private const string mainAssetBundleName = "litassets";
-
         internal void Init()
         {
             List<AssetBundle> loadedBundles = new List<AssetBundle>();
             var bundlePaths = GetAssetBundlePaths();
-            //loadedBundles.Add(AssetBundle.LoadFromFile(bundlePaths));
+            loadedBundles.Add(AssetBundle.LoadFromFile(bundlePaths));
 
-            for(int i = 0; i < bundlePaths.Length; i++)
+            /*for(int i = 0; i < bundlePaths.Length; i++)
             {
                 loadedBundles.Add(AssetBundle.LoadFromFile(bundlePaths[i]));
-            }
+            }*/
 
             assetBundles = new ReadOnlyCollection<AssetBundle>(loadedBundles);
 
@@ -42,12 +40,9 @@ namespace LostInTransit
             SwapShadersFromMaterialsInBundle(MainAssetBundle);
         }
 
-        private string[] GetAssetBundlePaths()
+        private string GetAssetBundlePaths()
         {
-            return Directory.GetFiles(AssemblyDir)
-               .Where(filePath => !filePath.EndsWith(".manifest"))
-               .OrderByDescending(path => Path.GetFileName(path).Equals(mainAssetBundleName))
-               .ToArray();
+            return Path.Combine(AssemblyDir, "litassets");
         }
 
         private void LoadSoundBank()
