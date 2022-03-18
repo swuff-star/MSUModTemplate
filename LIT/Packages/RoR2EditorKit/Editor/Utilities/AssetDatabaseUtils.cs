@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.UIElements;
-using Object = UnityEngine.Object;
 
-namespace RoR2EditorKit
+namespace RoR2EditorKit.Utilities
 {
-    /// <summary>
-    /// Class holding various utility methods for interacting with the editor and the asset database
-    /// </summary>
-    public static class Util
+    public static class AssetDatabaseUtils
     {
         /// <summary>
         /// Finds all assets of Type T
@@ -103,91 +96,9 @@ namespace RoR2EditorKit
             return PrefabUtility.SaveAsPrefabAsset(asset, path);
         }
 
-        public static void CreateNewScriptableObject<T>(Func<string> overrideName = null, Action<T> afterCreated = null) where T : ScriptableObject
-        {
-            ThunderKit.Core.ScriptableHelper.SelectNewAsset<T>(overrideName, afterCreated);
-        }
-
-        public static void CreateNewScriptableObject(Type t, Func<string> overrideName = null)
-        {
-            ThunderKit.Core.ScriptableHelper.SelectNewAsset(t, overrideName);
-        }
-
-        public static T EnsureScriptableObjectExists<T>(string assetPath, Action<T> initializer = null) where T : ScriptableObject
-        {
-            return ThunderKit.Core.ScriptableHelper.EnsureAsset<T>(assetPath, initializer);
-        }
-
-        public static object EnsureScriptableObjectExists(string assetPath, Type type, Action<object> initializer = null)
-        {
-            return ThunderKit.Core.ScriptableHelper.EnsureAsset(assetPath, type, initializer);
-        }
-
         public static void UpdateNameOfObject(Object obj)
         {
             AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(obj), obj.name);
         }
-
-        #region extensions
-        public static bool IsNullOrEmptyOrWhitespace(this string text)
-        {
-            return (string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text));
-        }
-
-        /// <summary>
-        /// Sets the parent of this transform and sets position to a specified value
-        /// </summary>
-        /// <param name="parent">The parent transform</param>
-        /// <param name="pos">The position of the child</param>
-        public static void SetParent(this Transform t, Transform parent, Vector3 pos)
-        {
-            t.SetParent(parent, pos);
-        }
-
-        /// <summary>
-        /// Sets the parent of a gameObject to another GameObject, and sets position to 0
-        /// </summary>
-        /// <param name="parent">The parent GameObject</param>
-        public static void SetParent(this GameObject go, GameObject parent)
-        {
-            go.transform.SetParent(parent.transform, Vector3.zero);
-        }
-
-        /// <summary>
-        /// Sets the parent of a gameObject to another GameObject, and sets position to a specified value
-        /// </summary>
-        /// <param name="parent">The parent GameObject</param>
-        /// <param name="pos">The position of the Child</param>
-        public static void SetParent(this GameObject go, GameObject parent, Vector3 pos)
-        {
-            go.transform.SetParent(parent.transform, pos);
-        }
-
-        public static SerializedProperty GetBindedProperty(this ObjectField objField, SerializedObject objectBound)
-        {
-            if (objField.bindingPath.IsNullOrEmptyOrWhitespace())
-                throw new NullReferenceException($"{objField} doesnot have a bindingPath set");
-
-            return objectBound.FindProperty(objField.bindingPath);
-        }
-
-        public static void TryRemoveFromParent(this VisualElement element)
-        {
-            if(element != null && element.parent != null)
-            {
-                element.parent.Remove(element);
-            }
-        }
-
-        /// <summary>
-        /// Quick method to set the ObjectField's object type
-        /// </summary>
-        /// <typeparam name="TObj">The type of object to set</typeparam>
-        /// <param name="objField">The object field</param>
-        public static void SetObjectType<T>(this ObjectField objField) where T : UnityEngine.Object
-        {
-            objField.objectType = typeof(T);
-        }
-        #endregion
     }
 }
