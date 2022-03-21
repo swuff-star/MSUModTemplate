@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1876847550
+CRC: 1973334877
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8fbda5a467d18e6003c90205ebe7b251
+    Hash: 3d528625b3fa293bec3454d945330a29
   TypeTreeHash:
     serializedVersion: 2
-    Hash: a9599cc3136d6a7d791ac446f54fafdf
+    Hash: 7562f9b92425b6ec6f731c6d1258c2fc
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -40,75 +40,67 @@ ClassTypes:
 - Class: 108
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 511512695, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1985007777, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1343443687, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 488236779, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 372142912, guid: d382a022563c7517aadbc92ca1060016, type: 3}
-- Class: 114
-  Script: {fileID: 1788389205, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 2005159759, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 296141222, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
   Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 114
   Script: {fileID: 870831823, guid: c8c954e10545f6cd0045de066bc4846b, type: 3}
 - Class: 114
-  Script: {fileID: -1768714887, guid: d382a022563c7517aadbc92ca1060016, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 341298a8435f2164985e014e28235b74, type: 3}
-- Class: 114
-  Script: {fileID: -1752031980, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
-- Class: 114
-  Script: {fileID: -130519023, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
-- Class: 114
-  Script: {fileID: -1783169300, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -960361785, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 89795172, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1297580292, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1512808244, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -1479993534, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1931460509, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1918207524, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 2137989374, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -1218053310, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1904172584, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -1466055214, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: a1b2bb3baa9a64041aae1d04277603b1, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1a89379c7c140cf4c8fcd89de65fe247, type: 3}
 - Class: 114
-  Script: {fileID: -1350347239, guid: f357238d6b02db242a3342da3f78b30e, type: 3}
-- Class: 114
-  Script: {fileID: 1937965295, guid: f357238d6b02db242a3342da3f78b30e, type: 3}
-- Class: 114
   Script: {fileID: 819600919, guid: f357238d6b02db242a3342da3f78b30e, type: 3}
 - Class: 114
-  Script: {fileID: 751239416, guid: f357238d6b02db242a3342da3f78b30e, type: 3}
+  Script: {fileID: 1512808244, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: -568846244, guid: f357238d6b02db242a3342da3f78b30e, type: 3}
+  Script: {fileID: 511512695, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1479993534, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1297580292, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 372142912, guid: d382a022563c7517aadbc92ca1060016, type: 3}
+- Class: 114
+  Script: {fileID: 1918207524, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1985007777, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1768714887, guid: d382a022563c7517aadbc92ca1060016, type: 3}
+- Class: 114
+  Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1466055214, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -130519023, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
+- Class: 114
+  Script: {fileID: -1752031980, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
+- Class: 114
+  Script: {fileID: 1343443687, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1783169300, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 488236779, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1218053310, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1788389205, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1904172584, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 2005159759, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -960361785, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 296141222, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 2137989374, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 89795172, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1931460509, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 135
@@ -149,9 +141,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupMysteriousVial.prefab
 - Assets/Textures/Stolen/Ramps/texRampMagmaWorm.asset
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupBlessedDice.prefab
-- Assets/LostInTransit/LITAssets/SIDRS/SIDRAffixLeeching.asset
 - Assets/Textures/texBitterRoot.png
-- Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.thallium.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/LeechingRegen.asset
 - Assets/Materials/matAffixFrenzied.mat
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectFrenziedAbility.prefab
@@ -161,7 +151,6 @@ Assets:
 - Assets/LostInTransit/LITAssets/BuffDefs/AffixLeeching.asset
 - Assets/Textures/Stolen/texParticleDust1Mask.asset
 - Assets/Materials/matAffixLeeching.mat
-- Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.prisonshackles.asset
 - Assets/LostInTransit/LITAssets/ItemDefs/SmartShopper.asset
 - Assets/Textures/Ramps/texRampTwotone.png
 - Assets/Icons/texIconPickupAffixFrenzied.png
@@ -170,18 +159,15 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupThallium.prefab
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixBlighted.asset
 - Assets/LostInTransit/LITAssets/ItemDefs/GuardiansHeart.asset
-- Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.smartshopper.asset
 - Assets/Materials/matAffixVolatile.mat
 - Assets/Materials/matGiganticAmethyst.mat
 - Assets/Textures/Stolen/texCloudDifferenceBW2.asset
 - Assets/Materials/matAffixBlighted2.mat
-- Assets/LostInTransit/LITAssets/SIDRS/SIDRAffixFrenzied.asset
 - Assets/Materials/matGoldenGunGrip.mat
 - Assets/Materials/matFrenzyingElectric.mat
 - Assets/Mesh/meshSmartShopper.mesh
 - Assets/Textures/texSmartShopperDifuse.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupSmartShopper.prefab
-- Assets/LostInTransit/LITAssets/SIDRS/SIDRAffixVolatile.asset
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupBitterRoot.prefab
 - Assets/LostInTransit/LITAssets/ItemDefs/BlessedDice.asset
 - Assets/Icons/texIconMeatNuggetPLACEHOLDER.png
@@ -191,7 +177,6 @@ Assets:
 - Assets/LostInTransit/LITAssets/ItemDefs/PhotonCannon.asset
 - Assets/Materials/matOverlayLeeching.mat
 - Assets/Icons/texIconPickupThallium.png
-- Assets/LostInTransit/LITAssets/EliteAbilities/AbilityLeeching.asset
 - Assets/LostInTransit/LITAssets/Anims/BeckoningCat/animControllerBeckoningCat.controller
 - Assets/Icons/texIconPickupMysteriousVial.png
 - Assets/Textures/Ramps/texRampVolatileCharge.png
@@ -212,7 +197,6 @@ Assets:
 - Assets/Textures/texThalliumNormal.png
 - Assets/Textures/texGoldenGun_n.png
 - Assets/LostInTransit/LITAssets/BuffDefs/AffixVolatile.asset
-- Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.mysteriousvial.asset
 - Assets/Textures/texVolatileWickNormal.png
 - Assets/Materials/matBeckoningCat.mat
 - Assets/Icons/texIconBuffAffixVolatile.png
@@ -263,7 +247,6 @@ Assets:
 - Assets/Textures/texTelescopicSightDiffuse.png
 - Assets/Textures/Ramps/texRampEliteBlighted.png
 - Assets/Mesh/meshGiganticAmethyst.mesh
-- Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/KADPH.asset
 - Assets/Icons/texIconEnergyCellPLACEHOLDER.png
 - Assets/LostInTransit/LITAssets/ItemDefs/RepulsionChestplate.asset
 - Assets/Materials/matTracerLeeching.mat
@@ -273,14 +256,11 @@ Assets:
 - Assets/Icons/texIconBuffAffixFrenzied.png
 - Assets/Materials/matMysteriousVialLiquid.mat
 - Assets/LostInTransit/LITAssets/BuffDefs/ThalliumPoison.asset
-- Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.beckoningcat.asset
-- Assets/LostInTransit/LITAssets/EliteAbilities/AbilityBlighted.asset
 - Assets/Icons/texIconThqwibPLACEHOLDER.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixFrenzied.prefab
 - Assets/Textures/texSmartShopperRoughness.png
 - Assets/LostInTransit/LITAssets/ItemDefs/LifeSavings.asset
 - Assets/Icons/texIconBuffShackled.png
-- Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.lifesavings.asset
 - Assets/Mesh/meshGoldenGun.mesh
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixFrenzied.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/GuardiansHeartBuff.asset
@@ -306,7 +286,6 @@ Assets:
 - Assets/LostInTransit/LITAssets/BuffDefs/DiceMove.asset
 - Assets/Materials/matBlessedDice.mat
 - Assets/LostInTransit/LITAssets/BuffDefs/TeleSightCD.asset
-- Assets/LostInTransit/LITAssets/EliteAbilities/AbilityFrenzying.asset
 - "Assets/Icons/texIconP\xEFckupLifeSavings.png"
 - Assets/Mesh/meshLifeSavings.mesh
 - Assets/LostInTransit/LITAssets/Prefabs/DisplayPrefabs/DisplayGoldenGun.prefab
@@ -334,7 +313,6 @@ Assets:
 - Assets/LostInTransit/LITAssets/BuffDefs/Shackled.asset
 - Assets/Textures/texMysteriousVialDiffuse.png
 - Assets/LostInTransit/LITAssets/Misc/NetworkSoundDef/BlightSpawn.asset
-- Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.goldengun.asset
 - Assets/LostInTransit/LITAssets/ItemDefs/MysteriousVial.asset
 - Assets/LostInTransit/LITAssets/Prefabs/SizeReference.prefab
 - Assets/Mesh/Stolen/meshQuad.asset
@@ -342,5 +320,4 @@ Assets:
 - Assets/LostInTransit/LITAssets/ItemDefs/GoldenGun.asset
 - Assets/LostInTransit/LITAssets/ItemDefs/Thallium.asset
 - Assets/Textures/Ramps/texRampEliteFrenzied.png
-- Assets/LostInTransit/LITAssets/EliteAbilities/AbilityVolatile.asset
 Dependencies: []
