@@ -18,7 +18,7 @@ namespace LostInTransit.Items
 
         public class BitterRootBehavior : BaseItemBodyBehavior, IBodyStatArgModifier
         {
-            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            [ItemDefAssociation(useOnClient = true, useOnServer = true, behaviorTypeOverride = typeof(BitterRootBehavior))]
             public static ItemDef GetItemDef() => LITContent.Items.BitterRoot;
 
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)

@@ -54,6 +54,7 @@ namespace LostInTransit.Items
             //SIDENOTE: Use on client is false, which means that client's game objects wont have this behavior, but this is ok, as IOnKilledOtherServerReceiver runs only on server.
             [ItemDefAssociation(useOnClient = false, useOnServer = true)]
             public static ItemDef GetItemDef() => LITContent.Items.BeckoningCat;
+
             public List<PickupIndex> redItems = Run.instance.availableTier3DropList;
             public List<PickupIndex> greenItems = Run.instance.availableTier2DropList;
             public List<PickupIndex> whiteItems = Run.instance.availableTier1DropList;
@@ -62,8 +63,7 @@ namespace LostInTransit.Items
             private int nextGreenItem;
             private int nextWhiteItem;
 
-            private static readonly float Offset = 2f * Mathf.PI / Run.instance.participatingPlayerCount;
-            private Vector3 constant = (Vector3.up * 20f) + (5 * Vector3.right * Mathf.Cos(Offset)) + (5 * Vector3.forward * Mathf.Sin(Offset));
+            private Vector3 constant = (Vector3.up * 20f) + (5 * Vector3.right * Mathf.Cos(2f * Mathf.PI / Run.instance.participatingPlayerCount)) + (5 * Vector3.forward * Mathf.Sin(2f * Mathf.PI / Run.instance.participatingPlayerCount));
 
             //Swuff's original code hurts me so i'm re-using the one from varianceAPI.
             //★ at least my code dropped items more than 0.9% of the time :smirk:

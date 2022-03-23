@@ -15,8 +15,8 @@ MonoBehaviour:
   Errored: 0
   ErrorMessage: 
   ErrorStacktrace: 
-  Active: 0
-  stageDebugDatabases: 0
+  Active: 1
+  stageDebugDatabases: 1
   assemblyArtifactPath: <AssemblyStaging>
   buildTarget: 5
   buildTargetGroup: 1
@@ -52,7 +52,7 @@ MonoBehaviour:
   Errored: 0
   ErrorMessage: 
   ErrorStacktrace: 
-  Active: 0
+  Active: 1
   AssetBundleBuildOptions: 256
   buildTarget: 5
   recurseDirectories: 0
