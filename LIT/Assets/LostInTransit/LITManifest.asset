@@ -106,7 +106,7 @@ MonoBehaviour:
     of Rain 1, currently including items and elites.
   Version: 0.3.5
   Dependencies:
-  - {fileID: 11400000, guid: 0b5c45c77e3192046a1c9acfd4f387e9, type: 2}
+  - {fileID: 11400000, guid: a8ac6a3e325999651bd53f63760e6ff0, type: 2}
 --- !u!114 &114431642618062350
 MonoBehaviour:
   m_ObjectHideFlags: 1
