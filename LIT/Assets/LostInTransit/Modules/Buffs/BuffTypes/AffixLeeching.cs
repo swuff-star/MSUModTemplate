@@ -9,6 +9,7 @@ using UnityEngine.Networking;
 
 namespace LostInTransit.Buffs
 {
+    [DisabledContent]
     public class AffixLeeching : BuffBase
     {
         public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixLeeching");

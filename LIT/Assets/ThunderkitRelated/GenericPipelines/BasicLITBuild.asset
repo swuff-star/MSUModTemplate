@@ -36,7 +36,7 @@ MonoBehaviour:
   - {fileID: 80234234440950632}
   - {fileID: -3332458586933666445}
   - {fileID: 3662164972104113904}
-  manifest: {fileID: 11400000, guid: acae7dc04bed84a792d6f9f55f44fd1b, type: 2}
+  manifest: {fileID: 0}
 --- !u!114 &80234234440950632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,5 +76,6 @@ MonoBehaviour:
   Active: 1
   assemblyArtifactPath: <AssemblyStaging>
   cacheAssembliesOnSubfolder: 0
-  uNetAssemblyPath: D:\RoR2 Modding\LostInTransit\LIT\Packages\Risk of Rain 2\com.unity.multiplayer-hlapi.Runtime.dll
-  unityEngineAssemblyPath: C:\Program Files\Unity\Hub\Editor\2019.4.26f1\Editor\Data\Managed\UnityEngine.dll
+  uNetAssemblyPath: C:\Users\hanan\Documents\GitHub\LostInTransit\LIT\Packages\Risk
+    of Rain 2\com.unity.multiplayer-hlapi.Runtime.dll
+  unityEngineAssemblyPath: C:\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll

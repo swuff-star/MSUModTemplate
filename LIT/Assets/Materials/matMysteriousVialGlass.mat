@@ -144,7 +144,7 @@ Material:
     - _DistortionStrength: 0.1
     - _DitherOn: 0
     - _DstBlend: 10
-    - _DstBlendFloat: 1
+    - _DstBlendFloat: 0
     - _EliteBrightnessMax: 1
     - _EliteBrightnessMin: 0
     - _EliteIndex: 0
@@ -206,7 +206,7 @@ Material:
     - _SplatmapOn: 0
     - _SplatmapTileScale: 1
     - _SrcBlend: 1
-    - _SrcBlendFloat: 1
+    - _SrcBlendFloat: 0
     - _TriplanarOn: 0
     - _UVSec: 0
     - _UseUV1On: 0
@@ -221,4 +221,4 @@ Material:
     - _EmColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlashColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 0.06, g: 0.06, b: 0.06, a: 1}
+    - _TintColor: {r: 0.610294, g: 0.610294, b: 0.610294, a: 1}

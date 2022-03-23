@@ -104,8 +104,8 @@ namespace LostInTransit.Components
                 {
                     if (Util.CheckRoll(SpawnRate))
                     {
-                        MakeBlighted(body);
-                    }
+                        //MakeBlighted(body);
+                    }   //Commenting this out as right now, EVERYTHING is becoming Blighted; hopefully this serves as a temp fix.
                 }
             }
 
@@ -113,7 +113,7 @@ namespace LostInTransit.Components
             {
                 if (Util.CheckRoll(SpawnRate))
                 {
-                    MakeBlighted(body);
+                    //MakeBlighted(body);
                 }
             }
         }

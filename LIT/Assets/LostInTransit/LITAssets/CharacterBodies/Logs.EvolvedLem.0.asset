@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Logs.EvolvedLem.0
   m_EditorClassIdentifier: 
   <index>k__BackingField: -1
-  _cachedName: 
-  nameToken: ???
-  displayModelPath: Prefabs/NullModel
+  _cachedName: Logs.EvolvedLem.0
+  nameToken: UNLOCKABLE_LOG_EVOLVEDLEMURIAN
+  displayModelPath: 
   displayModelPrefab: {fileID: 0}
   hidden: 0
   achievementIcon: {fileID: 0}

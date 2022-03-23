@@ -72,6 +72,7 @@ namespace LostInTransit
             public static ItemDef SmartShopper;
             public static ItemDef TelescopicSight;
             public static ItemDef Thallium;
+            public static ItemDef Lopper;
         }
         public override string identifier => LITMain.GUID;
 

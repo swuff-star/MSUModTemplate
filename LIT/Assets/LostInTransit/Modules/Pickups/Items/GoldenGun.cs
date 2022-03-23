@@ -4,6 +4,7 @@ using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
 using RoR2.Items;
+using R2API;
 
 namespace LostInTransit.Items
 {
@@ -15,7 +16,7 @@ namespace LostInTransit.Items
         [ConfigurableField(ConfigName = "Maximum Gold Threshold", ConfigDesc = "The maximum amount of gold that Golden Gun will account for.")]
         [TokenModifier(token, StatTypes.Default, 2)]
         [TokenModifier(token, StatTypes.DivideBy2, 3)]
-        public static uint goldCap = 400;
+        public static uint goldCap = 300;
 
         [ConfigurableField(ConfigName = "Maximum Damage Bonus", ConfigDesc = "The maximum amount of bonus damage Golden Gun grants.")]
         [TokenModifier(token, StatTypes.Default, 0)]
@@ -23,7 +24,7 @@ namespace LostInTransit.Items
         public static uint goldNeeded = 40;
 
 
-        public class GoldenGunBehavior : BaseItemBodyBehavior
+        public class GoldenGunBehavior : BaseItemBodyBehavior, IBodyStatArgModifier
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static ItemDef GetItemDef() => LITContent.Items.GoldenGun;
@@ -34,7 +35,7 @@ namespace LostInTransit.Items
 
             private void Start()
             {
-                body.onInventoryChanged += UpdateStacks;
+                Stage.onStageStartGlobal += UpdateStacksOnStageStart;
                 UpdateStacks();
             }
 
@@ -44,9 +45,25 @@ namespace LostInTransit.Items
                 goldForBuff = Run.instance.GetDifficultyScaledCost((int)GetCap(goldCap)) / GetCap(goldNeeded); //★ This is the same stacking behavior so I will simply reuse it.
             }
 
+            private void UpdateStacksOnStageStart(Stage obj)
+            {
+                UpdateStacks();
+            }
+
             private float GetCap(uint value)
             {
                 return value + (value / 2) * (stack - 1);
+            }
+
+            public void OnDestroy()
+            {
+                Stage.onStageStartGlobal -= UpdateStacksOnStageStart;
+                body.SetBuffCount(LITContent.Buffs.GoldenGun.buffIndex, 0);
+            }
+
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
+            {
+                args.damageMultAdd += 0.01f * buffsToGive;
             }
 
             private void FixedUpdate()

@@ -617,20 +617,20 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
-    1: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit
-    7: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit
-    13: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit
-    14: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit
-    19: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit
-    21: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit
-    25: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit
+    1: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit;riskofrain2
+    7: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit;riskofrain2
+    13: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit;riskofrain2
+    14: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit;riskofrain2
+    19: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit;riskofrain2
+    21: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit;riskofrain2
+    25: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit;riskofrain2
     26: thunderkit;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils
-    27: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit
-    28: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit
-    29: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit
-    30: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit
-    32: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit
-    33: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit
+    27: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit;riskofrain2
+    28: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit;riskofrain2
+    29: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit;riskofrain2
+    30: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit;riskofrain2
+    32: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit;riskofrain2
+    33: thunderkit;riskofthunder-ror2editorkit;bbepis-bepinexpack;tristanmcpherson-r2api;riskofthunder-fixplugintypesserialization;iharbhd-debugtoolkit;riskofrain2
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

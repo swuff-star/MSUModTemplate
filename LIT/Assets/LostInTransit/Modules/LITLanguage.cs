@@ -7,7 +7,7 @@ namespace LostInTransit.Modules
     {
         public override string AssemblyDir => LITAssets.Instance.AssemblyDir;
 
-        public override string LanguagesFolderName => "Languages";
+        public override string LanguagesFolderName => "LITLang";
 
         internal void Init()
         {

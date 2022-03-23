@@ -16,7 +16,7 @@ namespace LostInTransit.Buffs
 
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                args.damageMultAdd += 0.01f * buffStacks;
+                //args.damageMultAdd += 0.01f * buffStacks;
             }
         }
     }

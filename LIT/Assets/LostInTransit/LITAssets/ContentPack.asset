@@ -16,6 +16,7 @@ MonoBehaviour:
   masterPrefabs: []
   projectilePrefabs: []
   gameModePrefabs: []
+  effectPrefabs: []
   networkedObjectPrefabs:
   - {fileID: 5605638329512005404, guid: c50d31a1b60e23147b406c98b6e4ae69, type: 3}
   - {fileID: 1244418117784641, guid: 16f39f5c807f0a04283807b9afacb043, type: 3}
@@ -23,6 +24,9 @@ MonoBehaviour:
   skillFamilies: []
   sceneDefs: []
   itemDefs: []
+  itemTierDefs: []
+  itemRelationshipProviders: []
+  itemRelationshipTypes: []
   equipmentDefs: []
   buffDefs: []
   eliteDefs: []
@@ -34,6 +38,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 21c6abfe1418ef74d9d08f545ab33fb7, type: 2}
   musicTrackDefs: []
   gameEndingDefs: []
+  miscPickupDefs: []
   entityStateConfigurations:
   - {fileID: 11400000, guid: 2fbcfec9346736f4fad759eb10c6bf57, type: 2}
   entityStateTypes: []
+  expansionDefs:
+  - {fileID: 11400000, guid: 2ce2fbceed4048348804f7408472b68c, type: 2}
+  entitlementDefs: []

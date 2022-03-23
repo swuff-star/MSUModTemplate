@@ -2,6 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1627637702, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-  m_Name: VultureBodyPrimarySkillFamily
-  m_EditorClassIdentifier:
+  m_Name: EvolvedLemurianPrimarySkillFamily
+  m_EditorClassIdentifier: 
+  <catalogIndex>k__BackingField: 0
   variants:
-  - skillDef: {fileID: 11400000, guid: baa7c29e80a045b3880457a5a5490a45, type: 2}
-    unlockableName:
+  - skillDef: {fileID: 11400000, guid: 88f880c2e5730a1428da17208bfa8a74, type: 2}
+    unlockableName: 
     unlockableDef: {fileID: 0}
   defaultVariantIndex: 0

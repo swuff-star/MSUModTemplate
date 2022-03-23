@@ -126,7 +126,7 @@ Material:
     - _EliteBrightnessMax: 1
     - _EliteBrightnessMin: 0
     - _EliteIndex: 0
-    - _EmPower: 5
+    - _EmPower: 0.4
     - _EnableCutout: 0
     - _FEON: 0
     - _Fade: 1
@@ -163,11 +163,11 @@ Material:
     - _SliceAlphaDepth: 0.1
     - _SliceBandHeight: 1
     - _SliceHeight: 5
-    - _Smoothness: 0
+    - _Smoothness: 0.8
     - _SmoothnessTextureChannel: 1
     - _SpecularExponent: 1
     - _SpecularHighlights: 1
-    - _SpecularStrength: 0
+    - _SpecularStrength: 0.4
     - _SplatmapOn: 0
     - _SplatmapTileScale: 1
     - _SrcBlend: 1
@@ -175,6 +175,6 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.38431, g: 0.77647, b: 0.42352, a: 1}
-    - _EmColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmColor: {r: 0.38431376, g: 0.77647066, b: 0.42352945, a: 0.34901962}
     - _EmissionColor: {r: 0.11764706, g: 0.41568628, b: 0.13333334, a: 1}
     - _FlashColor: {r: 0, g: 0, b: 0, a: 1}

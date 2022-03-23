@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace LostInTransit.Buffs
 {
+    [DisabledContent]
     public class AffixFrenzied : BuffBase
     {
         public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixFrenzied");
