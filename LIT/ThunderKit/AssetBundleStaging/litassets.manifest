@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3959163740
+CRC: 4092109592
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 77bf80b46f07fa279b816044ff13e57f
+    Hash: e6e95139cb345a373a523765723ed57e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5690f56d0eed0428292ffbf61c228409
@@ -236,7 +236,6 @@ Assets:
 - Assets/LostInTransit/LITAssets/SIDRS/SIDRAffixVolatile.asset
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupBitterRoot.prefab
 - Assets/LostInTransit/LITAssets/ItemDefs/BlessedDice.asset
-- Assets/Icons/texIconMeatNuggetPLACEHOLDER.png
 - Assets/Mesh/meshPrisonShackles.mesh
 - Assets/Textures/texLifeSavingsNormal.png
 - Assets/Textures/Stolen/texGlowPaintMask.asset
@@ -265,6 +264,7 @@ Assets:
 - Assets/Textures/texThalliumNormal.png
 - Assets/Textures/texGoldenGun_n.png
 - Assets/LostInTransit/LITAssets/BuffDefs/AffixVolatile.asset
+- Assets/Icons/texIconMeatNugget.png
 - Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.mysteriousvial.asset
 - Assets/Textures/texVolatileWickNormal.png
 - Assets/Materials/matBeckoningCat.mat
@@ -350,6 +350,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixFrenzied.asset
 - Assets/LostInTransit/LITAssets/BuffDefs/GuardiansHeartBuff.asset
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectLeechingAbility.prefab
+- Assets/Icons/texIconRootNewer.png
 - Assets/LostInTransit/LITAssets/Prefabs/NetworkedObjects/BlightedDirector.prefab
 - Assets/LostInTransit/LITAssets/ItemDefs/BitterRoot.asset
 - Assets/Mesh/meshLeechingCrown.mesh
@@ -357,7 +358,6 @@ Assets:
 - Assets/Textures/Ramps/texRampEliteLeeching.png
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectFrenziedTPReady.prefab
 - Assets/LostInTransit/LITAssets/BuffDefs/Pillaging.asset
-- Assets/Icons/texIconRootNew.png
 - Assets/Icons/texIconPickupSmartShopperNew.png
 - Assets/LostInTransit/LITAssets/EliteDefs/Frenzied.asset
 - Assets/Textures/texLopperV02_Tex_Normal.png
@@ -410,7 +410,6 @@ Assets:
 - Assets/LostInTransit/LITAssets/ItemDefs/MysteriousVial.asset
 - Assets/LostInTransit/LITAssets/Prefabs/SizeReference.prefab
 - Assets/Mesh/Stolen/meshQuad.asset
-- Assets/LostInTransit/LITAssets/SkillDefs/Child/New Skill Def.asset
 - Assets/LostInTransit/LITAssets/EquipmentDefs/Prescriptions 1.asset
 - Assets/Mesh/meshMysteriousVialSplat.mesh
 - Assets/LostInTransit/LITAssets/ItemDefs/GoldenGun.asset
