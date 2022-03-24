@@ -16,7 +16,7 @@ namespace LostInTransit
     {
         public static ReadOnlyCollection<AssetBundle> assetBundles;
         public override AssetBundle MainAssetBundle => assetBundles[0];
-        public override string AssemblyDir => Path.GetDirectoryName(LITMain.pluginInfo.Location);
+        public string AssemblyDir => Path.GetDirectoryName(LITMain.pluginInfo.Location);
         private string SoundBankPath { get => Path.Combine(AssemblyDir, "soundbanks", "LostInTransitSBNK.bnk"); }
 
         internal void Init()

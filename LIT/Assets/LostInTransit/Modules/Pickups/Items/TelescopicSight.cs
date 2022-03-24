@@ -35,7 +35,7 @@ namespace LostInTransit.Items
         public static float exceptionHealthPercentage = 20f;
 
         [ConfigurableField(ConfigName = "Instakill Elites", ConfigDesc = "Whether Telescopic Sight should instakill elites.")]
-        public static bool instakillElites = false;
+        public static bool instakillElites = true;
 
         [ConfigurableField(ConfigName = "Instakill Bosses", ConfigDesc = "Whether Telescopic Sight should instakill boss monsters.")]
         public static bool instakillBosses = false;

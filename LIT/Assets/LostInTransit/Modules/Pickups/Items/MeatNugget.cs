@@ -8,7 +8,7 @@ using RoR2.Items;
 
 namespace LostInTransit.Items
 {
-    [DisabledContent]
+    //[DisabledContent]
     public class MeatNugget : ItemBase
     {
         private const string token = "LIT_ITEM_MEATNUGGET_DESC";
@@ -20,9 +20,9 @@ namespace LostInTransit.Items
         [TokenModifier(token, StatTypes.Default, 0)]
         public static float procChance = 8f;
 
-        [ConfigurableField(ConfigName = "Regen Multiplier", ConfigDesc = "Multiplier added to regen by nugget pickup.")]
+        [ConfigurableField(ConfigName = "Regen Additive", ConfigDesc = "Amount added to regen by nugget pickup.")]
         [TokenModifier(token, StatTypes.Default, 1)]
-        public static float regenMultiplier = 0.5f;
+        public static float regenAdded = 1.6f;
 
         [ConfigurableField(ConfigName = "Does Regen Stack", ConfigDesc = "If true, the regen buff duration can stack up to the number of Meat Nuggets you have.")]
         public static bool doesStack = true;
@@ -48,7 +48,7 @@ namespace LostInTransit.Items
                     nugget.GetComponent<TeamFilter>().teamIndex = damageReport.attackerTeamIndex;
                     NuggetPickup nugbuff = nugget.GetComponentInChildren<NuggetPickup>();
                     nugbuff.BuffTimer = CalcDuration();
-                    nugbuff.RegenMult = regenMultiplier;
+                    nugbuff.RegenMult = regenAdded;
                     if (doesStack)
                     {
                         nugbuff.RegenStacks = stack;

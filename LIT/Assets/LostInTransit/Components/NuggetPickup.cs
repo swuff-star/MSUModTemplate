@@ -21,6 +21,7 @@ namespace LostInTransit.Components
 
         private bool alive = true;
 
+        //★ i feel shame seeing code this well constructed in the same project as mine
         private void OnTriggerStay(Collider other)
         {
             if (!NetworkServer.active || !alive)

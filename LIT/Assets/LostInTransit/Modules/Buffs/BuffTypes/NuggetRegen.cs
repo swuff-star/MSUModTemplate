@@ -6,7 +6,7 @@ using Moonstorm.Components;
 
 namespace LostInTransit.Buffs
 {
-    [DisabledContent]
+    //[DisabledContent]
     public class NuggetRegen : BuffBase
     {
         public override BuffDef BuffDef { get;} = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("NuggetRegen");
@@ -25,7 +25,7 @@ namespace LostInTransit.Buffs
 
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                args.regenMultAdd += Items.MeatNugget.regenMultiplier * buffStacks;
+                args.baseRegenAdd += Items.MeatNugget.regenAdded * buffStacks;
             }
         }
     }

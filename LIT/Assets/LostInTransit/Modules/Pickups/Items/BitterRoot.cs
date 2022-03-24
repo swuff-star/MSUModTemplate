@@ -7,6 +7,7 @@ using System;
 
 namespace LostInTransit.Items
 {
+    [DisabledContent]
     public class BitterRoot : ItemBase
     {
         private const string token = "LIT_ITEM_BITTERROOT_DESC";
@@ -24,6 +25,7 @@ namespace LostInTransit.Items
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
                 args.healthMultAdd += (rootIncrease/100) * stack;
+                
             }
         }
     }

@@ -71,7 +71,7 @@ namespace LostInTransit.Items
             public void Start()
             {
                 CharMaster.inventory.onInventoryChanged += UpdateStacks;
-                SceneExitController.onBeginExit += ExtractMoney;
+                //SceneExitController.onBeginExit += ExtractMoney;
                 Stage.onStageStartGlobal += GiveMoney;
                 UpdateStacks();
             }
@@ -80,7 +80,7 @@ namespace LostInTransit.Items
             {
                 stack = (int)CharMaster?.inventory.GetItemCount(itemDef);
             }
-
+            /*
             private void ExtractMoney(SceneExitController obj)
             {
                 if ((bool)!Run.instance?.isRunStopwatchPaused)
@@ -98,14 +98,17 @@ namespace LostInTransit.Items
                 toReturn = (uint)(CharMaster.money / 100 * Mathf.Min(percentage, 100));
                 CharMaster.money -= toReturn;
                 return toReturn;
-            }
+            }*/
+
+            //★ *takes comically large sip out of big empty soda cup creating al oud SLURRRRRRRRRRRRP sound* :grimacing: 
             private void GiveMoney(Stage obj)
             {
-                CharMaster.GiveMoney(storedGold);
+                CharMaster.GiveMoney(((uint)Run.instance.GetDifficultyScaledCost(25)));
+                /*CharMaster.GiveMoney(storedGold);
                 storedGold = 0;
-                moneyPending = false;
+                moneyPending = false;*/
             }
-
+            
             public void CheckIfShouldDestroy()
             {
                 if (!moneyPending)
@@ -114,7 +117,7 @@ namespace LostInTransit.Items
 
             public void OnDestroy()
             {
-                SceneExitController.onBeginExit -= ExtractMoney;
+                //SceneExitController.onBeginExit -= ExtractMoney;
                 Stage.onStageStartGlobal -= GiveMoney;
                 CharMaster.inventory.onInventoryChanged -= UpdateStacks;
             }

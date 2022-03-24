@@ -30,9 +30,9 @@ namespace LostInTransit
     })]
     public class LITMain : BaseUnityPlugin
     {
-        internal const string GUID = "com.swuff.LostInTransit";
+        internal const string GUID = "com.ContactLight.LostInTransit";
         internal const string MODNAME = "Lost in Transit";
-        internal const string VERSION = "0.3.5";
+        internal const string VERSION = "0.4.0";
 
         public static LITMain instance;
 
@@ -52,6 +52,7 @@ namespace LostInTransit
             LITConfig.Initialize(Config);
             new LITAssets().Init();
             new LITContent().Init();
+            new LITLanguage().Init();
 
             ConfigurableFieldManager.AddMod(this);
             TokenModifierManager.AddToManager();
