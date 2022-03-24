@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4092109592
+CRC: 3637399733
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e6e95139cb345a373a523765723ed57e
+    Hash: d94a2cf0d5387fc6bbbe5c2a9f481da4
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 5690f56d0eed0428292ffbf61c228409
+    Hash: bd607a9d5b234ac91e7d41b5cf306ba1
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -44,8 +44,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1985007777, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 372142912, guid: d382a022563c7517aadbc92ca1060016, type: 3}
-- Class: 114
   Script: {fileID: 1297580292, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1918207524, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -67,8 +65,6 @@ ClassTypes:
   Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 114
   Script: {fileID: 870831823, guid: c8c954e10545f6cd0045de066bc4846b, type: 3}
-- Class: 114
-  Script: {fileID: -1768714887, guid: d382a022563c7517aadbc92ca1060016, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 341298a8435f2164985e014e28235b74, type: 3}
 - Class: 114
@@ -151,6 +147,10 @@ ClassTypes:
   Script: {fileID: 751239416, guid: f357238d6b02db242a3342da3f78b30e, type: 3}
 - Class: 114
   Script: {fileID: -568846244, guid: f357238d6b02db242a3342da3f78b30e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 13d6c522af31447398568cc65334232b, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 135
@@ -210,9 +210,9 @@ Assets:
 - Assets/Materials/matAffixLeeching.mat
 - Assets/LostInTransit/LITAssets/CharacterBodies/EvolvedLemurianBodyFireball.asset
 - Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.prisonshackles.asset
+- Assets/Mesh/meshThqwib.mesh
 - Assets/LostInTransit/LITAssets/ItemDefs/SmartShopper.asset
 - Assets/Textures/Ramps/texRampTwotone.png
-- Assets/Textures/texMeatNormal.png
 - Assets/Icons/texIconPickupAffixFrenzied.png
 - Assets/Icons/texIconBuffAffixBlight.png
 - Assets/Materials/matVolatileChargeExplosion.mat
@@ -301,7 +301,7 @@ Assets:
 - Assets/Textures/texPrisonShackles.png
 - Assets/LostInTransit/LITAssets/BuffDefs/DiceRegen.asset
 - Assets/Icons/texIconPickupSmartShopper.png
-- Assets/Materials/matMeatNugget.mat
+- Assets/Materials/matThqwib.mat
 - Assets/Icons/texIconPickupBeckoningCat.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupGoldenGun.prefab
 - Assets/Icons/texIconPickupAffixBlight.png
@@ -321,6 +321,7 @@ Assets:
 - Assets/Materials/matMysteriousVialGlass.mat
 - Assets/Textures/Stolen/texOmniExplosion2Mask.asset
 - Assets/Textures/Ramps/GoldRamp.png
+- Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupThqwib.prefab
 - Assets/Textures/texTelescopicSightDiffuse.png
 - Assets/Textures/Ramps/texRampEliteBlighted.png
 - Assets/Mesh/meshGiganticAmethyst.mesh
@@ -338,11 +339,11 @@ Assets:
 - Assets/LostInTransit/LITAssets/BuffDefs/ThalliumPoison.asset
 - Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.beckoningcat.asset
 - Assets/LostInTransit/LITAssets/EliteAbilities/AbilityBlighted.asset
-- Assets/Icons/texIconThqwibPLACEHOLDER.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixFrenzied.prefab
 - Assets/Textures/texSmartShopperRoughness.png
 - Assets/LostInTransit/LITAssets/ItemDefs/LifeSavings.asset
 - Assets/Icons/texIconBuffShackled.png
+- Assets/Textures/Thqwib.png
 - Assets/LostInTransit/LITAssets/UnlockableDefs/lit.item.lifesavings.asset
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupMeatNugget.prefab
 - Assets/Mesh/meshGoldenGun.mesh
@@ -369,9 +370,10 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectsForEffectManager/BlightSmoke.prefab
 - Assets/Icons/texIconPickupGoldenGun.png
 - Assets/Textures/texMysteriousVialEmission.png
-- Assets/Textures/texMeat.png
 - Assets/Icons/texIconCatNew.png
+- Assets/Mesh/meshThqwibNucleus.mesh
 - Assets/Materials/matBitterRoot.mat
+- Assets/Icons/texIconExpansionDisabled.png
 - Assets/Icons/texIconTeleSightCD.png
 - Assets/Materials/matAffixBlighted 1.mat
 - Assets/LostInTransit/LITAssets/BuffDefs/DiceMove.asset
@@ -398,6 +400,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupAffixLeeching.prefab
 - Assets/LostInTransit/LITAssets/ItemDefs/RustyJetpack.asset
 - Assets/LostInTransit/LITAssets/Meshes/meshPlane.mesh
+- Assets/Icons/texIconExpansion.png
 - Assets/LostInTransit/LITAssets/ItemDefs/MeatNugget.asset
 - Assets/LostInTransit/LITAssets/EliteDefs/Volatile.asset
 - Assets/LostInTransit/LITAssets/ExpansonDef/LITExpansionDef.asset
@@ -415,6 +418,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/ItemDefs/GoldenGun.asset
 - Assets/Icons/texIconPickupThalliumNew.png
 - Assets/LostInTransit/LITAssets/ItemDefs/Thallium.asset
+- Assets/Icons/texIconThqwib.png
 - Assets/LostInTransit/LITAssets/CharacterBodies/ccpStandard.asset
 - Assets/Textures/Ramps/texRampEliteFrenzied.png
 - Assets/LostInTransit/LITAssets/Prefabs/Pickups/PickupLopper.prefab

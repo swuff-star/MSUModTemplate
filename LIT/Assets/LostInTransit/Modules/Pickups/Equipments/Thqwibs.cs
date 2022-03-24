@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace LostInTransit.Equipments
 {
-    [DisabledContent]
+    //[DisabledContent]
     public class Thqwib : EquipmentBase
     {
         private const string token = "LIT_EQUIP_THQWIB_DESC";

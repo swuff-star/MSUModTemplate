@@ -11,16 +11,33 @@ namespace LostInTransit.Items
         public override ItemDef ItemDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("LifeSavings");
         public static ItemDef itemDef;
 
-        [ConfigurableField(ConfigName = "Money Kept Between Stages", ConfigDesc = "Percentage of money kept between stages")]
+        /*[ConfigurableField(ConfigName = "Money Kept Between Stages", ConfigDesc = "Percentage of money kept between stages")]
         [TokenModifier(token, StatTypes.Default, 0)]
         [TokenModifier(token, StatTypes.DivideBy2, 1)]
-        public static float newMoneyKeptBase = 5f;
+        public static float newMoneyKeptBase = 5f;*/
 
         public class LifeSavingsBehavior : BaseItemBodyBehavior
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static ItemDef GetItemDef() => LITContent.Items.LifeSavings;
-            public LifeSavingsMasterBehavior MasterBehavior
+
+            public void Start()
+            {
+                Stage.onStageStartGlobal += GiveMoney;
+            }
+
+            private void GiveMoney(Stage obj)
+            {
+                body.master.GiveMoney((uint)(Run.instance.GetDifficultyScaledCost(25 * stack)));
+            }
+
+            public void OnDestroy()
+            {
+                Stage.onStageStartGlobal -= GiveMoney;
+            }
+
+            //★ sorry
+            /*public LifeSavingsMasterBehavior MasterBehavior
             {
                 get
                 {
@@ -57,11 +74,11 @@ namespace LostInTransit.Items
             {
                 if (body.isPlayerControlled)
                     MasterBehavior.CheckIfShouldDestroy();
-            }
+            }*/
         }
 
         //This is one of the rare few cases where an item behavior is not enough.
-        public class LifeSavingsMasterBehavior : MonoBehaviour
+        /*public class LifeSavingsMasterBehavior : MonoBehaviour
         {
             public CharacterMaster CharMaster { get => gameObject.GetComponent<CharacterMaster>(); }
             public int stack;
@@ -80,7 +97,7 @@ namespace LostInTransit.Items
             {
                 stack = (int)CharMaster?.inventory.GetItemCount(itemDef);
             }
-            /*
+            
             private void ExtractMoney(SceneExitController obj)
             {
                 if ((bool)!Run.instance?.isRunStopwatchPaused)
@@ -98,15 +115,15 @@ namespace LostInTransit.Items
                 toReturn = (uint)(CharMaster.money / 100 * Mathf.Min(percentage, 100));
                 CharMaster.money -= toReturn;
                 return toReturn;
-            }*/
+            }
 
             //★ *takes comically large sip out of big empty soda cup creating al oud SLURRRRRRRRRRRRP sound* :grimacing: 
             private void GiveMoney(Stage obj)
             {
                 CharMaster.GiveMoney(((uint)Run.instance.GetDifficultyScaledCost(25)));
-                /*CharMaster.GiveMoney(storedGold);
+                CharMaster.GiveMoney(storedGold);
                 storedGold = 0;
-                moneyPending = false;*/
+                moneyPending = false;
             }
             
             public void CheckIfShouldDestroy()
@@ -121,6 +138,6 @@ namespace LostInTransit.Items
                 Stage.onStageStartGlobal -= GiveMoney;
                 CharMaster.inventory.onInventoryChanged -= UpdateStacks;
             }
-        }
+        }*/
     }
 }

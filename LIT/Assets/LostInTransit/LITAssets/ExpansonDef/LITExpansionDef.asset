@@ -16,6 +16,6 @@ MonoBehaviour:
   requiredEntitlement: {fileID: 0}
   nameToken: LIT_EXPANSION_NAME
   descriptionToken: LIT_EXPANSION_DESC
-  iconSprite: {fileID: 21300000, guid: 194809737de1fab48942b2d41af01ca7, type: 3}
-  disabledIconSprite: {fileID: 21300000, guid: 149a8ff70edf85b48a83587dafff7bf7, type: 3}
+  iconSprite: {fileID: 21300000, guid: 819217aef61d9ec43811baaa64c9b5af, type: 3}
+  disabledIconSprite: {fileID: 21300000, guid: 0c9359ccd28c4094eb89fee9396f96c4, type: 3}
   runBehaviorPrefab: {fileID: 0}
