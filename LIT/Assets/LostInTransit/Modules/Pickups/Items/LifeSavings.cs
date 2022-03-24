@@ -16,7 +16,23 @@ namespace LostInTransit.Items
         [TokenModifier(token, StatTypes.DivideBy2, 1)]
         public static float newMoneyKeptBase = 5f;*/
 
-        public class LifeSavingsBehavior : BaseItemBodyBehavior
+        public override void Initialize()
+        {
+            CharacterBody.onBodyStartGlobal += GiveMoney;
+        }
+
+        private void GiveMoney(CharacterBody obj)
+        {
+            if (!obj.inventory)
+                return;
+            var inv = obj.inventory;
+            int count = inv.GetItemCount(ItemDef);
+            obj.master.GiveMoney((uint)(Run.instance.GetDifficultyScaledCost(25 * count)));
+            Debug.Log("Giving " + Run.instance.GetDifficultyScaledCost(25 * count) + " money");
+        }
+
+        //★ sorry
+        /*public class LifeSavingsBehavior : BaseItemBodyBehavior
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static ItemDef GetItemDef() => LITContent.Items.LifeSavings;
@@ -36,7 +52,7 @@ namespace LostInTransit.Items
                 Stage.onStageStartGlobal -= GiveMoney;
             }
 
-            //★ sorry
+            
             /*public LifeSavingsMasterBehavior MasterBehavior
             {
                 get
@@ -75,69 +91,69 @@ namespace LostInTransit.Items
                 if (body.isPlayerControlled)
                     MasterBehavior.CheckIfShouldDestroy();
             }*/
+    }
+
+    //This is one of the rare few cases where an item behavior is not enough.
+    /*public class LifeSavingsMasterBehavior : MonoBehaviour
+    {
+        public CharacterMaster CharMaster { get => gameObject.GetComponent<CharacterMaster>(); }
+        public int stack;
+        public bool moneyPending;
+        public uint storedGold;
+
+        public void Start()
+        {
+            CharMaster.inventory.onInventoryChanged += UpdateStacks;
+            //SceneExitController.onBeginExit += ExtractMoney;
+            Stage.onStageStartGlobal += GiveMoney;
+            UpdateStacks();
         }
 
-        //This is one of the rare few cases where an item behavior is not enough.
-        /*public class LifeSavingsMasterBehavior : MonoBehaviour
+        internal void UpdateStacks()
         {
-            public CharacterMaster CharMaster { get => gameObject.GetComponent<CharacterMaster>(); }
-            public int stack;
-            public bool moneyPending;
-            public uint storedGold;
+            stack = (int)CharMaster?.inventory.GetItemCount(itemDef);
+        }
 
-            public void Start()
+        private void ExtractMoney(SceneExitController obj)
+        {
+            if ((bool)!Run.instance?.isRunStopwatchPaused)
             {
-                CharMaster.inventory.onInventoryChanged += UpdateStacks;
-                //SceneExitController.onBeginExit += ExtractMoney;
-                Stage.onStageStartGlobal += GiveMoney;
-                UpdateStacks();
+                moneyPending = true;
+                storedGold = CalculatePercentage();
             }
+        }
 
-            internal void UpdateStacks()
-            {
-                stack = (int)CharMaster?.inventory.GetItemCount(itemDef);
-            }
-            
-            private void ExtractMoney(SceneExitController obj)
-            {
-                if ((bool)!Run.instance?.isRunStopwatchPaused)
-                {
-                    moneyPending = true;
-                    storedGold = CalculatePercentage();
-                }
-            }
+        private uint CalculatePercentage()
+        {
+            var percentage = newMoneyKeptBase + (newMoneyKeptBase/2 * (stack - 1));
 
-            private uint CalculatePercentage()
-            {
-                var percentage = newMoneyKeptBase + (newMoneyKeptBase/2 * (stack - 1));
+            uint toReturn;
+            toReturn = (uint)(CharMaster.money / 100 * Mathf.Min(percentage, 100));
+            CharMaster.money -= toReturn;
+            return toReturn;
+        }
 
-                uint toReturn;
-                toReturn = (uint)(CharMaster.money / 100 * Mathf.Min(percentage, 100));
-                CharMaster.money -= toReturn;
-                return toReturn;
-            }
+        //★ *takes comically large sip out of big empty soda cup creating al oud SLURRRRRRRRRRRRP sound* :grimacing: 
+        private void GiveMoney(Stage obj)
+        {
+            CharMaster.GiveMoney(((uint)Run.instance.GetDifficultyScaledCost(25)));
+            CharMaster.GiveMoney(storedGold);
+            storedGold = 0;
+            moneyPending = false;
+        }
 
-            //★ *takes comically large sip out of big empty soda cup creating al oud SLURRRRRRRRRRRRP sound* :grimacing: 
-            private void GiveMoney(Stage obj)
-            {
-                CharMaster.GiveMoney(((uint)Run.instance.GetDifficultyScaledCost(25)));
-                CharMaster.GiveMoney(storedGold);
-                storedGold = 0;
-                moneyPending = false;
-            }
-            
-            public void CheckIfShouldDestroy()
-            {
-                if (!moneyPending)
-                    Destroy(this);
-            }
+        public void CheckIfShouldDestroy()
+        {
+            if (!moneyPending)
+                Destroy(this);
+        }
 
-            public void OnDestroy()
-            {
-                //SceneExitController.onBeginExit -= ExtractMoney;
-                Stage.onStageStartGlobal -= GiveMoney;
-                CharMaster.inventory.onInventoryChanged -= UpdateStacks;
-            }
-        }*/
+        public void OnDestroy()
+        {
+            //SceneExitController.onBeginExit -= ExtractMoney;
+            Stage.onStageStartGlobal -= GiveMoney;
+            CharMaster.inventory.onInventoryChanged -= UpdateStacks;
+        }
     }
+}*/
 }
