@@ -35,7 +35,6 @@ MonoBehaviour:
   Data:
   - {fileID: 80234234440950632}
   - {fileID: -3332458586933666445}
-  - {fileID: 3662164972104113904}
   manifest: {fileID: 0}
 --- !u!114 &80234234440950632
 MonoBehaviour:
@@ -58,24 +57,3 @@ MonoBehaviour:
   recurseDirectories: 0
   simulate: 0
   BundleArtifactPath: <AssetBundleStaging>
---- !u!114 &3662164972104113904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29e483da39e8de642ae185393a655ba2, type: 3}
-  m_Name: WeaveAssemblies
-  m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
-  Active: 1
-  assemblyArtifactPath: <AssemblyStaging>
-  cacheAssembliesOnSubfolder: 0
-  uNetAssemblyPath: C:\Users\hanan\Documents\GitHub\LostInTransit\LIT\Packages\Risk
-    of Rain 2\com.unity.multiplayer-hlapi.Runtime.dll
-  unityEngineAssemblyPath: C:\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll
