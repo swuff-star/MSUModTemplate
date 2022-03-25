@@ -34,6 +34,7 @@ namespace LostInTransit
             public static BuffDef Shackled;
             public static BuffDef TeleSightCD;
             public static BuffDef ThalliumPoison;
+            public static BuffDef Meds;
         }
 
         public static class Elites

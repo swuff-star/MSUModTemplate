@@ -16,7 +16,7 @@ namespace LostInTransit.Items
         public static float extraShield = 60;
 
         [ConfigurableField(ConfigName = "Bonus Armor", ConfigDesc = "Amount of armor added when heart breaks.")]
-        public static float heartArmor = 80;
+        public static float heartArmor = 40;
 
         [ConfigurableField(ConfigName = "Bonus Armor Duration", ConfigDesc = "Length of the Heart's armor debuff.")]
         public static float heartArmorDur = 3f;
@@ -30,7 +30,7 @@ namespace LostInTransit.Items
             public static ItemDef GetItemDef() => LITContent.Items.GuardiansHeart;
             public void Start()
             {
-                body.levelMaxShield = (float)Math.Pow(extraShield, 1 / stack);
+                body.maxShield += extraShield;
             }
             public float currentShield;
             private void FixedUpdate()
@@ -39,7 +39,7 @@ namespace LostInTransit.Items
             }
             public void OnIncomingDamageServer(DamageInfo damageInfo)
             {
-                if (body.healthComponent.shield > 1f && damageInfo.damage >= body.healthComponent.shield)
+                if (body.healthComponent.shield >= 1f && damageInfo.damage >= body.healthComponent.shield)
                 {
                     if (shieldGating == true)
                     {
@@ -48,7 +48,7 @@ namespace LostInTransit.Items
 
                     if (heartArmor > 0f)
                     {
-                        body.AddTimedBuff(LITContent.Buffs.GuardiansHeartBuff, heartArmorDur);
+                        body.AddTimedBuff(LITContent.Buffs.GuardiansHeartBuff, MSUtil.InverseHyperbolicScaling(heartArmorDur, 1.5f, 7f, stack));
                     }
                 }
             }

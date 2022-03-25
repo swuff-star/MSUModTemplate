@@ -20,7 +20,8 @@
         "HGUnityUtils.dll",
         "MoonstormSharedUtils.dll",
         "KinematicCharacterController.dll",
-        "MMHOOK_RoR2.dll"
+        "MMHOOK_RoR2.dll",
+        "Wwise.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],
