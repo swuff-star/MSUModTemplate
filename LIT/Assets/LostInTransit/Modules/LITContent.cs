@@ -67,13 +67,13 @@ namespace LostInTransit
             public static ItemDef MysteriousVial;
             public static ItemDef PhotonCannon;
             public static ItemDef PrisonShackles;
+            public static ItemDef RapidMitosis;
             public static ItemDef RepulsionChestplate;
             public static ItemDef RustyJetpack;
             public static ItemDef SmartShopper;
             public static ItemDef TelescopicSight;
             public static ItemDef Thallium;
             public static ItemDef Lopper;
-            public static ItemDef RapidMitosis;
             public static ItemDef WickedRingNew;
         }
         public override string identifier => LITMain.GUID;
