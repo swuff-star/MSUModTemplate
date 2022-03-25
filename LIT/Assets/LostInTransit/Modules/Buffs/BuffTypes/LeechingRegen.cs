@@ -11,12 +11,12 @@ namespace LostInTransit.Buffs
     {
         public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("LeechingRegen");
 
-        public override void Initialize()
+        /*public override void Initialize()
         {
             var croco = Resources.Load<BuffDef>("buffdefs/CrocoRegen");
             BuffDef.iconSprite = croco.iconSprite;
             BuffDef.startSfx = croco.startSfx;
-        }
+        }*/
 
         public class LeechingRegenBehavior : BaseBuffBodyBehavior, IBodyStatArgModifier
         {
