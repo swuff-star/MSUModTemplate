@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 537469156
+CRC: 3628931435
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d51812545acbfc24ce10b51a127b941c
+    Hash: afc07264ef4b64a5a0c463825f8df675
   TypeTreeHash:
     serializedVersion: 2
     Hash: bd607a9d5b234ac91e7d41b5cf306ba1
@@ -229,7 +229,6 @@ Assets:
 - Assets/Materials/matWickedRing.mat
 - Assets/LostInTransit/LITAssets/ItemDefs/WickedRingNew.asset
 - Assets/Materials/matAffixVolatile.mat
-- Assets/Materials/matGiganticAmethyst.mat
 - Assets/Textures/Stolen/texCloudDifferenceBW2.asset
 - Assets/Materials/matAffixBlighted2.mat
 - Assets/LostInTransit/LITAssets/SIDRS/SIDRAffixFrenzied.asset
@@ -284,7 +283,6 @@ Assets:
 - Assets/LostInTransit/LITAssets/Prefabs/Effects/EffectVolatileChargeExplosion.prefab
 - Assets/Materials/matBlightSmoke2.mat
 - Assets/Icons/texIconPickupPrisonShackles.png
-- Assets/Textures/texGiganticAmethyst.png
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixVolatile.asset
 - Assets/Textures/texMeatPick.png
 - Assets/LostInTransit/LITAssets/BuffDefs/DiceCrit.asset
@@ -309,6 +307,7 @@ Assets:
 - Assets/LostInTransit/LITAssets/EquipmentDefs/AffixLeeching.asset
 - Assets/Textures/texPrisonShackles.png
 - Assets/LostInTransit/LITAssets/BuffDefs/DiceRegen.asset
+- Assets/Materials/matTimeCrystalSolid.mat
 - Assets/Icons/texIconPickupSmartShopper.png
 - Assets/Materials/matThqwib.mat
 - Assets/Icons/texIconPickupBeckoningCat.png
