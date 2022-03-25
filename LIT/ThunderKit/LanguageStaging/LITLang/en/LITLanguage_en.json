@@ -90,6 +90,10 @@
 		"LIT_ITEM_PHOTONCANNON_PICKUP": "Using your skills charges a powerful laser.",
 		"LIT_ITEM_PHOTONCANNON_DESC": "Gains <style=cIsDamage>{0}%</style> <style=cStack>(+{1}% per stack)</style> charge every second <style=cIsUtility>for each skill on cooldown</style>. At <style=cIsDamage>full charge</style>, fire a massive laser for <style=cIsDamage>{2}</style>% damage.",
 		"LIT_ITEM_PHOTONCANNON_LORE": "Replacement laser turbine for the photon power plant. The thing is deceptively small, but it holds immense power. Keep it away from all electromagnetic sources; it will charge from the field, and if the capacitor becomes overloaded, it WILL discharge.",
+		
+		"LIT_ITEM_RAPIDMITOSIS_NAME": "Rapid Mitosis",
+		"LIT_ITEM_RAPIDMITOSIS_PICKUP": "Decrease equipment cooldown.",
+		"LIT_ITEM_RAPIDMITOSIS_DESC": "Decrease <style=cIsUtility>equipment cooldown</style> by <style=cIsUtility>25%</style> <style=cStack>(+25% per stack)</style>.",
 
 		"LIT_ITEM_TELESCOPICSIGHT_NAME": "Telescopic Sight",
 		"LIT_ITEM_TELESCOPICSIGHT_PICKUP": "Attacks have a chance to instantly kill enemies.",
@@ -103,7 +107,7 @@
 
 		"LIT_ITEM_WICKEDRING_NAME": "Wicked Ring",
 		"LIT_ITEM_WICKEDRING_PICKUP": "Killing enemies decreases skill cooldowns.",
-		"LIT_ITEM_WICKEDRING_DESC": "Killing enemies <style=cIsUtility>decreases all skill cooldowns</style> by <stlye=cIsUtility>1</style> <style=cStack>(+1 per stack)</style> second.",
+		"LIT_ITEM_WICKEDRING_DESC": "Killing enemies <style=cIsUtility>decreases all skill cooldowns</style> by <style=cIsUtility>1</style> <style=cStack>(+1 per stack)</style> second.",
 		"LIT_ITEM_WICKEDRING_LORE": "A ring of the late King. The last of many cursed artifacts from a forgotten kingdom.\n\nEmpowered by the very souls of his progeny, he sacrificed the future of his kin for the future of his subjects. The King used the strength of his rings to protect and rule for generations.\n\nThe King had sacrificed much, all for the sake of those who would worship him. Worship, however, is a dangerous resource. A resource deserved of deities, not of mere mortals. A simple trugh he had forgotten.\n\nThe King had believed too much in his own people, his own strength, his own rings. The King had defied death for generations. Much longer than any man should live, much less rule. The King felt he'd overcome death. he'd thought he had ascended to a figure worthy of his people's worship.\n\nAlas, his infinite wisdom gave way to hubris. He thought he could challenge <style=cDeath>Her</style>, and allow his kingdom to prosper under his rule for eons to come. But death is something no one can escape, and delivers all to the same end. He was punished with the loss of what he'd sacrificed so much for, before sacrificing himself for one last hope. His soul never escaping the same torment he'd bestowed unto his sons.\n\n~Memento Mori",
 
 		"LIT_EQUIP_GIGANTICAMETHYST_NAME": "Gigantic Amethyst",
@@ -123,6 +127,8 @@
 
 		"LIT_EQUIP_PRESCRIPTIONS_NAME": "Prescriptions",
 		"LIT_EQUIP_PRESCRIPTIONS_PICKUP": "Increase damage, attack speed, and armor.",
+		"LIT_EQUIP_PRESCRIPTIONS_DESC": "Increase <style=cIsDamage>damage</style> by <style=cIsDamage>20%</style>, <style=cIsDamage>attack speed</style> by <style=cIsDamage>70%</style>, and <style=cIsUtility>armor</style> by <style=cIsUtility>20</style> for <style=cIsUtility>12</style> seconds.",
+		"LIT_EQUIP_PRESCRIPTOINS_LORE": "Order: C. Licht's Medicine for 4/56\nTracking Number: 643********\nEstimated Delivery: 04/03/2056\nShipping Method: High Priority\nShipping Address: 554 Washington St., Corydon, Earth\nShipping Details:\n\nCalvin Licht's monthly prescriptions. Should not be left unrefrigerated for more than 6 hours.\n\nTake one tablet daily with your evening meal. If you take more than one, you may suffer negative side effects.\n\nI mean it. Do NOT take more than one per day. Neither of us want a repeat of last month.",
 		
 		"LIT_EQUIP_PILLAGEDGOLD_NAME": "Pillaged Gold",
 		"LIT_EQUIP_PILLAGEDGOLD_PICKUP": "Hitting enemies gives gold.",

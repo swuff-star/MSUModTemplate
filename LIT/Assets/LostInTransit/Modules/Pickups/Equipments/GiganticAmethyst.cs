@@ -19,5 +19,6 @@ namespace LostInTransit.Equipments
             return true;                                                        //you're proccing the amethyst what would you have called it?
         }                                                                       //"amethystfire"? you aren't FIRING anything.
     }                                                                           //"amethystuse" is dull.
-                                                                                //n- "AmethystActivation", duh.
-}                                                                  
+                                                                           //n- "AmethystActivation", duh.
+                                                                                //boooooooooooooring     
+}

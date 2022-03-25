@@ -73,6 +73,8 @@ namespace LostInTransit
             public static ItemDef TelescopicSight;
             public static ItemDef Thallium;
             public static ItemDef Lopper;
+            public static ItemDef RapidMitosis;
+            public static ItemDef WickedRingNew;
         }
         public override string identifier => LITMain.GUID;
 
