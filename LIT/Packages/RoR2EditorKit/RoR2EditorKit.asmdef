@@ -16,7 +16,8 @@
         "HGUnityUtils.dll",
         "SimpleJSON.dll",
         "RoR2.dll",
-        "com.unity.multiplayer-hlapi.Runtime.dll"
+        "com.unity.multiplayer-hlapi.Runtime.dll",
+        "UnityEngine.UI.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],
