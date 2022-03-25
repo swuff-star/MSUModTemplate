@@ -107,4 +107,4 @@ LIT/Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset*
 #    then, it's OK to ignore this file.
 # 
 LIT/Assets/Wwise/Editor/ProjectData.meta
-LIT/Assets/Wwise/Deployment/Plugins/Mac/
+LIT/Assets/Wwise/Deployment/Plugins/Mac/*
