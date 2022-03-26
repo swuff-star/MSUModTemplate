@@ -77,6 +77,7 @@ namespace LostInTransit
             public static ItemDef Lopper;
             public static ItemDef WickedRingNew;
             public static ItemDef FireShield;
+            public static ItemDef BeatingEmbryo;
         }
         public override string identifier => LITMain.GUID;
 

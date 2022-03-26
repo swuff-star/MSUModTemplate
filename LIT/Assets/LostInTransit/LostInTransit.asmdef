@@ -21,7 +21,10 @@
         "MoonstormSharedUtils.dll",
         "KinematicCharacterController.dll",
         "MMHOOK_RoR2.dll",
-        "Wwise.dll"
+        "Wwise.dll",
+        "Unity.Addressables.dll",
+        "Unity.ResourceManager.dll",
+        "LegacyResourcesAPI.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],
