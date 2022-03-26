@@ -13,34 +13,34 @@ namespace LostInTransit.Items
 
         public override ItemDef ItemDef => LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("BeckoningCat");
 
-        [ConfigurableField(ConfigName = "Base Drop Chance", ConfigDesc = "Base chance for Elites to drop an item.")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Base Drop Chance", ConfigDesc = "Base chance for Elites to drop an item.")]
         [TokenModifier(token, StatTypes.Default, 0)]
         public static float baseChance = 4.5f;
 
-        [ConfigurableField(ConfigName = "Stacking Drop Chance", ConfigDesc = "Added chance for Elites to drop an item per stack.")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Stacking Drop Chance", ConfigDesc = "Added chance for Elites to drop an item per stack.")]
         [TokenModifier(token, StatTypes.Default, 1)]
         public static float stackChance = 1.5f;
         
-        [ConfigurableField(ConfigName = "Maximum Drop Chance Cap", ConfigDesc = "Maximum possible chance for Elites to drop an item, regardless of stacks.")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Maximum Drop Chance Cap", ConfigDesc = "Maximum possible chance for Elites to drop an item, regardless of stacks.")]
         public static float capChance = 100f;
 
-        [ConfigurableField(ConfigName = "Uncommon Item Chance", ConfigDesc = "Chance for Elites to drop an Uncommon (Green) item.")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Uncommon Item Chance", ConfigDesc = "Chance for Elites to drop an Uncommon (Green) item.")]
         [TokenModifier(token, StatTypes.Default, 2)]
         public static float greenItemChance = 6f;
 
-        [ConfigurableField(ConfigName = "Uncommon Item Stacking Chance", ConfigDesc = "Extra chance for Elites to drop an Uncommon (Green) item per stack.")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Uncommon Item Stacking Chance", ConfigDesc = "Extra chance for Elites to drop an Uncommon (Green) item per stack.")]
         [TokenModifier(token, StatTypes.Default, 3)]
         public static float greenItemStack = 1f;
 
-        [ConfigurableField(ConfigName = "Rare Item Chance", ConfigDesc = "Chance for Elites to drop a Rare (Red) item.")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Rare Item Chance", ConfigDesc = "Chance for Elites to drop a Rare (Red) item.")]
         [TokenModifier(token, StatTypes.Default, 4)]
         public static float redItemChance = 0.5f;
 
-        [ConfigurableField(ConfigName = "Rare Item Stacking Chance", ConfigDesc = "Extra chance for Elites to drop a Rare (Red) item per stack.")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Rare Item Stacking Chance", ConfigDesc = "Extra chance for Elites to drop a Rare (Red) item per stack.")]
         [TokenModifier(token, StatTypes.Default, 5)]
         public static float redItemStack = 0.25f;
 
-        [ConfigurableField(ConfigName = "Use Luck", ConfigDesc = "Whether Luck should be accounted for in all Beckoning Cat-related rolls.")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Use Luck", ConfigDesc = "Whether Luck should be accounted for in all Beckoning Cat-related rolls.")]
         public static bool usesLuck = true;
 
         //N- Item Behaviors now use RoR2's "BaseItemBodyBehavior" class

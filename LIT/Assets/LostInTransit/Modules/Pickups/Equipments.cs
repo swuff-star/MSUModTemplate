@@ -16,12 +16,9 @@ namespace LostInTransit.Modules
         {
             Instance = this;
             base.Initialize();
-            if(LITConfig.EnableEquipments.Value)
-            {
-                LITLogger.LogI($"Initializing Equipments...");
-                GetEquipmentBases();
-                GetEliteEquipmentBases();
-            }
+            LITLogger.LogI($"Initializing Equipments...");
+            GetEquipmentBases();
+            GetEliteEquipmentBases();
         }
 
         protected override IEnumerable<EquipmentBase> GetEquipmentBases()

@@ -16,11 +16,8 @@ namespace LostInTransit.Modules
         {
             Instance = this;
             base.Initialize();
-            if(LITConfig.EnableItems.Value)
-            {
-                LITLogger.LogI($"Initializing Items...");
-                GetItemBases();
-            }
+            LITLogger.LogI($"Initializing Items...");
+            GetItemBases();
         }
 
         protected override IEnumerable<ItemBase> GetItemBases()
