@@ -69,7 +69,7 @@ namespace LostInTransit.Buffs
 
                 if (body.hasAuthority)
                 {
-                    if (blinkReady && body.isPlayerControlled && Input.GetKeyDown(LITConfig.FrenziedBlink.Value))
+                    if (blinkReady && body.isPlayerControlled && Input.GetKeyDown(LITConfig.frenziedBlink.Value))
                         Blink();
                     else if (blinkReady && !body.isPlayerControlled)
                         Blink();

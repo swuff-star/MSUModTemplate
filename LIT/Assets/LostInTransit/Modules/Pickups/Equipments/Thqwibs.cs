@@ -11,15 +11,15 @@ namespace LostInTransit.Equipments
         private const string token = "LIT_EQUIP_THQWIB_DESC";
         public override EquipmentDef EquipmentDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("Thqwib");
 
-        [ConfigurableField(ConfigName = "Damage per Thqwib", ConfigDesc = "Amount of damage each Thqwib deals on explosion, as a %.")]
+        [ConfigurableField(LITConfig.equips, ConfigName = "Damage per Thqwib", ConfigDesc = "Amount of damage each Thqwib deals on explosion, as a %.")]
         [TokenModifier(token, StatTypes.Default, 1)]
         public static float damage = 200;
 
-        [ConfigurableField(ConfigName = "Number of Thqwibs", ConfigDesc = "Number of Thqwibs tossed in a single bloom.")]
+        [ConfigurableField(LITConfig.equips, ConfigName = "Number of Thqwibs", ConfigDesc = "Number of Thqwibs tossed in a single bloom.")]
         [TokenModifier(token, StatTypes.Default, 0)]
         public static int thqwibAmount = 30;
 
-        [ConfigurableField(ConfigName = "Chance to Proc On-Kill Effects", ConfigDesc = "Chance, per Thqwib, to activate On-Kill effects when exploding.\nDefault Average: 30x * 10% = 3 average On-Kill activations per bloom.")]
+        [ConfigurableField(LITConfig.equips, ConfigName = "Chance to Proc On-Kill Effects", ConfigDesc = "Chance, per Thqwib, to activate On-Kill effects when exploding.\nDefault Average: 30x * 10% = 3 average On-Kill activations per bloom.")]
         [TokenModifier(token, StatTypes.Default, 2)]
         public static float chance = 10f;
 

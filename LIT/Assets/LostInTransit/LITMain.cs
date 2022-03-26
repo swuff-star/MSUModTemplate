@@ -49,7 +49,7 @@ namespace LostInTransit
             config = Config;
             LITLogger.logger = Logger;
 
-            LITConfig.Initialize(Config);
+            new LITConfig().Init();
             new LITAssets().Init();
             new LITContent().Init();
             new LITLanguage().Init();

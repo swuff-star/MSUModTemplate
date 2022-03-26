@@ -12,36 +12,36 @@ namespace LostInTransit.Items
         private const string token = "LIT_ITEM_BLESSEDDICE_DESC";
         public override ItemDef ItemDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("BlessedDice");
 
-        [ConfigurableField(ConfigName = "Base duration of buff from Blessed Dice", ConfigDesc = "Base duration of buff after using a shrine.")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Base duration of buff from Blessed Dice", ConfigDesc = "Base duration of buff after using a shrine.")]
         [TokenModifier(token, StatTypes.Default, 0)]
         public static float newBaseTimer = 10f;
 
-        [ConfigurableField(ConfigName = "Duration of buff from Blessed Dice", ConfigDesc = "Added duration of buff per stack of Dice.")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Duration of buff from Blessed Dice", ConfigDesc = "Added duration of buff per stack of Dice.")]
         [TokenModifier(token, StatTypes.Default, 1)]
         public static float newStackTimer = 5f;
 
-        [ConfigurableField(ConfigName = "Barrier from buff", ConfigDesc = "Barrier/Temp HP gained while you have the shield buff, as a percentage of max health")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Barrier from buff", ConfigDesc = "Barrier/Temp HP gained while you have the shield buff, as a percentage of max health")]
         public static float barrierAmount = 50f;
 
-        [ConfigurableField(ConfigName = "Barrier decay rate during buff", ConfigDesc = "Rate at which barrier decays while you have the Shield buff, as a percentage of normal decay rate.")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Barrier decay rate during buff", ConfigDesc = "Rate at which barrier decays while you have the Shield buff, as a percentage of normal decay rate.")]
         public static float decayMult = 0f;
 
-        [ConfigurableField(ConfigName = "Armor from buff", ConfigDesc = "Armor added while you have the armor buff.")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Armor from buff", ConfigDesc = "Armor added while you have the armor buff.")]
         public static float armorAmount = 50f;
 
-        [ConfigurableField(ConfigName = "Move speed from buff", ConfigDesc = "Move speed added while you have the move speed buff, in percent.")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Move speed from buff", ConfigDesc = "Move speed added while you have the move speed buff, in percent.")]
         public static float moveAmount = 50f;
 
-        [ConfigurableField(ConfigName = "Attack speed from buff", ConfigDesc = "Attack speed added while you have the attack speed buff, in percent.")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Attack speed from buff", ConfigDesc = "Attack speed added while you have the attack speed buff, in percent.")]
         public static float atkAmount = 50f;
 
-        [ConfigurableField(ConfigName = "Crit chance from buff", ConfigDesc = "Critical strike chance added while you have the critical strike buff, in percent.")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Crit chance from buff", ConfigDesc = "Critical strike chance added while you have the critical strike buff, in percent.")]
         public static float critAmount = 20f;
 
-        [ConfigurableField(ConfigName = "Luck from buff", ConfigDesc = "Luck added while you have the luck buff. (Whole numbers only)")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Luck from buff", ConfigDesc = "Luck added while you have the luck buff. (Whole numbers only)")]
         public static int luckAmount = 1;
 
-        [ConfigurableField(ConfigName = "Weighted Rolls", ConfigDesc = "Make all buffs equally likely, instead of weighted for balance")]
+        [ConfigurableField(LITConfig.items, ConfigName = "Weighted Rolls", ConfigDesc = "Make all buffs equally likely, instead of weighted for balance")]
         public static bool fairRolls = false;
 
 
