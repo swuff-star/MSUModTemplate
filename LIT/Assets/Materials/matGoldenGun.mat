@@ -140,7 +140,7 @@ Material:
     - _FlowTextureScaleFactor: 1
     - _FlowmapOn: 0
     - _ForceSpecOn: 1
-    - _FresnelBoost: 1
+    - _FresnelBoost: 8.6
     - _FresnelPower: 2.6
     - _GlossMapScale: 1
     - _Glossiness: 0.5

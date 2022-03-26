@@ -7,7 +7,7 @@ using RoR2.Items;
 
 namespace LostInTransit.Items
 {
-    [DisabledContent]
+    //[DisabledContent]
     public class RepulsionArmor : ItemBase
     {
         private const string token = "LIT_ITEM_REPULCHEST_DESC";
@@ -31,28 +31,29 @@ namespace LostInTransit.Items
         [ConfigurableField(ConfigName = "Maximum Duration", ConfigDesc = "Maximum length of the Repulsion Armor buff. Set to 0 to disable.")]
         public static float durCap = 0f;
 
-        [ConfigurableField(ConfigName = "Damage Reduction", ConfigDesc = "Amount of damage reduced while the Repulsion Armor buff is active, as a percent.")]
+        [ConfigurableField(ConfigName = "Damage Reduction", ConfigDesc = "Amount of armor added while the Repulsion Armor buff is active.")]
         [TokenModifier(token, StatTypes.Default, 1)]
-        public static float damageResist = 83f;
+        public static float damageResist = 500f;
 
         public class RepulsionArmorBehavior : BaseItemBodyBehavior, IOnIncomingDamageServerReceiver
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static ItemDef GetItemDef() => LITContent.Items.RepulsionChestplate;
             
-            public float hitsNeededToActivate; //it's a mouthful but I am very high and I will easily be able to remember what it is for like this.
+            /*public float hitsNeededToActivate; //it's a mouthful but I am very high and I will easily be able to remember what it is for like this.
             private float stopwatch;
-            private static float checkTimer = 0.25f;
-            public void Awake()
+            private static float checkTimer = 0.25f;*/
+            public void Start()
             {
-                stopwatch = 0f;
+                /*stopwatch = 0f;
                 hitsNeededToActivate = hitsNeededConfig + (hitsNeededConfigStack * (stack - 1));
                 if (hitsNeededToActivate < 1)
                 { hitsNeededToActivate = 1; } //Failsafe for if someone tries to set this shit to 0.
                 if(NetworkServer.active)
-                    body.AddBuff(LITContent.Buffs.RepulsionArmorActive);
+                    body.AddBuff(LITContent.Buffs.RepulsionArmorActive);*/
+                if (body.GetBuffCount(LITContent.Buffs.RepulsionArmorCD) == 0 && body.GetBuffCount(LITContent.Buffs.RepulsionArmorActive) == 0) body.SetBuffCount(LITContent.Buffs.RepulsionArmorCD.buffIndex, (int)(hitsNeededConfig + hitsNeededConfigStack));
             }
-            private void FixedUpdate()
+            /*private void FixedUpdate()
             {
                 if (NetworkServer.active)
                 {
@@ -81,10 +82,16 @@ namespace LostInTransit.Items
                         { hitsNeededToActivate = hitsNeededConfig; } //...This isn't exactly the result I'm looking for with the above, but who am I to complain about working code? Should probably make a new timer for it.
                     }
                 } //That's a lotta if statements. Cleaner implementation probably possible but not worth pursuing at this time.
-            }
+            }*/
+
             public void OnIncomingDamageServer(DamageInfo damageInfo)
             {
-                hitsNeededToActivate -= 1f;
+                if (body.GetBuffCount(LITContent.Buffs.RepulsionArmorCD) == 1)
+                {
+                    body.RemoveBuff(LITContent.Buffs.RepulsionArmorCD);
+                    body.AddTimedBuffAuthority(LITContent.Buffs.RepulsionArmorActive.buffIndex, (buffBaseLength + buffStackLength * (stack - 1)));
+                }
+                if (body.GetBuffCount(LITContent.Buffs.RepulsionArmorCD) > 1) body.RemoveBuff(LITContent.Buffs.RepulsionArmorCD);
             }
         }
     }

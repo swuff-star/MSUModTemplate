@@ -3,10 +3,11 @@ using Moonstorm;
 using RoR2;
 using System;
 using RoR2.Items;
+using R2API;
 
 namespace LostInTransit.Items
 {
-    [DisabledContent]
+    //[DisabledContent]
     public class GuardiansHeart : ItemBase
     {
         private const string token = "LIT_ITEM_GUARDIANSHEART_DESC";
@@ -24,14 +25,11 @@ namespace LostInTransit.Items
         [ConfigurableField(ConfigName = "Shield Gating", ConfigDesc = "Whether the Heart should block damage past the remaining shield when broken.")]
         public static bool shieldGating = true;
 
-        public class GuardiansHeartBehavior : BaseItemBodyBehavior, IOnIncomingDamageServerReceiver
+        public class GuardiansHeartBehavior : BaseItemBodyBehavior, IOnIncomingDamageServerReceiver, IBodyStatArgModifier
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static ItemDef GetItemDef() => LITContent.Items.GuardiansHeart;
-            public void Start()
-            {
-                body.maxShield += extraShield;
-            }
+
             public float currentShield;
             private void FixedUpdate()
             {
@@ -51,6 +49,11 @@ namespace LostInTransit.Items
                         body.AddTimedBuff(LITContent.Buffs.GuardiansHeartBuff, MSUtil.InverseHyperbolicScaling(heartArmorDur, 1.5f, 7f, stack));
                     }
                 }
+            }
+
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
+            {
+                args.baseShieldAdd += extraShield;
             }
         }
     }

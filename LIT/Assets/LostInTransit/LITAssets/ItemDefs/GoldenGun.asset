@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: GoldenGun
   m_EditorClassIdentifier: 
-  _itemIndex: -1
   tier: 1
   nameToken: LIT_ITEM_GOLDENGUN_NAME
   pickupToken: LIT_ITEM_GOLDENGUN_PICKUP
@@ -25,4 +24,4 @@ MonoBehaviour:
   hidden: 0
   canRemove: 1
   tags: 0100000004000000
-  requiredExpansion: {fileID: 0}
+  requiredExpansion: {fileID: 11400000, guid: 2ce2fbceed4048348804f7408472b68c, type: 2}

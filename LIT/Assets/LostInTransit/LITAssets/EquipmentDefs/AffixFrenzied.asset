@@ -23,10 +23,13 @@ MonoBehaviour:
   unlockableDef: {fileID: 0}
   colorIndex: 5
   canDrop: 0
+  dropOnDeathChance: 0
+  canBeRandomlyTriggered: 1
   enigmaCompatible: 0
   isLunar: 0
   isBoss: 0
   passiveBuffDef: {fileID: 11400000, guid: 29d68b102b5d9c04cb340bcddefa43d6, type: 2}
   appearsInSinglePlayer: 1
   appearsInMultiPlayer: 1
+  requiredExpansion: {fileID: 11400000, guid: 2ce2fbceed4048348804f7408472b68c, type: 2}
   mageElement: 0

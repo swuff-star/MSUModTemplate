@@ -24,3 +24,4 @@ MonoBehaviour:
   hidden: 0
   canRemove: 1
   tags: 03000000
+  requiredExpansion: {fileID: 11400000, guid: 2ce2fbceed4048348804f7408472b68c, type: 2}

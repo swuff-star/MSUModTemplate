@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 1512808244, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: PillagedGold
   m_EditorClassIdentifier: 
-  _equipmentIndex: -1
   pickupModelPrefab: {fileID: 0}
   cooldown: 90
   nameToken: LIT_EQUIP_PILLAGEDGOLD_NAME
@@ -31,5 +30,5 @@ MonoBehaviour:
   passiveBuffDef: {fileID: 0}
   appearsInSinglePlayer: 1
   appearsInMultiPlayer: 1
-  requiredExpansion: {fileID: 0}
+  requiredExpansion: {fileID: 11400000, guid: 2ce2fbceed4048348804f7408472b68c, type: 2}
   mageElement: 0

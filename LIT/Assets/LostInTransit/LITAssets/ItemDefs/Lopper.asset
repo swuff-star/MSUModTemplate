@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: Lopper
   m_EditorClassIdentifier: 
-  _itemIndex: -1
   tier: 2
   nameToken: LIT_ITEM_LOPPER_NAME
   pickupToken: LIT_ITEM_LOPPER_PICKUP
@@ -24,5 +23,5 @@ MonoBehaviour:
   pickupIconSprite: {fileID: 21300000, guid: a31cfab6650b9544a8db42157aac6ee9, type: 3}
   hidden: 0
   canRemove: 1
-  tags: 
-  requiredExpansion: {fileID: 0}
+  tags: 01000000
+  requiredExpansion: {fileID: 11400000, guid: 2ce2fbceed4048348804f7408472b68c, type: 2}
