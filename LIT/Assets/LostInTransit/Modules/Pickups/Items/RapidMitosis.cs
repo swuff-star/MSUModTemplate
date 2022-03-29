@@ -33,6 +33,18 @@ namespace LostInTransit.Items
                     return num;
                 };
             }
+
+            
+
+            public void OnDestroy()
+            {
+                On.RoR2.Inventory.CalculateEquipmentCooldownScale -= (orig, self) =>
+                {
+                    float num = orig.Invoke(self);
+                    num *= (1 - MSUtil.InverseHyperbolicScaling(mitosisCD, mitosisCD, 0.7f, stack));
+                    return num;
+                };
+            }
         }
     }
 }

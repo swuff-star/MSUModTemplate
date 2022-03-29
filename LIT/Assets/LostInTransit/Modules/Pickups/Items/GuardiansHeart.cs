@@ -37,11 +37,11 @@ namespace LostInTransit.Items
             }
             public void OnIncomingDamageServer(DamageInfo damageInfo)
             {
-                if (body.healthComponent.shield >= 1f && damageInfo.damage >= body.healthComponent.shield)
+                if (body.healthComponent.shield >= 1f && damageInfo.damage >= body.healthComponent.shield + body.healthComponent.barrier)
                 {
-                    if (shieldGating == true)
+                    if (shieldGating == true && !(damageInfo.damageType == DamageType.BypassArmor || damageInfo.damageType == DamageType.BypassOneShotProtection))
                     {
-                        damageInfo.damage = body.healthComponent.shield;
+                        damageInfo.damage = body.healthComponent.shield + body.healthComponent.barrier;
                     }
 
                     if (heartArmor > 0f)
