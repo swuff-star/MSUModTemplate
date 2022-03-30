@@ -8,7 +8,7 @@ using System;
 
 namespace LostInTransit.Items
 {
-    //[DisabledContent]
+    [DisabledContent]
     public class FiremansBoots : ItemBase
     {
         private const string token = "LIT_ITEM_FIREMANSBOOTS_DESC";
@@ -27,7 +27,7 @@ namespace LostInTransit.Items
             [ItemDefAssociation(useOnClient = true, useOnServer = true, behaviorTypeOverride = typeof(FiremansBootsBehavior))]
             public static ItemDef GetItemDef() => LITContent.Items.FireBoots;
 
-            public void Start()
+            /*public void Start()
             {
                 body.fireTrail.
                 body.fireTrail = UnityEngine.Object.Instantiate<GameObject>(LegacyResourcesAPI.Load<GameObject>("Prefabs/FireTrail"), this.transform).GetComponent<DamageTrail>();
@@ -35,7 +35,7 @@ namespace LostInTransit.Items
                 body.fireTrail.owner = body.gameObject;
                 body.fireTrail.radius = body.radius;
                 body.fireTrail.damagePerSecond = body.damage * 1.5f;
-            }
+            }*/
 
 
             public void OnDestroy()
