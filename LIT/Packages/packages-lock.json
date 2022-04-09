@@ -7,13 +7,13 @@
       "dependencies": {}
     },
     "com.passivepicasso.thunderkit": {
-      "version": "https://github.com/PassivePicasso/ThunderKit.git",
+      "version": "https://github.com/PassivePicasso/ThunderKit.git#RC_5_0_0",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.scriptablebuildpipeline": "1.16.1"
       },
-      "hash": "4ceab97263a7f4054038c8f7c2c86b873acd4b0b"
+      "hash": "515f013cbde05dd255c0e3aa6cfa72962ff40ad2"
     },
     "com.unity.scriptablebuildpipeline": {
       "version": "1.16.1",
@@ -22,24 +22,8 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-    "com.unity.xr.legacyinputhelpers": {
-      "version": "2.1.7",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.vr": "1.0.0",
-        "com.unity.modules.xr": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
     "iharbhd-debugtoolkit": {
       "version": "file:DebugToolkit",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
-    },
-    "nebby-unitymultiplayerhlapi": {
-      "version": "file:UnityMultiplayerHLAPI",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}
@@ -56,8 +40,26 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "riskofthunder-hookgenpatcher": {
+      "version": "file:HookGenPatcher",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "riskofthunder-ror2editorkit": {
       "version": "file:RoR2EditorKit",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "riskofthunder-ror2multiplayerhlapi": {
+      "version": "file:RoR2MultiplayerHLAPI",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "teammoonstorm-moonstormsharededitorutils": {
+      "version": "file:MoonstormSharedEditorUtils",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}

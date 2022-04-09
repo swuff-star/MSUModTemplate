@@ -84,17 +84,13 @@ LIT/ThunderKit/
 #Other
 LIT/Assets/Plugins/NGTools/*
 OldProject/*
-LIT/Assets/Resources/*
-LIT/Packages/*
-!LIT/Packages/packages-lock.json
-!LIT/Packages/manifest.json
 
 ##-------##
 ## wwise ##
 ##-------##
 
 LIT/WWiseLIT/.cache/
-LIT/WWiseLIT/*.prof
+LIT/WWiseLIT/*.profw
 LIT/WWiseLIT/*_WwiseProject.*.validationcache
 LIT/WWiseLIT/*_WwiseProject.*.wsettings
 LIT/WWiseLIT/**/*.akd
