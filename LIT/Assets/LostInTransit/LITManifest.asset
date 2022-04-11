@@ -93,9 +93,10 @@ MonoBehaviour:
   Name: LostInTransit
   Description: Lost in Transit is a mod focused on restoring features lost from Risk
     of Rain 1, currently including items and elites.
-  Version: 0.3.5
+  Version: 0.4.0
   Dependencies:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 7fb5b3d290bed6011ed7e8daf230df89, type: 2}
+  - {fileID: 11400000, guid: a8ac6a3e325999651bd53f63760e6ff0, type: 2}
 --- !u!114 &114431642618062350
 MonoBehaviour:
   m_ObjectHideFlags: 1

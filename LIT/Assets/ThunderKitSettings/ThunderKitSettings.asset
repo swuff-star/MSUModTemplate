@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ThunderKitSettings
   m_EditorClassIdentifier: 
   FirstLoad: 1
-  ShowOnStartup: 0
+  ShowOnStartup: 1
   GameExecutable: Risk of Rain 2.exe
-  GamePath: D:\SteamGames\steamapps\common\Risk of Rain 2
+  GamePath: C:\Program Files (x86)\Steam\steamapps\common\Risk of Rain 2
   IncludedSettings: -1
   Is64Bit: 1
   DateTimeFormat: HH:mm:ss:fff
@@ -26,5 +26,5 @@ MonoBehaviour:
   SelectedManifest: {fileID: 0}
   QuickAccessPipelines: []
   QuickAccessManifests: []
-  OldGuidGenerationMode: 2
-  GuidGenerationMode: 2
+  OldGuidGenerationMode: 0
+  GuidGenerationMode: 0

@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b20fac9c71fd64183cb7a8f359d73a, type: 3}
   m_Name: StageAssemblies
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
   Active: 1
   stageDebugDatabases: 1
   assemblyArtifactPath: <AssemblyStaging>
@@ -34,7 +31,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
   - {fileID: 80234234440950632}
+  - {fileID: 6307070179732563969}
   - {fileID: -3332458586933666445}
+  QuickAccess: 0
   manifest: {fileID: 11400000, guid: 6f21799fca639037e1b559d4902eab24, type: 2}
 --- !u!114 &80234234440950632
 MonoBehaviour:
@@ -48,9 +47,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924ee63e6c016f14d8a1560b288f15a3, type: 3}
   m_Name: StageAssetBundles
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
+  Active: 0
+  AssetBundleBuildOptions: 256
+  buildTarget: 5
+  recurseDirectories: 0
+  simulate: 0
+  BundleArtifactPath: <AssetBundleStaging>
+--- !u!114 &6307070179732563969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650e81879bb7f5448a3b094ab9216ac6, type: 3}
+  m_Name: SwapShadersAndStageAssetBundles
+  m_EditorClassIdentifier: 
   Active: 1
   AssetBundleBuildOptions: 256
   buildTarget: 5

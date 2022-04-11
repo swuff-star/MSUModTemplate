@@ -12,6 +12,7 @@ using UnityEngine.Networking;
 namespace LostInTransit.Buffs
 {
     [DisabledContent]
+    //★ I did something naughty and just... commented out a lot of errors instead of fixing them. I plan on redoing this anyway so... oh well.
     public class AffixVolatile : BuffBase
     {
         public override BuffDef BuffDef { get; } = LITAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixVolatile");
@@ -54,7 +55,7 @@ namespace LostInTransit.Buffs
             {
                 if (body.healthComponent)
                 {
-                    HG.ArrayUtils.ArrayAppend(ref body.healthComponent.onTakeDamageReceivers, this);
+                    //HG.ArrayUtils.ArrayAppend(ref body.healthComponent.onTakeDamageReceivers, this);
                 }
 
                 damageThreshold = (body.maxHealth / 1.5f) / diffScaling;
@@ -75,7 +76,7 @@ namespace LostInTransit.Buffs
                     if (timeSinceBombsDeployed > 3)
                     {
                         tankedDamage = 0f;
-                        PrepBombs();
+                        //PrepBombs();
                     }
                     else
                     {
@@ -84,7 +85,7 @@ namespace LostInTransit.Buffs
                 }
             }
 
-            private void PrepBombs()
+            /*private void PrepBombs()
             {
                 if (!NetworkServer.active)
                     return;
@@ -115,9 +116,9 @@ namespace LostInTransit.Buffs
                     }
                     SpawnBombs(bombs);
                 }
-            }
+            }*/
 
-            private void SpawnBombs(List<(BombArtifactManager.BombRequest, float)> bombs)
+            /*private void SpawnBombs(List<(BombArtifactManager.BombRequest, float)> bombs)
             {
                 foreach ((BombArtifactManager.BombRequest bomb, float groundY) in bombs)
                 {
@@ -147,7 +148,7 @@ namespace LostInTransit.Buffs
                     component2.teamIndex = bomb.teamIndex;
                     NetworkServer.Spawn(gameObject);
                 }
-            }
+            }*/
 
 
             public void OnHitAll(DamageInfo dmgInfo)
@@ -185,7 +186,7 @@ namespace LostInTransit.Buffs
                 }
             }
 
-            private void OnDestroy()
+            /*private void OnDestroy()
             {
                 //This SHOULDNT cause any errors because nothing should be fucking with the order of things in this list... I hope.
                 if (body.healthComponent)
@@ -196,7 +197,7 @@ namespace LostInTransit.Buffs
                         HG.ArrayUtils.ArrayRemoveAtAndResize(ref body.healthComponent.onIncomingDamageReceivers, body.healthComponent.onIncomingDamageReceivers.Length, i);
                     }
                 }
-            }
+            }*/
         }
     }
 }
