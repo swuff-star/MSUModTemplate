@@ -88,7 +88,6 @@ namespace RoR2EditorKit.RoR2Related.Inspectors
 
         private void CheckEliteDef(ChangeEvent<UnityEngine.Object> evt = null)
         {
-            var button = Find<Button>(buffColor, "colorSetter");
             foreach (IMGUIContainer container in eliteDefMessages)
             {
                 if (container != null)
@@ -96,14 +95,10 @@ namespace RoR2EditorKit.RoR2Related.Inspectors
             }
             eliteDefMessages.Clear();
 
-            if (!eliteDef)
-            {
-                button.style.display = DisplayStyle.None;
-                return;
-            }
-            button.style.display = DisplayStyle.Flex;
-
             IMGUIContainer msg = null;
+            if (!eliteDef)
+                return;
+
             if(!eliteDef.eliteEquipmentDef)
             {
                 msg = CreateHelpBox($"You've associated an EliteDef ({eliteDef.name}) to this buff, but the EliteDef has no EquipmentDef assigned!", MessageType.Warning);
