@@ -13,6 +13,7 @@
     "overrideReferences": true,
     "precompiledReferences": [
         "RoR2.dll",
+        "R2API.dll",
         "MoonstormSharedUtils.dll"
     ],
     "autoReferenced": true,

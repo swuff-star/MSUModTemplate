@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/Deferred/HGWavyCloth" {
+Shader "StubbedRoR2/Base/Shaders/HGWavyCloth" {
 	Properties {
 		_Color ("Main Color", Vector) = (0.5,0.5,0.5,1)
 		_Cutoff ("Alpha Cutoff Value", Range(0, 1)) = 0.5

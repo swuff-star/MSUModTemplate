@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/UI/HGUICustomBlend" {
+Shader "StubbedRoR2/Base/Shaders/HGUICustomBlend" {
 	Properties {
 		[HideInInspector] _SrcBlend ("Source Blend", Float) = 1
 		[HideInInspector] _DstBlend ("Destination Blend", Float) = 1

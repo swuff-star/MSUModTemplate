@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/PostProcess/HGScopeShader" {
+Shader "StubbedRoR2/Base/Shaders/HGScopeShader" {
 	Properties {
 		[Header(Scope Properties)] _ScopeMap ("Scope Distortion (R), Scope Tint (G)", 2D) = "white" {}
 		[HideInInspector] _MainTex ("", any) = "" {}

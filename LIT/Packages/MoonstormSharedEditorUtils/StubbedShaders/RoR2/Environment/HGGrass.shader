@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/Environment/HGGrass" {
+Shader "StubbedRoR2/Base/Shaders/HGGrass" {
 	Properties {
 		_Color ("Main Color", Vector) = (0.5,0.5,0.5,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}

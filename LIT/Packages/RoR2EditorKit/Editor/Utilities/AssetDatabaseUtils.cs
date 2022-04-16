@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEditor;
@@ -96,6 +96,10 @@ namespace RoR2EditorKit.Utilities
             return PrefabUtility.SaveAsPrefabAsset(asset, path);
         }
 
+        /// <summary>
+        /// Updates the assetName of <paramref name="obj"/> so it displays properly
+        /// </summary>
+        /// <param name="obj">The object to update</param>
         public static void UpdateNameOfObject(Object obj)
         {
             AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(obj), obj.name);

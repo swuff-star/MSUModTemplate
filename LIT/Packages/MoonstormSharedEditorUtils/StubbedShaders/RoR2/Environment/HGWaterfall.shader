@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/Environment/HGWaterfall" {
+Shader "StubbedRoR2/Base/Shaders/HGWaterfall" {
 	Properties {
 		_Color ("Main Color", Vector) = (0.5,0.5,0.5,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}

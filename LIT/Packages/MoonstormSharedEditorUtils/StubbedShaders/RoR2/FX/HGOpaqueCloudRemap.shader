@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/FX/HGOpaqueCloudRemap" {
+Shader "StubbedRoR2/Base/Shaders/HGOpaqueCloudRemap" {
 	Properties {
 		[HDR] _TintColor ("Tint", Vector) = (1,1,1,1)
 		[HDR] _EmissionColor ("Emission", Vector) = (1,1,1,1)

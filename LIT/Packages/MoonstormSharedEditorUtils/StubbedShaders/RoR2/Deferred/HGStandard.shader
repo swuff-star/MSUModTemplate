@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/Deferred/HGStandard" {
+Shader "StubbedRoR2/Base/Shaders/HGStandard" {
 	Properties {
 		[Header(Default)] [Toggle(CUTOUT)] _EnableCutout ("Cutout", Float) = 0
 		_Color ("Main Color", Vector) = (0.5,0.5,0.5,1)

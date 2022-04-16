@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/PostProcess/HGVisionLimit" {
+Shader "StubbedRoR2/Base/Shaders/HGVisionLimit" {
 	Properties {
 		_Origin ("Effect Origin", Vector) = (0,0,0,0)
 		_RangeEnd ("Range Start", Float) = 0

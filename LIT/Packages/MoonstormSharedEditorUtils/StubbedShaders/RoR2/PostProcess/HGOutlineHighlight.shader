@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/PostProcess/HGOutlineHighlight" {
+Shader "StubbedRoR2/Base/Shaders/HGOutlineHighlight" {
 	Properties {
 		_Color ("Color", Vector) = (1,1,1,1)
 		_MainTex ("Main Texture", 2D) = "black" {}

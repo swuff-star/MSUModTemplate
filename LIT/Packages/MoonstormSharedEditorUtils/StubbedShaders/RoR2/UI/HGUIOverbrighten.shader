@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/UI/HGUIOverbrighten" {
+Shader "StubbedRoR2/Base/Shaders/HGUIOverbrighten" {
 	Properties {
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
 		_Color ("Tint", Vector) = (1,1,1,1)

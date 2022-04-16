@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/FX/HGDistortion" {
+Shader "StubbedRoR2/Base/Shaders/HGDistortion" {
 	Properties {
 		_BumpMap ("Bump Texture", 2D) = "bump" {}
 		_MaskTex ("Mask Texture", 2D) = "white" {}

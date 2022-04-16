@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/Deferred/HGTriplanarTerrainBlend" {
+Shader "StubbedRoR2/Base/Shaders/HGTriplanarTerrainBlend" {
 	Properties {
 		[Toggle(USE_VERTEX_COLORS)] _ColorsOn ("Use Vertex Colors Instead", Float) = 0
 		[Toggle(MIX_VERTEX_COLORS)] _MixColorsOn ("Mix Vertex Colors with Texture", Float) = 0

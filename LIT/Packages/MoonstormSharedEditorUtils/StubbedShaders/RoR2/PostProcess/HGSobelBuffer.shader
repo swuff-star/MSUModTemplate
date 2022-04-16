@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/PostProcess/HGSobelBuffer" {
+Shader "StubbedRoR2/Base/Shaders/HGSobelBuffer" {
 	Properties {
 		_Color ("Color", Vector) = (1,1,1,1)
 		_MainTex ("Main Texture", 2D) = "black" {}

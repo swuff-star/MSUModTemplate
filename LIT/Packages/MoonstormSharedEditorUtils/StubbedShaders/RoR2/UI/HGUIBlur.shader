@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/UI/HGUIBlur" {
+Shader "StubbedRoR2/Base/Shaders/HGUIBlur" {
 	Properties {
 		_Radius ("Radius", Range(1, 255)) = 1
 	}

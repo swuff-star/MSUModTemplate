@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/FX/HGSolidParallax" {
+Shader "StubbedRoR2/Base/Shaders/HGSolidParallax" {
 	Properties {
 		[HDR] _Color ("Color", Vector) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}

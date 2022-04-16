@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/UI/HGUIIgnoreZ" {
+Shader "StubbedRoR2/Base/Shaders/HGUIIgnoreZ" {
 	Properties {
 		_MainTex ("Texture", 2D) = "white" {}
 	}

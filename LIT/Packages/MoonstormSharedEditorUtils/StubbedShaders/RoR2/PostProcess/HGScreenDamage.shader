@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/PostProcess/HGScreenDamage" {
+Shader "StubbedRoR2/Base/Shaders/HGScreenDamage" {
 	Properties {
 		_Tint ("Vignette Tint", Vector) = (0.5,0.5,0.5,1)
 		_NormalMap ("Normal Map Texture", 2D) = "white" {}

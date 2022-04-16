@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/CustomPostProcess/RampFog" {
+Shader "StubbedRoR2/Base/Shaders/RampFog" {
 	Properties {
 	}
 	//DummyShaderTextExporter

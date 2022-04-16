@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/CustomPostProcess/SobelOutline" {
+Shader "StubbedRoR2/Base/Shaders/SobelOutline" {
 	Properties {
 	}
 	//DummyShaderTextExporter

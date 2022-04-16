@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/UI/HGUIAnimateAlpha" {
+Shader "StubbedRoR2/Base/Shaders/HGUIAnimateAlpha" {
 	Properties {
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
 		[PerRendererData] _ExternalAlpha ("External Alpha", Range(0, 1)) = 1

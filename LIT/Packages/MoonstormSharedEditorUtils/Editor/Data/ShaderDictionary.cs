@@ -11,7 +11,7 @@ using UnityEngine.UIElements;
 
 namespace Moonstorm.EditorUtils.Settings
 {
-    public class ShaderDictionary : ThunderKitSetting
+    public sealed class ShaderDictionary : ThunderKitSetting
     {
         [Serializable]
         public class ShaderPair

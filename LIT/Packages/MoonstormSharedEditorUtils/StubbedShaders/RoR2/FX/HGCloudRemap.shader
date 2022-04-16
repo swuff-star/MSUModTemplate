@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/FX/HGCloudRemap" {
+Shader "StubbedRoR2/Base/Shaders/HGCloudRemap" {
 	Properties {
 		[HideInInspector] _SrcBlend ("Source Blend", Float) = 1
 		[HideInInspector] _DstBlend ("Destination Blend", Float) = 1

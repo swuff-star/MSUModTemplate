@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/FX/HGDamageNumber" {
+Shader "StubbedRoR2/Base/Shaders/HGDamageNumber" {
 	Properties {
 		[HDR] _TintColor ("Tint", Vector) = (1,1,1,1)
 		_CritColor ("Crit Color", Vector) = (1,1,1,1)

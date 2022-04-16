@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/FX/HGForwardPlanet" {
+Shader "StubbedRoR2/Base/Shaders/HGForwardPlanet" {
 	Properties {
 		[Header(Blending)] [Enum(UnityEngine.Rendering.BlendMode)] _SrcBlendFloat ("Source Blend", Float) = 1
 		[Enum(UnityEngine.Rendering.BlendMode)] _DstBlendFloat ("Destination Blend", Float) = 1

@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/FX/HGVertexOnly" {
+Shader "StubbedRoR2/Base/Shaders/HGVertexOnly" {
 	Properties {
 		[HDR] _TintColor ("AAH", Vector) = (1,1,1,1)
 	}
