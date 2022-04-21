@@ -46,7 +46,7 @@ namespace LostInTransit.Items
 
                     if (heartArmor > 0f)
                     {
-                        body.AddTimedBuff(LITContent.Buffs.GuardiansHeartBuff, MSUtil.InverseHyperbolicScaling(heartArmorDur, 1.5f, 7f, stack));
+                        body.AddTimedBuffAuthority(LITContent.Buffs.GuardiansHeartBuff.buffIndex, MSUtil.InverseHyperbolicScaling(heartArmorDur, 1.5f, 7f, stack));
                     }
                 }
             }

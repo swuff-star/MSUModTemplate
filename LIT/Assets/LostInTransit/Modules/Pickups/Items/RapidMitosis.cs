@@ -17,8 +17,12 @@ namespace LostInTransit.Items
         [TokenModifier(token, StatTypes.Default, 0)]
         public static float mitosisCD = 0.25f;
 
+        [ConfigurableField(ConfigName = "Regeneration Amount", ConfigDesc = "Extra health regen given by Rapid Mitosis.")]
+        [TokenModifier(token, StatTypes.Default, 1)]
+        public static float mitosisRegen = 3.6f;
 
-        public class RapidMitosisBehavior : BaseItemBodyBehavior
+
+        public class RapidMitosisBehavior : BaseItemBodyBehavior, IBodyStatArgModifier
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static RoR2.ItemDef GetItemDef() => LITContent.Items.RapidMitosis;
@@ -33,7 +37,6 @@ namespace LostInTransit.Items
                     return num;
                 };
             }
-
             
 
             public void OnDestroy()
@@ -44,6 +47,12 @@ namespace LostInTransit.Items
                     num *= (1 - MSUtil.InverseHyperbolicScaling(mitosisCD, mitosisCD, 0.7f, stack));
                     return num;
                 };
+            }
+
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
+            {
+                if (body.equipmentSlot.stock >= 1f)
+                { args.baseRegenAdd += mitosisRegen + ((mitosisRegen / 2) * (stack - 1)); }
             }
         }
     }

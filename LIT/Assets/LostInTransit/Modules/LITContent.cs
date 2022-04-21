@@ -25,12 +25,14 @@ namespace LostInTransit
             public static BuffDef DiceMove;
             public static BuffDef DiceRegen;
             public static BuffDef DiceBarrier;
+            public static BuffDef FieldGeneratorPassive;
             public static BuffDef GoldenGun;
             public static BuffDef GuardiansHeartBuff;
             public static BuffDef LeechingRegen;
             public static BuffDef NuggetRegen;
             public static BuffDef RepulsionArmorActive;
             public static BuffDef RepulsionArmorCD;
+            public static BuffDef RootRegen;
             public static BuffDef Shackled;
             public static BuffDef TeleSightCD;
             public static BuffDef ThalliumPoison;
@@ -51,6 +53,8 @@ namespace LostInTransit
             public static EquipmentDef AffixFrenzied;
             public static EquipmentDef AffixLeeching;
             public static EquipmentDef AffixVolatile;
+            public static EquipmentDef FieldGenerator;
+            public static EquipmentDef FieldGeneratorUsed;
             public static EquipmentDef GiganticAmethyst;
             public static EquipmentDef Thqwib;
         }

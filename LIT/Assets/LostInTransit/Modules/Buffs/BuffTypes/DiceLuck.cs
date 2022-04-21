@@ -23,6 +23,7 @@ namespace LostInTransit.Buffs
                 if(master)
                 {
                     master.luck += Items.BlessedDice.luckAmount;
+                    
                 }
             }
             public void OnDestroy()

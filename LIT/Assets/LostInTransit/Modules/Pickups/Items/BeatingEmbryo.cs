@@ -22,6 +22,8 @@ namespace LostInTransit.Items
      * > The Crowdfunder does nothing, needs more testing
      * > Add more funny messages to the used trophy hunter's tricorn
      */
+
+    [DisabledContent]
     public class BeatingEmbryo : ItemBase
     {
         public override ItemDef ItemDef => LITAssets.LoadAsset<ItemDef>("BeatingEmbryo");

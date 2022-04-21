@@ -126,7 +126,7 @@ Material:
     - _EliteBrightnessMax: 1
     - _EliteBrightnessMin: 0
     - _EliteIndex: 0
-    - _EmPower: 1.5
+    - _EmPower: 0.8
     - _EnableCutout: 0
     - _FEON: 0
     - _Fade: 1
@@ -140,8 +140,8 @@ Material:
     - _FlowTextureScaleFactor: 1
     - _FlowmapOn: 0
     - _ForceSpecOn: 1
-    - _FresnelBoost: 10.5
-    - _FresnelPower: 5.9
+    - _FresnelBoost: 1.9
+    - _FresnelPower: 2.6
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1

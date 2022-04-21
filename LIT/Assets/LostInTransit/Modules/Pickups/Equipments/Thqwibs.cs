@@ -19,9 +19,9 @@ namespace LostInTransit.Equipments
         [TokenModifier(token, StatTypes.Default, 0)]
         public static int thqwibAmount = 30;
 
-        [ConfigurableField(LITConfig.equips, ConfigName = "Chance to Proc On-Kill Effects", ConfigDesc = "Chance, per Thqwib, to activate On-Kill effects when exploding.\nDefault Average: 30x * 10% = 3 average On-Kill activations per bloom.")]
+        [ConfigurableField(LITConfig.equips, ConfigName = "Chance to Proc On-Kill Effects", ConfigDesc = "Chance, per Thqwib, to activate On-Kill effects when exploding.\nDefault Average: 30x * 10% = 3 average On-Kill activations per bloom. Fun (OP) with Soulbound Catalyst.")]
         [TokenModifier(token, StatTypes.Default, 2)]
-        public static float chance = 10f;
+        public static float chance = 0f;
 
         public override bool FireAction(EquipmentSlot slot)
         {

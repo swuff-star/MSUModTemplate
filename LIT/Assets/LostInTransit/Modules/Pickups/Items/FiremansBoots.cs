@@ -16,7 +16,7 @@ namespace LostInTransit.Items
 
         [ConfigurableField(ConfigName = "Chance to Ignite", ConfigDesc = "Chance to Ignite on Hit.")]
         [TokenModifier(token, StatTypes.Default, 0)]
-        public static float igniteChance = 15f;
+        public static float igniteChance = 8f;
 
         [ConfigurableField(ConfigName = "Ignite Damage Coefficient", ConfigDesc = "Damage coefficient of dealt ignite debuffs.")]
         [TokenModifier(token, StatTypes.Default, 1)]

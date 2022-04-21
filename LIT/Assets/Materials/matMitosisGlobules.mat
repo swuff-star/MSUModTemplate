@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: matMitosisGlobules
-  m_Shader: {fileID: 4800000, guid: df82d488c321404abd6fed383a356e56, type: 2}
+  m_Shader: {fileID: 4800000, guid: d09b6a89a5f739c4a8179d7d276e176b, type: 2}
   m_ShaderKeywords: DITHER FORCE_SPEC FRESNEL_EMISSION _EMISSION
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -52,7 +52,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FlowHeightRamp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 0995e7d0d0ddfea4a9974c32de893a58, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FlowHeightmap:
@@ -60,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FlowTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 20c4be454f0d19c4ca14637698eb64e7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FresnelMask:
@@ -68,7 +68,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FresnelRamp:
-        m_Texture: {fileID: 2800000, guid: a3c7dd54c68af774ea4046896bcb8e98, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8d1d9a9246597d14d89aa5848fb7b2fe, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GreenChannelNormalTex:
@@ -100,11 +100,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PrintRamp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 16647fac102430f429ab5f35fff617ae, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SliceAlphaTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8c5bcbd80561fb54383fcae4e0416ac2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SplatmapTex:
@@ -126,18 +126,18 @@ Material:
     - _EliteBrightnessMax: 1
     - _EliteBrightnessMin: 0
     - _EliteIndex: 0
-    - _EmPower: 0.21
+    - _EmPower: 0.02
     - _EnableCutout: 0
     - _FEON: 1
     - _Fade: 1
     - _FadeBias: 0
-    - _FlowEmissionStrength: 1
-    - _FlowHeightBias: 0
-    - _FlowHeightPower: 1
-    - _FlowMaskStrength: 0
-    - _FlowNormalStrength: 1
+    - _FlowEmissionStrength: 0.56
+    - _FlowHeightBias: 0.48
+    - _FlowHeightPower: 2.99
+    - _FlowMaskStrength: 0.04
+    - _FlowNormalStrength: 0
     - _FlowSpeed: 1
-    - _FlowTextureScaleFactor: 1
+    - _FlowTextureScaleFactor: 0.63
     - _FlowmapOn: 0
     - _ForceSpecOn: 1
     - _FresnelBoost: 5.5
@@ -161,9 +161,9 @@ Material:
     - _PrintOn: 0
     - _RampInfo: 5
     - _SliceAlphaDepth: 1
-    - _SliceBandHeight: 1.24
-    - _SliceHeight: 1.2
-    - _Smoothness: 0
+    - _SliceBandHeight: 6
+    - _SliceHeight: 0
+    - _Smoothness: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularExponent: 7.73
     - _SpecularHighlights: 1

@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: matMitosisInner
-  m_Shader: {fileID: 4800000, guid: df82d488c321404abd6fed383a356e56, type: 2}
-  m_ShaderKeywords: DITHER FORCE_SPEC FRESNEL_EMISSION _EMISSION
+  m_Shader: {fileID: 4800000, guid: d09b6a89a5f739c4a8179d7d276e176b, type: 2}
+  m_ShaderKeywords: FORCE_SPEC _EMISSION
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 6e9591cae5ff97d4eb56c215829ed2cd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -68,7 +68,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FresnelRamp:
-        m_Texture: {fileID: 2800000, guid: a3c7dd54c68af774ea4046896bcb8e98, type: 3}
+        m_Texture: {fileID: 2800000, guid: 73e9c68e83e53f34aa972c226b54f4a4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GreenChannelNormalTex:
@@ -80,7 +80,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 24ee599594301234d83712921ede88a1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0.84, y: -0.48}
     - _MetallicGlossMap:
@@ -88,7 +88,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: a4c1bb2053eaaa44a88cc276b02cd2e6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -121,14 +121,14 @@ Material:
     - _DecalLayer: 0
     - _Depth: 0.2
     - _DetailNormalMapScale: 1
-    - _DitherOn: 1
+    - _DitherOn: 0
     - _DstBlend: 0
     - _EliteBrightnessMax: 1
     - _EliteBrightnessMin: 0
     - _EliteIndex: 0
-    - _EmPower: 0
+    - _EmPower: 0.2
     - _EnableCutout: 0
-    - _FEON: 1
+    - _FEON: 0
     - _Fade: 1
     - _FadeBias: 0
     - _FlowEmissionStrength: 1
@@ -140,8 +140,8 @@ Material:
     - _FlowTextureScaleFactor: 1
     - _FlowmapOn: 0
     - _ForceSpecOn: 1
-    - _FresnelBoost: 20
-    - _FresnelPower: 1.2
+    - _FresnelBoost: 0.7
+    - _FresnelPower: 0.6
     - _GlossMapScale: 1
     - _Glossiness: 0.097
     - _GlossyReflections: 1
@@ -163,18 +163,18 @@ Material:
     - _SliceAlphaDepth: 1
     - _SliceBandHeight: 1.24
     - _SliceHeight: 1.2
-    - _Smoothness: 0
+    - _Smoothness: 1
     - _SmoothnessTextureChannel: 0
-    - _SpecularExponent: 0.1
+    - _SpecularExponent: 3.6
     - _SpecularHighlights: 1
-    - _SpecularStrength: 0
+    - _SpecularStrength: 0.148
     - _SplatmapOn: 0
     - _SplatmapTileScale: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.8773585, g: 0.7223517, b: 0.21106264, a: 1}
-    - _EmColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 0.8584906, g: 0.71586597, b: 0.31181023, a: 1}
+    - _EmColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _FlashColor: {r: 0, g: 0, b: 0, a: 1}
