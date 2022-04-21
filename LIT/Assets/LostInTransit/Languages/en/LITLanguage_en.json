@@ -7,8 +7,8 @@
 
 		"LIT_ITEM_BITTERROOT_NAME": "Bitter Root",
 		"LIT_ITEM_BITTERROOT_PICKUP": "Regenerate health on kill.",
-		"LIT_ITEM_BITTERROOT_DESC": "Increase <style=cIsHealing>health regeneration</style> by <style=cIsHealing>3 hp/s</style> for <style=cUtility>3s</style> <style=cStack>(+3s per stack)</style> after killing an enemy.",
-		"LIT_ITEM_BITTERROOT_LORE": "Order: Generic Short-Growth Rhizome, 30lbs\nTracking Number: 40**********\nEstimated Delivery: 18/05/2056\nShipping Method: Bulk Economy\nShipping Address: Arjun Catering, Esdrict, Mars\nShipping Details:\n\nHere's your \"rare venutian truffle\" Arj'.\n\nOne of these days fancy schmucks you call customers are gonna realize these gourmet 5-star meals you're cooking up get churned out in bulk by a dodgy CHEF unit who keeps spilling oil everywhere, but until then you keep gouging those rats.\n\nOh, and I included a 'genuine' certificate of authenticity too, just in case the inspectors come snoopin' around again."
+		"LIT_ITEM_BITTERROOT_DESC": "Increase <style=cIsHealing>health regeneration</style> by <style=cIsHealing>3 hp/s</style> for <style=cIsUtility>3s</style> <style=cStack>(+3s per stack)</style> after killing an enemy.",
+		"LIT_ITEM_BITTERROOT_LORE": "Order: Generic Short-Growth Rhizome, 30lbs\nTracking Number: 40**********\nEstimated Delivery: 18/05/2056\nShipping Method: Bulk Economy\nShipping Address: Arjun Catering, Esdrict, Mars\nShipping Details:\n\nHere's your \"rare venutian truffle\" Arj'.\n\nOne of these days fancy schmucks you call customers are gonna realize these gourmet 5-star meals you're cooking up get churned out in bulk by a dodgy CHEF unit who keeps spilling oil everywhere, but until then you keep gouging those rats.\n\nOh, and I included a 'genuine' certificate of authenticity too, just in case the inspectors come snoopin' around again.",
 		"LIT_ITEM_BITTERROOT_LORE_SOUL": "For me, it's the <style=cIsHealing>Bitter Root</style>. The best common item. I even ask for extra <style=cIsHealing>Bitter Roots</style> and the <color=#41D1F7>Newt</color> is so friendly and more than willing to oblige.\n\nOne time I asked for a <style=cIsHealing>Bitter Root</style> and he gave me three. I said, \"Wow, <style=cIsDamage>three for free</style>!\" and the nice friendly <color=#41D1F7>Newt</color> laughed and said, \"I'm going to call you <style=cIsDamage>3-for-free</style>!\"\n\nNow the <color=#41D1F7>Newt</color> greets me with \"Hey, it's <style=cIsDamage>3-for-free</style>!\" and ALWAYS gives me three <style=cIsHealing>Bitter Roots</style>. It's such a fun and cool atmosphere at my local <style=cWorldEvent>Bazaar Between Time</style>, I go there at least 3 times a run for <color=#41D1F7>Gesture of the Drowned</color> and the <color=#F45A45>Unstable Tesla Coil cauldron</color> using raw items instead of scrap, on Stage 1 - 2 for <style=cWorldEvent>Void Fields</style> on <color=#B53F80>Typhoon</color>, and maybe once for <color=#41D1F7>Purity</color> when I'm in a rush but want a great run that is fun, fast, and can match my daily entertainment needs.\n\nI even dip my <color=#41D1F7>Lunar Coins</style> in the <color=#41D1F7>Lunar Seer</color>, it's amazing! What a great <style=cWorldEvent>Hidden Realm</style>.",
 
 		"LIT_ITEM_BLESSEDDICE_NAME": "Blessed Dice",
@@ -41,6 +41,10 @@
 		"LIT_ITEM_RUSTYJETPACK_PICKUP": "Increased jump height, reduced fall speed.",
 		"LIT_ITEM_RUSTYJETPCK_DESC": "Jump {0}% higher (+{0} higher per stack) and fall {1}% slower (+{1}% slower per stack)",
 		"LIT_ITEM_RUSTYJETPACK_LORE": "Entry not found\n\n<style=cMono>/404\n\nWe could not find the above entry on our servers.</style>\n\n<style=cIsDamage>Did you mean: </style><style=cIsHealing>/wiki/H3AD-5T_v2</style>\n\nAlternatively, you can visit the <style=cIsHealing>Main Page</style> or read <style=cIsHealing>more information</style> about this type of error.",
+
+		"LIT_ITEM_SPROUTINGEGG_NAME": "Sprouting Egg",
+		"LIT_ITEM_SPROUTINGEGG_PICKUP": "Attach leeching seeds to an enemy.",
+		"LIT_ITEM_SPROUTINGEGG_DESC": "Attach <style=cIsHealing>leeching seeds</style> to up to <style=cIsUtility>1</style> <style=cStack>(+1 per stack)</style> enemy, <style=cIsDamage>damaging</style> them and <style=cIsHealing>healing</style> you for <style=cIsHealing>15%</style> damage per second.",
 
 		"LIT_ITEM_ARMSRACE_NAME": "Arms Race",
 		"LIT_ITEM_ARMSRACE_PICKUP": "Using interactables summons temporary drones. Drones are equipped with shields.",
@@ -95,6 +99,7 @@
 		"LIT_ITEM_RAPIDMITOSIS_NAME": "Rapid Mitosis",
 		"LIT_ITEM_RAPIDMITOSIS_PICKUP": "Decrease equipment cooldown. Regenerate more health when equipment is off cooldown.",
 		"LIT_ITEM_RAPIDMITOSIS_DESC": "Decrease <style=cIsUtility>equipment cooldown</style> by <style=cIsUtility>25%</style> <style=cStack>(+25% per stack)</style>. While you have at least <style=cIsUtility>1 equipment charge</style>, <style=cIsHealing>health regeneration</style> is increased by <style=cIsHealing>3.8 hp/s</style> <style=cStack>(+1.9 hp/s per stack)</style>.",
+		"LIT_ITEM_RAPIDMITOSIS_LORE": "<style=cMono>Security footage /7.14.010957-7.16.010957/ recovered from the Cellular Research Center, Bay C-3.\n\nPlaying...</style>\n\n[PANTING] \"Doctor Messer, sir! Something's gone wrong with the cold storage!\"\n\n\"Lee! Slow down. What's happening?\"\n\n\"I was doing the check on the cold storage units, and the temperature reading on unit B was seven degrees higher than normal.\"\n\n\"Wh- why didn't you just correct it then and there?!\"\n\n\"I tried! The interface wasn't working! It must have malfunctioned during the outage last night.\"\n\n\"...Must have. Has anything been damaged?\"\n\n\"I-I can't tell, the door wouldn't open, either. I don't know why.\"\n\n\"The door wouldn't open?... Hold on. Which unit was it, again?\"\n\n\"Uh, unit B, sir.\"\n\n\"...Oh, [REDACTED]! Lee, run with me! Get in touch with the sector manager and tell them to put the lab on ice until we can fix this.\"\n\n\"I- what? Isn't that a bit extreme for a single cold storage malfunction?\"\n\n\"Not at all, I assure you.\"\n\n<style=cMono>End of recording.\n\nReplay?</style>",
 
 		"LIT_ITEM_PHOTONCANNON_NAME": "Laser Turbine",
 		"LIT_ITEM_PHOTONCANNON_PICKUP": "Using your skills charges a powerful laser.",
@@ -124,6 +129,13 @@
 		"LIT_EQUIP_CAPTAINSBROOCH_NAME": "Captain's Brooch",
 		"LIT_EQUIP_CAPTAINSBROOCH_PICKUP": "Call down the Captain's Arsenal."
 		"LIT_EQUIP_CAPTAINSBROOCH_DESCRIPTION": "Call down the <style=cIsUtility>Captain's Arsenal</style> from the <style=cIsUtility>UES Safe Travels</style>.",
+
+		"LIT_EQUIP_GENERATOR_NAME": "Intrinsic Field Projector",
+		"LIT_EQUIP_GENERATOR_PICKUP": "Upon taking lethal damage, survive at 1 health and gain 8 seconds of invincibility. Consumed on use.",
+		"LIT_EQUIP_GENERATOR_DESC": "Upon taking <style=cIsHealth>lethal damage</style>, survive with <style=cIsHealth>1 health</style> and gain <style=cIsUtility>8 seconds</style> of <style=cIsUtility>invincibility</style>. Equipment is <style=cIsUtility>consumed</style> on use.",
+
+		"LIT_EQUIP_GENERATORUSED_NAME": "Intrinsic Field Projector (Consumed)",
+		"LIT_EQUIP_GENERATORUSED_PICKUP": "Sounds weird, but not much else.",
 
 		"LIT_EQUIP_SHATTEREDMIRROR_NAME": "Shattered Mirror",
 		"LIT_EQUIP_SHATTEREDMIRROR_PICKUP": "Summon a shadow partner for 15 seconds.",
