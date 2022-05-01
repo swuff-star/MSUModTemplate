@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3695521163bdd74fa2845bbd3438240, type: 3}
-  m_Name: CompleteLITBuild
+  m_Name: CompleteBuild
   m_EditorClassIdentifier: 
   Data:
   - {fileID: 1827543793586840382}
   - {fileID: 8163737811350780012}
-  manifest: {fileID: 11400000, guid: acae7dc04bed84a792d6f9f55f44fd1b, type: 2}
+  QuickAccess: 0
+  manifest: {fileID: 0}
 --- !u!114 &1827543793586840382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,9 +29,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50df4f9027e15e04b931a8d460fb22c5, type: 3}
   m_Name: ExecutePipeline
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
   Active: 1
   OverrideManifest: 0
   targetpipeline: {fileID: 11400000, guid: b5193eb7d28d28847bbcaabe768d005f, type: 2}
@@ -46,9 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50df4f9027e15e04b931a8d460fb22c5, type: 3}
   m_Name: ExecutePipeline
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
   Active: 1
   OverrideManifest: 0
   targetpipeline: {fileID: 11400000, guid: 1d3c168b33650b34884a3c7ec84bd0d9, type: 2}

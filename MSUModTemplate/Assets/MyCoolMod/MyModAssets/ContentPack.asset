@@ -35,13 +35,12 @@ MonoBehaviour:
   artifactDefs: []
   surfaceDefs: []
   networkSoundEventDefs:
-  - {fileID: 11400000, guid: 21c6abfe1418ef74d9d08f545ab33fb7, type: 2}
+  - {fileID: 0}
   musicTrackDefs: []
   gameEndingDefs: []
   miscPickupDefs: []
   entityStateConfigurations:
-  - {fileID: 11400000, guid: 2fbcfec9346736f4fad759eb10c6bf57, type: 2}
+  - {fileID: 0}
   entityStateTypes: []
-  expansionDefs:
-  - {fileID: 11400000, guid: 2ce2fbceed4048348804f7408472b68c, type: 2}
+  expansionDefs: []
   entitlementDefs: []

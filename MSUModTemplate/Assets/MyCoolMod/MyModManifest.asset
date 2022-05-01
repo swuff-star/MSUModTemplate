@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e563561e08b6a3642a487177f5cfbb37, type: 3}
-  m_Name: LITManifest
+  m_Name: MyModManifest
   m_EditorClassIdentifier: 
   Data:
   - {fileID: 114211852988908172}
@@ -89,11 +89,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths:
   - <ManifestPluginStaging>
-  Author: LostInTransitTeam
-  Name: LostInTransit
-  Description: Lost in Transit is a mod focused on restoring features lost from Risk
-    of Rain 1, currently including items.
-  Version: 0.4.0
+  Author: MyNameHere
+  Name: MyModNameHere
+  Description: MyModDescHere
+  Version: 0.0.0
   Dependencies:
   - {fileID: 11400000, guid: 7fb5b3d290bed6011ed7e8daf230df89, type: 2}
   - {fileID: 11400000, guid: a8ac6a3e325999651bd53f63760e6ff0, type: 2}
